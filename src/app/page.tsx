@@ -79,7 +79,7 @@ export default function Home() {
         <div className="flex space-x-6 mt-8">
           {/* GitHub Icon */}
           <a 
-            href="https://github.com/dankim444" 
+            href="https://github.com/daniel-kimm" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-white hover:text-gray-300 transition-colors duration-300"
