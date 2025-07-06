@@ -91,7 +91,7 @@ export default function Home() {
               fill="currentColor"
               className="hover:scale-110 transition-transform duration-300"
             >
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.239 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
             </svg>
           </a>
           
@@ -273,8 +273,8 @@ export default function Home() {
                 {/* Email line */}
                 <div className="flex items-center space-x-2 mb-3">
                   <svg 
-                    width="10" 
-                    height="10" 
+                    width="8" 
+                    height="8" 
                     viewBox="0 0 24 24" 
                     fill="none" 
                     stroke="#666" 
@@ -428,27 +428,27 @@ export default function Home() {
                     <div className="flex-1 min-w-0 flex items-start justify-between">
                       <div className="flex-1 min-w-0 mt-0.5">
                         <h4 style={{
-                          fontFamily: "'Frank Ruhl Libre', serif",
-                          fontSize: "6px",
+                          fontFamily: "var(--font-geist-sans)",
+                          fontSize: "5px",
                           fontWeight: 600,
-                          color: "#333",
+                          color: "#1f2937",
                           marginBottom: "2px"
                         }}>
                           Software Engineer Intern
                         </h4>
                         <p style={{
-                          fontFamily: "'Frank Ruhl Libre', serif",
-                          fontSize: "6px",
-                          color: "#666",
+                          fontFamily: "var(--font-geist-sans)",
+                          fontSize: "5px",
+                          color: "#4b5563",
                           marginBottom: "0"
                         }}>
                           Osteoid Inc.
                         </p>
                       </div>
                       <p style={{
-                        fontFamily: "'Frank Ruhl Libre', serif",
+                        fontFamily: "var(--font-geist-sans)",
                         fontSize: "5px",
-                        color: "#999",
+                        color: "#9ca3af",
                         flexShrink: 0,
                         marginLeft: "8px",
                         marginTop: "4px"
@@ -469,27 +469,27 @@ export default function Home() {
                     <div className="flex-1 min-w-0 flex items-start justify-between">
                       <div className="flex-1 min-w-0 mt-0.5">
                         <h4 style={{
-                          fontFamily: "'Frank Ruhl Libre', serif",
-                          fontSize: "6px",
+                          fontFamily: "var(--font-geist-sans)",
+                          fontSize: "5px",
                           fontWeight: 600,
-                          color: "#333",
+                          color: "#1f2937",
                           marginBottom: "2px"
                         }}>
                           Machine Learning Intern
                         </h4>
                         <p style={{
-                          fontFamily: "'Frank Ruhl Libre', serif",
-                          fontSize: "6px",
-                          color: "#666",
+                          fontFamily: "var(--font-geist-sans)",
+                          fontSize: "5px",
+                          color: "#4b5563",
                           marginBottom: "0"
                         }}>
                           Elytra Robotics
                         </p>
                       </div>
                       <p style={{
-                        fontFamily: "'Frank Ruhl Libre', serif",
+                        fontFamily: "var(--font-geist-sans)",
                         fontSize: "5px",
-                        color: "#999",
+                        color: "#9ca3af",
                         flexShrink: 0,
                         marginLeft: "8px",
                         marginTop: "4px"
@@ -510,27 +510,27 @@ export default function Home() {
                     <div className="flex-1 min-w-0 flex items-start justify-between">
                       <div className="flex-1 min-w-0 mt-0.5">
                         <h4 style={{
-                          fontFamily: "'Frank Ruhl Libre', serif",
-                          fontSize: "6px",
+                          fontFamily: "var(--font-geist-sans)",
+                          fontSize: "5px",
                           fontWeight: 600,
-                          color: "#333",
+                          color: "#1f2937",
                           marginBottom: "2px"
                         }}>
                           IT Public Computing Technician
                         </h4>
                         <p style={{
-                          fontFamily: "'Frank Ruhl Libre', serif",
-                          fontSize: "6px",
-                          color: "#666",
+                          fontFamily: "var(--font-geist-sans)",
+                          fontSize: "5px",
+                          color: "#4b5563",
                           marginBottom: "0"
                         }}>
                           Northwestern University Kellogg Information Systems
                         </p>
                       </div>
                       <p style={{
-                        fontFamily: "'Frank Ruhl Libre', serif",
+                        fontFamily: "var(--font-geist-sans)",
                         fontSize: "5px",
-                        color: "#999",
+                        color: "#9ca3af",
                         flexShrink: 0,
                         marginLeft: "8px",
                         marginTop: "4px"
@@ -551,27 +551,27 @@ export default function Home() {
                     <div className="flex-1 min-w-0 flex items-start justify-between">
                       <div className="flex-1 min-w-0 mt-0.5">
                         <h4 style={{
-                          fontFamily: "'Frank Ruhl Libre', serif",
-                          fontSize: "6px",
+                          fontFamily: "var(--font-geist-sans)",
+                          fontSize: "5px",
                           fontWeight: 600,
-                          color: "#333",
+                          color: "#1f2937",
                           marginBottom: "2px"
                         }}>
                           Software Engineer Intern
                         </h4>
                         <p style={{
-                          fontFamily: "'Frank Ruhl Libre', serif",
-                          fontSize: "6px",
-                          color: "#666",
+                          fontFamily: "var(--font-geist-sans)",
+                          fontSize: "5px",
+                          color: "#4b5563",
                           marginBottom: "0"
                         }}>
                           Square One
                         </p>
                       </div>
                       <p style={{
-                        fontFamily: "'Frank Ruhl Libre', serif",
+                        fontFamily: "var(--font-geist-sans)",
                         fontSize: "5px",
-                        color: "#999",
+                        color: "#9ca3af",
                         flexShrink: 0,
                         marginLeft: "8px",
                         marginTop: "4px"
@@ -598,7 +598,7 @@ export default function Home() {
                 <div className="w-full relative">
                   {/* Vertical line connecting campus involvement dots only */}
                   <div className="absolute left-[2px] top-2 w-0.5 bg-gray-300 z-0" style={{
-                    height: 'calc(100% - 40px)' // Shorter line for campus involvement
+                    height: 'calc(100% - 35px)' // Shorter line for campus involvement
                   }}></div>
 
                   {/* Mayfest Productions */}
@@ -612,27 +612,27 @@ export default function Home() {
                     <div className="flex-1 min-w-0 flex items-start justify-between">
                       <div className="flex-1 min-w-0 mt-0.5">
                         <h4 style={{
-                          fontFamily: "'Frank Ruhl Libre', serif",
-                          fontSize: "6px",
+                          fontFamily: "var(--font-geist-sans)",
+                          fontSize: "5px",
                           fontWeight: 600,
-                          color: "#333",
+                          color: "#1f2937",
                           marginBottom: "2px"
                         }}>
                           General Board Member
                         </h4>
                         <p style={{
-                          fontFamily: "'Frank Ruhl Libre', serif",
-                          fontSize: "6px",
-                          color: "#666",
+                          fontFamily: "var(--font-geist-sans)",
+                          fontSize: "5px",
+                          color: "#4b5563",
                           marginBottom: "0"
                         }}>
                           Mayfest Productions
                         </p>
                       </div>
                       <p style={{
-                        fontFamily: "'Frank Ruhl Libre', serif",
+                        fontFamily: "var(--font-geist-sans)",
                         fontSize: "5px",
-                        color: "#999",
+                        color: "#9ca3af",
                         flexShrink: 0,
                         marginLeft: "8px",
                         marginTop: "4px"
@@ -653,27 +653,27 @@ export default function Home() {
                     <div className="flex-1 min-w-0 flex items-start justify-between">
                       <div className="flex-1 min-w-0 mt-0.5">
                         <h4 style={{
-                          fontFamily: "'Frank Ruhl Libre', serif",
-                          fontSize: "6px",
+                          fontFamily: "var(--font-geist-sans)",
+                          fontSize: "5px",
                           fontWeight: 600,
-                          color: "#333",
+                          color: "#1f2937",
                           marginBottom: "2px"
                         }}>
                           Software Engineer
                         </h4>
                         <p style={{
-                          fontFamily: "'Frank Ruhl Libre', serif",
-                          fontSize: "6px",
-                          color: "#666",
+                          fontFamily: "var(--font-geist-sans)",
+                          fontSize: "5px",
+                          color: "#4b5563",
                           marginBottom: "0"
                         }}>
                           Institute of Electrical and Electronics Engineers (IEEE)
                         </p>
                       </div>
                       <p style={{
-                        fontFamily: "'Frank Ruhl Libre', serif",
+                        fontFamily: "var(--font-geist-sans)",
                         fontSize: "5px",
-                        color: "#999",
+                        color: "#9ca3af",
                         flexShrink: 0,
                         marginLeft: "8px",
                         marginTop: "4px"
@@ -753,7 +753,7 @@ export default function Home() {
                   fontWeight: 600,
                   color: "#333",
                   marginBottom: "4px",
-                  marginTop: "8px"
+                  marginTop: "0px"
                 }}>
                   projects
                 </h3>
@@ -793,16 +793,16 @@ export default function Home() {
                       {/* Date badge */}
                       <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white px-1 py-0.5 rounded" style={{
                         fontSize: "4px",
-                        fontFamily: "'Frank Ruhl Libre', serif",
+                        fontFamily: "var(--font-geist-sans)",
                         lineHeight: "1"
                       }}>
                         2025
                       </div>
                     </div>
                     <p style={{
-                      fontFamily: "'Frank Ruhl Libre', serif",
-                      fontSize: "6px",
-                      color: "#333",
+                      fontFamily: "var(--font-geist-sans)",
+                      fontSize: "5px",
+                      color: "#1f2937",
                       lineHeight: "1.2",
                       marginBottom: "4px",
                       textAlign: "center"
@@ -811,26 +811,26 @@ export default function Home() {
                     </p>
                     <div className="flex flex-wrap gap-1 justify-center">
                       <span style={{
-                        fontFamily: "'Frank Ruhl Libre', serif",
-                        fontSize: "5px",
-                        color: "#666",
-                        backgroundColor: "#f0f0f0",
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "4px",
+                        color: "#4b5563",
+                        backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>React Native</span>
                       <span style={{
-                        fontFamily: "'Frank Ruhl Libre', serif",
-                        fontSize: "5px",
-                        color: "#666",
-                        backgroundColor: "#f0f0f0",
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "4px",
+                        color: "#4b5563",
+                        backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>Expo</span>
                       <span style={{
-                        fontFamily: "'Frank Ruhl Libre', serif",
-                        fontSize: "5px",
-                        color: "#666",
-                        backgroundColor: "#f0f0f0",
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "4px",
+                        color: "#4b5563",
+                        backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>TypeScript</span>
@@ -858,16 +858,16 @@ export default function Home() {
                       {/* Date badge */}
                       <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white px-1 py-0.5 rounded" style={{
                         fontSize: "4px",
-                        fontFamily: "'Frank Ruhl Libre', serif",
+                        fontFamily: "var(--font-geist-sans)",
                         lineHeight: "1"
                       }}>
                         2025
                       </div>
                     </div>
                     <p style={{
-                      fontFamily: "'Frank Ruhl Libre', serif",
-                      fontSize: "6px",
-                      color: "#333",
+                      fontFamily: "var(--font-geist-sans)",
+                      fontSize: "5px",
+                      color: "#1f2937",
                       lineHeight: "1.2",
                       marginBottom: "4px",
                       textAlign: "center"
@@ -876,26 +876,26 @@ export default function Home() {
                     </p>
                     <div className="flex flex-wrap gap-1 justify-center">
                       <span style={{
-                        fontFamily: "'Frank Ruhl Libre', serif",
-                        fontSize: "5px",
-                        color: "#666",
-                        backgroundColor: "#f0f0f0",
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "4px",
+                        color: "#4b5563",
+                        backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>JavaScript</span>
                       <span style={{
-                        fontFamily: "'Frank Ruhl Libre', serif",
-                        fontSize: "5px",
-                        color: "#666",
-                        backgroundColor: "#f0f0f0",
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "4px",
+                        color: "#4b5563",
+                        backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>AWS</span>
                       <span style={{
-                        fontFamily: "'Frank Ruhl Libre', serif",
-                        fontSize: "5px",
-                        color: "#666",
-                        backgroundColor: "#f0f0f0",
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "4px",
+                        color: "#4b5563",
+                        backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>RAG</span>
@@ -923,16 +923,16 @@ export default function Home() {
                       {/* Date badge */}
                       <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white px-1 py-0.5 rounded" style={{
                         fontSize: "4px",
-                        fontFamily: "'Frank Ruhl Libre', serif",
+                        fontFamily: "var(--font-geist-sans)",
                         lineHeight: "1"
                       }}>
                         2025
                       </div>
                     </div>
                     <p style={{
-                      fontFamily: "'Frank Ruhl Libre', serif",
-                      fontSize: "6px",
-                      color: "#333",
+                      fontFamily: "var(--font-geist-sans)",
+                      fontSize: "5px",
+                      color: "#1f2937",
                       lineHeight: "1.2",
                       marginBottom: "4px",
                       textAlign: "center"
@@ -941,18 +941,18 @@ export default function Home() {
                     </p>
                     <div className="flex flex-wrap gap-1 justify-center">
                       <span style={{
-                        fontFamily: "'Frank Ruhl Libre', serif",
-                        fontSize: "5px",
-                        color: "#666",
-                        backgroundColor: "#f0f0f0",
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "4px",
+                        color: "#4b5563",
+                        backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>React</span>
                       <span style={{
-                        fontFamily: "'Frank Ruhl Libre', serif",
-                        fontSize: "5px",
-                        color: "#666",
-                        backgroundColor: "#f0f0f0",
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "4px",
+                        color: "#4b5563",
+                        backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>Vercel</span>
@@ -980,16 +980,16 @@ export default function Home() {
                       {/* Date badge */}
                       <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white px-1 py-0.5 rounded" style={{
                         fontSize: "4px",
-                        fontFamily: "'Frank Ruhl Libre', serif",
+                        fontFamily: "var(--font-geist-sans)",
                         lineHeight: "1"
                       }}>
                         2024
                       </div>
                     </div>
                     <p style={{
-                      fontFamily: "'Frank Ruhl Libre', serif",
-                      fontSize: "6px",
-                      color: "#333",
+                      fontFamily: "var(--font-geist-sans)",
+                      fontSize: "5px",
+                      color: "#1f2937",
                       lineHeight: "1.2",
                       marginBottom: "4px",
                       textAlign: "center"
@@ -998,26 +998,26 @@ export default function Home() {
                     </p>
                     <div className="flex flex-wrap gap-1 justify-center">
                       <span style={{
-                        fontFamily: "'Frank Ruhl Libre', serif",
-                        fontSize: "5px",
-                        color: "#666",
-                        backgroundColor: "#f0f0f0",
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "4px",
+                        color: "#4b5563",
+                        backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>React Native</span>
                       <span style={{
-                        fontFamily: "'Frank Ruhl Libre', serif",
-                        fontSize: "5px",
-                        color: "#666",
-                        backgroundColor: "#f0f0f0",
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "4px",
+                        color: "#4b5563",
+                        backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>Firebase</span>
                       <span style={{
-                        fontFamily: "'Frank Ruhl Libre', serif",
-                        fontSize: "5px",
-                        color: "#666",
-                        backgroundColor: "#f0f0f0",
+                        fontFamily: "var(--font-geist-sans)",
+                        fontSize: "4px",
+                        color: "#4b5563",
+                        backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>Expo</span>
@@ -1082,7 +1082,7 @@ export default function Home() {
               
               {/* Back of polaroid */}
               <div 
-                className="absolute inset-0 w-full h-full bg-white p-5 flex flex-col justify-center items-center text-center"
+                className="absolute inset-0 w-full h-full bg-white p-1 flex flex-col justify-start items-center text-center overflow-hidden"
                 style={{ 
                   backfaceVisibility: "hidden",
                   transform: "rotateY(180deg)"
@@ -1090,21 +1090,56 @@ export default function Home() {
               >
                 <h3 style={{
                   fontFamily: "'Myfont', sans-serif",
-                  fontSize: "24px",
+                  fontSize: "12px",
                   fontWeight: 600,
                   color: "#333",
-                  marginBottom: "15px"
+                  marginBottom: "4px",
+                  marginTop: "4px"
                 }}>
-                  {polaroidContent.art.title}
+                  art portfolio
                 </h3>
+                
                 <p style={{
                   fontFamily: "'Myfont', sans-serif",
-                  fontSize: "14px",
+                  fontSize: "12px",
                   color: "#666",
-                  lineHeight: "1.4"
+                  marginBottom: "4px",
+                  marginTop: "0px",
+                  lineHeight: "1.2",
+                  textAlign: "center"
                 }}>
-                  {polaroidContent.art.content}
+                  Check out some of the art I&apos;ve created over the years!
                 </p>
+                
+                {/* Notion Embed */}
+                <div 
+                  className="notion-embed-container"
+                  style={{
+                    width: '100%',
+                    height: 'calc(100% - 16px)',
+                    border: 'none',
+                    borderRadius: '6px',
+                    overflow: 'hidden',
+                    position: 'relative',
+                    marginTop: '4px'
+                  }}
+                >
+                  <iframe
+                    src="https://v2-embednotion.com/2287174313a48091b380d24b3197a7bd"
+                    style={{
+                      width: '400%',
+                      height: '400%',
+                      border: 'none',
+                      borderRadius: '6px',
+                      transform: 'scale(0.25)',
+                      transformOrigin: 'top left',
+                      position: 'absolute',
+                      top: '0',
+                      left: '0'
+                    }}
+                    title="Art Portfolio"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -1113,6 +1148,58 @@ export default function Home() {
 
       {/* Responsive CSS */}
       <style jsx>{`
+        /* Override Tailwind global styles for iframe */
+        .notion-embed-container {
+          box-sizing: border-box !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+        
+        .notion-embed-container iframe {
+          box-sizing: border-box !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          max-width: none !important;
+          max-height: none !important;
+          min-width: 0 !important;
+          min-height: 0 !important;
+        }
+        
+        /* Artwork text styling to prevent global overrides */
+        .artwork-title {
+          font-family: 'Frank Ruhl Libre', serif !important;
+          font-size: 11px !important;
+          font-weight: 600 !important;
+          color: #333 !important;
+          margin: 0 0 4px 0 !important;
+          padding: 0 !important;
+          border: none !important;
+          line-height: 1.3 !important;
+          overflow: hidden !important;
+          text-overflow: ellipsis !important;
+          white-space: nowrap !important;
+        }
+        
+        .artwork-medium {
+          font-family: 'Frank Ruhl Libre', serif !important;
+          font-size: 9px !important;
+          color: #666 !important;
+          margin: 0 0 2px 0 !important;
+          padding: 0 !important;
+          border: none !important;
+          line-height: 1.3 !important;
+        }
+        
+        .artwork-size {
+          font-family: 'Frank Ruhl Libre', serif !important;
+          font-size: 9px !important;
+          color: #999 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          border: none !important;
+          line-height: 1.3 !important;
+        }
+        
         /* Desktop styles (maintain current appearance) */
         @media (min-width: 1024px) {
           .polaroid-container {
