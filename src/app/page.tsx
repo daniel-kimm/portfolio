@@ -963,7 +963,7 @@ export default function Home() {
                   <div className="flex flex-col items-center">
                     <div className="w-20 h-20 bg-gray-200 rounded overflow-hidden mb-2 relative">
                       <img 
-                        src="/IMG_6734.png" 
+                        src="/IMG_6734.PNG" 
                         alt="Project 4" 
                         className="w-full h-full object-cover"
                         onError={(e) => {
