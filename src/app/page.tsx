@@ -38,7 +38,7 @@ export default function Home() {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/IMG_8664.jpg')",
+          backgroundImage: "url('/IMG_8664.JPG')",
         }}
       >
         {/* Dark overlay for better text readability */}
