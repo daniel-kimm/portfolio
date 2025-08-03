@@ -962,7 +962,7 @@ export default function Home() {
                         fontFamily: "var(--font-geist-sans)",
                         lineHeight: "1"
                       }}>
-                        2024
+                        2025
                       </div>
                     </div>
                     <p style={{
@@ -1039,7 +1039,7 @@ export default function Home() {
                         fontFamily: "var(--font-geist-sans)",
                         lineHeight: "1"
                       }}>
-                        2024
+                        2025
                       </div>
                     </div>
                     <p style={{
