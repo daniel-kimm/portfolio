@@ -1,9 +1,12 @@
 "use client";
 
 import { useState } from 'react';
+import React from 'react'; // Added for useEffect
 
 export default function Home() {
   const [flippedPolaroid, setFlippedPolaroid] = useState<string | null>(null);
+  const [expandedImage, setExpandedImage] = useState<string | null>(null);
+  const [isClosing, setIsClosing] = useState(false);
 
   const handlePolaroidClick = (polaroidType: string) => {
     if (polaroidType === 'home') {
@@ -12,6 +15,33 @@ export default function Home() {
       setFlippedPolaroid(flippedPolaroid === polaroidType ? null : polaroidType);
     }
   };
+
+  const handleImageClick = (imageSrc: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setExpandedImage(imageSrc);
+    setIsClosing(false);
+  };
+
+  const closeExpandedImage = () => {
+    setIsClosing(true);
+    // Wait for animation to complete before hiding modal
+    setTimeout(() => {
+      setExpandedImage(null);
+      setIsClosing(false);
+    }, 300); // Match animation duration
+  };
+
+  // Handle escape key to close modal
+  React.useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && expandedImage) {
+        closeExpandedImage();
+      }
+    };
+
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [expandedImage]);
 
   const polaroidContent = {
     about: {
@@ -118,87 +148,15 @@ export default function Home() {
       {/* Polaroid Navigation - Responsive container */}
       <div className="polaroid-nav-container absolute bottom-40 left-1/2 transform -translate-x-1/2 z-10">
         <div className="polaroid-container relative flex items-center justify-center">
-          {/* Home Polaroid */}
-          <div 
-            className="absolute cursor-pointer transition-all duration-700 hover:scale-105 hover:shadow-3xl"
-            style={{
-              transform: flippedPolaroid === 'home' ? 
-                "rotate(0deg) translateX(0px) translateY(-140px) scale(2.8)" : 
-                "rotate(-8deg) translateX(-350px) translateY(-20px)",
-              transformOrigin: "center center",
-              zIndex: flippedPolaroid === 'home' ? 100 : 5,
-              perspective: "1000px"
-            }}
-            onClick={() => handlePolaroidClick('home')}
-            onMouseEnter={(e) => {
-              if (!flippedPolaroid) e.currentTarget.style.zIndex = '50';
-            }}
-            onMouseLeave={(e) => {
-              if (!flippedPolaroid) e.currentTarget.style.zIndex = '5';
-            }}
-          >
-            <div 
-              className="w-64 h-80 bg-white shadow-2xl"
-              style={{
-                transformStyle: "preserve-3d",
-                transform: flippedPolaroid === 'home' ? "rotateY(180deg)" : "rotateY(0deg)",
-                transition: "transform 0.7s ease-in-out"
-              }}
-            >
-              {/* Front of polaroid */}
-              <div 
-                className="absolute inset-0 w-full h-full bg-white p-5 pb-16"
-                style={{ backfaceVisibility: "hidden" }}
-              >
-                <div className="w-full h-52 bg-gradient-to-br from-orange-200 to-orange-400 overflow-hidden">
-                  <img 
-                    src="/IMG_9278.JPG" 
-                    alt="Home" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute bottom-5 left-0 right-0 text-center">
-                  <p style={{
-                    fontFamily: "'Myfont', sans-serif",
-                    fontSize: "40px",
-                    fontWeight: 600,
-                    color: "#333",
-                    letterSpacing: "0.5px"
-                  }}>
-                    home
-                  </p>
-                </div>
-              </div>
-              
-              {/* Back of polaroid */}
-              <div 
-                className="absolute inset-0 w-full h-full bg-white p-5 flex flex-col justify-center items-center text-center"
-                style={{ 
-                  backfaceVisibility: "hidden",
-                  transform: "rotateY(180deg)"
-                }}
-              >
-                <p style={{
-                  fontFamily: "'Myfont', sans-serif",
-                  fontSize: "16px",
-                  color: "#666",
-                  lineHeight: "1.5"
-                }}>
-                  Click any polaroid to explore my portfolio
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* About Me Polaroid */}
+          {/* About Me Polaroid - Now First (Leftmost) */}
           <div 
             className="absolute cursor-pointer transition-all duration-700 hover:scale-105 hover:shadow-3xl"
             style={{
               transform: flippedPolaroid === 'about' ? 
                 "rotate(0deg) translateX(0px) translateY(-140px) scale(2.8)" : 
-                "rotate(12deg) translateX(-175px) translateY(15px)",
+                "rotate(-8deg) translateX(-350px) translateY(-20px)",
               transformOrigin: "center center",
-              zIndex: flippedPolaroid === 'about' ? 100 : 4,
+              zIndex: flippedPolaroid === 'about' ? 100 : 5,
               perspective: "1000px"
             }}
             onClick={() => handlePolaroidClick('about')}
@@ -206,7 +164,7 @@ export default function Home() {
               if (!flippedPolaroid) e.currentTarget.style.zIndex = '50';
             }}
             onMouseLeave={(e) => {
-              if (!flippedPolaroid) e.currentTarget.style.zIndex = '4';
+              if (!flippedPolaroid) e.currentTarget.style.zIndex = '5';
             }}
           >
             <div 
@@ -235,7 +193,8 @@ export default function Home() {
                     fontSize: "40px",
                     fontWeight: 600,
                     color: "#333",
-                    letterSpacing: "0.5px"
+                    letterSpacing: "0.5px",
+                    fontStyle: "italic"
                   }}>
                     about me
                   </p>
@@ -256,7 +215,8 @@ export default function Home() {
                   fontWeight: 600,
                   color: "#333",
                   marginBottom: "10px",
-                  marginTop: "20px"
+                  marginTop: "20px",
+                  fontStyle: "italic"
                 }}>
                   {polaroidContent.about.title}
                 </h3>
@@ -265,12 +225,13 @@ export default function Home() {
                   fontSize: "12px",
                   color: "#666",
                   lineHeight: "1.3",
-                  marginBottom: "15px"
+                  marginBottom: "15px",
+                  fontStyle: "italic"
                 }}>
                   {polaroidContent.about.content}
                 </p>
                 
-                {/* Email line */}
+                {/* Email line
                 <div className="flex items-center space-x-2 mb-3">
                   <svg 
                     width="8" 
@@ -293,38 +254,42 @@ export default function Home() {
                     daniel<span style={{ fontSize: "12px" }}>-</span>kim<span style={{ fontSize: "8px" }}>@</span>u.northwestern.edu
                   </span>
                 </div>
+                */}
                 
                 {/* Three images in a row */}
                 <div className="flex space-x-2 mt-auto mb-4">
                   <img 
                     src="/about_me/IMG_3783.jpg" 
                     alt="About me 1" 
-                    className="w-16 h-16 object-cover rounded shadow-sm"
+                    className="w-16 h-16 object-cover rounded shadow-sm cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                    onClick={(e) => handleImageClick('/about_me/IMG_3783.jpg', e)}
                   />
                   <img 
                     src="/about_me/IMG_7846.jpg" 
                     alt="About me 2" 
-                    className="w-16 h-16 object-cover rounded shadow-sm"
+                    className="w-16 h-16 object-cover rounded shadow-sm cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                    onClick={(e) => handleImageClick('/about_me/IMG_7846.jpg', e)}
                   />
                   <img 
                     src="/about_me/IMG_8222.jpg" 
                     alt="About me 3" 
-                    className="w-16 h-16 object-cover rounded shadow-sm"
+                    className="w-16 h-16 object-cover rounded shadow-sm cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                    onClick={(e) => handleImageClick('/about_me/IMG_8222.jpg', e)}
                   />
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Work Polaroid */}
+          {/* Work Polaroid - Now Second */}
           <div 
             className="absolute cursor-pointer transition-all duration-700 hover:scale-105 hover:shadow-3xl"
             style={{
               transform: flippedPolaroid === 'work' ? 
                 "rotate(0deg) translateX(0px) translateY(-140px) scale(2.8)" : 
-                "rotate(-3deg) translateX(0px) translateY(-10px)",
+                "rotate(12deg) translateX(-175px) translateY(15px)",
               transformOrigin: "center center",
-              zIndex: flippedPolaroid === 'work' ? 100 : 3,
+              zIndex: flippedPolaroid === 'work' ? 100 : 4,
               perspective: "1000px"
             }}
             onClick={() => handlePolaroidClick('work')}
@@ -332,7 +297,7 @@ export default function Home() {
               if (!flippedPolaroid) e.currentTarget.style.zIndex = '50';
             }}
             onMouseLeave={(e) => {
-              if (!flippedPolaroid) e.currentTarget.style.zIndex = '3';
+              if (!flippedPolaroid) e.currentTarget.style.zIndex = '4';
             }}
           >
             <div 
@@ -361,7 +326,8 @@ export default function Home() {
                     fontSize: "40px",
                     fontWeight: 600,
                     color: "#333",
-                    letterSpacing: "0.5px"
+                    letterSpacing: "0.5px",
+                    fontStyle: "italic"
                   }}>
                     work
                   </p>
@@ -384,6 +350,7 @@ export default function Home() {
                     fontWeight: 600,
                     color: "#333",
                     marginBottom: "8px",
+                    fontStyle: "italic"
                   }}>
                     work
                   </h2>
@@ -393,7 +360,8 @@ export default function Home() {
                     color: "#333",
                     lineHeight: "1",
                     maxWidth: "200px",
-                    margin: "0 auto"
+                    margin: "0 auto",
+                    fontStyle: "italic"
                   }}>
                     Here&apos;s a comprehensive look at my professional experience and campus involvement!
                   </p>
@@ -405,7 +373,8 @@ export default function Home() {
                   fontWeight: 600,
                   color: "#333",
                   marginBottom: "15px",
-                  alignSelf: "center"
+                  alignSelf: "center",
+                  fontStyle: "italic"
                 }}>
                   work experience
                 </h3>
@@ -589,7 +558,8 @@ export default function Home() {
                   fontWeight: 600,
                   color: "#333",
                   marginBottom: "10px",
-                  alignSelf: "center"
+                  alignSelf: "center",
+                  fontStyle: "italic"
                 }}>
                   campus involvement
                 </h3>
@@ -687,15 +657,15 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Projects Polaroid */}
+          {/* Projects Polaroid - Now Third (Center) */}
           <div 
             className="absolute cursor-pointer transition-all duration-700 hover:scale-105 hover:shadow-3xl"
             style={{
               transform: flippedPolaroid === 'projects' ? 
                 "rotate(0deg) translateX(0px) translateY(-140px) scale(2.8)" : 
-                "rotate(7deg) translateX(175px) translateY(20px)",
+                "rotate(-3deg) translateX(0px) translateY(-10px)",
               transformOrigin: "center center",
-              zIndex: flippedPolaroid === 'projects' ? 100 : 2,
+              zIndex: flippedPolaroid === 'projects' ? 100 : 3,
               perspective: "1000px"
             }}
             onClick={() => handlePolaroidClick('projects')}
@@ -703,7 +673,7 @@ export default function Home() {
               if (!flippedPolaroid) e.currentTarget.style.zIndex = '50';
             }}
             onMouseLeave={(e) => {
-              if (!flippedPolaroid) e.currentTarget.style.zIndex = '2';
+              if (!flippedPolaroid) e.currentTarget.style.zIndex = '3';
             }}
           >
             <div 
@@ -732,7 +702,8 @@ export default function Home() {
                     fontSize: "40px",
                     fontWeight: 600,
                     color: "#333",
-                    letterSpacing: "0.5px"
+                    letterSpacing: "0.5px",
+                    fontStyle: "italic"
                   }}>
                     projects
                   </p>
@@ -753,7 +724,8 @@ export default function Home() {
                   fontWeight: 600,
                   color: "#333",
                   marginBottom: "4px",
-                  marginTop: "0px"
+                  marginTop: "0px",
+                  fontStyle: "italic"
                 }}>
                   projects
                 </h3>
@@ -765,7 +737,8 @@ export default function Home() {
                   lineHeight: "1.2",
                   marginBottom: "10px",
                   textAlign: "center",
-                  maxWidth: "200px"
+                  maxWidth: "200px",
+                  fontStyle: "italic"
                 }}>
                   Here&apos;s a collection of projects I&apos;ve worked on!
                 </p>
@@ -817,7 +790,7 @@ export default function Home() {
                       color: "#1f2937",
                       lineHeight: "1.2",
                       marginBottom: "4px",
-                      textAlign: "center"
+                      textAlign: "center",
                     }}>
                       Alto: AI Voice Email Assistant
                     </p>
@@ -1230,15 +1203,15 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Art Polaroid */}
+          {/* Art Polaroid - Now Fourth */}
           <div 
             className="absolute cursor-pointer transition-all duration-700 hover:scale-105 hover:shadow-3xl"
             style={{
               transform: flippedPolaroid === 'art' ? 
                 "rotate(0deg) translateX(0px) translateY(-140px) scale(2.8)" : 
-                "rotate(-12deg) translateX(350px) translateY(-5px)",
+                "rotate(7deg) translateX(175px) translateY(20px)",
               transformOrigin: "center center",
-              zIndex: flippedPolaroid === 'art' ? 100 : 1,
+              zIndex: flippedPolaroid === 'art' ? 100 : 2,
               perspective: "1000px"
             }}
             onClick={() => handlePolaroidClick('art')}
@@ -1246,7 +1219,7 @@ export default function Home() {
               if (!flippedPolaroid) e.currentTarget.style.zIndex = '50';
             }}
             onMouseLeave={(e) => {
-              if (!flippedPolaroid) e.currentTarget.style.zIndex = '1';
+              if (!flippedPolaroid) e.currentTarget.style.zIndex = '2';
             }}
           >
             <div 
@@ -1275,7 +1248,8 @@ export default function Home() {
                     fontSize: "40px",
                     fontWeight: 600,
                     color: "#333",
-                    letterSpacing: "0.5px"
+                    letterSpacing: "0.5px",
+                    fontStyle: "italic"
                   }}>
                     art
                   </p>
@@ -1296,7 +1270,8 @@ export default function Home() {
                   fontWeight: 600,
                   color: "#333",
                   marginBottom: "4px",
-                  marginTop: "4px"
+                  marginTop: "4px",
+                  fontStyle: "italic"
                 }}>
                   art portfolio
                 </h3>
@@ -1308,7 +1283,8 @@ export default function Home() {
                   marginBottom: "4px",
                   marginTop: "0px",
                   lineHeight: "1.2",
-                  textAlign: "center"
+                  textAlign: "center",
+                  fontStyle: "italic"
                 }}>
                   Check out some of the art I&apos;ve created over the years!
                 </p>
@@ -1345,11 +1321,155 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          {/* Home Polaroid - Now Fifth (Rightmost) */}
+          <div 
+            className="absolute cursor-pointer transition-all duration-700 hover:scale-105 hover:shadow-3xl"
+            style={{
+              transform: flippedPolaroid === 'home' ? 
+                "rotate(0deg) translateX(0px) translateY(-140px) scale(2.8)" : 
+                "rotate(-12deg) translateX(350px) translateY(-5px)",
+              transformOrigin: "center center",
+              zIndex: flippedPolaroid === 'home' ? 100 : 1,
+              perspective: "1000px"
+            }}
+            onClick={() => handlePolaroidClick('home')}
+            onMouseEnter={(e) => {
+              if (!flippedPolaroid) e.currentTarget.style.zIndex = '50';
+            }}
+            onMouseLeave={(e) => {
+              if (!flippedPolaroid) e.currentTarget.style.zIndex = '1';
+            }}
+          >
+            <div 
+              className="w-64 h-80 bg-white shadow-2xl"
+              style={{
+                transformStyle: "preserve-3d",
+                transform: flippedPolaroid === 'home' ? "rotateY(180deg)" : "rotateY(0deg)",
+                transition: "transform 0.7s ease-in-out"
+              }}
+            >
+              {/* Front of polaroid */}
+              <div 
+                className="absolute inset-0 w-full h-full bg-white p-5 pb-16"
+                style={{ backfaceVisibility: "hidden" }}
+              >
+                <div className="w-full h-52 bg-gradient-to-br from-orange-200 to-orange-400 overflow-hidden">
+                  <img 
+                    src="/IMG_9278.JPG" 
+                    alt="Home" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute bottom-5 left-0 right-0 text-center">
+                  <p style={{
+                    fontFamily: "'Myfont', sans-serif",
+                    fontSize: "40px",
+                    fontWeight: 600,
+                    color: "#333",
+                    letterSpacing: "0.5px",
+                    fontStyle: "italic"
+                  }}>
+                    home
+                  </p>
+                </div>
+              </div>
+              
+              {/* Back of polaroid */}
+              <div 
+                className="absolute inset-0 w-full h-full bg-white p-5 flex flex-col justify-center items-center text-center"
+                style={{ 
+                  backfaceVisibility: "hidden",
+                  transform: "rotateY(180deg)"
+                }}
+              >
+                <p style={{
+                  fontFamily: "'Myfont', sans-serif",
+                  fontSize: "16px",
+                  color: "#666",
+                  lineHeight: "1.5"
+                }}>
+                  Click any polaroid to explore my portfolio
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
+      {/* Expanded Image Modal */}
+      {expandedImage && (
+        <div 
+          className={`fixed inset-0 flex items-center justify-center z-50 transition-all duration-300 ease-out ${isClosing ? 'animate-fadeOut' : ''}`}
+          style={{
+            backdropFilter: 'blur(8px)',
+            backgroundColor: 'rgba(0, 0, 0, 0.3)',
+            opacity: isClosing ? 0 : 1
+          }}
+          onClick={closeExpandedImage}
+        >
+          <div 
+            className="relative max-w-4xl max-h-4xl p-4 transition-all duration-300 ease-out transform"
+            style={{
+              animation: isClosing ? 'expandOut 0.3s ease-out forwards' : 'expandIn 0.3s ease-out forwards'
+            }}
+          >
+            <img 
+              src={expandedImage} 
+              alt="Expanded view" 
+              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl transition-all duration-300 ease-out"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              onClick={closeExpandedImage}
+              className="absolute top-2 right-2 text-white bg-black bg-opacity-50 rounded-full w-8 h-8 flex items-center justify-center hover:bg-opacity-75 transition-all duration-200 transform hover:scale-110"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Responsive CSS */}
       <style jsx>{`
+        /* Keyframe animation for smooth image expansion */
+        @keyframes expandIn {
+          from {
+            opacity: 0;
+            transform: scale(0.8);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        
+        /* Keyframe animation for smooth image exit */
+        @keyframes expandOut {
+          from {
+            opacity: 1;
+            transform: scale(1);
+          }
+          to {
+            opacity: 0;
+            transform: scale(0.8);
+          }
+        }
+        
+        /* Fade out animation for backdrop */
+        @keyframes fadeOut {
+          from {
+            opacity: 1;
+          }
+          to {
+            opacity: 0;
+          }
+        }
+        
+        .animate-fadeOut {
+          animation: fadeOut 0.3s ease-out forwards;
+        }
+        
         /* Override Tailwind global styles for iframe */
         .notion-embed-container {
           box-sizing: border-box !important;
