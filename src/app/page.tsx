@@ -154,7 +154,7 @@ export default function Home() {
             style={{
               transform: flippedPolaroid === 'about' ? 
                 "rotate(0deg) translateX(0px) translateY(-140px) scale(2.8)" : 
-                "rotate(-8deg) translateX(-350px) translateY(-20px)",
+                "rotate(-8deg) translateX(-370px) translateY(-20px)",
               transformOrigin: "center center",
               zIndex: flippedPolaroid === 'about' ? 100 : 5,
               perspective: "1000px"
@@ -210,22 +210,21 @@ export default function Home() {
                 }}
               >
                 <h3 style={{
-                  fontFamily: "'Myfont', sans-serif",
-                  fontSize: "24px",
+                  fontFamily: "'IM Fell Great Primer', serif",
+                  fontSize: "14px",
                   fontWeight: 600,
                   color: "#333",
-                  marginBottom: "10px",
+                  marginBottom: "20px",
                   marginTop: "20px",
                   fontStyle: "italic"
                 }}>
                   {polaroidContent.about.title}
                 </h3>
                 <p style={{
-                  fontFamily: "'Myfont', sans-serif",
-                  fontSize: "12px",
-                  color: "#666",
-                  lineHeight: "1.3",
-                  marginBottom: "15px",
+                  fontFamily: "'IM Fell Great Primer', serif",
+                  fontSize: "8px",
+                  color: "#333",
+                  lineHeight: "2",
                   fontStyle: "italic"
                 }}>
                   {polaroidContent.about.content}
@@ -345,8 +344,8 @@ export default function Home() {
                 {/* Handwritten work title and description */}
                 <div className="w-full text-center mb-4">
                   <h2 style={{
-                    fontFamily: "'Myfont', sans-serif",
-                    fontSize: "20px",
+                    fontFamily: "'IM Fell Great Primer', serif",
+                    fontSize: "14px",
                     fontWeight: 600,
                     color: "#333",
                     marginBottom: "8px",
@@ -355,21 +354,21 @@ export default function Home() {
                     work
                   </h2>
                   <p style={{
-                    fontFamily: "'Myfont', serif",
-                    fontSize: "12px",
-                    color: "#333",
+                    fontFamily: "'IM Fell Great Primer', serif",
+                    fontSize: "8px",
+                    color: "#666",
                     lineHeight: "1",
                     maxWidth: "200px",
                     margin: "0 auto",
                     fontStyle: "italic"
                   }}>
-                    Here&apos;s a comprehensive look at my professional experience and campus involvement!
+                    here&apos;s a comprehensive look at my professional experience and campus involvement!
                   </p>
                 </div>
                 
                 <h3 style={{
-                  fontFamily: "'Myfont', sans-serif",
-                  fontSize: "15px",
+                  fontFamily: "'IM Fell Great Primer', serif",
+                  fontSize: "10px",
                   fontWeight: 600,
                   color: "#333",
                   marginBottom: "15px",
@@ -397,8 +396,8 @@ export default function Home() {
                     <div className="flex-1 min-w-0 flex items-start justify-between">
                       <div className="flex-1 min-w-0 mt-0.5">
                         <h4 style={{
-                          fontFamily: "var(--font-geist-sans)",
-                          fontSize: "5px",
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "6px",
                           fontWeight: 600,
                           color: "#1f2937",
                           marginBottom: "2px"
@@ -406,8 +405,8 @@ export default function Home() {
                           Software Engineer Intern
                         </h4>
                         <p style={{
-                          fontFamily: "var(--font-geist-sans)",
-                          fontSize: "5px",
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "6px",
                           color: "#4b5563",
                           marginBottom: "0"
                         }}>
@@ -415,8 +414,8 @@ export default function Home() {
                         </p>
                       </div>
                       <p style={{
-                        fontFamily: "var(--font-geist-sans)",
-                        fontSize: "5px",
+                        fontFamily: "'IM Fell Great Primer', serif",
+                        fontSize: "6px",
                         color: "#9ca3af",
                         flexShrink: 0,
                         marginLeft: "8px",
@@ -438,8 +437,8 @@ export default function Home() {
                     <div className="flex-1 min-w-0 flex items-start justify-between">
                       <div className="flex-1 min-w-0 mt-0.5">
                         <h4 style={{
-                          fontFamily: "var(--font-geist-sans)",
-                          fontSize: "5px",
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "6px",
                           fontWeight: 600,
                           color: "#1f2937",
                           marginBottom: "2px"
@@ -447,8 +446,8 @@ export default function Home() {
                           Machine Learning Intern
                         </h4>
                         <p style={{
-                          fontFamily: "var(--font-geist-sans)",
-                          fontSize: "5px",
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "6px",
                           color: "#4b5563",
                           marginBottom: "0"
                         }}>
@@ -456,8 +455,8 @@ export default function Home() {
                         </p>
                       </div>
                       <p style={{
-                        fontFamily: "var(--font-geist-sans)",
-                        fontSize: "5px",
+                        fontFamily: "'IM Fell Great Primer', serif",
+                        fontSize: "6px",
                         color: "#9ca3af",
                         flexShrink: 0,
                         marginLeft: "8px",
@@ -479,8 +478,8 @@ export default function Home() {
                     <div className="flex-1 min-w-0 flex items-start justify-between">
                       <div className="flex-1 min-w-0 mt-0.5">
                         <h4 style={{
-                          fontFamily: "var(--font-geist-sans)",
-                          fontSize: "5px",
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "6px",
                           fontWeight: 600,
                           color: "#1f2937",
                           marginBottom: "2px"
@@ -488,8 +487,8 @@ export default function Home() {
                           IT Public Computing Technician
                         </h4>
                         <p style={{
-                          fontFamily: "var(--font-geist-sans)",
-                          fontSize: "5px",
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "6px",
                           color: "#4b5563",
                           marginBottom: "0"
                         }}>
@@ -497,8 +496,8 @@ export default function Home() {
                         </p>
                       </div>
                       <p style={{
-                        fontFamily: "var(--font-geist-sans)",
-                        fontSize: "5px",
+                        fontFamily: "'IM Fell Great Primer', serif",
+                        fontSize: "6px",
                         color: "#9ca3af",
                         flexShrink: 0,
                         marginLeft: "8px",
@@ -520,8 +519,8 @@ export default function Home() {
                     <div className="flex-1 min-w-0 flex items-start justify-between">
                       <div className="flex-1 min-w-0 mt-0.5">
                         <h4 style={{
-                          fontFamily: "var(--font-geist-sans)",
-                          fontSize: "5px",
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "6px",
                           fontWeight: 600,
                           color: "#1f2937",
                           marginBottom: "2px"
@@ -529,8 +528,8 @@ export default function Home() {
                           Software Engineer Intern
                         </h4>
                         <p style={{
-                          fontFamily: "var(--font-geist-sans)",
-                          fontSize: "5px",
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "6px",
                           color: "#4b5563",
                           marginBottom: "0"
                         }}>
@@ -538,8 +537,8 @@ export default function Home() {
                         </p>
                       </div>
                       <p style={{
-                        fontFamily: "var(--font-geist-sans)",
-                        fontSize: "5px",
+                        fontFamily: "'IM Fell Great Primer', serif",
+                        fontSize: "6px",
                         color: "#9ca3af",
                         flexShrink: 0,
                         marginLeft: "8px",
@@ -553,8 +552,8 @@ export default function Home() {
                 
                 {/* Campus Involvement Section */}
                 <h3 style={{
-                  fontFamily: "'Myfont', sans-serif",
-                  fontSize: "15px",
+                  fontFamily: "'IM Fell Great Primer', serif",
+                  fontSize: "10px",
                   fontWeight: 600,
                   color: "#333",
                   marginBottom: "10px",
@@ -582,8 +581,8 @@ export default function Home() {
                     <div className="flex-1 min-w-0 flex items-start justify-between">
                       <div className="flex-1 min-w-0 mt-0.5">
                         <h4 style={{
-                          fontFamily: "var(--font-geist-sans)",
-                          fontSize: "5px",
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "6px",
                           fontWeight: 600,
                           color: "#1f2937",
                           marginBottom: "2px"
@@ -591,8 +590,8 @@ export default function Home() {
                           General Board Member
                         </h4>
                         <p style={{
-                          fontFamily: "var(--font-geist-sans)",
-                          fontSize: "5px",
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "6px",
                           color: "#4b5563",
                           marginBottom: "0"
                         }}>
@@ -600,8 +599,8 @@ export default function Home() {
                         </p>
                       </div>
                       <p style={{
-                        fontFamily: "var(--font-geist-sans)",
-                        fontSize: "5px",
+                        fontFamily: "'IM Fell Great Primer', serif",
+                        fontSize: "6px",
                         color: "#9ca3af",
                         flexShrink: 0,
                         marginLeft: "8px",
@@ -623,8 +622,8 @@ export default function Home() {
                     <div className="flex-1 min-w-0 flex items-start justify-between">
                       <div className="flex-1 min-w-0 mt-0.5">
                         <h4 style={{
-                          fontFamily: "var(--font-geist-sans)",
-                          fontSize: "5px",
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "6px",
                           fontWeight: 600,
                           color: "#1f2937",
                           marginBottom: "2px"
@@ -632,8 +631,8 @@ export default function Home() {
                           Software Engineer
                         </h4>
                         <p style={{
-                          fontFamily: "var(--font-geist-sans)",
-                          fontSize: "5px",
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "6px",
                           color: "#4b5563",
                           marginBottom: "0"
                         }}>
@@ -641,8 +640,8 @@ export default function Home() {
                         </p>
                       </div>
                       <p style={{
-                        fontFamily: "var(--font-geist-sans)",
-                        fontSize: "5px",
+                        fontFamily: "'IM Fell Great Primer', serif",
+                        fontSize: "6px",
                         color: "#9ca3af",
                         flexShrink: 0,
                         marginLeft: "8px",
@@ -719,8 +718,8 @@ export default function Home() {
                 }}
               >
                 <h3 style={{
-                  fontFamily: "'Myfont', sans-serif",
-                  fontSize: "20px",
+                  fontFamily: "'IM Fell Great Primer', serif",
+                  fontSize: "14px",
                   fontWeight: 600,
                   color: "#333",
                   marginBottom: "4px",
@@ -731,8 +730,8 @@ export default function Home() {
                 </h3>
                 
                 <p style={{
-                  fontFamily: "'Myfont', sans-serif",
-                  fontSize: "12px",
+                  fontFamily: "'IM Fell Great Primer', serif",
+                  fontSize: "8px",
                   color: "#666",
                   lineHeight: "1.2",
                   marginBottom: "10px",
@@ -740,7 +739,7 @@ export default function Home() {
                   maxWidth: "200px",
                   fontStyle: "italic"
                 }}>
-                  Here&apos;s a collection of projects I&apos;ve worked on!
+                  here&apos;s a collection of projects i&apos;ve worked on!
                 </p>
                 
                 {/* Projects Grid - 2x2 layout */}
@@ -785,9 +784,9 @@ export default function Home() {
                       </div>
                     </div>
                     <p style={{
-                      fontFamily: "var(--font-geist-sans)",
+                      fontFamily: "'IM Fell Great Primer', serif",
                       fontSize: "5px",
-                      color: "#1f2937",
+                      color: "#333",
                       lineHeight: "1.2",
                       marginBottom: "4px",
                       textAlign: "center",
@@ -796,25 +795,25 @@ export default function Home() {
                     </p>
                     <div className="flex flex-wrap gap-1 justify-center">
                       <span style={{
-                        fontFamily: "var(--font-geist-sans)",
+                        fontFamily: "'IM Fell Great Primer', serif",
                         fontSize: "4px",
-                        color: "#4b5563",
+                        color: "#333",
                         backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>React Native</span>
                       <span style={{
-                        fontFamily: "var(--font-geist-sans)",
+                        fontFamily: "'IM Fell Great Primer', serif",
                         fontSize: "4px",
-                        color: "#4b5563",
+                        color: "#333",
                         backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>Expo</span>
                       <span style={{
-                        fontFamily: "var(--font-geist-sans)",
+                        fontFamily: "'IM Fell Great Primer', serif",
                         fontSize: "4px",
-                        color: "#4b5563",
+                        color: "#333",
                         backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
@@ -862,9 +861,9 @@ export default function Home() {
                       </div>
                     </div>
                     <p style={{
-                      fontFamily: "var(--font-geist-sans)",
+                      fontFamily: "'IM Fell Great Primer', serif",
                       fontSize: "5px",
-                      color: "#1f2937",
+                      color: "#333",
                       lineHeight: "1.2",
                       marginBottom: "4px",
                       textAlign: "center"
@@ -873,25 +872,25 @@ export default function Home() {
                     </p>
                     <div className="flex flex-wrap gap-1 justify-center">
                       <span style={{
-                        fontFamily: "var(--font-geist-sans)",
+                        fontFamily: "'IM Fell Great Primer', serif",
                         fontSize: "4px",
-                        color: "#4b5563",
+                        color: "#333",
                         backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>JavaScript</span>
                       <span style={{
-                        fontFamily: "var(--font-geist-sans)",
+                        fontFamily: "'IM Fell Great Primer', serif",
                         fontSize: "4px",
-                        color: "#4b5563",
+                        color: "#333",
                         backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>AWS</span>
                       <span style={{
-                        fontFamily: "var(--font-geist-sans)",
+                        fontFamily: "'IM Fell Great Primer', serif",
                         fontSize: "4px",
-                        color: "#4b5563",
+                        color: "#333",
                         backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
@@ -939,9 +938,9 @@ export default function Home() {
                       </div>
                     </div>
                     <p style={{
-                      fontFamily: "var(--font-geist-sans)",
+                      fontFamily: "'IM Fell Great Primer', serif",
                       fontSize: "5px",
-                      color: "#1f2937",
+                      color: "#333",
                       lineHeight: "1.2",
                       marginBottom: "4px",
                       textAlign: "center"
@@ -950,25 +949,25 @@ export default function Home() {
                     </p>
                     <div className="flex flex-wrap gap-1 justify-center">
                       <span style={{
-                        fontFamily: "var(--font-geist-sans)",
+                        fontFamily: "'IM Fell Great Primer', serif",
                         fontSize: "4px",
-                        color: "#4b5563",
+                        color: "#333",
                         backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>TypeScript</span>
                       <span style={{
-                        fontFamily: "var(--font-geist-sans)",
+                        fontFamily: "'IM Fell Great Primer', serif",
                         fontSize: "4px",
-                        color: "#4b5563",
+                        color: "#333",
                         backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>Docker</span>
                       <span style={{
-                        fontFamily: "var(--font-geist-sans)",
+                        fontFamily: "'IM Fell Great Primer', serif",
                         fontSize: "4px",
-                        color: "#4b5563",
+                        color: "#333",
                         backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
@@ -1016,9 +1015,9 @@ export default function Home() {
                       </div>
                     </div>
                     <p style={{
-                      fontFamily: "var(--font-geist-sans)",
+                      fontFamily: "'IM Fell Great Primer', serif",
                       fontSize: "5px",
-                      color: "#1f2937",
+                      color: "#333",
                       lineHeight: "1.2",
                       marginBottom: "4px",
                       textAlign: "center"
@@ -1027,25 +1026,25 @@ export default function Home() {
                     </p>
                     <div className="flex flex-wrap gap-1 justify-center">
                       <span style={{
-                        fontFamily: "var(--font-geist-sans)",
+                        fontFamily: "'IM Fell Great Primer', serif",
                         fontSize: "4px",
-                        color: "#4b5563",
+                        color: "#333",
                         backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>Firebase</span>
                       <span style={{
-                        fontFamily: "var(--font-geist-sans)",
+                        fontFamily: "'IM Fell Great Primer', serif",
                         fontSize: "4px",
-                        color: "#4b5563",
+                        color: "#333",
                         backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>Express</span>
                       <span style={{
-                        fontFamily: "var(--font-geist-sans)",
+                        fontFamily: "'IM Fell Great Primer', serif",
                         fontSize: "4px",
-                        color: "#4b5563",
+                        color: "#333",
                         backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
@@ -1093,9 +1092,9 @@ export default function Home() {
                       </div>
                     </div>
                     <p style={{
-                      fontFamily: "var(--font-geist-sans)",
+                      fontFamily: "'IM Fell Great Primer', serif",
                       fontSize: "5px",
-                      color: "#1f2937",
+                      color: "#333",
                       lineHeight: "1.2",
                       marginBottom: "4px",
                       textAlign: "center"
@@ -1104,17 +1103,25 @@ export default function Home() {
                     </p>
                     <div className="flex flex-wrap gap-1 justify-center">
                       <span style={{
-                        fontFamily: "var(--font-geist-sans)",
+                        fontFamily: "'IM Fell Great Primer', serif",
                         fontSize: "4px",
-                        color: "#4b5563",
+                        color: "#333",
                         backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>React</span>
                       <span style={{
-                        fontFamily: "var(--font-geist-sans)",
+                        fontFamily: "'IM Fell Great Primer', serif",
                         fontSize: "4px",
-                        color: "#4b5563",
+                        color: "#333",
+                        backgroundColor: "#f3f4f6",
+                        padding: "1px 4px",
+                        borderRadius: "2px"
+                      }}>JavaScript</span>
+                      <span style={{
+                        fontFamily: "'IM Fell Great Primer', serif",
+                        fontSize: "4px",
+                        color: "#333",
                         backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
@@ -1162,9 +1169,9 @@ export default function Home() {
                       </div>
                     </div>
                     <p style={{
-                      fontFamily: "var(--font-geist-sans)",
+                      fontFamily: "'IM Fell Great Primer', serif",
                       fontSize: "5px",
-                      color: "#1f2937",
+                      color: "#333",
                       lineHeight: "1.2",
                       marginBottom: "4px",
                       textAlign: "center"
@@ -1173,25 +1180,25 @@ export default function Home() {
                     </p>
                     <div className="flex flex-wrap gap-1 justify-center">
                       <span style={{
-                        fontFamily: "var(--font-geist-sans)",
+                        fontFamily: "'IM Fell Great Primer', serif",
                         fontSize: "4px",
-                        color: "#4b5563",
+                        color: "#333",
                         backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>React Native</span>
                       <span style={{
-                        fontFamily: "var(--font-geist-sans)",
+                        fontFamily: "'IM Fell Great Primer', serif",
                         fontSize: "4px",
-                        color: "#4b5563",
+                        color: "#333",
                         backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
                       }}>Firebase</span>
                       <span style={{
-                        fontFamily: "var(--font-geist-sans)",
+                        fontFamily: "'IM Fell Great Primer', serif",
                         fontSize: "4px",
-                        color: "#4b5563",
+                        color: "#333",
                         backgroundColor: "#f3f4f6",
                         padding: "1px 4px",
                         borderRadius: "2px"
@@ -1265,28 +1272,28 @@ export default function Home() {
                 }}
               >
                 <h3 style={{
-                  fontFamily: "'Myfont', sans-serif",
-                  fontSize: "12px",
+                  fontFamily: "'IM Fell Great Primer', serif",
+                  fontSize: "14px",
                   fontWeight: 600,
                   color: "#333",
                   marginBottom: "4px",
-                  marginTop: "4px",
+                  marginTop: "12px",
                   fontStyle: "italic"
                 }}>
                   art portfolio
                 </h3>
                 
                 <p style={{
-                  fontFamily: "'Myfont', sans-serif",
-                  fontSize: "12px",
+                  fontFamily: "'IM Fell Great Primer', serif",
+                  fontSize: "8px",
                   color: "#666",
-                  marginBottom: "4px",
+                  marginBottom: "12px",
                   marginTop: "0px",
                   lineHeight: "1.2",
                   textAlign: "center",
                   fontStyle: "italic"
                 }}>
-                  Check out some of the art I&apos;ve created over the years!
+                  check out some of the art i&apos;ve created over the years!
                 </p>
                 
                 {/* Notion Embed */}
@@ -1328,7 +1335,7 @@ export default function Home() {
             style={{
               transform: flippedPolaroid === 'home' ? 
                 "rotate(0deg) translateX(0px) translateY(-140px) scale(2.8)" : 
-                "rotate(-12deg) translateX(350px) translateY(-5px)",
+                "rotate(-12deg) translateX(370px) translateY(-5px)",
               transformOrigin: "center center",
               zIndex: flippedPolaroid === 'home' ? 100 : 1,
               perspective: "1000px"
@@ -1384,7 +1391,7 @@ export default function Home() {
                 }}
               >
                 <p style={{
-                  fontFamily: "'Myfont', sans-serif",
+                  fontFamily: "'IM Fell Great Primer', serif",
                   fontSize: "16px",
                   color: "#666",
                   lineHeight: "1.5"
