@@ -46,7 +46,7 @@ export default function Home() {
   const polaroidContent = {
     about: {
       title: "about me",
-      content: "Hi! I'm from Cary, North Carolina and I'm currently studying Computer Science and Art at Northwestern University. I'm passionate about blending my technical skills in software engineering with creativity and artistic design. In my free time, I love painting, playing the guitar, and beating my family in tennis."
+      content: "Hi! I'm from Cary, North Carolina and I'm currently studying Computer Science and Art at Northwestern University. I'm passionate about blending my technical skills in software engineering with creativity and product design. In my free time, I love painting, practicing guitar, playing tennis, and hiking."
     },
     work: {
       title: "work experience",
@@ -348,7 +348,7 @@ export default function Home() {
               
               {/* Back of polaroid */}
               <div 
-                className="absolute inset-0 w-full h-full bg-white p-4 flex flex-col justify-start items-start text-left overflow-y-auto"
+                className="absolute inset-0 w-full h-full bg-white p-4 pb-0 flex flex-col justify-start items-start text-left overflow-y-auto"
                 style={{ 
                   backfaceVisibility: "hidden",
                   transform: "rotateY(180deg)",
@@ -589,7 +589,7 @@ export default function Home() {
                   </h3>
                   
                   {/* Campus Involvement Timeline */}
-                  <div className="w-full relative">
+                  <div className="w-full relative mb-4">
                     {/* Vertical line connecting campus involvement dots only */}
                     <div className="absolute left-[2px] top-2 w-0.5 bg-gray-300 z-0" style={{
                       height: 'calc(100% - 35px)' // Shorter line for campus involvement
