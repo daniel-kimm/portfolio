@@ -206,75 +206,88 @@ export default function Home() {
                 className="absolute inset-0 w-full h-full bg-white p-5 flex flex-col justify-start items-center text-center"
                 style={{ 
                   backfaceVisibility: "hidden",
-                  transform: "rotateY(180deg)"
+                  transform: "rotateY(180deg)",
+                  backgroundImage: "url('/texture.jpg')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat"
                 }}
               >
-                <h3 style={{
-                  fontFamily: "'IM Fell Great Primer', serif",
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  color: "#333",
-                  marginBottom: "20px",
-                  marginTop: "20px",
-                  fontStyle: "italic"
-                }}>
-                  {polaroidContent.about.title}
-                </h3>
-                <p style={{
-                  fontFamily: "'IM Fell Great Primer', serif",
-                  fontSize: "8px",
-                  color: "#333",
-                  lineHeight: "2",
-                  fontStyle: "italic"
-                }}>
-                  {polaroidContent.about.content}
-                </p>
+                {/* White overlay to make text readable */}
+                <div 
+                  className="absolute inset-0 bg-white"
+                  style={{ opacity: 0.7 }}
+                ></div>
                 
-                {/* Email line
-                <div className="flex items-center space-x-2 mb-3">
-                  <svg 
-                    width="8" 
-                    height="8" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="#666" 
-                    strokeWidth="2"
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                  >
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                    <polyline points="22,6 12,13 2,6"/>
-                  </svg>
-                  <span style={{
-                    fontFamily: "'Myfont', sans-serif",
-                    fontSize: "12px",
-                    color: "#666"
+                {/* Content with higher z-index */}
+                <div className="relative z-10 w-full h-full flex flex-col justify-start items-center text-center">
+                  <h3 style={{
+                    fontFamily: "'IM Fell Great Primer', serif",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    color: "#333",
+                    marginBottom: "20px",
+                    marginTop: "20px",
+                    fontStyle: "italic"
                   }}>
-                    daniel<span style={{ fontSize: "12px" }}>-</span>kim<span style={{ fontSize: "8px" }}>@</span>u.northwestern.edu
-                  </span>
-                </div>
-                */}
-                
-                {/* Three images in a row */}
-                <div className="flex space-x-2 mt-auto mb-4">
-                  <img 
-                    src="/about_me/IMG_3783.jpg" 
-                    alt="About me 1" 
-                    className="w-16 h-16 object-cover rounded shadow-sm cursor-pointer hover:opacity-80 transition-opacity duration-200"
-                    onClick={(e) => handleImageClick('/about_me/IMG_3783.jpg', e)}
-                  />
-                  <img 
-                    src="/about_me/IMG_7846.jpg" 
-                    alt="About me 2" 
-                    className="w-16 h-16 object-cover rounded shadow-sm cursor-pointer hover:opacity-80 transition-opacity duration-200"
-                    onClick={(e) => handleImageClick('/about_me/IMG_7846.jpg', e)}
-                  />
-                  <img 
-                    src="/about_me/IMG_8222.jpg" 
-                    alt="About me 3" 
-                    className="w-16 h-16 object-cover rounded shadow-sm cursor-pointer hover:opacity-80 transition-opacity duration-200"
-                    onClick={(e) => handleImageClick('/about_me/IMG_8222.jpg', e)}
-                  />
+                    {polaroidContent.about.title}
+                  </h3>
+                  <p style={{
+                    fontFamily: "'IM Fell Great Primer', serif",
+                    fontSize: "8px",
+                    color: "#333",
+                    lineHeight: "2",
+                    fontStyle: "italic"
+                  }}>
+                    {polaroidContent.about.content}
+                  </p>
+                  
+                  {/* Email line
+                  <div className="flex items-center space-x-2 mb-3">
+                    <svg 
+                      width="8" 
+                      height="8" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="#666" 
+                      strokeWidth="2"
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    >
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                      <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    <span style={{
+                      fontFamily: "'Myfont', sans-serif",
+                      fontSize: "12px",
+                      color: "#666"
+                    }}>
+                      daniel<span style={{ fontSize: "12px" }}>-</span>kim<span style={{ fontSize: "8px" }}>@</span>u.northwestern.edu
+                    </span>
+                  </div>
+                  */}
+                  
+                  {/* Three images in a row */}
+                  <div className="flex space-x-2 mt-auto mb-4">
+                    <img 
+                      src="/about_me/IMG_3783.jpg" 
+                      alt="About me 1" 
+                      className="w-16 h-16 object-cover rounded shadow-sm cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                      onClick={(e) => handleImageClick('/about_me/IMG_3783.jpg', e)}
+                    />
+                    <img 
+                      src="/about_me/IMG_7846.jpg" 
+                      alt="About me 2" 
+                      className="w-16 h-16 object-cover rounded shadow-sm cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                      onClick={(e) => handleImageClick('/about_me/IMG_7846.jpg', e)}
+                    />
+                    <img 
+                      src="/about_me/IMG_8222.jpg" 
+                      alt="About me 3" 
+                      className="w-16 h-16 object-cover rounded shadow-sm cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                      onClick={(e) => handleImageClick('/about_me/IMG_8222.jpg', e)}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -338,317 +351,330 @@ export default function Home() {
                 className="absolute inset-0 w-full h-full bg-white p-4 flex flex-col justify-start items-start text-left overflow-y-auto"
                 style={{ 
                   backfaceVisibility: "hidden",
-                  transform: "rotateY(180deg)"
+                  transform: "rotateY(180deg)",
+                  backgroundImage: "url('/texture.jpg')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat"
                 }}
               >
-                {/* Handwritten work title and description */}
-                <div className="w-full text-center mb-4">
-                  <h2 style={{
+                {/* White overlay to make text readable */}
+                <div 
+                  className="absolute inset-0 bg-white"
+                  style={{ opacity: 0.7 }}
+                ></div>
+                
+                {/* Content with higher z-index */}
+                <div className="relative z-10 w-full h-full flex flex-col justify-start items-start text-left overflow-y-auto">
+                  {/* Handwritten work title and description */}
+                  <div className="w-full text-center mb-4">
+                    <h2 style={{
+                      fontFamily: "'IM Fell Great Primer', serif",
+                      fontSize: "14px",
+                      fontWeight: 600,
+                      color: "#333",
+                      marginBottom: "8px",
+                      fontStyle: "italic"
+                    }}>
+                      work
+                    </h2>
+                    <p style={{
+                      fontFamily: "'IM Fell Great Primer', serif",
+                      fontSize: "8px",
+                      color: "#666",
+                      lineHeight: "1",
+                      maxWidth: "200px",
+                      margin: "0 auto",
+                      fontStyle: "italic"
+                    }}>
+                      here&apos;s a comprehensive look at my professional experience and campus involvement!
+                    </p>
+                  </div>
+                  
+                  <h3 style={{
                     fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "14px",
+                    fontSize: "10px",
                     fontWeight: 600,
                     color: "#333",
-                    marginBottom: "8px",
+                    marginBottom: "15px",
+                    alignSelf: "center",
                     fontStyle: "italic"
                   }}>
-                    work
-                  </h2>
-                  <p style={{
+                    work experience
+                  </h3>
+                  
+                  {/* Work Experience Timeline */}
+                  <div className="w-full mb-2 relative">
+                    {/* Vertical line connecting work experience dots only */}
+                    <div className="absolute left-[2px] top-2 w-0.5 bg-gray-300 z-0" style={{
+                      height: 'calc(100% - 30px)' // Shorter line for work experience
+                    }}></div>
+                    
+                    {/* Osteoid Inc */}
+                    <div className="flex items-start mb-3 relative z-10">
+                      <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <img 
+                        src="/logos/osteoid.jpeg" 
+                        alt="Osteoid Inc. logo" 
+                        className="w-4 h-4 object-contain mr-3 flex-shrink-0 mt-1"
+                      />
+                      <div className="flex-1 min-w-0 flex items-start justify-between">
+                        <div className="flex-1 min-w-0 mt-0.5">
+                          <h4 style={{
+                            fontFamily: "'IM Fell Great Primer', serif",
+                            fontSize: "6px",
+                            fontWeight: 600,
+                            color: "#1f2937",
+                            marginBottom: "2px"
+                          }}>
+                            Software Engineer Intern
+                          </h4>
+                          <p style={{
+                            fontFamily: "'IM Fell Great Primer', serif",
+                            fontSize: "6px",
+                            color: "#4b5563",
+                            marginBottom: "0"
+                          }}>
+                            Osteoid Inc.
+                          </p>
+                        </div>
+                        <p style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "6px",
+                          color: "#9ca3af",
+                          flexShrink: 0,
+                          marginLeft: "8px",
+                          marginTop: "4px"
+                        }}>
+                          June 2025 - Present
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Elytra Robotics */}
+                    <div className="flex items-start mb-3 relative z-10">
+                      <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <img 
+                        src="/logos/elytra.jpeg" 
+                        alt="Elytra Robotics logo" 
+                        className="w-4 h-4 object-contain mr-3 flex-shrink-0 mt-1"
+                      />
+                      <div className="flex-1 min-w-0 flex items-start justify-between">
+                        <div className="flex-1 min-w-0 mt-0.5">
+                          <h4 style={{
+                            fontFamily: "'IM Fell Great Primer', serif",
+                            fontSize: "6px",
+                            fontWeight: 600,
+                            color: "#1f2937",
+                            marginBottom: "2px"
+                          }}>
+                            Machine Learning Intern
+                          </h4>
+                          <p style={{
+                            fontFamily: "'IM Fell Great Primer', serif",
+                            fontSize: "6px",
+                            color: "#4b5563",
+                            marginBottom: "0"
+                          }}>
+                            Elytra Robotics
+                          </p>
+                        </div>
+                        <p style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "6px",
+                          color: "#9ca3af",
+                          flexShrink: 0,
+                          marginLeft: "8px",
+                          marginTop: "4px"
+                        }}>
+                          March 2025 - June 2025
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Northwestern University */}
+                    <div className="flex items-start mb-3 relative z-10">
+                      <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <img 
+                        src="/logos/kellogg.jpeg" 
+                        alt="Northwestern University Kellogg logo" 
+                        className="w-4 h-4 object-contain mr-3 flex-shrink-0 mt-1"
+                      />
+                      <div className="flex-1 min-w-0 flex items-start justify-between">
+                        <div className="flex-1 min-w-0 mt-0.5">
+                          <h4 style={{
+                            fontFamily: "'IM Fell Great Primer', serif",
+                            fontSize: "6px",
+                            fontWeight: 600,
+                            color: "#1f2937",
+                            marginBottom: "2px"
+                          }}>
+                            IT Public Computing Technician
+                          </h4>
+                          <p style={{
+                            fontFamily: "'IM Fell Great Primer', serif",
+                            fontSize: "6px",
+                            color: "#4b5563",
+                            marginBottom: "0"
+                          }}>
+                            Northwestern University Kellogg Information Systems
+                          </p>
+                        </div>
+                        <p style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "6px",
+                          color: "#9ca3af",
+                          flexShrink: 0,
+                          marginLeft: "8px",
+                          marginTop: "4px"
+                        }}>
+                          October 2024 - Present
+                        </p>
+                      </div>
+                    </div>
+                    
+                    {/* Square One */}
+                    <div className="flex items-start mb-3 relative z-10">
+                      <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <img 
+                        src="/logos/squareone.jpeg" 
+                        alt="Square One logo" 
+                        className="w-4 h-4 object-contain mr-3 flex-shrink-0 mt-1"
+                      />
+                      <div className="flex-1 min-w-0 flex items-start justify-between">
+                        <div className="flex-1 min-w-0 mt-0.5">
+                          <h4 style={{
+                            fontFamily: "'IM Fell Great Primer', serif",
+                            fontSize: "6px",
+                            fontWeight: 600,
+                            color: "#1f2937",
+                            marginBottom: "2px"
+                          }}>
+                            Software Engineer Intern
+                          </h4>
+                          <p style={{
+                            fontFamily: "'IM Fell Great Primer', serif",
+                            fontSize: "6px",
+                            color: "#4b5563",
+                            marginBottom: "0"
+                          }}>
+                            Square One
+                          </p>
+                        </div>
+                        <p style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "6px",
+                          color: "#9ca3af",
+                          flexShrink: 0,
+                          marginLeft: "8px",
+                          marginTop: "4px"
+                        }}>
+                          October 2024 - March 2025
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Campus Involvement Section */}
+                  <h3 style={{
                     fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "8px",
-                    color: "#666",
-                    lineHeight: "1",
-                    maxWidth: "200px",
-                    margin: "0 auto",
+                    fontSize: "10px",
+                    fontWeight: 600,
+                    color: "#333",
+                    marginBottom: "10px",
+                    alignSelf: "center",
                     fontStyle: "italic"
                   }}>
-                    here&apos;s a comprehensive look at my professional experience and campus involvement!
-                  </p>
-                </div>
-                
-                <h3 style={{
-                  fontFamily: "'IM Fell Great Primer', serif",
-                  fontSize: "10px",
-                  fontWeight: 600,
-                  color: "#333",
-                  marginBottom: "15px",
-                  alignSelf: "center",
-                  fontStyle: "italic"
-                }}>
-                  work experience
-                </h3>
-                
-                {/* Work Experience Timeline */}
-                <div className="w-full mb-2 relative">
-                  {/* Vertical line connecting work experience dots only */}
-                  <div className="absolute left-[2px] top-2 w-0.5 bg-gray-300 z-0" style={{
-                    height: 'calc(100% - 30px)' // Shorter line for work experience
-                  }}></div>
+                    campus involvement
+                  </h3>
                   
-                  {/* Osteoid Inc */}
-                  <div className="flex items-start mb-3 relative z-10">
-                    <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <img 
-                      src="/logos/osteoid.jpeg" 
-                      alt="Osteoid Inc. logo" 
-                      className="w-4 h-4 object-contain mr-3 flex-shrink-0 mt-1"
-                    />
-                    <div className="flex-1 min-w-0 flex items-start justify-between">
-                      <div className="flex-1 min-w-0 mt-0.5">
-                        <h4 style={{
-                          fontFamily: "'IM Fell Great Primer', serif",
-                          fontSize: "6px",
-                          fontWeight: 600,
-                          color: "#1f2937",
-                          marginBottom: "2px"
-                        }}>
-                          Software Engineer Intern
-                        </h4>
-                        <p style={{
-                          fontFamily: "'IM Fell Great Primer', serif",
-                          fontSize: "6px",
-                          color: "#4b5563",
-                          marginBottom: "0"
-                        }}>
-                          Osteoid Inc.
-                        </p>
-                      </div>
-                      <p style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "6px",
-                        color: "#9ca3af",
-                        flexShrink: 0,
-                        marginLeft: "8px",
-                        marginTop: "4px"
-                      }}>
-                        June 2025 - Present
-                      </p>
-                    </div>
-                  </div>
-                  
-                  {/* Elytra Robotics */}
-                  <div className="flex items-start mb-3 relative z-10">
-                    <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <img 
-                      src="/logos/elytra.jpeg" 
-                      alt="Elytra Robotics logo" 
-                      className="w-4 h-4 object-contain mr-3 flex-shrink-0 mt-1"
-                    />
-                    <div className="flex-1 min-w-0 flex items-start justify-between">
-                      <div className="flex-1 min-w-0 mt-0.5">
-                        <h4 style={{
-                          fontFamily: "'IM Fell Great Primer', serif",
-                          fontSize: "6px",
-                          fontWeight: 600,
-                          color: "#1f2937",
-                          marginBottom: "2px"
-                        }}>
-                          Machine Learning Intern
-                        </h4>
-                        <p style={{
-                          fontFamily: "'IM Fell Great Primer', serif",
-                          fontSize: "6px",
-                          color: "#4b5563",
-                          marginBottom: "0"
-                        }}>
-                          Elytra Robotics
-                        </p>
-                      </div>
-                      <p style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "6px",
-                        color: "#9ca3af",
-                        flexShrink: 0,
-                        marginLeft: "8px",
-                        marginTop: "4px"
-                      }}>
-                        March 2025 - June 2025
-                      </p>
-                    </div>
-                  </div>
-                  
-                  {/* Northwestern University */}
-                  <div className="flex items-start mb-3 relative z-10">
-                    <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <img 
-                      src="/logos/kellogg.jpeg" 
-                      alt="Northwestern University Kellogg logo" 
-                      className="w-4 h-4 object-contain mr-3 flex-shrink-0 mt-1"
-                    />
-                    <div className="flex-1 min-w-0 flex items-start justify-between">
-                      <div className="flex-1 min-w-0 mt-0.5">
-                        <h4 style={{
-                          fontFamily: "'IM Fell Great Primer', serif",
-                          fontSize: "6px",
-                          fontWeight: 600,
-                          color: "#1f2937",
-                          marginBottom: "2px"
-                        }}>
-                          IT Public Computing Technician
-                        </h4>
-                        <p style={{
-                          fontFamily: "'IM Fell Great Primer', serif",
-                          fontSize: "6px",
-                          color: "#4b5563",
-                          marginBottom: "0"
-                        }}>
-                          Northwestern University Kellogg Information Systems
-                        </p>
-                      </div>
-                      <p style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "6px",
-                        color: "#9ca3af",
-                        flexShrink: 0,
-                        marginLeft: "8px",
-                        marginTop: "4px"
-                      }}>
-                        October 2024 - Present
-                      </p>
-                    </div>
-                  </div>
-                  
-                  {/* Square One */}
-                  <div className="flex items-start mb-3 relative z-10">
-                    <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <img 
-                      src="/logos/squareone.jpeg" 
-                      alt="Square One logo" 
-                      className="w-4 h-4 object-contain mr-3 flex-shrink-0 mt-1"
-                    />
-                    <div className="flex-1 min-w-0 flex items-start justify-between">
-                      <div className="flex-1 min-w-0 mt-0.5">
-                        <h4 style={{
-                          fontFamily: "'IM Fell Great Primer', serif",
-                          fontSize: "6px",
-                          fontWeight: 600,
-                          color: "#1f2937",
-                          marginBottom: "2px"
-                        }}>
-                          Software Engineer Intern
-                        </h4>
-                        <p style={{
-                          fontFamily: "'IM Fell Great Primer', serif",
-                          fontSize: "6px",
-                          color: "#4b5563",
-                          marginBottom: "0"
-                        }}>
-                          Square One
-                        </p>
-                      </div>
-                      <p style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "6px",
-                        color: "#9ca3af",
-                        flexShrink: 0,
-                        marginLeft: "8px",
-                        marginTop: "4px"
-                      }}>
-                        October 2024 - March 2025
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Campus Involvement Section */}
-                <h3 style={{
-                  fontFamily: "'IM Fell Great Primer', serif",
-                  fontSize: "10px",
-                  fontWeight: 600,
-                  color: "#333",
-                  marginBottom: "10px",
-                  alignSelf: "center",
-                  fontStyle: "italic"
-                }}>
-                  campus involvement
-                </h3>
-                
-                {/* Campus Involvement Timeline */}
-                <div className="w-full relative">
-                  {/* Vertical line connecting campus involvement dots only */}
-                  <div className="absolute left-[2px] top-2 w-0.5 bg-gray-300 z-0" style={{
-                    height: 'calc(100% - 35px)' // Shorter line for campus involvement
-                  }}></div>
+                  {/* Campus Involvement Timeline */}
+                  <div className="w-full relative">
+                    {/* Vertical line connecting campus involvement dots only */}
+                    <div className="absolute left-[2px] top-2 w-0.5 bg-gray-300 z-0" style={{
+                      height: 'calc(100% - 35px)' // Shorter line for campus involvement
+                    }}></div>
 
-                  {/* Mayfest Productions */}
-                  <div className="flex items-start mb-2 relative z-10">
-                    <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <img 
-                      src="/logos/mayfest.jpeg" 
-                      alt="Mayfest Productions logo" 
-                      className="w-4 h-4 object-contain mr-3 flex-shrink-0 mt-1"
-                    />
-                    <div className="flex-1 min-w-0 flex items-start justify-between">
-                      <div className="flex-1 min-w-0 mt-0.5">
-                        <h4 style={{
-                          fontFamily: "'IM Fell Great Primer', serif",
-                          fontSize: "6px",
-                          fontWeight: 600,
-                          color: "#1f2937",
-                          marginBottom: "2px"
-                        }}>
-                          General Board Member
-                        </h4>
+                    {/* Mayfest Productions */}
+                    <div className="flex items-start mb-2 relative z-10">
+                      <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <img 
+                        src="/logos/mayfest.jpeg" 
+                        alt="Mayfest Productions logo" 
+                        className="w-4 h-4 object-contain mr-3 flex-shrink-0 mt-1"
+                      />
+                      <div className="flex-1 min-w-0 flex items-start justify-between">
+                        <div className="flex-1 min-w-0 mt-0.5">
+                          <h4 style={{
+                            fontFamily: "'IM Fell Great Primer', serif",
+                            fontSize: "6px",
+                            fontWeight: 600,
+                            color: "#1f2937",
+                            marginBottom: "2px"
+                          }}>
+                            General Board Member
+                          </h4>
+                          <p style={{
+                            fontFamily: "'IM Fell Great Primer', serif",
+                            fontSize: "6px",
+                            color: "#4b5563",
+                            marginBottom: "0"
+                          }}>
+                            Mayfest Productions
+                          </p>
+                        </div>
                         <p style={{
                           fontFamily: "'IM Fell Great Primer', serif",
                           fontSize: "6px",
-                          color: "#4b5563",
-                          marginBottom: "0"
+                          color: "#9ca3af",
+                          flexShrink: 0,
+                          marginLeft: "8px",
+                          marginTop: "4px"
                         }}>
-                          Mayfest Productions
+                          October 2024 - Present
                         </p>
                       </div>
-                      <p style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "6px",
-                        color: "#9ca3af",
-                        flexShrink: 0,
-                        marginLeft: "8px",
-                        marginTop: "4px"
-                      }}>
-                        October 2024 - Present
-                      </p>
                     </div>
-                  </div>
-                  
-                  {/* IEEE */}
-                  <div className="flex items-start mb-3 relative z-10">
-                    <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <img 
-                      src="/logos/ieee.jpeg" 
-                      alt="IEEE logo" 
-                      className="w-4 h-4 object-contain mr-3 flex-shrink-0 mt-1"
-                    />
-                    <div className="flex-1 min-w-0 flex items-start justify-between">
-                      <div className="flex-1 min-w-0 mt-0.5">
-                        <h4 style={{
-                          fontFamily: "'IM Fell Great Primer', serif",
-                          fontSize: "6px",
-                          fontWeight: 600,
-                          color: "#1f2937",
-                          marginBottom: "2px"
-                        }}>
-                          Software Engineer
-                        </h4>
+                    
+                    {/* IEEE */}
+                    <div className="flex items-start mb-3 relative z-10">
+                      <div className="w-1.5 h-1.5 bg-black rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <img 
+                        src="/logos/ieee.jpeg" 
+                        alt="IEEE logo" 
+                        className="w-4 h-4 object-contain mr-3 flex-shrink-0 mt-1"
+                      />
+                      <div className="flex-1 min-w-0 flex items-start justify-between">
+                        <div className="flex-1 min-w-0 mt-0.5">
+                          <h4 style={{
+                            fontFamily: "'IM Fell Great Primer', serif",
+                            fontSize: "6px",
+                            fontWeight: 600,
+                            color: "#1f2937",
+                            marginBottom: "2px"
+                          }}>
+                            Software Engineer
+                          </h4>
+                          <p style={{
+                            fontFamily: "'IM Fell Great Primer', serif",
+                            fontSize: "6px",
+                            color: "#4b5563",
+                            marginBottom: "0"
+                          }}>
+                            Institute of Electrical and Electronics Engineers (IEEE)
+                          </p>
+                        </div>
                         <p style={{
                           fontFamily: "'IM Fell Great Primer', serif",
                           fontSize: "6px",
-                          color: "#4b5563",
-                          marginBottom: "0"
+                          color: "#9ca3af",
+                          flexShrink: 0,
+                          marginLeft: "8px",
+                          marginTop: "4px"
                         }}>
-                          Institute of Electrical and Electronics Engineers (IEEE)
+                          January 2025 - May 2025
                         </p>
                       </div>
-                      <p style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "6px",
-                        color: "#9ca3af",
-                        flexShrink: 0,
-                        marginLeft: "8px",
-                        marginTop: "4px"
-                      }}>
-                        January 2025 - May 2025
-                      </p>
                     </div>
                   </div>
                 </div>
@@ -711,498 +737,511 @@ export default function Home() {
               
               {/* Back of polaroid */}
               <div 
-                className="absolute inset-0 w-full h-full bg-white p-4 flex flex-col justify-start items-center text-center overflow-y-auto"
+                className="absolute inset-0 w-full h-full bg-white p-4 pb-0 flex flex-col justify-start items-center text-center overflow-y-auto"
                 style={{ 
                   backfaceVisibility: "hidden",
-                  transform: "rotateY(180deg)"
+                  transform: "rotateY(180deg)",
+                  backgroundImage: "url('/texture.jpg')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat"
                 }}
               >
-                <h3 style={{
-                  fontFamily: "'IM Fell Great Primer', serif",
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  color: "#333",
-                  marginBottom: "4px",
-                  marginTop: "0px",
-                  fontStyle: "italic"
-                }}>
-                  projects
-                </h3>
+                {/* White overlay to make text readable */}
+                <div 
+                  className="absolute inset-0 bg-white"
+                  style={{ opacity: 0.7 }}
+                ></div>
                 
-                <p style={{
-                  fontFamily: "'IM Fell Great Primer', serif",
-                  fontSize: "8px",
-                  color: "#666",
-                  lineHeight: "1.2",
-                  marginBottom: "10px",
-                  textAlign: "center",
-                  maxWidth: "200px",
-                  fontStyle: "italic"
-                }}>
-                  here&apos;s a collection of projects i&apos;ve worked on!
-                </p>
-                
-                {/* Projects Grid - 2x2 layout */}
-                <div className="grid grid-cols-2 gap-3 w-full max-w-[220px]">
-                  {/* Project 1 */}
-                  <div className="flex flex-col items-center">
-                    <div className="w-20 h-20 bg-gray-200 rounded overflow-hidden mb-2 relative">
-                      <img 
-                        src="/alto.png" 
-                        alt="Project 1" 
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                          const fallback = e.currentTarget.nextElementSibling as HTMLElement;
-                          if (fallback) {
-                            fallback.style.display = 'flex';
-                          }
-                        }}
-                      />
-                      <div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-300 flex items-center justify-center" style={{ display: 'none' }}>
-                        <span style={{ fontSize: '24px' }}>📱</span>
+                {/* Content with higher z-index */}
+                <div className="relative z-10 w-full h-full flex flex-col justify-start items-center text-center overflow-y-auto">
+                  <h3 style={{
+                    fontFamily: "'IM Fell Great Primer', serif",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    color: "#333",
+                    marginBottom: "4px",
+                    marginTop: "0px",
+                    fontStyle: "italic"
+                  }}>
+                    projects
+                  </h3>
+                  
+                  <p style={{
+                    fontFamily: "'IM Fell Great Primer', serif",
+                    fontSize: "8px",
+                    color: "#666",
+                    lineHeight: "1.2",
+                    marginBottom: "10px",
+                    textAlign: "center",
+                    maxWidth: "200px",
+                    fontStyle: "italic"
+                  }}>
+                    here&apos;s a collection of projects i&apos;ve worked on!
+                  </p>
+                  
+                  {/* Projects Grid - 2x2 layout */}
+                  <div className="grid grid-cols-2 gap-3 w-full max-w-[220px] mb-4">
+                    {/* Project 1 */}
+                    <div className="flex flex-col items-center">
+                      <div className="w-20 h-20 bg-gray-200 rounded overflow-hidden mb-2 relative border-1 border-black">
+                        <img 
+                          src="/alto.png" 
+                          alt="Project 1" 
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                            if (fallback) {
+                              fallback.style.display = 'flex';
+                            }
+                          }}
+                        />
+                        <div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-300 flex items-center justify-center" style={{ display: 'none' }}>
+                          <span style={{ fontSize: '24px' }}>📱</span>
+                        </div>
+                        {/* GitHub Icon */}
+                        <a 
+                          href="https://github.com" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="absolute top-1 left-1 w-3 h-3 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-70 transition-all duration-200 hover:scale-110"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                          </svg>
+                        </a>
+                        {/* Date badge */}
+                        <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white px-1 py-0.5 rounded" style={{
+                          fontSize: "4px",
+                          fontFamily: "var(--font-geist-sans)",
+                          lineHeight: "1"
+                        }}>
+                          2025
+                        </div>
                       </div>
-                      {/* GitHub Icon */}
-                      <a 
-                        href="https://github.com" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="absolute top-1 left-1 w-3 h-3 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-70 transition-all duration-200 hover:scale-110"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
-                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                      </a>
-                      {/* Date badge */}
-                      <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white px-1 py-0.5 rounded" style={{
-                        fontSize: "4px",
-                        fontFamily: "var(--font-geist-sans)",
-                        lineHeight: "1"
+                      <p style={{
+                        fontFamily: "'IM Fell Great Primer', serif",
+                        fontSize: "6px",
+                        color: "#333",
+                        lineHeight: "1.2",
+                        marginBottom: "4px",
+                        textAlign: "center",
                       }}>
-                        2025
+                        Alto: AI Voice Email Assistant
+                      </p>
+                      <div className="flex flex-wrap gap-1 justify-center">
+                        <span style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "4px",
+                          color: "#000000",
+                          backgroundColor: "#ffffff",
+                          padding: "1px 4px",
+                          borderRadius: "2px"
+                        }}>React Native</span>
+                        <span style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "4px",
+                          color: "#000000",
+                          backgroundColor: "#ffffff",
+                          padding: "1px 4px",
+                          borderRadius: "2px"
+                        }}>Expo</span>
+                        <span style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "4px",
+                          color: "#000000",
+                          backgroundColor: "#ffffff",
+                          padding: "1px 4px",
+                          borderRadius: "2px"
+                        }}>TypeScript</span>
                       </div>
                     </div>
-                    <p style={{
-                      fontFamily: "'IM Fell Great Primer', serif",
-                      fontSize: "5px",
-                      color: "#333",
-                      lineHeight: "1.2",
-                      marginBottom: "4px",
-                      textAlign: "center",
-                    }}>
-                      Alto: AI Voice Email Assistant
-                    </p>
-                    <div className="flex flex-wrap gap-1 justify-center">
-                      <span style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "4px",
-                        color: "#333",
-                        backgroundColor: "#f3f4f6",
-                        padding: "1px 4px",
-                        borderRadius: "2px"
-                      }}>React Native</span>
-                      <span style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "4px",
-                        color: "#333",
-                        backgroundColor: "#f3f4f6",
-                        padding: "1px 4px",
-                        borderRadius: "2px"
-                      }}>Expo</span>
-                      <span style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "4px",
-                        color: "#333",
-                        backgroundColor: "#f3f4f6",
-                        padding: "1px 4px",
-                        borderRadius: "2px"
-                      }}>TypeScript</span>
-                    </div>
-                  </div>
 
-                  {/* Project 2 */}
-                  <div className="flex flex-col items-center">
-                    <div className="w-20 h-20 bg-gray-200 rounded overflow-hidden mb-2 relative">
-                      <img 
-                        src="/ctecsnu.png" 
-                        alt="Project 2" 
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                          const fallback = e.currentTarget.nextElementSibling as HTMLElement;
-                          if (fallback) {
-                            fallback.style.display = 'flex';
-                          }
-                        }}
-                      />
-                      <div className="w-full h-full bg-gradient-to-br from-green-100 to-green-300 flex items-center justify-center" style={{ display: 'none' }}>
-                        <span style={{ fontSize: '24px' }}>🌐</span>
+                    {/* Project 2 */}
+                    <div className="flex flex-col items-center">
+                      <div className="w-20 h-20 bg-gray-200 rounded overflow-hidden mb-2 relative border-1 border-black">
+                        <img 
+                          src="/ctecsnu.png" 
+                          alt="Project 2" 
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                            if (fallback) {
+                              fallback.style.display = 'flex';
+                            }
+                          }}
+                        />
+                        <div className="w-full h-full bg-gradient-to-br from-green-100 to-green-300 flex items-center justify-center" style={{ display: 'none' }}>
+                          <span style={{ fontSize: '24px' }}>🌐</span>
+                        </div>
+                        {/* GitHub Icon */}
+                        <a 
+                          href="https://github.com/Charliehyin/CTECs-Summarizer" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="absolute top-1 left-1 w-3 h-3 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-70 transition-all duration-200 hover:scale-110"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                          </svg>
+                        </a>
+                        {/* Date badge */}
+                        <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white px-1 py-0.5 rounded" style={{
+                          fontSize: "4px",
+                          fontFamily: "var(--font-geist-sans)",
+                          lineHeight: "1"
+                        }}>
+                          2025
+                        </div>
                       </div>
-                      {/* GitHub Icon */}
-                      <a 
-                        href="https://github.com/Charliehyin/CTECs-Summarizer" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="absolute top-1 left-1 w-3 h-3 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-70 transition-all duration-200 hover:scale-110"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
-                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                      </a>
-                      {/* Date badge */}
-                      <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white px-1 py-0.5 rounded" style={{
-                        fontSize: "4px",
-                        fontFamily: "var(--font-geist-sans)",
-                        lineHeight: "1"
+                      <p style={{
+                        fontFamily: "'IM Fell Great Primer', serif",
+                        fontSize: "6px",
+                        color: "#333",
+                        lineHeight: "1.2",
+                        marginBottom: "4px",
+                        textAlign: "center"
                       }}>
-                        2025
+                        ctecs.nu: NU Course Assistant
+                      </p>
+                      <div className="flex flex-wrap gap-1 justify-center">
+                        <span style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "4px",
+                          color: "#000000",
+                          backgroundColor: "#ffffff",
+                          padding: "1px 4px",
+                          borderRadius: "2px"
+                        }}>JavaScript</span>
+                        <span style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "4px",
+                          color: "#000000",
+                          backgroundColor: "#ffffff",
+                          padding: "1px 4px",
+                          borderRadius: "2px"
+                        }}>AWS</span>
+                        <span style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "4px",
+                          color: "#000000",
+                          backgroundColor: "#ffffff",
+                          padding: "1px 4px",
+                          borderRadius: "2px"
+                        }}>RAG</span>
                       </div>
                     </div>
-                    <p style={{
-                      fontFamily: "'IM Fell Great Primer', serif",
-                      fontSize: "5px",
-                      color: "#333",
-                      lineHeight: "1.2",
-                      marginBottom: "4px",
-                      textAlign: "center"
-                    }}>
-                      ctecs.nu: NU Course Assistant
-                    </p>
-                    <div className="flex flex-wrap gap-1 justify-center">
-                      <span style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "4px",
-                        color: "#333",
-                        backgroundColor: "#f3f4f6",
-                        padding: "1px 4px",
-                        borderRadius: "2px"
-                      }}>JavaScript</span>
-                      <span style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "4px",
-                        color: "#333",
-                        backgroundColor: "#f3f4f6",
-                        padding: "1px 4px",
-                        borderRadius: "2px"
-                      }}>AWS</span>
-                      <span style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "4px",
-                        color: "#333",
-                        backgroundColor: "#f3f4f6",
-                        padding: "1px 4px",
-                        borderRadius: "2px"
-                      }}>RAG</span>
-                    </div>
-                  </div>
 
-                  {/* Project 3 - New Project */}
-                  <div className="flex flex-col items-center">
-                    <div className="w-20 h-20 bg-gray-200 rounded overflow-hidden mb-2 relative">
-                      <img 
-                        src="/crm.png" 
-                        alt="Project 3" 
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                          const fallback = e.currentTarget.nextElementSibling as HTMLElement;
-                          if (fallback) {
-                            fallback.style.display = 'flex';
-                          }
-                        }}
-                      />
-                      <div className="w-full h-full bg-gradient-to-br from-red-100 to-red-300 flex items-center justify-center" style={{ display: 'none' }}>
-                        <span style={{ fontSize: '24px' }}>💻</span>
+                    {/* Project 3 - New Project */}
+                    <div className="flex flex-col items-center">
+                      <div className="w-20 h-20 bg-gray-200 rounded overflow-hidden mb-2 relative border-1 border-black">
+                        <img 
+                          src="/crm.png" 
+                          alt="Project 3" 
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                            if (fallback) {
+                              fallback.style.display = 'flex';
+                            }
+                          }}
+                        />
+                        <div className="w-full h-full bg-gradient-to-br from-red-100 to-red-300 flex items-center justify-center" style={{ display: 'none' }}>
+                          <span style={{ fontSize: '24px' }}>💻</span>
+                        </div>
+                        {/* GitHub Icon */}
+                        <a 
+                          href="https://github.com/daniel-kimm/elytra-crm" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="absolute top-1 left-1 w-3 h-3 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-70 transition-all duration-200 hover:scale-110"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                          </svg>
+                        </a>
+                        {/* Date badge */}
+                        <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white px-1 py-0.5 rounded" style={{
+                          fontSize: "4px",
+                          fontFamily: "var(--font-geist-sans)",
+                          lineHeight: "1"
+                        }}>
+                          2025
+                        </div>
                       </div>
-                      {/* GitHub Icon */}
-                      <a 
-                        href="https://github.com/daniel-kimm/elytra-crm" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="absolute top-1 left-1 w-3 h-3 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-70 transition-all duration-200 hover:scale-110"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
-                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                      </a>
-                      {/* Date badge */}
-                      <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white px-1 py-0.5 rounded" style={{
-                        fontSize: "4px",
-                        fontFamily: "var(--font-geist-sans)",
-                        lineHeight: "1"
+                      <p style={{
+                        fontFamily: "'IM Fell Great Primer', serif",
+                        fontSize: "6px",
+                        color: "#333",
+                        lineHeight: "1.2",
+                        marginBottom: "4px",
+                        textAlign: "center"
                       }}>
-                        2025
+                        CRM Platform
+                      </p>
+                      <div className="flex flex-wrap gap-1 justify-center">
+                        <span style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "4px",
+                          color: "#000000",
+                          backgroundColor: "#ffffff",
+                          padding: "1px 4px",
+                          borderRadius: "2px"
+                        }}>TypeScript</span>
+                        <span style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "4px",
+                          color: "#000000",
+                          backgroundColor: "#ffffff",
+                          padding: "1px 4px",
+                          borderRadius: "2px"
+                        }}>Docker</span>
+                        <span style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "4px",
+                          color: "#000000",
+                          backgroundColor: "#ffffff",
+                          padding: "1px 4px",
+                          borderRadius: "2px"
+                        }}>Supabase</span>
                       </div>
                     </div>
-                    <p style={{
-                      fontFamily: "'IM Fell Great Primer', serif",
-                      fontSize: "5px",
-                      color: "#333",
-                      lineHeight: "1.2",
-                      marginBottom: "4px",
-                      textAlign: "center"
-                    }}>
-                      CRM Platform
-                    </p>
-                    <div className="flex flex-wrap gap-1 justify-center">
-                      <span style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "4px",
-                        color: "#333",
-                        backgroundColor: "#f3f4f6",
-                        padding: "1px 4px",
-                        borderRadius: "2px"
-                      }}>TypeScript</span>
-                      <span style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "4px",
-                        color: "#333",
-                        backgroundColor: "#f3f4f6",
-                        padding: "1px 4px",
-                        borderRadius: "2px"
-                      }}>Docker</span>
-                      <span style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "4px",
-                        color: "#333",
-                        backgroundColor: "#f3f4f6",
-                        padding: "1px 4px",
-                        borderRadius: "2px"
-                      }}>Supabase</span>
-                    </div>
-                  </div>
 
-                  {/* Project 4 - New Project */}
-                  <div className="flex flex-col items-center">
-                    <div className="w-20 h-20 bg-gray-200 rounded overflow-hidden mb-2 relative">
-                      <img 
-                        src="/9032scout.png" 
-                        alt="Project 4" 
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                          const fallback = e.currentTarget.nextElementSibling as HTMLElement;
-                          if (fallback) {
-                            fallback.style.display = 'flex';
-                          }
-                        }}
-                      />
-                      <div className="w-full h-full bg-gradient-to-br from-teal-100 to-teal-300 flex items-center justify-center" style={{ display: 'none' }}>
-                        <span style={{ fontSize: '24px' }}>⚡</span>
+                    {/* Project 4 - New Project */}
+                    <div className="flex flex-col items-center">
+                      <div className="w-20 h-20 bg-gray-200 rounded overflow-hidden mb-2 relative border-1 border-black">
+                        <img 
+                          src="/9032scout.png" 
+                          alt="Project 4" 
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                            if (fallback) {
+                              fallback.style.display = 'flex';
+                            }
+                          }}
+                        />
+                        <div className="w-full h-full bg-gradient-to-br from-teal-100 to-teal-300 flex items-center justify-center" style={{ display: 'none' }}>
+                          <span style={{ fontSize: '24px' }}>⚡</span>
+                        </div>
+                        {/* GitHub Icon */}
+                        <a 
+                          href="https://github.com/daniel-kimm/robowhales-scouting" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="absolute top-1 left-1 w-3 h-3 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-70 transition-all duration-200 hover:scale-110"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                          </svg>
+                        </a>
+                        {/* Date badge */}
+                        <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white px-1 py-0.5 rounded" style={{
+                          fontSize: "4px",
+                          fontFamily: "var(--font-geist-sans)",
+                          lineHeight: "1"
+                        }}>
+                          2025
+                        </div>
                       </div>
-                      {/* GitHub Icon */}
-                      <a 
-                        href="https://github.com/daniel-kimm/robowhales-scouting" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="absolute top-1 left-1 w-3 h-3 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-70 transition-all duration-200 hover:scale-110"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
-                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                      </a>
-                      {/* Date badge */}
-                      <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white px-1 py-0.5 rounded" style={{
-                        fontSize: "4px",
-                        fontFamily: "var(--font-geist-sans)",
-                        lineHeight: "1"
+                      <p style={{
+                        fontFamily: "'IM Fell Great Primer', serif",
+                        fontSize: "6px",
+                        color: "#333",
+                        lineHeight: "1.2",
+                        marginBottom: "4px",
+                        textAlign: "center"
                       }}>
-                        2025
+                        FRC Scouting App
+                      </p>
+                      <div className="flex flex-wrap gap-1 justify-center">
+                        <span style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "4px",
+                          color: "#000000",
+                          backgroundColor: "#ffffff",
+                          padding: "1px 4px",
+                          borderRadius: "2px"
+                        }}>Firebase</span>
+                        <span style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "4px",
+                          color: "#000000",
+                          backgroundColor: "#ffffff",
+                          padding: "1px 4px",
+                          borderRadius: "2px"
+                        }}>Express</span>
+                        <span style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "4px",
+                          color: "#000000",
+                          backgroundColor: "#ffffff",
+                          padding: "1px 4px",
+                          borderRadius: "2px"
+                        }}>RAG</span>
                       </div>
                     </div>
-                    <p style={{
-                      fontFamily: "'IM Fell Great Primer', serif",
-                      fontSize: "5px",
-                      color: "#333",
-                      lineHeight: "1.2",
-                      marginBottom: "4px",
-                      textAlign: "center"
-                    }}>
-                      FRC Scouting App
-                    </p>
-                    <div className="flex flex-wrap gap-1 justify-center">
-                      <span style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "4px",
-                        color: "#333",
-                        backgroundColor: "#f3f4f6",
-                        padding: "1px 4px",
-                        borderRadius: "2px"
-                      }}>Firebase</span>
-                      <span style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "4px",
-                        color: "#333",
-                        backgroundColor: "#f3f4f6",
-                        padding: "1px 4px",
-                        borderRadius: "2px"
-                      }}>Express</span>
-                      <span style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "4px",
-                        color: "#333",
-                        backgroundColor: "#f3f4f6",
-                        padding: "1px 4px",
-                        borderRadius: "2px"
-                      }}>RAG</span>
-                    </div>
-                  </div>
 
-                  {/* Project 5 */}
-                  <div className="flex flex-col items-center">
-                    <div className="w-20 h-20 bg-gray-200 rounded overflow-hidden mb-2 relative">
-                      <img 
-                        src="/nupuritytest.png" 
-                        alt="Project 5" 
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                          const fallback = e.currentTarget.nextElementSibling as HTMLElement;
-                          if (fallback) {
-                            fallback.style.display = 'flex';
-                          }
-                        }}
-                      />
-                      <div className="w-full h-full bg-gradient-to-br from-purple-100 to-purple-300 flex items-center justify-center" style={{ display: 'none' }}>
-                        <span style={{ fontSize: '24px' }}>🤖</span>
+                    {/* Project 5 */}
+                    <div className="flex flex-col items-center">
+                      <div className="w-20 h-20 bg-gray-200 rounded overflow-hidden mb-2 relative border-1 border-black">
+                        <img 
+                          src="/nupuritytest.png" 
+                          alt="Project 5" 
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                            if (fallback) {
+                              fallback.style.display = 'flex';
+                            }
+                          }}
+                        />
+                        <div className="w-full h-full bg-gradient-to-br from-purple-100 to-purple-300 flex items-center justify-center" style={{ display: 'none' }}>
+                          <span style={{ fontSize: '24px' }}>🤖</span>
+                        </div>
+                        {/* GitHub Icon */}
+                        <a 
+                          href="https://github.com/daniel-kimm/northwesternpuritytest" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="absolute top-1 left-1 w-3 h-3 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-70 transition-all duration-200 hover:scale-110"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.30 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                          </svg>
+                        </a>
+                        {/* Date badge */}
+                        <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white px-1 py-0.5 rounded" style={{
+                          fontSize: "4px",
+                          fontFamily: "var(--font-geist-sans)",
+                          lineHeight: "1"
+                        }}>
+                          2025
+                        </div>
                       </div>
-                      {/* GitHub Icon */}
-                      <a 
-                        href="https://github.com/daniel-kimm/northwesternpuritytest" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="absolute top-1 left-1 w-3 h-3 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-70 transition-all duration-200 hover:scale-110"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
-                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                      </a>
-                      {/* Date badge */}
-                      <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white px-1 py-0.5 rounded" style={{
-                        fontSize: "4px",
-                        fontFamily: "var(--font-geist-sans)",
-                        lineHeight: "1"
+                      <p style={{
+                        fontFamily: "'IM Fell Great Primer', serif",
+                        fontSize: "6px",
+                        color: "#333",
+                        lineHeight: "1.2",
+                        marginBottom: "4px",
+                        textAlign: "center"
                       }}>
-                        2025
+                        Northwestern Purity Test
+                      </p>
+                      <div className="flex flex-wrap gap-1 justify-center">
+                        <span style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "4px",
+                          color: "#000000",
+                          backgroundColor: "#ffffff",
+                          padding: "1px 4px",
+                          borderRadius: "2px"
+                        }}>React</span>
+                        <span style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "4px",
+                          color: "#000000",
+                          backgroundColor: "#ffffff",
+                          padding: "1px 4px",
+                          borderRadius: "2px"
+                        }}>JavaScript</span>
+                        <span style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "4px",
+                          color: "#000000",
+                          backgroundColor: "#ffffff",
+                          padding: "1px 4px",
+                          borderRadius: "2px"
+                        }}>Vercel</span>
                       </div>
                     </div>
-                    <p style={{
-                      fontFamily: "'IM Fell Great Primer', serif",
-                      fontSize: "5px",
-                      color: "#333",
-                      lineHeight: "1.2",
-                      marginBottom: "4px",
-                      textAlign: "center"
-                    }}>
-                      Northwestern Purity Test
-                    </p>
-                    <div className="flex flex-wrap gap-1 justify-center">
-                      <span style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "4px",
-                        color: "#333",
-                        backgroundColor: "#f3f4f6",
-                        padding: "1px 4px",
-                        borderRadius: "2px"
-                      }}>React</span>
-                      <span style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "4px",
-                        color: "#333",
-                        backgroundColor: "#f3f4f6",
-                        padding: "1px 4px",
-                        borderRadius: "2px"
-                      }}>JavaScript</span>
-                      <span style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "4px",
-                        color: "#333",
-                        backgroundColor: "#f3f4f6",
-                        padding: "1px 4px",
-                        borderRadius: "2px"
-                      }}>Vercel</span>
-                    </div>
-                  </div>
 
-                  {/* Project 6 */}
-                  <div className="flex flex-col items-center">
-                    <div className="w-20 h-20 bg-gray-200 rounded overflow-hidden mb-2 relative">
-                      <img 
-                        src="/IMG_6734.PNG" 
-                        alt="Project 6" 
-                        className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                          const fallback = e.currentTarget.nextElementSibling as HTMLElement;
-                          if (fallback) {
-                            fallback.style.display = 'flex';
-                          }
-                        }}
-                      />
-                      <div className="w-full h-full bg-gradient-to-br from-orange-100 to-orange-300 flex items-center justify-center" style={{ display: 'none' }}>
-                        <span style={{ fontSize: '24px' }}>📊</span>
+                    {/* Project 6 */}
+                    <div className="flex flex-col items-center">
+                      <div className="w-20 h-20 bg-gray-200 rounded overflow-hidden mb-2 relative border-1 border-black">
+                        <img 
+                          src="/IMG_6734.PNG" 
+                          alt="Project 6" 
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                            if (fallback) {
+                              fallback.style.display = 'flex';
+                            }
+                          }}
+                        />
+                        <div className="w-full h-full bg-gradient-to-br from-orange-100 to-orange-300 flex items-center justify-center" style={{ display: 'none' }}>
+                          <span style={{ fontSize: '24px' }}>📊</span>
+                        </div>
+                        {/* GitHub Icon */}
+                        <a 
+                          href="https://github.com/SquareOneOrg/SQ1App" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="absolute top-1 left-1 w-3 h-3 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-70 transition-all duration-200 hover:scale-110"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                          </svg>
+                        </a>
+                        {/* Date badge */}
+                        <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white px-1 py-0.5 rounded" style={{
+                          fontSize: "4px",
+                          fontFamily: "var(--font-geist-sans)",
+                          lineHeight: "1"
+                        }}>
+                          2024
+                        </div>
                       </div>
-                      {/* GitHub Icon */}
-                      <a 
-                        href="https://github.com/SquareOneOrg/SQ1App" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="absolute top-1 left-1 w-3 h-3 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-70 transition-all duration-200 hover:scale-110"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
-                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                      </a>
-                      {/* Date badge */}
-                      <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white px-1 py-0.5 rounded" style={{
-                        fontSize: "4px",
-                        fontFamily: "var(--font-geist-sans)",
-                        lineHeight: "1"
+                      <p style={{
+                        fontFamily: "'IM Fell Great Primer', serif",
+                        fontSize: "6px",
+                        color: "#333",
+                        lineHeight: "1.2",
+                        marginBottom: "4px",
+                        textAlign: "center"
                       }}>
-                        2024
+                        Square One Mobile App
+                      </p>
+                      <div className="flex flex-wrap gap-1 justify-center">
+                        <span style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "4px",
+                          color: "#000000",
+                          backgroundColor: "#ffffff",
+                          padding: "1px 4px",
+                          borderRadius: "2px"
+                        }}>React Native</span>
+                        <span style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "4px",
+                          color: "#000000",
+                          backgroundColor: "#ffffff",
+                          padding: "1px 4px",
+                          borderRadius: "2px"
+                        }}>Firebase</span>
+                        <span style={{
+                          fontFamily: "'IM Fell Great Primer', serif",
+                          fontSize: "4px",
+                          color: "#000000",
+                          backgroundColor: "#ffffff",
+                          padding: "1px 4px",
+                          borderRadius: "2px"
+                        }}>Expo</span>
                       </div>
-                    </div>
-                    <p style={{
-                      fontFamily: "'IM Fell Great Primer', serif",
-                      fontSize: "5px",
-                      color: "#333",
-                      lineHeight: "1.2",
-                      marginBottom: "4px",
-                      textAlign: "center"
-                    }}>
-                      Square One Mobile App
-                    </p>
-                    <div className="flex flex-wrap gap-1 justify-center">
-                      <span style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "4px",
-                        color: "#333",
-                        backgroundColor: "#f3f4f6",
-                        padding: "1px 4px",
-                        borderRadius: "2px"
-                      }}>React Native</span>
-                      <span style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "4px",
-                        color: "#333",
-                        backgroundColor: "#f3f4f6",
-                        padding: "1px 4px",
-                        borderRadius: "2px"
-                      }}>Firebase</span>
-                      <span style={{
-                        fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "4px",
-                        color: "#333",
-                        backgroundColor: "#f3f4f6",
-                        padding: "1px 4px",
-                        borderRadius: "2px"
-                      }}>Expo</span>
                     </div>
                   </div>
                 </div>
@@ -1268,62 +1307,75 @@ export default function Home() {
                 className="absolute inset-0 w-full h-full bg-white p-1 flex flex-col justify-start items-center text-center overflow-hidden"
                 style={{ 
                   backfaceVisibility: "hidden",
-                  transform: "rotateY(180deg)"
+                  transform: "rotateY(180deg)",
+                  backgroundImage: "url('/texture.jpg')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat"
                 }}
               >
-                <h3 style={{
-                  fontFamily: "'IM Fell Great Primer', serif",
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  color: "#333",
-                  marginBottom: "4px",
-                  marginTop: "12px",
-                  fontStyle: "italic"
-                }}>
-                  art portfolio
-                </h3>
-                
-                <p style={{
-                  fontFamily: "'IM Fell Great Primer', serif",
-                  fontSize: "8px",
-                  color: "#666",
-                  marginBottom: "12px",
-                  marginTop: "0px",
-                  lineHeight: "1.2",
-                  textAlign: "center",
-                  fontStyle: "italic"
-                }}>
-                  check out some of the art i&apos;ve created over the years!
-                </p>
-                
-                {/* Notion Embed */}
+                {/* White overlay to make text readable */}
                 <div 
-                  className="notion-embed-container"
-                  style={{
-                    width: '100%',
-                    height: 'calc(100% - 16px)',
-                    border: 'none',
-                    borderRadius: '6px',
-                    overflow: 'hidden',
-                    position: 'relative',
-                    marginTop: '4px'
-                  }}
-                >
-                  <iframe
-                    src="https://v2-embednotion.com/2287174313a48091b380d24b3197a7bd"
+                  className="absolute inset-0 bg-white"
+                  style={{ opacity: 0.7 }}
+                ></div>
+                
+                {/* Content with higher z-index */}
+                <div className="relative z-10 w-full h-full flex flex-col justify-start items-center text-center overflow-hidden">
+                  <h3 style={{
+                    fontFamily: "'IM Fell Great Primer', serif",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    color: "#333",
+                    marginBottom: "4px",
+                    marginTop: "12px",
+                    fontStyle: "italic"
+                  }}>
+                    art portfolio
+                  </h3>
+                  
+                  <p style={{
+                    fontFamily: "'IM Fell Great Primer', serif",
+                    fontSize: "8px",
+                    color: "#666",
+                    marginBottom: "12px",
+                    marginTop: "0px",
+                    lineHeight: "1.2",
+                    textAlign: "center",
+                    fontStyle: "italic"
+                  }}>
+                    check out some of the art i&apos;ve created over the years!
+                  </p>
+                  
+                  {/* Notion Embed */}
+                  <div 
+                    className="notion-embed-container"
                     style={{
-                      width: '400%',
-                      height: '400%',
+                      width: '100%',
+                      height: 'calc(100% - 16px)',
                       border: 'none',
                       borderRadius: '6px',
-                      transform: 'scale(0.25)',
-                      transformOrigin: 'top left',
-                      position: 'absolute',
-                      top: '0',
-                      left: '0'
+                      overflow: 'hidden',
+                      position: 'relative',
+                      marginTop: '4px'
                     }}
-                    title="Art Portfolio"
-                  />
+                  >
+                    <iframe
+                      src="https://v2-embednotion.com/2287174313a48091b380d24b3197a7bd"
+                      style={{
+                        width: '400%',
+                        height: '400%',
+                        border: 'none',
+                        borderRadius: '6px',
+                        transform: 'scale(0.25)',
+                        transformOrigin: 'top left',
+                        position: 'absolute',
+                        top: '0',
+                        left: '0'
+                      }}
+                      title="Art Portfolio"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -1387,17 +1439,30 @@ export default function Home() {
                 className="absolute inset-0 w-full h-full bg-white p-5 flex flex-col justify-center items-center text-center"
                 style={{ 
                   backfaceVisibility: "hidden",
-                  transform: "rotateY(180deg)"
+                  transform: "rotateY(180deg)",
+                  backgroundImage: "url('/texture.jpg')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat"
                 }}
               >
-                <p style={{
-                  fontFamily: "'IM Fell Great Primer', serif",
-                  fontSize: "16px",
-                  color: "#666",
-                  lineHeight: "1.5"
-                }}>
-                  Click any polaroid to explore my portfolio
-                </p>
+                {/* White overlay to make text readable */}
+                <div 
+                  className="absolute inset-0 bg-white"
+                  style={{ opacity: 0.7 }}
+                ></div>
+                
+                {/* Content with higher z-index */}
+                <div className="relative z-10 w-full h-full flex flex-col justify-center items-center text-center">
+                  <p style={{
+                    fontFamily: "'IM Fell Great Primer', serif",
+                    fontSize: "16px",
+                    color: "#666",
+                    lineHeight: "1.5"
+                  }}>
+                    Click any polaroid to explore my portfolio
+                  </p>
+                </div>
               </div>
             </div>
           </div>
