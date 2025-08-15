@@ -439,7 +439,7 @@ export default function Home() {
                             color: "#1f2937",
                             marginBottom: "2px"
                           }}>
-                            Software Engineer Intern
+                            Software Engineering Intern
                           </h4>
                           <p style={{
                             fontFamily: "'IM Fell Great Primer', serif",
@@ -480,7 +480,7 @@ export default function Home() {
                             color: "#1f2937",
                             marginBottom: "2px"
                           }}>
-                            Machine Learning Intern
+                            ML/Software Engineering Intern
                           </h4>
                           <p style={{
                             fontFamily: "'IM Fell Great Primer', serif",
@@ -562,7 +562,7 @@ export default function Home() {
                             color: "#1f2937",
                             marginBottom: "2px"
                           }}>
-                            Software Engineer Intern
+                            Software Engineering Intern
                           </h4>
                           <p style={{
                             fontFamily: "'IM Fell Great Primer', serif",
