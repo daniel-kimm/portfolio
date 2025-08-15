@@ -7,6 +7,18 @@ export default function Home() {
   const [flippedPolaroid, setFlippedPolaroid] = useState<string | null>(null);
   const [expandedImage, setExpandedImage] = useState<string | null>(null);
   const [isClosing, setIsClosing] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if we're on mobile
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handlePolaroidClick = (polaroidType: string) => {
     if (polaroidType === 'home') {
@@ -81,10 +93,10 @@ export default function Home() {
           className="mb-6 responsive-title"
           style={{
             fontFamily: "'IM Fell Great Primer', serif",
-            fontSize: "72px",
+            fontSize: isMobile ? "56px" : "72px",
             fontWeight: 400,
-            letterSpacing: "4px",
-            lineHeight: "80px",
+            letterSpacing: isMobile ? "2px" : "4px",
+            lineHeight: isMobile ? "62px" : "80px",
             color: "#ffffff"
           }}
         >
@@ -95,10 +107,10 @@ export default function Home() {
           style={{
             fontFamily: "'Myfont', sans-serif",
             fontStyle: "italic",
-            fontSize: "48px",
+            fontSize: isMobile ? "38px" : "48px",
             fontWeight: 400,
             letterSpacing: "1px",
-            lineHeight: "28px",
+            lineHeight: isMobile ? "42px" : "28px",
             color: "#ffffff"
           }}
         >
@@ -146,7 +158,7 @@ export default function Home() {
       </div>
 
       {/* Polaroid Navigation - Responsive container */}
-      <div className="polaroid-nav-container absolute bottom-40 left-1/2 transform -translate-x-1/2 z-10">
+      <div className={isMobile ? "polaroid-nav-container" : "polaroid-nav-container absolute bottom-40 left-1/2 transform -translate-x-1/2 z-10"}>
         <div className="polaroid-container relative flex items-center justify-center">
           {/* About Me Polaroid - Now First (Leftmost) */}
           <div 
@@ -154,7 +166,7 @@ export default function Home() {
             style={{
               transform: flippedPolaroid === 'about' ? 
                 "rotate(0deg) translateX(0px) translateY(-140px) scale(2.8)" : 
-                "rotate(-8deg) translateX(-370px) translateY(-20px)",
+                "rotate(-8deg) translateX(-430px) translateY(-20px)",
               transformOrigin: "center center",
               zIndex: flippedPolaroid === 'about' ? 100 : 5,
               perspective: "1000px"
@@ -293,15 +305,15 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Work Polaroid - Now Second */}
+          {/* Work Polaroid - Now Third (Center) */}
           <div 
             className="absolute cursor-pointer transition-all duration-700 hover:scale-105 hover:shadow-3xl"
             style={{
               transform: flippedPolaroid === 'work' ? 
                 "rotate(0deg) translateX(0px) translateY(-140px) scale(2.8)" : 
-                "rotate(12deg) translateX(-175px) translateY(15px)",
+                "rotate(-3deg) translateX(0px) translateY(-10px)",
               transformOrigin: "center center",
-              zIndex: flippedPolaroid === 'work' ? 100 : 4,
+              zIndex: flippedPolaroid === 'work' ? 100 : 3,
               perspective: "1000px"
             }}
             onClick={() => handlePolaroidClick('work')}
@@ -309,7 +321,7 @@ export default function Home() {
               if (!flippedPolaroid) e.currentTarget.style.zIndex = '50';
             }}
             onMouseLeave={(e) => {
-              if (!flippedPolaroid) e.currentTarget.style.zIndex = '4';
+              if (!flippedPolaroid) e.currentTarget.style.zIndex = '3';
             }}
           >
             <div 
@@ -341,7 +353,7 @@ export default function Home() {
                     letterSpacing: "0.5px",
                     fontStyle: "italic"
                   }}>
-                    work
+                    experience
                   </p>
                 </div>
               </div>
@@ -682,15 +694,15 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Projects Polaroid - Now Third (Center) */}
+          {/* Projects Polaroid - Now Second */}
           <div 
             className="absolute cursor-pointer transition-all duration-700 hover:scale-105 hover:shadow-3xl"
             style={{
               transform: flippedPolaroid === 'projects' ? 
                 "rotate(0deg) translateX(0px) translateY(-140px) scale(2.8)" : 
-                "rotate(-3deg) translateX(0px) translateY(-10px)",
+                "rotate(12deg) translateX(-215px) translateY(15px)",
               transformOrigin: "center center",
-              zIndex: flippedPolaroid === 'projects' ? 100 : 3,
+              zIndex: flippedPolaroid === 'projects' ? 100 : 4,
               perspective: "1000px"
             }}
             onClick={() => handlePolaroidClick('projects')}
@@ -698,7 +710,7 @@ export default function Home() {
               if (!flippedPolaroid) e.currentTarget.style.zIndex = '50';
             }}
             onMouseLeave={(e) => {
-              if (!flippedPolaroid) e.currentTarget.style.zIndex = '3';
+              if (!flippedPolaroid) e.currentTarget.style.zIndex = '4';
             }}
           >
             <div 
@@ -810,7 +822,7 @@ export default function Home() {
                         >
                           <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                          </svg>
+                    </svg>
                         </a>
                         {/* Date badge */}
                         <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white px-1 py-0.5 rounded" style={{
@@ -832,7 +844,7 @@ export default function Home() {
                         Alto: AI Voice Email Assistant
                       </p>
                       <div className="flex flex-wrap gap-1 justify-center">
-                        <span style={{
+                    <span style={{
                           fontFamily: "'IM Fell Great Primer', serif",
                           fontSize: "4px",
                           color: "#000000",
@@ -896,7 +908,7 @@ export default function Home() {
                           lineHeight: "1"
                         }}>
                           2025
-                        </div>
+                  </div>
                       </div>
                       <p style={{
                         fontFamily: "'IM Fell Great Primer', serif",
@@ -1107,7 +1119,7 @@ export default function Home() {
                         />
                         <div className="w-full h-full bg-gradient-to-br from-purple-100 to-purple-300 flex items-center justify-center" style={{ display: 'none' }}>
                           <span style={{ fontSize: '24px' }}>🤖</span>
-                        </div>
+                  </div>
                         {/* GitHub Icon */}
                         <a 
                           href="https://github.com/daniel-kimm/northwesternpuritytest" 
@@ -1117,7 +1129,7 @@ export default function Home() {
                           onClick={(e) => e.stopPropagation()}
                         >
                           <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.30 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                           </svg>
                         </a>
                         {/* Date badge */}
@@ -1127,8 +1139,8 @@ export default function Home() {
                           lineHeight: "1"
                         }}>
                           2025
-                        </div>
-                      </div>
+                </div>
+              </div>
                       <p style={{
                         fontFamily: "'IM Fell Great Primer', serif",
                         fontSize: "6px",
@@ -1164,8 +1176,8 @@ export default function Home() {
                           padding: "1px 4px",
                           borderRadius: "2px"
                         }}>Vercel</span>
-                      </div>
-                    </div>
+            </div>
+          </div>
 
                     {/* Project 6 */}
                     <div className="flex flex-col items-center">
@@ -1255,7 +1267,7 @@ export default function Home() {
             style={{
               transform: flippedPolaroid === 'art' ? 
                 "rotate(0deg) translateX(0px) translateY(-140px) scale(2.8)" : 
-                "rotate(7deg) translateX(175px) translateY(20px)",
+                "rotate(7deg) translateX(215px) translateY(20px)",
               transformOrigin: "center center",
               zIndex: flippedPolaroid === 'art' ? 100 : 2,
               perspective: "1000px"
@@ -1387,7 +1399,7 @@ export default function Home() {
             style={{
               transform: flippedPolaroid === 'home' ? 
                 "rotate(0deg) translateX(0px) translateY(-140px) scale(2.8)" : 
-                "rotate(-12deg) translateX(370px) translateY(-5px)",
+                "rotate(-12deg) translateX(430px) translateY(-5px)",
               transformOrigin: "center center",
               zIndex: flippedPolaroid === 'home' ? 100 : 1,
               perspective: "1000px"
@@ -1632,7 +1644,7 @@ export default function Home() {
           
           .responsive-title {
             font-size: 48px !important;
-            line-height: 56px !important;
+            line-height: 54px !important;
             letter-spacing: 2px !important;
           }
           
@@ -1644,28 +1656,86 @@ export default function Home() {
 
         /* Mobile styles */
         @media (max-width: 767px) {
-          .polaroid-nav-container {
-            position: relative !important;
-            bottom: auto !important;
+          /* HIGHEST PRIORITY OVERRIDES - Override Tailwind utility classes */
+          div.polaroid-nav-container.absolute {
+            position: static !important;
+            top: auto !important;
             left: auto !important;
+            right: auto !important;
+            bottom: auto !important;
             transform: none !important;
-            margin-top: 2rem;
-            padding: 0 1rem;
+            margin: 4rem auto 0 auto !important;
+            padding: 2rem 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            height: auto !important;
+            width: 100% !important;
+            max-width: 100vw !important;
+            overflow: visible !important;
+            z-index: 10 !important;
+          }
+          
+          .polaroid-nav-container {
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
+            right: auto !important;
+            bottom: auto !important;
+            transform: none !important;
+            margin: 4rem auto 0 auto !important;
+            padding: 2rem 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            height: auto !important;
+            width: 100% !important;
+            max-width: 100vw !important;
+            overflow: visible !important;
+            z-index: 10 !important;
           }
           
           .polaroid-container {
             width: 100% !important;
-            max-width: 320px;
+            max-width: 320px !important;
             height: auto !important;
             flex-direction: column !important;
-            gap: 1rem;
+            gap: 3rem !important;
+            position: relative !important;
+            margin: 0 auto !important;
+            padding: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
           }
           
+          /* FORCE OVERRIDE INLINE TRANSFORMS - This is the key fix! */
           .polaroid-container > div {
             position: relative !important;
             transform: none !important;
-            margin: 0 !important;
+            margin: 0 auto !important;
             z-index: auto !important;
+            width: 256px !important;
+            height: 320px !important;
+            flex-shrink: 0 !important;
+            /* Force override any inline transform styles */
+            left: auto !important;
+            right: auto !important;
+            top: auto !important;
+            bottom: auto !important;
+          }
+
+          /* Force override ALL inline transforms on mobile */
+          .polaroid-container > div[style] {
+            transform: none !important;
+            position: relative !important;
+            margin: 0 auto !important;
+            left: auto !important;
+            right: auto !important;
+            top: auto !important;
+            bottom: auto !important;
           }
           
           .polaroid-container > div:hover {
@@ -1675,31 +1745,49 @@ export default function Home() {
           
           /* Override flipped polaroid styles for mobile */
           .polaroid-container > div[style*="scale(2.8)"] {
-            transform: scale(1.8) !important;
+            transform: scale(1.2) !important;
+            position: relative !important;
+            margin: 0 auto !important;
+          }
+          
+          /* Ensure all polaroids are visible and properly spaced */
+          .polaroid-container > div:nth-child(1),
+          .polaroid-container > div:nth-child(2),
+          .polaroid-container > div:nth-child(3),
+          .polaroid-container > div:nth-child(4),
+          .polaroid-container > div:nth-child(5) {
+            position: relative !important;
+            transform: none !important;
+            margin: 0 auto !important;
+            display: block !important;
+            left: auto !important;
+            right: auto !important;
+            top: auto !important;
+            bottom: auto !important;
           }
           
           .responsive-title {
-            font-size: 36px !important;
-            line-height: 42px !important;
+            font-size: 56px !important;
+            line-height: 62px !important;
             letter-spacing: 1px !important;
           }
           
           .responsive-subtitle {
-            font-size: 24px !important;
-            line-height: 28px !important;
+            font-size: 38px !important;
+            line-height: 42px !important;
           }
         }
 
         /* Small mobile styles */
         @media (max-width: 480px) {
           .responsive-title {
-            font-size: 28px !important;
-            line-height: 34px !important;
+            font-size: 48px !important;
+            line-height: 54px !important;
           }
           
           .responsive-subtitle {
-            font-size: 18px !important;
-            line-height: 22px !important;
+            font-size: 32px !important;
+            line-height: 36px !important;
           }
           
           .polaroid-container {
