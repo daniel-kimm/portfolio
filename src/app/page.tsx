@@ -8,11 +8,13 @@ export default function Home() {
   const [expandedImage, setExpandedImage] = useState<string | null>(null);
   const [isClosing, setIsClosing] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
 
   // Check if we're on mobile
   React.useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 767);
+      setIsMobileOrTablet(window.innerWidth <= 1023);
     };
     
     checkMobile();
@@ -93,10 +95,10 @@ export default function Home() {
           className="mb-6 responsive-title"
           style={{
             fontFamily: "'IM Fell Great Primer', serif",
-            fontSize: isMobile ? "56px" : "72px",
+            fontSize: isMobile ? "3.5rem" : "4.5rem",
             fontWeight: 400,
-            letterSpacing: isMobile ? "2px" : "4px",
-            lineHeight: isMobile ? "62px" : "80px",
+            letterSpacing: isMobile ? "0.125rem" : "0.25rem",
+            lineHeight: isMobile ? "3.875rem" : "5rem",
             color: "#ffffff"
           }}
         >
@@ -107,10 +109,10 @@ export default function Home() {
           style={{
             fontFamily: "'Myfont', sans-serif",
             fontStyle: "italic",
-            fontSize: isMobile ? "38px" : "48px",
+            fontSize: isMobile ? "2.375rem" : "3rem",
             fontWeight: 400,
-            letterSpacing: "1px",
-            lineHeight: isMobile ? "42px" : "28px",
+            letterSpacing: "0.0625rem",
+            lineHeight: isMobile ? "2.625rem" : "1.75rem",
             color: "#ffffff"
           }}
         >
@@ -127,8 +129,8 @@ export default function Home() {
             className="text-white hover:text-gray-300 transition-colors duration-300"
           >
             <svg 
-              width="32" 
-              height="32" 
+              width="2rem" 
+              height="2rem" 
               viewBox="0 0 24 24" 
               fill="currentColor"
               className="hover:scale-110 transition-transform duration-300"
@@ -145,8 +147,8 @@ export default function Home() {
             className="text-white hover:text-gray-300 transition-colors duration-300"
           >
             <svg 
-              width="32" 
-              height="32" 
+              width="2rem" 
+              height="2rem" 
               viewBox="0 0 24 24" 
               fill="currentColor"
               className="hover:scale-110 transition-transform duration-300"
@@ -158,15 +160,15 @@ export default function Home() {
       </div>
 
       {/* Polaroid Navigation - Responsive container */}
-      <div className={isMobile ? "polaroid-nav-container" : "polaroid-nav-container absolute bottom-40 left-1/2 transform -translate-x-1/2 z-10"}>
+      <div className={isMobileOrTablet ? "polaroid-nav-container" : "polaroid-nav-container absolute bottom-[15vh] left-1/2 transform -translate-x-1/2 z-10"}>
         <div className="polaroid-container relative flex items-center justify-center">
           {/* About Me Polaroid - Now First (Leftmost) */}
           <div 
             className="absolute cursor-pointer transition-all duration-700 hover:scale-105 hover:shadow-3xl"
             style={{
               transform: flippedPolaroid === 'about' ? 
-                "rotate(0deg) translateX(0px) translateY(-140px) scale(2.8)" : 
-                "rotate(-8deg) translateX(-430px) translateY(-20px)",
+                "rotate(0deg) translateX(0px) translateY(-8.75rem) scale(2.8)" : 
+                "rotate(-8deg) translateX(-26.875rem) translateY(-1.25rem)",
               transformOrigin: "center center",
               zIndex: flippedPolaroid === 'about' ? 100 : 5,
               perspective: "1000px"
@@ -202,10 +204,10 @@ export default function Home() {
                 <div className="absolute bottom-5 left-0 right-0 text-center">
                   <p style={{
                     fontFamily: "'Myfont', sans-serif",
-                    fontSize: "40px",
+                    fontSize: "2.5rem",
                     fontWeight: 600,
                     color: "#333",
-                    letterSpacing: "0.5px",
+                    letterSpacing: "0.03125rem",
                     fontStyle: "italic"
                   }}>
                     about me
@@ -235,18 +237,18 @@ export default function Home() {
                 <div className="relative z-10 w-full h-full flex flex-col justify-start items-center text-center">
                   <h3 style={{
                     fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "14px",
+                    fontSize: "0.875rem",
                     fontWeight: 600,
                     color: "#333",
-                    marginBottom: "20px",
-                    marginTop: "20px",
+                    marginBottom: "0.25rem",
+                    marginTop: "0rem",
                     fontStyle: "italic"
                   }}>
                     {polaroidContent.about.title}
                   </h3>
                   <p style={{
                     fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "8px",
+                    fontSize: "0.5rem",
                     color: "#333",
                     lineHeight: "2",
                     fontStyle: "italic"
@@ -284,19 +286,31 @@ export default function Home() {
                     <img 
                       src="/about_me/IMG_3783.jpg" 
                       alt="About me 1" 
-                      className="w-16 h-16 object-cover rounded shadow-sm cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                      className="object-cover rounded shadow-sm cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                      style={{
+                        width: "4rem",
+                        height: "4rem"
+                      }}
                       onClick={(e) => handleImageClick('/about_me/IMG_3783.jpg', e)}
                     />
                     <img 
                       src="/about_me/IMG_7846.jpg" 
                       alt="About me 2" 
-                      className="w-16 h-16 object-cover rounded shadow-sm cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                      className="object-cover rounded shadow-sm cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                      style={{
+                        width: "4rem",
+                        height: "4rem"
+                      }}
                       onClick={(e) => handleImageClick('/about_me/IMG_7846.jpg', e)}
                     />
                     <img 
                       src="/about_me/IMG_8222.jpg" 
                       alt="About me 3" 
-                      className="w-16 h-16 object-cover rounded shadow-sm cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                      className="object-cover rounded shadow-sm cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                      style={{
+                        width: "4rem",
+                        height: "4rem"
+                      }}
                       onClick={(e) => handleImageClick('/about_me/IMG_8222.jpg', e)}
                     />
                   </div>
@@ -310,8 +324,8 @@ export default function Home() {
             className="absolute cursor-pointer transition-all duration-700 hover:scale-105 hover:shadow-3xl"
             style={{
               transform: flippedPolaroid === 'work' ? 
-                "rotate(0deg) translateX(0px) translateY(-140px) scale(2.8)" : 
-                "rotate(-3deg) translateX(0px) translateY(-10px)",
+                "rotate(0deg) translateX(0px) translateY(-8.75rem) scale(2.8)" : 
+                "rotate(-3deg) translateX(0px) translateY(-0.625rem)",
               transformOrigin: "center center",
               zIndex: flippedPolaroid === 'work' ? 100 : 3,
               perspective: "1000px"
@@ -347,10 +361,10 @@ export default function Home() {
                 <div className="absolute bottom-5 left-0 right-0 text-center">
                   <p style={{
                     fontFamily: "'Myfont', sans-serif",
-                    fontSize: "40px",
+                    fontSize: "2.5rem",
                     fontWeight: 600,
                     color: "#333",
-                    letterSpacing: "0.5px",
+                    letterSpacing: "0.03125rem",
                     fontStyle: "italic"
                   }}>
                     experience
@@ -382,20 +396,20 @@ export default function Home() {
                   <div className="w-full text-center mb-4">
                     <h2 style={{
                       fontFamily: "'IM Fell Great Primer', serif",
-                      fontSize: "14px",
+                      fontSize: "0.875rem",
                       fontWeight: 600,
                       color: "#333",
-                      marginBottom: "8px",
+                      marginBottom: "0.5rem",
                       fontStyle: "italic"
                     }}>
                       work
                     </h2>
                     <p style={{
                       fontFamily: "'IM Fell Great Primer', serif",
-                      fontSize: "8px",
+                      fontSize: "0.5rem",
                       color: "#666",
                       lineHeight: "1",
-                      maxWidth: "200px",
+                      maxWidth: "12.5rem",
                       margin: "0 auto",
                       fontStyle: "italic"
                     }}>
@@ -405,10 +419,10 @@ export default function Home() {
                   
                   <h3 style={{
                     fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "10px",
+                    fontSize: "0.625rem",
                     fontWeight: 600,
                     color: "#333",
-                    marginBottom: "15px",
+                    marginBottom: "0.625rem",
                     alignSelf: "center",
                     fontStyle: "italic"
                   }}>
@@ -428,22 +442,26 @@ export default function Home() {
                       <img 
                         src="/logos/osteoid.jpeg" 
                         alt="Osteoid Inc. logo" 
-                        className="w-4 h-4 object-contain mr-3 flex-shrink-0 mt-1"
+                        className="object-contain mr-3 flex-shrink-0 mt-1"
+                        style={{
+                          width: "1rem",
+                          height: "1rem"
+                        }}
                       />
                       <div className="flex-1 min-w-0 flex items-start justify-between">
                         <div className="flex-1 min-w-0 mt-0.5">
                           <h4 style={{
                             fontFamily: "'IM Fell Great Primer', serif",
-                            fontSize: "6px",
+                            fontSize: "0.375rem",
                             fontWeight: 600,
                             color: "#1f2937",
-                            marginBottom: "2px"
+                            marginBottom: "0.125rem"
                           }}>
                             Software Engineering Intern
                           </h4>
                           <p style={{
                             fontFamily: "'IM Fell Great Primer', serif",
-                            fontSize: "6px",
+                            fontSize: "0.375rem",
                             color: "#4b5563",
                             marginBottom: "0"
                           }}>
@@ -452,11 +470,11 @@ export default function Home() {
                         </div>
                         <p style={{
                           fontFamily: "'IM Fell Great Primer', serif",
-                          fontSize: "6px",
+                          fontSize: "0.375rem",
                           color: "#9ca3af",
                           flexShrink: 0,
-                          marginLeft: "8px",
-                          marginTop: "4px"
+                          marginLeft: "0.5rem",
+                          marginTop: "0.25rem"
                         }}>
                           June 2025 - Present
                         </p>
@@ -590,10 +608,10 @@ export default function Home() {
                   {/* Campus Involvement Section */}
                   <h3 style={{
                     fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "10px",
+                    fontSize: "0.625rem",
                     fontWeight: 600,
                     color: "#333",
-                    marginBottom: "10px",
+                    marginBottom: "0.625rem",
                     alignSelf: "center",
                     fontStyle: "italic"
                   }}>
@@ -699,8 +717,8 @@ export default function Home() {
             className="absolute cursor-pointer transition-all duration-700 hover:scale-105 hover:shadow-3xl"
             style={{
               transform: flippedPolaroid === 'projects' ? 
-                "rotate(0deg) translateX(0px) translateY(-140px) scale(2.8)" : 
-                "rotate(12deg) translateX(-215px) translateY(15px)",
+                "rotate(0deg) translateX(0px) translateY(-8.75rem) scale(2.8)" : 
+                "rotate(12deg) translateX(-13.4375rem) translateY(0.9375rem)",
               transformOrigin: "center center",
               zIndex: flippedPolaroid === 'projects' ? 100 : 4,
               perspective: "1000px"
@@ -736,10 +754,10 @@ export default function Home() {
                 <div className="absolute bottom-5 left-0 right-0 text-center">
                   <p style={{
                     fontFamily: "'Myfont', sans-serif",
-                    fontSize: "40px",
+                    fontSize: "2.5rem",
                     fontWeight: 600,
                     color: "#333",
-                    letterSpacing: "0.5px",
+                    letterSpacing: "0.03125rem",
                     fontStyle: "italic"
                   }}>
                     projects
@@ -769,11 +787,11 @@ export default function Home() {
                 <div className="relative z-10 w-full h-full flex flex-col justify-start items-center text-center overflow-y-auto">
                   <h3 style={{
                     fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "14px",
+                    fontSize: "0.875rem",
                     fontWeight: 600,
                     color: "#333",
-                    marginBottom: "4px",
-                    marginTop: "0px",
+                    marginBottom: "0.25rem",
+                    marginTop: "0rem",
                     fontStyle: "italic"
                   }}>
                     projects
@@ -781,22 +799,25 @@ export default function Home() {
                   
                   <p style={{
                     fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "8px",
+                    fontSize: "0.5rem",
                     color: "#666",
                     lineHeight: "1.2",
-                    marginBottom: "10px",
+                    marginBottom: "0.625rem",
                     textAlign: "center",
-                    maxWidth: "200px",
+                    maxWidth: "12.5rem",
                     fontStyle: "italic"
                   }}>
                     here&apos;s a collection of projects i&apos;ve worked on!
                   </p>
                   
                   {/* Projects Grid - 2x2 layout */}
-                  <div className="grid grid-cols-2 gap-3 w-full max-w-[220px] mb-4">
+                  <div className="grid grid-cols-2 gap-3 w-full mb-4" style={{ maxWidth: "13.75rem" }}>
                     {/* Project 1 */}
                     <div className="flex flex-col items-center">
-                      <div className="w-20 h-20 bg-gray-200 rounded overflow-hidden mb-2 relative border-1 border-black">
+                      <div className="bg-gray-200 rounded overflow-hidden mb-2 relative border-1 border-black" style={{
+                        width: "5rem",
+                        height: "5rem"
+                      }}>
                         <img 
                           src="/alto.png" 
                           alt="Project 1" 
@@ -810,35 +831,40 @@ export default function Home() {
                           }}
                         />
                         <div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-300 flex items-center justify-center" style={{ display: 'none' }}>
-                          <span style={{ fontSize: '24px' }}>📱</span>
+                          <span style={{ fontSize: '1.5rem' }}>📱</span>
                         </div>
                         {/* GitHub Icon */}
                         <a 
                           href="https://github.com" 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="absolute top-1 left-1 w-3 h-3 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-70 transition-all duration-200 hover:scale-110"
+                          className="absolute top-1 left-1 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-70 transition-all duration-200 hover:scale-110"
+                          style={{
+                            width: "0.75rem",
+                            height: "0.75rem"
+                          }}
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <svg width="8" height="8" viewBox="0 0 24 24" fill="white">
+                          <svg width="0.5rem" height="0.5rem" viewBox="0 0 24 24" fill="white">
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
                         </a>
                         {/* Date badge */}
-                        <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white px-1 py-0.5 rounded" style={{
-                          fontSize: "4px",
+                        <div className="absolute top-1 right-1 bg-black bg-opacity-75 text-white rounded" style={{
+                          fontSize: "0.25rem",
                           fontFamily: "var(--font-geist-sans)",
-                          lineHeight: "1"
+                          lineHeight: "1",
+                          padding: "0.0625rem 0.25rem"
                         }}>
                           2025
                         </div>
                       </div>
                       <p style={{
                         fontFamily: "'IM Fell Great Primer', serif",
-                        fontSize: "6px",
+                        fontSize: "0.375rem",
                         color: "#333",
                         lineHeight: "1.2",
-                        marginBottom: "4px",
+                        marginBottom: "0.25rem",
                         textAlign: "center",
                       }}>
                         Alto: AI Voice Email Assistant
@@ -846,27 +872,27 @@ export default function Home() {
                       <div className="flex flex-wrap gap-1 justify-center">
                     <span style={{
                           fontFamily: "'IM Fell Great Primer', serif",
-                          fontSize: "4px",
+                          fontSize: "0.25rem",
                           color: "#000000",
                           backgroundColor: "#ffffff",
-                          padding: "1px 4px",
-                          borderRadius: "2px"
+                          padding: "0.0625rem 0.25rem",
+                          borderRadius: "0.125rem"
                         }}>React Native</span>
                         <span style={{
                           fontFamily: "'IM Fell Great Primer', serif",
-                          fontSize: "4px",
+                          fontSize: "0.25rem",
                           color: "#000000",
                           backgroundColor: "#ffffff",
-                          padding: "1px 4px",
-                          borderRadius: "2px"
+                          padding: "0.0625rem 0.25rem",
+                          borderRadius: "0.125rem"
                         }}>Expo</span>
                         <span style={{
                           fontFamily: "'IM Fell Great Primer', serif",
-                          fontSize: "4px",
+                          fontSize: "0.25rem",
                           color: "#000000",
                           backgroundColor: "#ffffff",
-                          padding: "1px 4px",
-                          borderRadius: "2px"
+                          padding: "0.0625rem 0.25rem",
+                          borderRadius: "0.125rem"
                         }}>TypeScript</span>
                       </div>
                     </div>
@@ -1266,8 +1292,8 @@ export default function Home() {
             className="absolute cursor-pointer transition-all duration-700 hover:scale-105 hover:shadow-3xl"
             style={{
               transform: flippedPolaroid === 'art' ? 
-                "rotate(0deg) translateX(0px) translateY(-140px) scale(2.8)" : 
-                "rotate(7deg) translateX(215px) translateY(20px)",
+                "rotate(0deg) translateX(0px) translateY(-8.75rem) scale(2.8)" : 
+                "rotate(7deg) translateX(13.4375rem) translateY(1.25rem)",
               transformOrigin: "center center",
               zIndex: flippedPolaroid === 'art' ? 100 : 2,
               perspective: "1000px"
@@ -1303,10 +1329,10 @@ export default function Home() {
                 <div className="absolute bottom-5 left-0 right-0 text-center">
                   <p style={{
                     fontFamily: "'Myfont', sans-serif",
-                    fontSize: "40px",
+                    fontSize: "2.5rem",
                     fontWeight: 600,
                     color: "#333",
-                    letterSpacing: "0.5px",
+                    letterSpacing: "0.03125rem",
                     fontStyle: "italic"
                   }}>
                     art
@@ -1398,8 +1424,8 @@ export default function Home() {
             className="absolute cursor-pointer transition-all duration-700 hover:scale-105 hover:shadow-3xl"
             style={{
               transform: flippedPolaroid === 'home' ? 
-                "rotate(0deg) translateX(0px) translateY(-140px) scale(2.8)" : 
-                "rotate(-12deg) translateX(430px) translateY(-5px)",
+                "rotate(0deg) translateX(0px) translateY(-8.75rem) scale(2.8)" : 
+                "rotate(-12deg) translateX(26.875rem) translateY(4.375rem)",
               transformOrigin: "center center",
               zIndex: flippedPolaroid === 'home' ? 100 : 1,
               perspective: "1000px"
@@ -1499,7 +1525,7 @@ export default function Home() {
             }}
           >
             <img 
-              src={expandedImage} 
+              src={expandedImage || ''} 
               alt="Expanded view" 
               className="max-w-full max-h-full object-contain rounded-lg shadow-2xl transition-all duration-300 ease-out"
               onClick={(e) => e.stopPropagation()}
@@ -1574,10 +1600,10 @@ export default function Home() {
         /* Artwork text styling to prevent global overrides */
         .artwork-title {
           font-family: 'Frank Ruhl Libre', serif !important;
-          font-size: 11px !important;
+          font-size: 0.6875rem !important;
           font-weight: 600 !important;
           color: #333 !important;
-          margin: 0 0 4px 0 !important;
+          margin: 0 0 0.25rem 0 !important;
           padding: 0 !important;
           border: none !important;
           line-height: 1.3 !important;
@@ -1588,9 +1614,9 @@ export default function Home() {
         
         .artwork-medium {
           font-family: 'Frank Ruhl Libre', serif !important;
-          font-size: 9px !important;
+          font-size: 0.5625rem !important;
           color: #666 !important;
-          margin: 0 0 2px 0 !important;
+          margin: 0 0 0.125rem 0 !important;
           padding: 0 !important;
           border: none !important;
           line-height: 1.3 !important;
@@ -1598,7 +1624,7 @@ export default function Home() {
         
         .artwork-size {
           font-family: 'Frank Ruhl Libre', serif !important;
-          font-size: 9px !important;
+          font-size: 0.5625rem !important;
           color: #999 !important;
           margin: 0 !important;
           padding: 0 !important;
@@ -1609,53 +1635,15 @@ export default function Home() {
         /* Desktop styles (maintain current appearance) */
         @media (min-width: 1024px) {
           .polaroid-container {
-            width: 1300px;
+            width: 81.25rem;
             height: 24rem;
           }
         }
 
-        /* Tablet styles */
-        @media (max-width: 1023px) and (min-width: 768px) {
-          .polaroid-nav-container {
-            position: relative !important;
-            bottom: auto !important;
-            left: auto !important;
-            transform: none !important;
-            margin-top: 2rem;
-          }
-          
-          .polaroid-container {
-            width: 100% !important;
-            max-width: 600px;
-            height: auto !important;
-            flex-direction: column !important;
-            gap: 1rem;
-          }
-          
-          .polaroid-container > div {
-            position: relative !important;
-            transform: none !important;
-            margin: 0 !important;
-          }
-          
-          .polaroid-container > div:hover {
-            transform: scale(1.05) !important;
-          }
-          
-          .responsive-title {
-            font-size: 48px !important;
-            line-height: 54px !important;
-            letter-spacing: 2px !important;
-          }
-          
-          .responsive-subtitle {
-            font-size: 32px !important;
-            line-height: 36px !important;
-          }
-        }
 
-        /* Mobile styles */
-        @media (max-width: 767px) {
+
+        /* Mobile and Tablet styles */
+        @media (max-width: 1023px) {
           /* HIGHEST PRIORITY OVERRIDES - Override Tailwind utility classes */
           div.polaroid-nav-container.absolute {
             position: static !important;
@@ -1699,10 +1687,10 @@ export default function Home() {
           
           .polaroid-container {
             width: 100% !important;
-            max-width: 320px !important;
+            max-width: 37.5rem !important;
             height: auto !important;
             flex-direction: column !important;
-            gap: 3rem !important;
+            gap: 2rem !important;
             position: relative !important;
             margin: 0 auto !important;
             padding: 0 !important;
@@ -1717,8 +1705,8 @@ export default function Home() {
             transform: none !important;
             margin: 0 auto !important;
             z-index: auto !important;
-            width: 256px !important;
-            height: 320px !important;
+            width: 16rem !important;
+            height: 20rem !important;
             flex-shrink: 0 !important;
             /* Force override any inline transform styles */
             left: auto !important;
@@ -1767,31 +1755,62 @@ export default function Home() {
           }
           
           .responsive-title {
-            font-size: 56px !important;
-            line-height: 62px !important;
-            letter-spacing: 1px !important;
+            font-size: 3.5rem !important;
+            line-height: 3.875rem !important;
+            letter-spacing: 0.0625rem !important;
           }
           
           .responsive-subtitle {
-            font-size: 38px !important;
-            line-height: 42px !important;
+            font-size: 2.375rem !important;
+            line-height: 2.625rem !important;
+          }
+        }
+
+        /* Mobile-only styles */
+        @media (max-width: 767px) {
+          .polaroid-container {
+            max-width: 20rem !important;
+            gap: 3rem !important;
+          }
+          
+          .responsive-title {
+            font-size: 3.5rem !important;
+            line-height: 3.875rem !important;
+            letter-spacing: 0.0625rem !important;
+          }
+          
+          .responsive-subtitle {
+            font-size: 2.375rem !important;
+            line-height: 2.625rem !important;
+          }
+        }
+        
+        /* Tablet-only styles */
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .responsive-title {
+            font-size: 3rem !important;
+            line-height: 3.375rem !important;
+            letter-spacing: 0.125rem !important;
+          }
+          
+          .responsive-subtitle {
+            font-size: 2rem !important;
+            line-height: 2.25rem !important;
+          }
+          
+          /* Override flipped polaroid styles for tablet - allow scaling */
+          .polaroid-container > div[style*="scale(2.8)"] {
+            transform: scale(1.8) !important;
+            position: relative !important;
+            margin: 0 auto !important;
+            z-index: 100 !important;
           }
         }
 
         /* Small mobile styles */
         @media (max-width: 480px) {
-          .responsive-title {
-            font-size: 48px !important;
-            line-height: 54px !important;
-          }
-          
-          .responsive-subtitle {
-            font-size: 32px !important;
-            line-height: 36px !important;
-          }
-          
           .polaroid-container {
-            max-width: 280px;
+            max-width: 17.5rem !important;
           }
           
           /* Smaller flipped polaroid scale for very small screens */
