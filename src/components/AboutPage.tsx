@@ -32,9 +32,9 @@ export default function AboutPage() {
     return () => document.removeEventListener('keydown', handleEscape);
   }, [expandedImage]);
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-center px-4 sm:px-6 md:px-8 max-w-5xl mx-auto pt-20 sm:pt-24 md:pt-28 lg:pt-8 pb-8 sm:pb-16">
+    <div className="flex flex-col items-start justify-center min-h-screen text-left px-4 sm:px-6 md:px-8 max-w-5xl mx-auto pt-20 sm:pt-24 md:pt-28 lg:pt-8 pb-8 sm:pb-16">
       <h1 
-        className="mb-6 sm:mb-8 text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold italic mt-8 sm:mt-12 md:mt-16 lg:mt-5"
+        className="mb-6 sm:mb-8 text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold italic mt-8 sm:mt-12 md:mt-16 lg:mt-5 text-center w-full"
         style={{
           fontFamily: "'IM Fell Great Primer', serif"
         }}
@@ -42,12 +42,30 @@ export default function AboutPage() {
         about me
       </h1>
       <p 
-        className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl"
+        className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-left"
         style={{
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        Hi! I&apos;m from Cary, North Carolina and I&apos;m currently studying Computer Science and Art at Northwestern University. I&apos;m passionate about blending my technical skills in software engineering with creative product design. In my free time, I love creating art, practicing guitar, playing tennis, and hiking.
+        I&apos;m from Cary, North Carolina and am currently studying Computer Science, Cognitive Science, Art, and Design at Northwestern University. 
+      </p>
+
+      <p
+        className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-left"
+        style={{
+          fontFamily: "'IM Fell Great Primer', serif"
+        }}
+      >
+        I&apos;m passionate about crafting technology that people love to use, using my technical skills in software engineering alongside creative product design and my background in art.
+      </p>
+
+      <p
+        className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-left"
+        style={{
+          fontFamily: "'IM Fell Great Primer', serif"
+        }}
+      >
+        In my free time, I love <a href="/art" className="text-blue-200 underline hover:text-white transition-colors duration-300">creating art</a>, practicing the guitar, playing tennis, and hiking!
       </p>
       
       {/* Three polaroids in a row */}
