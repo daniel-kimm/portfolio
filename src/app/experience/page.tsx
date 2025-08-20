@@ -1,5 +1,11 @@
+import type { Metadata } from 'next';
 import Layout from '../../components/Layout';
 import ExperiencePage from '../../components/ExperiencePage';
+
+export const metadata: Metadata = {
+  title: 'experience | daniel kim',
+  description: 'Experience and work history of Daniel Kim - Professional background and campus involvement',
+};
 
 export default function Experience() {
   return (
