@@ -32,7 +32,7 @@ export default function AboutPage() {
     return () => document.removeEventListener('keydown', handleEscape);
   }, [expandedImage]);
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-center px-4 sm:px-6 md:px-8 max-w-5xl mx-auto pt-20 sm:pt-24 md:pt-28 lg:pt-8">
+    <div className="flex flex-col items-center justify-center min-h-screen text-center px-4 sm:px-6 md:px-8 max-w-5xl mx-auto pt-20 sm:pt-24 md:pt-28 lg:pt-8 pb-8 sm:pb-16">
       <h1 
         className="mb-6 sm:mb-8 text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold italic mt-8 sm:mt-12 md:mt-16 lg:mt-5"
         style={{
@@ -62,7 +62,8 @@ export default function AboutPage() {
             className="polaroid bg-white p-3 sm:p-4 md:p-5 lg:p-6 shadow-xl hover:shadow-2xl transform transition-all duration-300 cursor-pointer"
             style={{
               transform: index === 0 ? 'rotate(-3deg)' : index === 1 ? 'rotate(2deg)' : 'rotate(-1.5deg)',
-              maxWidth: '280px'
+              width: '280px',
+              height: '320px'
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
@@ -73,13 +74,15 @@ export default function AboutPage() {
             }}
             onClick={(e) => handleImageClick(item.src, e)}
           >
-            <div className="w-full">
-              <img 
-                src={item.src} 
-                alt={`About me ${index + 1}`} 
-                className="w-full h-32 sm:h-40 md:h-48 lg:h-56 object-cover mb-3 sm:mb-4 md:mb-5"
-              />
-              <div className="bg-white pt-2 pb-1">
+            <div className="w-full h-full flex flex-col">
+              <div className="flex-1 overflow-hidden">
+                <img 
+                  src={item.src} 
+                  alt={`About me ${index + 1}`} 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="bg-white pt-2 pb-1 flex-shrink-0">
                 <p 
                   className="text-gray-800 text-2xl sm:text-3xl md:text-4xl lg:text-4xl text-center px-1 sm:px-2"
                   style={{
