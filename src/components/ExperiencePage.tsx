@@ -21,7 +21,7 @@ export default function ExperiencePage() {
       </p>
       
       {/* Work Experience Section */}
-      <div className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic mx-auto">
+      <div className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic mx-auto max-w-5xl">
         <h2 
           className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-semibold text-white mb-8 italic"
           style={{
@@ -34,7 +34,7 @@ export default function ExperiencePage() {
         {/* Work Experience Timeline */}
         <div className="space-y-6">
           {/* Osteoid Inc */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 text-left flex items-center">
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 text-left flex items-center w-full lg:w-3xl xl:w-4xl">
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center space-x-4">
                 <img 
@@ -73,7 +73,7 @@ export default function ExperiencePage() {
           </div>
           
           {/* Elytra Robotics */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 text-left flex items-center">
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 text-left flex items-center w-full lg:w-3xl xl:w-4xl">
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center space-x-4">
                 <img 
@@ -112,7 +112,7 @@ export default function ExperiencePage() {
           </div>
           
           {/* Northwestern University */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 text-left flex items-center">
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 text-left flex items-center w-full lg:w-3xl xl:w-4xl">
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center space-x-4">
                 <img 
@@ -151,7 +151,7 @@ export default function ExperiencePage() {
           </div>
           
           {/* Square One */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 text-left flex items-center">
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 text-left flex items-center w-full lg:w-3xl xl:w-4xl">
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center space-x-4">
                 <img 
@@ -192,7 +192,7 @@ export default function ExperiencePage() {
       </div>
       
       {/* Campus Involvement Section */}
-      <div className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic mx-auto">
+      <div className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic mx-auto max-w-5xl">
         <h2 
           className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-semibold text-white mb-8 italic"
           style={{
@@ -205,7 +205,7 @@ export default function ExperiencePage() {
         {/* Campus Involvement Timeline */}
         <div className="space-y-6">
           {/* Mayfest Productions */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 text-left flex items-center">
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 text-left flex items-center w-full lg:w-3xl xl:w-4xl">
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center space-x-4">
                 <img 
@@ -244,7 +244,7 @@ export default function ExperiencePage() {
           </div>
           
           {/* IEEE */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 text-left flex items-center">
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 text-left flex items-center w-full lg:w-3xl xl:w-4xl">
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center space-x-4">
                 <img 

@@ -39,7 +39,7 @@ export default function AboutPage() {
     return () => document.removeEventListener('keydown', handleEscape);
   }, [expandedImage]);
   return (
-    <div className="flex flex-col items-start min-h-screen text-left px-4 sm:px-6 md:px-8 max-w-5xl mx-auto pt-20 sm:pt-24 md:pt-28 lg:pt-12 pb-8 sm:pb-16">
+    <div className="flex flex-col items-center min-h-screen text-left px-4 sm:px-6 md:px-8 max-w-5xl mx-auto pt-20 sm:pt-24 md:pt-28 lg:pt-12 pb-8 sm:pb-16">
       <h1 
         className="mb-6 sm:mb-8 text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold italic mt-16 sm:mt-20 md:mt-24 lg:mt-16 text-center w-full"
         style={{
@@ -67,7 +67,7 @@ export default function AboutPage() {
       </p>
 
       <p
-        className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-left"
+        className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-left self-start"
         style={{
           fontFamily: "'IM Fell Great Primer', serif"
         }}
@@ -76,7 +76,7 @@ export default function AboutPage() {
       </p>
 
       <p
-        className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-left"
+        className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-left self-start"
         style={{
           fontFamily: "'IM Fell Great Primer', serif"
         }}
@@ -102,7 +102,7 @@ export default function AboutPage() {
       </p>
       
       {/* Three polaroids in a row */}
-      <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 md:gap-10 mt-6 sm:mt-8 md:mt-12">
+      <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 md:gap-10 mt-6 sm:mt-8 md:mt-12 items-center justify-center">
         {[
           { src: '/about_me/IMG_3783.jpg', text: 'bar harbor, maine' },
           { src: '/about_me/IMG_1408.JPG', text: 'banff, ab, canada' },
@@ -113,8 +113,8 @@ export default function AboutPage() {
             className="polaroid bg-white p-3 sm:p-4 md:p-5 lg:p-6 shadow-xl hover:shadow-2xl transform transition-all duration-300 cursor-pointer"
             style={{
               transform: index === 0 ? 'rotate(-3deg)' : index === 1 ? 'rotate(2deg)' : 'rotate(-1.5deg)',
-              width: '280px',
-              height: '320px'
+              width: 'clamp(200px, 25vw, 280px)',
+              height: 'clamp(230px, 28.5vw, 320px)'
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
