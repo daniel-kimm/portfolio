@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 export default function AboutPage() {
   const [expandedImage, setExpandedImage] = useState<string | null>(null);
   const [isClosing, setIsClosing] = useState(false);
+  const [emailCopied, setEmailCopied] = useState(false);
 
   const handleImageClick = (imageSrc: string, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -20,6 +21,12 @@ export default function AboutPage() {
     }, 300);
   };
 
+  const handleEmailCopy = () => {
+    navigator.clipboard.writeText('daniel-kim@u.northwestern.edu');
+    setEmailCopied(true);
+    setTimeout(() => setEmailCopied(false), 2000); // Hide after 2 seconds
+  };
+
   // Handle escape key to close modal
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
@@ -32,9 +39,9 @@ export default function AboutPage() {
     return () => document.removeEventListener('keydown', handleEscape);
   }, [expandedImage]);
   return (
-    <div className="flex flex-col items-start justify-center min-h-screen text-left px-4 sm:px-6 md:px-8 max-w-5xl mx-auto pt-20 sm:pt-24 md:pt-28 lg:pt-8 pb-8 sm:pb-16">
+    <div className="flex flex-col items-start min-h-screen text-left px-4 sm:px-6 md:px-8 max-w-5xl mx-auto pt-20 sm:pt-24 md:pt-28 lg:pt-12 pb-8 sm:pb-16">
       <h1 
-        className="mb-6 sm:mb-8 text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold italic mt-8 sm:mt-12 md:mt-16 lg:mt-5 text-center w-full"
+        className="mb-6 sm:mb-8 text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold italic mt-16 sm:mt-20 md:mt-24 lg:mt-16 text-center w-full"
         style={{
           fontFamily: "'IM Fell Great Primer', serif"
         }}
@@ -66,6 +73,32 @@ export default function AboutPage() {
         }}
       >
         In my free time, I love <a href="/art" className="text-blue-200 underline hover:text-white transition-colors duration-300">creating art</a>, practicing the guitar, playing tennis, and hiking!
+      </p>
+
+      <p
+        className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-left"
+        style={{
+          fontFamily: "'IM Fell Great Primer', serif"
+        }}
+      >
+        You can reach me at daniel-kim@u.northwestern.edu
+        <span 
+          onClick={handleEmailCopy}
+          className="ml-2 text-blue-200 hover:text-white transition-colors duration-300 cursor-pointer"
+        >
+          {emailCopied ? (
+            <span className="text-white">✓</span>
+          ) : (
+            <svg 
+              className="w-3 h-3 sm:w-3 sm:h-3 md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 inline"
+              viewBox="0 0 24 24" 
+              fill="currentColor"
+            >
+              <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+          )}
+        </span>
+        .
       </p>
       
       {/* Three polaroids in a row */}

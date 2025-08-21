@@ -35,7 +35,7 @@ export default function CtecsProject() {
 
           <div className="text-white text-lg mb-4" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
             <p className="mb-1 font-bold">
-              Link: <a href="https://ctecs.nu/" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-white underline">ctecs.nu</a>
+              Link: <a href="https://ctecs.nu/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white underline">ctecs.nu</a>
             </p>
           </div>
 

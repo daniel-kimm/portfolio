@@ -22,14 +22,12 @@ export default function ExperiencePage() {
       
       {/* Work Experience Section */}
       <div className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic mx-auto">
-        <h2 style={{
-          fontFamily: "'IM Fell Great Primer', serif",
-          fontSize: "2rem",
-          fontWeight: 600,
-          color: "#ffffff",
-          marginBottom: "2rem",
-          fontStyle: "italic"
-        }}>
+        <h2 
+          className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-semibold text-white mb-8 italic"
+          style={{
+            fontFamily: "'IM Fell Great Primer', serif"
+          }}
+        >
           work experience
         </h2>
         
@@ -42,38 +40,33 @@ export default function ExperiencePage() {
                 <img 
                   src="/logos/osteoid.jpeg" 
                   alt="Osteoid Inc. logo" 
-                  className="object-contain rounded"
-                  style={{
-                    width: "3rem",
-                    height: "3rem"
-                  }}
+                  className="object-contain rounded w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-12 lg:h-12 xl:w-12 xl:h-12"
                 />
                 <div>
-                  <h3 style={{
-                    fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "1.25rem",
-                    fontWeight: 600,
-                    color: "#ffffff",
-                    marginBottom: "0.25rem"
-                  }}>
+                  <h3 
+                    className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl font-semibold text-white mb-1"
+                    style={{
+                      fontFamily: "'IM Fell Great Primer', serif"
+                    }}
+                  >
                     Software Engineering Intern
                   </h3>
-                  <p style={{
-                    fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "1rem",
-                    color: "#ffffff",
-                    opacity: 0.8
-                  }}>
+                  <p 
+                    className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80"
+                    style={{
+                      fontFamily: "'IM Fell Great Primer', serif"
+                    }}
+                  >
                     Osteoid Inc.
                   </p>
                 </div>
               </div>
-              <p style={{
-                fontFamily: "'IM Fell Great Primer', serif",
-                fontSize: "0.875rem",
-                color: "#ffffff",
-                opacity: 1
-              }}>
+              <p 
+                className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
+                style={{
+                  fontFamily: "'IM Fell Great Primer', serif"
+                }}
+              >
                 June 2025 - Present
               </p>
             </div>
@@ -86,38 +79,33 @@ export default function ExperiencePage() {
                 <img 
                   src="/logos/elytra.jpeg" 
                   alt="Elytra Robotics logo" 
-                  className="object-contain rounded"
-                  style={{
-                    width: "3rem",
-                    height: "3rem"
-                  }}
+                  className="object-contain rounded w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-12 lg:h-12 xl:w-12 xl:h-12"
                 />
                 <div>
-                  <h3 style={{
-                    fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "1.25rem",
-                    fontWeight: 600,
-                    color: "#ffffff",
-                    marginBottom: "0.25rem"
-                  }}>
+                  <h3 
+                    className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl font-semibold text-white mb-1"
+                    style={{
+                      fontFamily: "'IM Fell Great Primer', serif"
+                    }}
+                  >
                     AI/ML Intern
                   </h3>
-                  <p style={{
-                    fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "1rem",
-                    color: "#ffffff",
-                    opacity: 0.8
-                  }}>
+                  <p 
+                    className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80"
+                    style={{
+                      fontFamily: "'IM Fell Great Primer', serif"
+                    }}
+                  >
                     Elytra Robotics
                   </p>
                 </div>
               </div>
-              <p style={{
-                fontFamily: "'IM Fell Great Primer', serif",
-                fontSize: "0.875rem",
-                color: "#ffffff",
-                opacity: 1
-              }}>
+              <p 
+                className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
+                style={{
+                  fontFamily: "'IM Fell Great Primer', serif"
+                }}
+              >
                 March 2025 - June 2025
               </p>
             </div>
@@ -130,38 +118,33 @@ export default function ExperiencePage() {
                 <img 
                   src="/logos/kellogg.jpeg" 
                   alt="Northwestern University Kellogg logo" 
-                  className="object-contain rounded"
-                  style={{
-                    width: "3rem",
-                    height: "3rem"
-                  }}
+                  className="object-contain rounded w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-12 lg:h-12 xl:w-12 xl:h-12"
                 />
                 <div>
-                  <h3 style={{
-                    fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "1.25rem",
-                    fontWeight: 600,
-                    color: "#ffffff",
-                    marginBottom: "0.25rem"
-                  }}>
+                  <h3 
+                    className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl font-semibold text-white mb-1"
+                    style={{
+                      fontFamily: "'IM Fell Great Primer', serif"
+                    }}
+                  >
                     IT Public Computing Technician
                   </h3>
-                  <p style={{
-                    fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "1rem",
-                    color: "#ffffff",
-                    opacity: 0.8
-                  }}>
+                  <p 
+                    className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80"
+                    style={{
+                      fontFamily: "'IM Fell Great Primer', serif"
+                    }}
+                  >
                     Northwestern University Kellogg Information Systems
                   </p>
                 </div>
               </div>
-              <p style={{
-                fontFamily: "'IM Fell Great Primer', serif",
-                fontSize: "0.875rem",
-                color: "#ffffff",
-                opacity: 1
-              }}>
+              <p 
+                className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
+                style={{
+                  fontFamily: "'IM Fell Great Primer', serif"
+                }}
+              >
                 October 2024 - Present
               </p>
             </div>
@@ -174,38 +157,33 @@ export default function ExperiencePage() {
                 <img 
                   src="/logos/squareone.jpeg" 
                   alt="Square One logo" 
-                  className="object-contain rounded"
-                  style={{
-                    width: "3rem",
-                    height: "3rem"
-                  }}
+                  className="object-contain rounded w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-12 lg:h-12 xl:w-12 xl:h-12"
                 />
                 <div>
-                  <h3 style={{
-                    fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "1.25rem",
-                    fontWeight: 600,
-                    color: "#ffffff",
-                    marginBottom: "0.25rem"
-                  }}>
+                  <h3 
+                    className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl font-semibold text-white mb-1"
+                    style={{
+                      fontFamily: "'IM Fell Great Primer', serif"
+                    }}
+                  >
                     Software Engineering Intern
                   </h3>
-                  <p style={{
-                    fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "1rem",
-                    color: "#ffffff",
-                    opacity: 0.8
-                  }}>
+                  <p 
+                    className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80"
+                    style={{
+                      fontFamily: "'IM Fell Great Primer', serif"
+                    }}
+                  >
                     Square One
                   </p>
                 </div>
               </div>
-              <p style={{
-                fontFamily: "'IM Fell Great Primer', serif",
-                fontSize: "0.875rem",
-                color: "#ffffff",
-                opacity: 1
-              }}>
+              <p 
+                className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
+                style={{
+                  fontFamily: "'IM Fell Great Primer', serif"
+                }}
+              >
                 October 2024 - March 2025
               </p>
             </div>
@@ -215,14 +193,12 @@ export default function ExperiencePage() {
       
       {/* Campus Involvement Section */}
       <div className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic mx-auto">
-        <h2 style={{
-          fontFamily: "'IM Fell Great Primer', serif",
-          fontSize: "2rem",
-          fontWeight: 600,
-          color: "#ffffff",
-          marginBottom: "2rem",
-          fontStyle: "italic"
-        }}>
+        <h2 
+          className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-semibold text-white mb-8 italic"
+          style={{
+            fontFamily: "'IM Fell Great Primer', serif"
+          }}
+        >
           campus involvement
         </h2>
         
@@ -235,38 +211,33 @@ export default function ExperiencePage() {
                 <img 
                   src="/logos/mayfest.jpeg" 
                   alt="Mayfest Productions logo" 
-                  className="object-contain rounded"
-                  style={{
-                    width: "3rem",
-                    height: "3rem"
-                  }}
+                  className="object-contain rounded w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-12 lg:h-12 xl:w-12 xl:h-12"
                 />
                 <div>
-                  <h3 style={{
-                    fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "1.25rem",
-                    fontWeight: 600,
-                    color: "#ffffff",
-                    marginBottom: "0.25rem"
-                  }}>
+                  <h3 
+                    className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl font-semibold text-white mb-1"
+                    style={{
+                      fontFamily: "'IM Fell Great Primer', serif"
+                    }}
+                  >
                     General Board Member
                   </h3>
-                  <p style={{
-                    fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "1rem",
-                    color: "#ffffff",
-                    opacity: 0.8
-                  }}>
+                  <p 
+                    className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80"
+                    style={{
+                      fontFamily: "'IM Fell Great Primer', serif"
+                    }}
+                  >
                     Mayfest Productions
                   </p>
                 </div>
               </div>
-              <p style={{
-                fontFamily: "'IM Fell Great Primer', serif",
-                fontSize: "0.875rem",
-                color: "#ffffff",
-                opacity: 1
-              }}>
+              <p 
+                className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
+                style={{
+                  fontFamily: "'IM Fell Great Primer', serif"
+                }}
+              >
                 October 2024 - Present
               </p>
             </div>
@@ -279,38 +250,33 @@ export default function ExperiencePage() {
                 <img 
                   src="/logos/ieee.jpeg" 
                   alt="IEEE logo" 
-                  className="object-contain rounded"
-                  style={{
-                    width: "3rem",
-                    height: "3rem"
-                  }}
+                  className="object-contain rounded w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-12 lg:h-12 xl:w-12 xl:h-12"
                 />
                 <div>
-                  <h3 style={{
-                    fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "1.25rem",
-                    fontWeight: 600,
-                    color: "#ffffff",
-                    marginBottom: "0.25rem"
-                  }}>
+                  <h3 
+                    className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl font-semibold text-white mb-1"
+                    style={{
+                      fontFamily: "'IM Fell Great Primer', serif"
+                    }}
+                  >
                     Software Engineer
                   </h3>
-                  <p style={{
-                    fontFamily: "'IM Fell Great Primer', serif",
-                    fontSize: "1rem",
-                    color: "#ffffff",
-                    opacity: 0.8
-                  }}>
+                  <p 
+                    className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80"
+                    style={{
+                      fontFamily: "'IM Fell Great Primer', serif"
+                    }}
+                  >
                     Institute of Electrical and Electronics Engineers (IEEE)
                   </p>
                 </div>
               </div>
-              <p style={{
-                fontFamily: "'IM Fell Great Primer', serif",
-                fontSize: "0.875rem",
-                color: "#ffffff",
-                opacity: 1
-              }}>
+              <p 
+                className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
+                style={{
+                  fontFamily: "'IM Fell Great Primer', serif"
+                }}
+              >
                 January 2025 - May 2025
               </p>
             </div>

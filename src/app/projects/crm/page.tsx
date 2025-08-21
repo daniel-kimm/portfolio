@@ -35,7 +35,7 @@ export default function CrmProject() {
 
           <div className="text-white text-lg mb-4" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
             <p className="mb-1 font-bold">
-              Link: <a href="https://elytra-crm.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:text-white underline">Elytra Robotics - CRM</a>
+              Link: <a href="https://elytra-crm.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white underline">Elytra Robotics - CRM</a>
             </p>
           </div>
 

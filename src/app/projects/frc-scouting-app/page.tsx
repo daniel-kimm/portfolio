@@ -34,6 +34,12 @@ export default function FrcScoutingAppProject() {
             </p>
           </div>
 
+          <div className="text-white text-lg mb-4" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
+            <p className="mb-1 font-bold">
+              Link: <a href="https://www.9032scout.com/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white underline">9032scout.com</a>
+            </p>
+          </div>
+
           <div className="text-white text-lg mb-2" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
             <p className="mb-1">
               Technologies:

@@ -33,6 +33,12 @@ export default function NorthwesternPurityTestProject() {
             </p>
           </div>
 
+          <div className="text-white text-lg mb-4" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
+            <p className="mb-1 font-bold">
+              Link: <a href="https://www.northwesternpuritytest.com/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white underline">northwesternpuritytest.com</a>
+            </p>
+          </div>
+
           <div className="text-white text-lg mb-2" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
             <p className="mb-1">
               Technologies:
