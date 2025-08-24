@@ -86,6 +86,34 @@ export default function ProjectsPage() {
           </div>
         </div>
 
+        {/* Project 3 - Float */}
+        <div 
+          className="flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl"
+          onClick={() => handleProjectClick('float')}
+        >
+          <h3 className="text-center mb-3" style={{
+            fontFamily: "'IM Fell Great Primer', serif",
+            fontSize: "1.125rem",
+            color: "#ffffff"
+          }}>
+            Float: Overlay Note-Taking App
+          </h3>
+          <div className="relative flex-1 mx-1 mb-3 rounded overflow-hidden border border-white/30">
+            <img 
+              src="/float.png" 
+              alt="Float Project" 
+              className="w-full h-full object-cover"
+            />
+
+          </div>
+          <div className="flex flex-wrap gap-2 justify-center">
+            {['TypeScript', 'Tauri', 'React', 'Rust'].map((tech) => (
+              <span key={tech} className="bg-white/20 text-white px-2 py-1 rounded text-sm" style={{
+                fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
+            ))}
+          </div>
+        </div>
+
         {/* Project 3 - CRM */}
         <div 
           className="flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl"
@@ -169,6 +197,9 @@ export default function ProjectsPage() {
             ))}
           </div>
         </div>
+
+        {/* Empty placeholder for centering */}
+        <div></div>
 
         {/* Project 6 - Square One Mobile App */}
         <div 
