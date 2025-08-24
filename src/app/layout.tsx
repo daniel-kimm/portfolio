@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Daniel Kim",
+  title: "daniel kim",
   description: "Personal portfolio of Daniel Kim - Creative developer and designer",
 };
 

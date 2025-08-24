@@ -1,27 +1,32 @@
 'use client';
 
+import { useEffect } from 'react';
 import Layout from '../../../components/Layout';
 
 export default function FrcScoutingAppProject() {
+  useEffect(() => {
+    document.title = 'frc scouting app | daniel kim';
+  }, []);
   return (
     <Layout currentPage="projects">
       <div className="flex flex-col px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-20 sm:pt-24 md:pt-28 lg:pt-12 pb-16 w-full min-h-screen">
-        <div className="relative flex items-center justify-center mt-16 sm:mt-20 md:mt-24 lg:mt-16 mb-6 sm:mb-8">
+        <div className="flex items-center justify-between mt-16 sm:mt-20 md:mt-24 lg:mt-16 mb-6 sm:mb-8">
           <button 
             onClick={() => window.history.back()}
-            className="absolute left-0 bg-white/10 hover:bg-white/20 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg border border-white/30 transition-all duration-300 text-sm sm:text-base"
+            className="bg-white/10 hover:bg-white/20 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg border border-white/30 transition-all duration-300 text-sm sm:text-base flex-shrink-0"
             style={{ fontFamily: "'IM Fell Great Primer', serif" }}
           >
             ← Back
           </button>
           <h1 
-            className="text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold italic text-center"
+            className="text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold italic text-center flex-1 mx-4"
             style={{
               fontFamily: "'IM Fell Great Primer', serif"
             }}
           >
             FRC Scouting App
           </h1>
+          <div className="w-20 sm:w-24 flex-shrink-0"></div>
         </div>
         
         <div className="max-w-4xl mx-auto text-center">
