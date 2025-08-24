@@ -83,7 +83,7 @@ export default function ExperiencePage() {
                   </p>
                   <button
                     onClick={() => toggleDropdown('osteoid')}
-                    className="text-white hover:text-white/80 transition-colors duration-200 p-1"
+                    className="text-white hover:text-white/80 transition-colors duration-200 p-1 cursor-pointer"
                   >
                     <svg
                       className={`w-4 h-4 transform transition-transform duration-300 ${openDropdowns.osteoid ? 'rotate-180' : 'rotate-0'}`}
@@ -156,7 +156,7 @@ export default function ExperiencePage() {
                   </p>
                   <button
                     onClick={() => toggleDropdown('elytra')}
-                    className="text-white hover:text-white/80 transition-colors duration-200 p-1"
+                    className="text-white hover:text-white/80 transition-colors duration-200 p-1 cursor-pointer"
                   >
                     <svg
                       className={`w-4 h-4 transform transition-transform duration-300 ${openDropdowns.elytra ? 'rotate-180' : 'rotate-0'}`}
@@ -229,7 +229,7 @@ export default function ExperiencePage() {
                   </p>
                   <button
                     onClick={() => toggleDropdown('northwestern')}
-                    className="text-white hover:text-white/80 transition-colors duration-200 p-1"
+                    className="text-white hover:text-white/80 transition-colors duration-200 p-1 cursor-pointer"
                   >
                     <svg
                       className={`w-4 h-4 transform transition-transform duration-300 ${openDropdowns.northwestern ? 'rotate-180' : 'rotate-0'}`}
@@ -302,7 +302,7 @@ export default function ExperiencePage() {
                   </p>
                   <button
                     onClick={() => toggleDropdown('squareone')}
-                    className="text-white hover:text-white/80 transition-colors duration-200 p-1"
+                    className="text-white hover:text-white/80 transition-colors duration-200 p-1 cursor-pointer"
                   >
                     <svg
                       className={`w-4 h-4 transform transition-transform duration-300 ${openDropdowns.squareone ? 'rotate-180' : 'rotate-0'}`}
@@ -390,7 +390,7 @@ export default function ExperiencePage() {
                   </p>
                   <button
                     onClick={() => toggleDropdown('mayfest')}
-                    className="text-white hover:text-white/80 transition-colors duration-200 p-1"
+                    className="text-white hover:text-white/80 transition-colors duration-200 p-1 cursor-pointer"
                   >
                     <svg
                       className={`w-4 h-4 transform transition-transform duration-300 ${openDropdowns.mayfest ? 'rotate-180' : 'rotate-0'}`}
@@ -463,7 +463,7 @@ export default function ExperiencePage() {
                   </p>
                   <button
                     onClick={() => toggleDropdown('ieee')}
-                    className="text-white hover:text-white/80 transition-colors duration-200 p-1"
+                    className="text-white hover:text-white/80 transition-colors duration-200 p-1 cursor-pointer"
                   >
                     <svg
                       className={`w-4 h-4 transform transition-transform duration-300 ${openDropdowns.ieee ? 'rotate-180' : 'rotate-0'}`}
