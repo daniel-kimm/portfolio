@@ -29,6 +29,7 @@ export default function Layout({
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: currentPage === 'home' ? "url('/IMG_8664.JPG')" : "url('/background.jpg')",
+          backgroundAttachment: 'fixed',
         }}
       >
         {/* Dark overlay for better text readability */}
