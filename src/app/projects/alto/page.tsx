@@ -31,13 +31,28 @@ export default function AltoProject() {
         
         <div className="max-w-4xl mx-auto text-center">
           
-          <div className="text-white text-lg leading-relaxed mb-8" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
+          <div className="text-left text-white text-lg leading-relaxed mb-4" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
             <p className="mb-1">
               Alto is a mobile app that allows users to transform commutes by interacting with their inbox by voice. 
               Its core feature is a custom voice-to-email system that incorporates real-time speech processing and intelligent Gmail integration. 
               I also built the landing page for the app, which you can view <a href="https://www.usealto.app/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white underline">here</a>.
               I&apos;m currently working on this project with my friends <a href="https://www.kaival.dev/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white underline">Kaival</a> and <a href="https://www.andrew-yuan.com/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white underline">Andrew</a>, who are both amazing engineers.
             </p>
+          </div>
+
+          <div className="flex items-center justify-center gap-4 mb-4">
+            {/* External Link Icon */}
+            <a 
+              href="https://www.usealto.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-white hover:text-gray-300 transition-colors duration-300"
+              title="Visit Alto App"
+            >
+               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
           </div>
 
           <div className="text-white text-lg mb-2" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
