@@ -15,11 +15,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "daniel kim",
   description: "Personal portfolio of Daniel Kim - Creative developer and designer",
-  icons: {
-    icon: '/website-logo.png',
-    shortcut: '/website-logo.png',
-    apple: '/website-logo.png',
-  },
 };
 
 export default function RootLayout({
