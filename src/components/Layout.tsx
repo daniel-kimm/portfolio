@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -25,19 +26,24 @@ export default function Layout({
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: currentPage === 'home' ? "url('/IMG_8664.JPG')" : "url('/background.jpg')",
-          backgroundAttachment: 'fixed',
-        }}
-      >
+      <div className="absolute inset-0">
+        <Image 
+          src={currentPage === 'home' ? '/IMG_8664.JPG' : '/background.jpg'}
+          alt="Background"
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority={true}
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R7Dh5zms2/4L1+SnP8AFp8eMw8xnIMtH4eMQzQJ9sQdOOFi3dIH4WtY2MNkfb1lTMg3/wA="
+          quality={85}
+        />
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute inset-0 bg-black/20 z-10"></div>
       </div>
 
       {/* Navigation */}
-      <nav className="absolute top-6 right-6 z-20">
+      <nav className="absolute top-6 right-6 z-30">
         {/* Desktop Navigation - hidden on mobile */}
         <div className="hidden lg:flex space-x-8">
           {navigationItems.map((item) => (
@@ -106,7 +112,7 @@ export default function Layout({
       </nav>
 
       {/* Page Content */}
-      <div className="relative z-10">
+      <div className="relative z-20">
         {children}
       </div>
     </div>

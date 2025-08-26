@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 export default function ExperiencePage() {
   const [openDropdowns, setOpenDropdowns] = useState<{[key: string]: boolean}>({});
@@ -48,10 +49,13 @@ export default function ExperiencePage() {
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
-                  <img 
+                  <Image 
                     src="/logos/osteoid.jpeg" 
                     alt="Osteoid Inc. logo" 
+                    width={48}
+                    height={48}
                     className="object-contain rounded w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-12 lg:h-12 xl:w-12 xl:h-12"
+                    sizes="48px"
                   />
                   <div>
                     <h3 
@@ -121,10 +125,13 @@ export default function ExperiencePage() {
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
-                  <img 
+                  <Image 
                     src="/logos/elytra.jpeg" 
                     alt="Elytra Robotics logo" 
+                    width={48}
+                    height={48}
                     className="object-contain rounded w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-12 lg:h-12 xl:w-12 xl:h-12"
+                    sizes="48px"
                   />
                   <div>
                     <h3 
@@ -194,10 +201,13 @@ export default function ExperiencePage() {
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
-                  <img 
+                  <Image 
                     src="/logos/kellogg.jpeg" 
                     alt="Northwestern University Kellogg logo" 
+                    width={48}
+                    height={48}
                     className="object-contain rounded w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-12 lg:h-12 xl:w-12 xl:h-12"
+                    sizes="48px"
                   />
                   <div>
                     <h3 
@@ -267,10 +277,13 @@ export default function ExperiencePage() {
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
-                  <img 
+                  <Image 
                     src="/logos/squareone.jpeg" 
                     alt="Square One logo" 
+                    width={48}
+                    height={48}
                     className="object-contain rounded w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-12 lg:h-12 xl:w-12 xl:h-12"
+                    sizes="48px"
                   />
                   <div>
                     <h3 
@@ -355,10 +368,13 @@ export default function ExperiencePage() {
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
-                  <img 
+                  <Image 
                     src="/logos/mayfest.jpeg" 
                     alt="Mayfest Productions logo" 
+                    width={48}
+                    height={48}
                     className="object-contain rounded w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-12 lg:h-12 xl:w-12 xl:h-12"
+                    sizes="48px"
                   />
                   <div>
                     <h3 
@@ -428,10 +444,13 @@ export default function ExperiencePage() {
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
-                  <img 
+                  <Image 
                     src="/logos/ieee.jpeg" 
                     alt="IEEE logo" 
+                    width={48}
+                    height={48}
                     className="object-contain rounded w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-12 lg:h-12 xl:w-12 xl:h-12"
+                    sizes="48px"
                   />
                   <div>
                     <h3 

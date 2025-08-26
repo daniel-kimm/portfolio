@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 export default function AboutPage() {
   const [expandedImage, setExpandedImage] = useState<string | null>(null);
@@ -126,11 +127,16 @@ export default function AboutPage() {
             onClick={(e) => handleImageClick(item.src, e)}
           >
             <div className="w-full h-full flex flex-col">
-              <div className="flex-1 overflow-hidden">
-                <img 
+              <div className="flex-1 overflow-hidden relative">
+                <Image 
                   src={item.src} 
                   alt={`About me ${index + 1}`} 
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 640px) 200px, (max-width: 768px) 250px, 280px"
+                  className="object-cover"
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R7Dh5zms2/4L1+SnP8AFp8eMw8xnIMtH4eMQzQJ9sQdOOFi3dIH4WtY2MNkfb1lTMg3/wA="
+                  priority={index === 0}
                 />
               </div>
               <div className="bg-white pt-2 pb-1 flex-shrink-0">
@@ -167,11 +173,15 @@ export default function AboutPage() {
             }}
           >
             <div className="relative">
-              <img 
+              <Image 
                 src={expandedImage || ''} 
                 alt="Expanded view" 
+                width={1200}
+                height={800}
                 className="max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain rounded-lg shadow-2xl transition-all duration-300 ease-out"
                 onClick={(e) => e.stopPropagation()}
+                sizes="90vw"
+                quality={95}
               />
               <button
                 onClick={closeExpandedImage}
