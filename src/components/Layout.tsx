@@ -26,7 +26,7 @@ export default function Layout({
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="fixed inset-0 z-0">
         <Image 
           src={currentPage === 'home' ? '/IMG_8664.JPG' : '/background.jpg'}
           alt="Background"
