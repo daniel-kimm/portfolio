@@ -1,29 +1,33 @@
+'use client';
+
 import React from 'react';
 
 export default function HomePage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center px-4 pb-32">
       <h1 
-        className="mb-2 text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wider lg:tracking-widest leading-tight lg:leading-snug"
+        className="mb-1 text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wider lg:tracking-widest leading-tight lg:leading-snug animate-fade-in-up"
         style={{
           fontFamily: "'IM Fell Great Primer', serif",
-          fontWeight: 400
+          fontWeight: 400,
+          animationDelay: '0.2s'
         }}
       >
         Daniel Kim
       </h1>
       <p 
-        className="mb-10 text-white text-3xl sm:text-4xl md:text-5xl tracking-wide leading-snug italic"
+        className="mb-7 text-white text-3xl sm:text-4xl md:text-5xl tracking-wide leading-snug italic animate-fade-in-up"
         style={{
           fontFamily: "'Myfont', sans-serif",
-          fontWeight: 400
+          fontWeight: 400,
+          animationDelay: '0.4s'
         }}
       >
         Student at Northwestern University
       </p>
       
       {/* Social Icons */}
-      <div className="flex space-x-7">
+      <div className="flex space-x-7 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
         <a 
           href="https://github.com/daniel-kimm" 
           target="_blank" 
@@ -69,6 +73,25 @@ export default function HomePage() {
           </svg>
         </a>
       </div>
+      
+      {/* CSS Animation Styles */}
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .animate-fade-in-up {
+          animation: fadeInUp 0.8s ease-out forwards;
+          opacity: 0;
+        }
+      `}</style>
     </div>
   );
 }
