@@ -459,7 +459,7 @@ export default function ExperiencePage() {
                         fontFamily: "'IM Fell Great Primer', serif"
                       }}
                     >
-                      General Board Member
+                      Corporate Committee
                     </h3>
                     <p 
                       className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80"
@@ -509,7 +509,7 @@ export default function ExperiencePage() {
                     fontFamily: "'IM Fell Great Primer', serif"
                   }}
                 >
-                  Planning Dillo Day, the nation’s largest student-run music festival.
+                  Securing corporate sponsorships for Dillo Day, the nation&apos;s largest student-run music festival.
                 </p>
               </div>
             </div>
