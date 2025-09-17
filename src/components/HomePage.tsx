@@ -1,8 +1,28 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function HomePage() {
+  const [currentTime, setCurrentTime] = useState('');
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      // Convert to CST (UTC-6) or CDT (UTC-5) depending on daylight saving
+      const cstTime = new Date(now.toLocaleString("en-US", {timeZone: "America/Chicago"}));
+      const hours = cstTime.getHours().toString().padStart(2, '0');
+      const minutes = cstTime.getMinutes().toString().padStart(2, '0');
+      const seconds = cstTime.getSeconds().toString().padStart(2, '0');
+      setCurrentTime(`${hours}:${minutes}:${seconds}`);
+    };
+
+    updateTime(); // Initial call
+    const interval = setInterval(updateTime, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center px-4 pb-32">
       <h1 
@@ -16,7 +36,7 @@ export default function HomePage() {
         Daniel Kim
       </h1>
       <p 
-        className="mb-7 text-white text-3xl sm:text-4xl md:text-5xl tracking-wide leading-snug italic animate-fade-in-up"
+        className="mb-3 text-white text-3xl sm:text-4xl md:text-5xl tracking-wide leading-snug italic animate-fade-in-up"
         style={{
           fontFamily: "'Myfont', sans-serif",
           fontWeight: 400,
@@ -74,6 +94,96 @@ export default function HomePage() {
         </a>
       </div>
       
+      {/* Local Time Display */}
+      <div 
+        className="relative mt-5 animate-fade-in-up" 
+        style={{ animationDelay: '0.8s' }}
+        onMouseEnter={() => setShowTooltip(true)}
+        onMouseLeave={() => setShowTooltip(false)}
+      >
+        <div 
+          className="text-white text-xl md:text-2xl font-mono tracking-wider cursor-default hover:text-gray-300 transition-colors duration-300"
+          style={{
+            fontFamily: "'IM Fell Great Primer', serif",
+            fontWeight: 400,
+          }}
+        >
+          {currentTime}
+        </div>
+        
+        {/* Tooltip */}
+        {showTooltip && (
+          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-white text-black text-sm px-3 py-2 rounded-lg shadow-lg whitespace-nowrap animate-fade-in"
+            style={{
+              fontFamily: "'IM Fell Great Primer', serif",
+              fontWeight: 400,
+            }}>
+            my local time!
+            <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-transparent"></div>
+          </div>
+        )}
+      </div>
+      
+      {/* Hand-drawn Arrow */}
+      <div className="absolute bottom-32 right-8 sm:bottom-40 sm:right-24 md:bottom-60 md:right-48 animate-fade-in-up" style={{ animationDelay: '1.2s' }}>
+        <div className="relative">
+          <svg 
+            width="80" 
+            height="60" 
+            className="sm:w-[100px] sm:h-[70px] md:w-[120px] md:h-[80px] text-white opacity-80"
+            viewBox="0 0 120 80"
+          >
+            {/* Simple backwards C curve */}
+            <path
+              d="M90 60 Q60 30 30 20"
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{
+                filter: 'url(#roughen)',
+                strokeDasharray: '2 1',
+              }}
+            />
+            {/* Arrow head properly aligned with curve tangent */}
+            <path
+              d="M30 20 L36 26 M30 20 L37 17"
+              stroke="currentColor"
+              strokeWidth="2"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            {/* Roughen filter for hand-drawn effect */}
+            <defs>
+              <filter id="roughen">
+                <feTurbulence baseFrequency="0.9" numOctaves="3" result="noise" seed="1"/>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="1"/>
+              </filter>
+            </defs>
+          </svg>
+          {/* Text at the non-pointy end (start of curve) */}
+          <div 
+            className="absolute top-10 -right-6 sm:top-12 sm:-right-16 md:top-14 md:-right-18 text-white text-md sm:text-md md:text-base lg:text-base xl:text-3xl opacity-80 whitespace-nowrap"
+            style={{
+              fontFamily: "'Myfont', serif",
+              fontWeight: 400,
+              transform: 'rotate(-20deg)',
+            }}
+          >
+            photo taken by me!
+          </div>
+        </div>
+      </div>
+
+      {/* Copyright */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-fade-in-up" style={{ animationDelay: '1.0s', fontFamily: "'IM Fell Great Primer', serif", fontWeight: 400}}>
+        <p className="text-white text-sm opacity-100 transition-opacity duration-300">
+          © 2025 Daniel Kim
+        </p>
+      </div>
+      
       {/* CSS Animation Styles */}
       <style jsx>{`
         @keyframes fadeInUp {
@@ -87,9 +197,22 @@ export default function HomePage() {
           }
         }
         
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        
         .animate-fade-in-up {
           animation: fadeInUp 0.8s ease-out forwards;
           opacity: 0;
+        }
+        
+        .animate-fade-in {
+          animation: fadeIn 0.2s ease-out forwards;
         }
       `}</style>
     </div>
