@@ -363,6 +363,83 @@ export default function ExperiencePage() {
         
         {/* Campus Involvement Timeline */}
         <div className="space-y-6">
+          {/* The Garage */}
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+            <div className="p-4 text-left flex items-center">
+              <div className="flex items-center justify-between w-full">
+                <div className="flex items-center space-x-4">
+                  <Image 
+                    src="/logos/the_garage_at_northwestern_logo.jpeg" 
+                    alt="The Garage at Northwestern logo" 
+                    width={48}
+                    height={48}
+                    className="object-contain rounded w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-12 lg:h-12 xl:w-12 xl:h-12"
+                    sizes="48px"
+                  />
+                  <div>
+                    <h3 
+                      className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl font-semibold text-white mb-1"
+                      style={{
+                        fontFamily: "'IM Fell Great Primer', serif"
+                      }}
+                    >
+                      Resident
+                    </h3>
+                    <p 
+                      className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80"
+                      style={{
+                        fontFamily: "'IM Fell Great Primer', serif"
+                      }}
+                    >
+                      The Garage at Northwestern
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <p 
+                    className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
+                    style={{
+                      fontFamily: "'IM Fell Great Primer', serif"
+                    }}
+                  >
+                    September 2025 - Present
+                  </p>
+                  <button
+                    onClick={() => toggleDropdown('the_garage')}
+                    className="text-white hover:text-white/80 transition-colors duration-200 p-1 cursor-pointer"
+                  >
+                    <svg
+                      className={`w-4 h-4 transform transition-transform duration-300 ${openDropdowns.the_garage ? 'rotate-180' : 'rotate-0'}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            {/* Dropdown Content */}
+            <div 
+              className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                openDropdowns.the_garage ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="px-4 pb-4 border-t border-white/10">
+                <p 
+                  className="text-left text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80 mt-3"
+                  style={{
+                    fontFamily: "'IM Fell Great Primer', serif"
+                  }}
+                >
+                  Building Alto, growing with mentorship, and learning from resident dinners at Northwestern&apos;s startup incubator.
+                </p>
+              </div>
+            </div>
+          </div>
+
+
           {/* Perplexity */}
           <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
