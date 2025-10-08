@@ -31,9 +31,40 @@ export default function ProjectsPage() {
       </p>
       
       {/* Projects Grid - 3 columns layout */}
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+        {/* Project 1 - Ultra */}
+        <div 
+          className="flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl"
+          onClick={() => handleProjectClick('ultra')}
+        >
+          <h3 className="text-center mb-3" style={{
+            fontFamily: "'IM Fell Great Primer', serif",
+            fontSize: "1.125rem",
+            color: "#ffffff"
+          }}>
+            Ultra: Contextual AI Writer
+          </h3>
+          <div className="relative flex-1 mx-1 mb-3 rounded overflow-hidden border border-white/30">
+            <Image 
+              src="/ultra.png" 
+              alt="Ultra Project" 
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover"
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R7Dh5zms2/4L1+SnP8AFp8eMw8xnIMtH4eMQzQJ9sQdOOFi3dIH4WtY2MNkfb1lTMg3/wA="
+            />
+          </div>
+          <div className="flex flex-wrap gap-2 justify-center">
+            {['TypeScript', 'React', 'Electron', 'SQLite'].map((tech) => (
+              <span key={tech} className="bg-white/20 text-white px-2 py-1 rounded text-sm" style={{
+                fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
+            ))}
+          </div>
+        </div>
         
-        {/* Project 1 - Alto */}
+        {/* Project 2 - Alto */}
         <div 
           className="flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl"
           onClick={() => handleProjectClick('alto')}
