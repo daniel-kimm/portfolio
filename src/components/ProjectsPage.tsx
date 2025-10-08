@@ -31,7 +31,7 @@ export default function ProjectsPage() {
       </p>
       
       {/* Projects Grid - 3 columns layout */}
-
+      <div className="w-full">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
         {/* Project 1 - Ultra */}
         <div 
@@ -221,7 +221,11 @@ export default function ProjectsPage() {
             ))}
           </div>
         </div>
+      </div>
 
+      {/* Last 2 projects centered */}
+      <div className="flex justify-center gap-8 mt-8 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full md:w-[66.666%]">
         {/* Project 5 - ScoutCode */}
         <div 
           className="flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl"
@@ -254,9 +258,6 @@ export default function ProjectsPage() {
           </div>
         </div>
 
-        {/* Empty placeholder for centering */}
-        <div></div>
-
         {/* Project 6 - Square One Mobile App */}
         <div 
           className="flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl"
@@ -288,7 +289,8 @@ export default function ProjectsPage() {
             ))}
           </div>
         </div>
-
+        </div>
+      </div>
       </div>
     </div>
   );
