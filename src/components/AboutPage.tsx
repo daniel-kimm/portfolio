@@ -64,7 +64,7 @@ export default function AboutPage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        I&apos;m passionate about crafting technology that people love to use, using my technical skills in software engineering alongside creative product design and my background in art.
+        I&apos;m passionate about crafting technology that people love to use, using my technical skills in software engineering alongside my creative skills in art and design.
       </p>
 
       <p
