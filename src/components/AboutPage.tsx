@@ -55,7 +55,7 @@ export default function AboutPage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        I&apos;m from Cary, North Carolina and am currently studying Computer Science, Cognitive Science, Art, and Design at Northwestern University. 
+        I&apos;m from Cary, North Carolina and am currently studying Computer Science, Art, and Design at Northwestern University. 
       </p>
 
       <p
