@@ -43,7 +43,7 @@ export default function HomePage() {
           animationDelay: '0.4s'
         }}
       >
-        Student at Northwestern University
+        Software and Design Engineer
       </p>
       
       {/* Social Icons */}
@@ -175,13 +175,6 @@ export default function HomePage() {
             photo taken by me!
           </div>
         </div>
-      </div>
-
-      {/* Copyright */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-fade-in-up" style={{ animationDelay: '1.0s', fontFamily: "'IM Fell Great Primer', serif", fontWeight: 400}}>
-        <p className="text-white text-sm opacity-100 transition-opacity duration-300">
-          © 2025 Daniel Kim
-        </p>
       </div>
       
       {/* CSS Animation Styles */}

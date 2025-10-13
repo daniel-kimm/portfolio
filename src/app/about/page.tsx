@@ -4,7 +4,7 @@ import AboutPage from '../../components/AboutPage';
 
 export const metadata: Metadata = {
   title: 'about | daniel kim',
-  description: 'About Daniel Kim - Computer Science and Art student at Northwestern University',
+  description: 'about daniel kim - software and design engineer',
 };
 
 export default function About() {

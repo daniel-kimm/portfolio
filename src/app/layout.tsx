@@ -33,7 +33,7 @@ const imFellGreatPrimer = IM_Fell_Great_Primer({
 
 export const metadata: Metadata = {
   title: "daniel kim",
-  description: "Personal portfolio of Daniel Kim - Creative developer and designer",
+  description: "personal portfolio of daniel kim - software and design engineer",
 };
 
 export default function RootLayout({

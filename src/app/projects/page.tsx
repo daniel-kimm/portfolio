@@ -4,7 +4,7 @@ import ProjectsPage from '../../components/ProjectsPage';
 
 export const metadata: Metadata = {
   title: 'projects | daniel kim',
-  description: 'Projects by Daniel Kim - Software engineering and creative development work',
+  description: 'projects by daniel kim - software and design engineer',
 };
 
 export default function Projects() {

@@ -23,7 +23,7 @@ export default function AboutPage() {
   };
 
   const handleEmailCopy = () => {
-    navigator.clipboard.writeText('daniel-kim@u.northwestern.edu');
+    navigator.clipboard.writeText('dk@u.northwestern.edu');
     setEmailCopied(true);
     setTimeout(() => setEmailCopied(false), 2000); // Hide after 2 seconds
   };
@@ -55,7 +55,7 @@ export default function AboutPage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        I&apos;m from Cary, North Carolina and am currently studying Computer Science, Art, and Design at Northwestern University. 
+        Hi! I&apos;m Daniel and I&apos;m from Cary, North Carolina. I&apos;m currently studying Computer Science, Art, and Design at Northwestern University. 
       </p>
 
       <p
@@ -64,7 +64,7 @@ export default function AboutPage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        I&apos;m passionate about crafting technology that people love to use, using my technical skills in software engineering alongside my creative skills in art and design.
+        I&apos;m passionate about creating technology that people love to use, using my technical skills in software engineering alongside my creativity in art and design.
       </p>
 
       <p
@@ -73,7 +73,7 @@ export default function AboutPage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        In my free time, I love <a href="/art" className="text-blue-200 underline hover:text-white transition-colors duration-300">creating art</a>, practicing the guitar, playing tennis, and hiking!
+        In my free time, I love <a href="/art" className="text-blue-200 underline hover:text-white transition-colors duration-300">creating art</a>, practicing the guitar, shooting film photos, and hiking!
       </p>
 
       <p
@@ -82,7 +82,7 @@ export default function AboutPage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        You can reach me at daniel-kim@u.northwestern.edu
+        You can reach me at dk@u.northwestern.edu
         <span 
           onClick={handleEmailCopy}
           className="ml-2 text-blue-200 hover:text-white transition-colors duration-300 cursor-pointer"
@@ -105,8 +105,8 @@ export default function AboutPage() {
       {/* Three polaroids in a row */}
       <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 md:gap-10 mt-6 sm:mt-8 md:mt-12 items-center justify-center">
         {[
-          { src: '/about_me/IMG_3783.jpg', text: 'bar harbor, maine' },
-          { src: '/about_me/IMG_1408.JPG', text: 'banff, ab, canada' },
+          { src: '/about_me/IMG_2032.JPG', text: 'lake george, ny' },
+          { src: '/about_me/IMG_2020.JPG', text: 'banff, ab, canada' },
           { src: '/about_me/IMG_0424.jpg', text: 'boone, north carolina'}
         ].map((item, index) => (
           <div 

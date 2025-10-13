@@ -4,7 +4,7 @@ import HomePage from '../components/HomePage';
 
 export const metadata: Metadata = {
   title: 'daniel kim',
-  description: 'Personal portfolio of Daniel Kim - Creative developer and designer',
+  description: 'personal portfolio of daniel kim - software and design engineer',
 };
 
 export default function Home() {
