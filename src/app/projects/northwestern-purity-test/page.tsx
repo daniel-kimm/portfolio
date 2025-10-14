@@ -34,7 +34,7 @@ export default function NorthwesternPurityTestProject() {
           <div className="text-left text-white text-lg leading-relaxed mb-4" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
             <p className="mb-1">
               Northwestern Purity Test is an interactive React web application for Northwestern students to track and compare their campus experiences.
-              Within 48 hours of launch, this app garnered 4,500+ users and 39,000+ requests.
+              Within 48 hours of launch, this app garnered 4,500+ users and 39,000+ requests. To date, northwesternpuritytest.com has had over 5,300 unique visitors.
             </p>
           </div>
 
