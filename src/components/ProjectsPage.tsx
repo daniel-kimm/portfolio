@@ -35,10 +35,10 @@ export default function ProjectsPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
         {/* Project 1 - Ultra */}
         <div 
-          className="flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl"
+          className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl relative overflow-hidden"
           onClick={() => handleProjectClick('ultra')}
         >
-          <h3 className="text-center mb-3" style={{
+          <h3 className="text-center mb-3 relative z-10" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
             color: "#ffffff"
@@ -56,7 +56,9 @@ export default function ProjectsPage() {
               blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R7Dh5zms2/4L1+SnP8AFp8eMw8xnIMtH4eMQzQJ9sQdOOFi3dIH4WtY2MNkfb1lTMg3/wA="
             />
           </div>
-          <div className="flex flex-wrap gap-2 justify-center">
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg z-0"></div>
+          <div className="flex flex-wrap gap-2 justify-center relative z-10">
             {['TypeScript', 'React', 'Electron', 'SQLite'].map((tech) => (
               <span key={tech} className="bg-white/20 text-white px-2 py-1 rounded text-sm" style={{
                 fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
@@ -66,10 +68,10 @@ export default function ProjectsPage() {
         
         {/* Project 2 - Alto */}
         <div 
-          className="flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl"
+          className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl relative overflow-hidden"
           onClick={() => handleProjectClick('alto')}
         >
-          <h3 className="text-center mb-3" style={{
+          <h3 className="text-center mb-3 relative z-10" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
             color: "#ffffff"
@@ -87,7 +89,9 @@ export default function ProjectsPage() {
               blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R7Dh5zms2/4L1+SnP8AFp8eMw8xnIMtH4eMQzQJ9sQdOOFi3dIH4WtY2MNkfb1lTMg3/wA="
             />
           </div>
-          <div className="flex flex-wrap gap-2 justify-center">
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg z-0"></div>
+          <div className="flex flex-wrap gap-2 justify-center relative z-10">
             {['TypeScript', 'React Native', 'Expo', 'Supabase'].map((tech) => (
               <span key={tech} className="bg-white/20 text-white px-2 py-1 rounded text-sm" style={{
                 fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
@@ -97,10 +101,10 @@ export default function ProjectsPage() {
 
         {/* Project 2 - CTECS */}
         <div 
-          className="flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl"
+          className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl relative overflow-hidden"
           onClick={() => handleProjectClick('ctecs')}
         >
-          <h3 className="text-center mb-3" style={{
+          <h3 className="text-center mb-3 relative z-10" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
             color: "#ffffff"
@@ -118,7 +122,9 @@ export default function ProjectsPage() {
               blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R7Dh5zms2/4L1+SnP8AFp8eMw8xnIMtH4eMQzQJ9sQdOOFi3dIH4WtY2MNkfb1lTMg3/wA="
             />
           </div>
-          <div className="flex flex-wrap gap-2 justify-center">
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg z-0"></div>
+          <div className="flex flex-wrap gap-2 justify-center relative z-10">
             {['JavaScript', 'AWS', 'RAG', 'NER', 'Selenium'].map((tech) => (
               <span key={tech} className="bg-white/20 text-white px-2 py-1 rounded text-sm" style={{
                 fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
@@ -128,10 +134,10 @@ export default function ProjectsPage() {
 
         {/* Project 3 - Float */}
         <div 
-          className="flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl"
+          className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl relative overflow-hidden"
           onClick={() => handleProjectClick('float')}
         >
-          <h3 className="text-center mb-3" style={{
+          <h3 className="text-center mb-3 relative z-10" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
             color: "#ffffff"
@@ -150,7 +156,9 @@ export default function ProjectsPage() {
             />
 
           </div>
-          <div className="flex flex-wrap gap-2 justify-center">
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg z-0"></div>
+          <div className="flex flex-wrap gap-2 justify-center relative z-10">
             {['TypeScript', 'Tauri', 'React', 'Rust'].map((tech) => (
               <span key={tech} className="bg-white/20 text-white px-2 py-1 rounded text-sm" style={{
                 fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
@@ -160,10 +168,10 @@ export default function ProjectsPage() {
 
         {/* Project 3 - CRM */}
         <div 
-          className="flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl"
+          className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl relative overflow-hidden"
           onClick={() => handleProjectClick('crm')}
         >
-          <h3 className="text-center mb-3" style={{
+          <h3 className="text-center mb-3 relative z-10" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
             color: "#ffffff"
@@ -182,7 +190,9 @@ export default function ProjectsPage() {
             />
 
           </div>
-          <div className="flex flex-wrap gap-2 justify-center">
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg z-0"></div>
+          <div className="flex flex-wrap gap-2 justify-center relative z-10">
             {['TypeScript', 'Docker', 'Puppeteer', 'Supabase'].map((tech) => (
               <span key={tech} className="bg-white/20 text-white px-2 py-1 rounded text-sm" style={{
                 fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
@@ -192,10 +202,10 @@ export default function ProjectsPage() {
 
         {/* Project 4 - PurityTest */}
         <div 
-          className="flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl"
+          className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl relative overflow-hidden"
           onClick={() => handleProjectClick('northwestern-purity-test')}
         >
-          <h3 className="text-center mb-3" style={{
+          <h3 className="text-center mb-3 relative z-10" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
             color: "#ffffff"
@@ -214,7 +224,9 @@ export default function ProjectsPage() {
             />
 
           </div>
-          <div className="flex flex-wrap gap-2 justify-center">
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg z-0"></div>
+          <div className="flex flex-wrap gap-2 justify-center relative z-10">
             {['JavaScript', 'React', 'Vercel'].map((tech) => (
               <span key={tech} className="bg-white/20 text-white px-2 py-1 rounded text-sm" style={{
                 fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
@@ -228,10 +240,10 @@ export default function ProjectsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full md:w-[66.666%]">
         {/* Project 5 - ScoutCode */}
         <div 
-          className="flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl"
+          className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl relative overflow-hidden"
           onClick={() => handleProjectClick('frc-scouting-app')}
         >
-          <h3 className="text-center mb-3" style={{
+          <h3 className="text-center mb-3 relative z-10" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
             color: "#ffffff"
@@ -250,7 +262,9 @@ export default function ProjectsPage() {
             />
 
           </div>
-          <div className="flex flex-wrap gap-2 justify-center">
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg z-0"></div>
+          <div className="flex flex-wrap gap-2 justify-center relative z-10">
             {['JavaScript', 'RAG', 'Express', 'Firebase'].map((tech) => (
               <span key={tech} className="bg-white/20 text-white px-2 py-1 rounded text-sm" style={{
                 fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
@@ -260,10 +274,10 @@ export default function ProjectsPage() {
 
         {/* Project 6 - Square One Mobile App */}
         <div 
-          className="flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl"
+          className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl relative overflow-hidden"
           onClick={() => handleProjectClick('square-one-mobile-app')}
         >
-          <h3 className="text-center mb-3" style={{
+          <h3 className="text-center mb-3 relative z-10" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
             color: "#ffffff"
@@ -282,7 +296,9 @@ export default function ProjectsPage() {
             />
 
           </div>
-          <div className="flex flex-wrap gap-2 justify-center">
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg z-0"></div>
+          <div className="flex flex-wrap gap-2 justify-center relative z-10">
             {['React Native', 'Firebase', 'Expo'].map((tech) => (
               <span key={tech} className="bg-white/20 text-white px-2 py-1 rounded text-sm" style={{
                 fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
