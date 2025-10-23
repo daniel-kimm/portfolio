@@ -37,7 +37,7 @@ export default function AltoProject() {
               Alto is a mobile app that allows users to transform commutes by interacting with their inbox by voice. 
               Its core feature is a custom voice-to-email system that incorporates real-time speech processing and intelligent Gmail integration. 
               I also built the landing page for the app, which you can view <a href="https://www.usealto.app/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white underline">here</a>.
-              I worked on this project with my friends <a href="https://www.kaival.dev/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white underline">Kaival</a> and <a href="https://www.andrew-yuan.com/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white underline">Andrew</a>, who are both amazing engineers.
+              I worked on this project with my good friends <a href="https://www.kaival.dev/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white underline">Kaival</a> and <a href="https://www.andrew-yuan.com/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white underline">Andrew</a>.
             </p>
           </div>
 
