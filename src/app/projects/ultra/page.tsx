@@ -101,6 +101,17 @@ export default function UltraProject() {
               />
             </div>
           </div>
+
+          <div className="mb-8">
+            <video 
+              src="/demovids/demo.mov" 
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full max-w-2xl mx-auto rounded-lg border border-white/30"
+            />
+          </div>
           
 
         </div>
