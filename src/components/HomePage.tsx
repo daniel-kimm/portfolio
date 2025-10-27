@@ -26,7 +26,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center px-4 pb-32">
       <h1 
-        className="mb-1 text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wider lg:tracking-widest leading-tight lg:leading-snug animate-fade-in-up"
+        className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wider lg:tracking-widest leading-tight lg:leading-snug animate-fade-in-up"
         style={{
           fontFamily: "'IM Fell Great Primer', serif",
           fontWeight: 400,
@@ -36,7 +36,7 @@ export default function HomePage() {
         Daniel Kim
       </h1>
       <p 
-        className="mb-3 text-white text-3xl sm:text-4xl md:text-5xl tracking-wide leading-snug italic animate-fade-in-up"
+        className="mb-1 text-white text-3xl sm:text-4xl md:text-5xl tracking-wide leading-snug italic animate-fade-in-up"
         style={{
           fontFamily: "'Myfont', sans-serif",
           fontWeight: 400,
