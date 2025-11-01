@@ -252,7 +252,7 @@ export default function ProjectsPage() {
           </h3>
           <div className="relative flex-1 mx-1 mb-3 rounded overflow-hidden border border-white/30">
             <Image 
-              src="/9032scout.png" 
+              src="/9032scout/teamanalysis.png" 
               alt="Scout Code Project" 
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
