@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function HomePage() {
   const [currentTime, setCurrentTime] = useState('');
+  const [currentDate, setCurrentDate] = useState('');
   const [showTooltip, setShowTooltip] = useState(false);
 
   useEffect(() => {
@@ -15,6 +16,16 @@ export default function HomePage() {
       const minutes = cstTime.getMinutes().toString().padStart(2, '0');
       const seconds = cstTime.getSeconds().toString().padStart(2, '0');
       setCurrentTime(`${hours}:${minutes}:${seconds}`);
+      
+      // Format date as "November 3, 2025"
+      const dateOptions: Intl.DateTimeFormatOptions = { 
+        month: 'long', 
+        day: 'numeric', 
+        year: 'numeric',
+        timeZone: "America/Chicago"
+      };
+      const formattedDate = cstTime.toLocaleDateString("en-US", dateOptions);
+      setCurrentDate(formattedDate);
     };
 
     updateTime(); // Initial call
@@ -26,26 +37,29 @@ export default function HomePage() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center px-4 pb-32">
       <h1 
-        className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wider lg:tracking-widest leading-tight lg:leading-snug animate-fade-in-up"
+        className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wider lg:tracking-widest animate-fade-in-up"
         style={{
           fontFamily: "'IM Fell Great Primer', serif",
           fontWeight: 400,
-          animationDelay: '0.2s'
+          animationDelay: '0.2s',
+          marginBottom: '0.25rem',
+          lineHeight: 1.2
         }}
       >
         Daniel Kim
       </h1>
       <p 
-        className="mb-1 text-white text-3xl sm:text-4xl md:text-5xl tracking-wide leading-snug italic animate-fade-in-up"
+        className="text-white text-3xl sm:text-4xl md:text-5xl tracking-wide italic animate-fade-in-up"
         style={{
           fontFamily: "'Myfont', sans-serif",
           fontWeight: 400,
-          animationDelay: '0.4s'
+          animationDelay: '0.4s',
+          marginBottom: '0.9rem',
+          lineHeight: 1.2
         }}
       >
         Software and Design Engineer
       </p>
-      
       {/* Social Icons */}
       <div className="flex space-x-7 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
         <a 
@@ -55,7 +69,7 @@ export default function HomePage() {
           className="text-white hover:text-gray-300 transition-colors duration-300"
         >
           <svg 
-            className="w-8 h-8 md:w-10 md:h-10 hover:scale-110 transition-transform duration-300"
+            className="w-6 h-6 md:w-10 md:h-10 hover:scale-110 transition-transform duration-300"
             viewBox="0 0 24 24" 
             fill="currentColor"
           >
@@ -70,7 +84,7 @@ export default function HomePage() {
           className="text-white hover:text-gray-300 transition-colors duration-300"
         >
           <svg 
-            className="w-8 h-8 md:w-10 md:h-10 hover:scale-110 transition-transform duration-300"
+            className="w-6 h-6 md:w-10 md:h-10 hover:scale-110 transition-transform duration-300"
             viewBox="0 0 24 24" 
             fill="currentColor"
           >
@@ -85,43 +99,13 @@ export default function HomePage() {
           className="text-white hover:text-gray-300 transition-colors duration-300"
         >
           <svg 
-            className="w-8 h-8 md:w-10 md:h-10 hover:scale-110 transition-transform duration-300"
+            className="w-6 h-6 md:w-10 md:h-10 hover:scale-110 transition-transform duration-300"
             viewBox="0 0 24 24" 
             fill="currentColor"
           >
             <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
           </svg>
         </a>
-      </div>
-      
-      {/* Local Time Display */}
-      <div 
-        className="relative mt-5 animate-fade-in-up" 
-        style={{ animationDelay: '0.8s' }}
-        onMouseEnter={() => setShowTooltip(true)}
-        onMouseLeave={() => setShowTooltip(false)}
-      >
-        <div 
-          className="text-white text-xl md:text-2xl font-mono tracking-wider cursor-default hover:text-gray-300 transition-colors duration-300"
-          style={{
-            fontFamily: "'IM Fell Great Primer', serif",
-            fontWeight: 400,
-          }}
-        >
-          {currentTime}
-        </div>
-        
-        {/* Tooltip */}
-        {showTooltip && (
-          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-white text-black text-sm px-3 py-2 rounded-lg shadow-lg whitespace-nowrap animate-fade-in"
-            style={{
-              fontFamily: "'IM Fell Great Primer', serif",
-              fontWeight: 400,
-            }}>
-            my local time!
-            <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-transparent"></div>
-          </div>
-        )}
       </div>
       
       {/* Hand-drawn Arrow */}
@@ -172,8 +156,43 @@ export default function HomePage() {
               transform: 'rotate(-20deg)',
             }}
           >
-            photo taken by me!
+            i took this photo!
           </div>
+        </div>
+      </div>
+      
+      {/* Date and Time Display - Bottom Left */}
+      <div 
+        className="absolute bottom-8 left-8 animate-fade-in-up" 
+        style={{ animationDelay: '1.2s' }}
+      >
+        <div 
+          className="text-white text-sm md:text-lg font-mono tracking-wider flex items-center gap-2"
+          style={{
+            fontFamily: "'IM Fell Great Primer', serif",
+            fontWeight: 400,
+          }}
+        >
+          <span>{currentDate}</span>
+          <span>•</span>
+          <span 
+            className="cursor-default hover:text-gray-300 transition-colors duration-300 relative"
+            onMouseEnter={() => setShowTooltip(true)}
+            onMouseLeave={() => setShowTooltip(false)}
+          >
+            {currentTime}
+            {/* Tooltip */}
+            {showTooltip && (
+              <div className="absolute -top-12 left-0 bg-white text-black text-sm px-3 py-2 rounded-lg shadow-lg whitespace-nowrap animate-fade-in"
+                style={{
+                  fontFamily: "'IM Fell Great Primer', serif",
+                  fontWeight: 400,
+                }}>
+                my local time!
+                <div className="absolute top-full left-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-transparent"></div>
+              </div>
+            )}
+          </span>
         </div>
       </div>
       
