@@ -183,7 +183,7 @@ export default function HomePage() {
             {currentTime}
             {/* Tooltip */}
             {showTooltip && (
-              <div className="absolute -top-12 left-0 bg-white text-black text-sm px-3 py-2 rounded-lg shadow-lg whitespace-nowrap animate-fade-in"
+              <div className="absolute -top-10 left-0 bg-white text-black text-sm px-3 py-2 rounded-lg shadow-lg whitespace-nowrap animate-fade-in"
                 style={{
                   fontFamily: "'IM Fell Great Primer', serif",
                   fontWeight: 400,

@@ -7,6 +7,7 @@ export default function AboutPage() {
   const [expandedImage, setExpandedImage] = useState<string | null>(null);
   const [isClosing, setIsClosing] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
+  const [showEmailTooltip, setShowEmailTooltip] = useState(false);
 
   const handleImageClick = (imageSrc: string, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -82,21 +83,37 @@ export default function AboutPage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        You can reach me at dk@u.northwestern.edu
-        <span 
-          onClick={handleEmailCopy}
-          className="ml-2 text-blue-200 hover:text-white transition-colors duration-300 cursor-pointer"
-        >
-          {emailCopied ? (
-            <span className="text-white">✓</span>
-          ) : (
-            <svg 
-              className="w-3 h-3 sm:w-3 sm:h-3 md:w-4 md:h-4 lg:w-4 lg:h-4 xl:w-5 xl:h-5 inline"
-              viewBox="0 0 24 24" 
-              fill="currentColor"
+        You can reach me at{' '}
+        <span className="relative inline-block">
+          <span
+            onClick={handleEmailCopy}
+            onMouseEnter={() => setShowEmailTooltip(true)}
+            onMouseLeave={() => setShowEmailTooltip(false)}
+            className="text-blue-200 underline hover:text-white transition-colors duration-300 cursor-pointer"
+          >
+            dk@u.northwestern.edu
+          </span>
+          {showEmailTooltip && !emailCopied && (
+            <span 
+              className="absolute -top-10 left-0 bg-white text-black text-sm px-3 py-2 rounded-lg shadow-lg whitespace-nowrap animate-fade-in"
+              style={{
+                fontFamily: "'IM Fell Great Primer', serif",
+                fontWeight: 400,
+              }}
             >
-              <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
-            </svg>
+              click to copy!
+            </span>
+          )}
+          {emailCopied && (
+            <span 
+              className="absolute -top-12 left-0 bg-white text-black text-sm px-3 py-2 rounded-lg shadow-lg whitespace-nowrap animate-fade-in"
+              style={{
+                fontFamily: "'IM Fell Great Primer', serif",
+                fontWeight: 400,
+              }}
+            >
+              ✓ copied!
+            </span>
           )}
         </span>
         .
@@ -228,8 +245,21 @@ export default function AboutPage() {
           }
         }
         
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        
         .animate-fadeOut {
           animation: fadeOut 0.3s ease-out forwards;
+        }
+        
+        .animate-fade-in {
+          animation: fadeIn 0.2s ease-out forwards;
         }
       `}</style>
     </div>

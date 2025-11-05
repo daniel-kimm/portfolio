@@ -41,7 +41,8 @@ export default function ProjectsPage() {
           <h3 className="text-center mb-3 relative z-10" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
-            color: "#ffffff"
+            color: "#ffffff",
+            fontWeight: "800"
           }}>
             Ultra: Contextual AI Writer
           </h3>
@@ -74,7 +75,8 @@ export default function ProjectsPage() {
           <h3 className="text-center mb-3 relative z-10" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
-            color: "#ffffff"
+            color: "#ffffff",
+            fontWeight: "800"
           }}>
             Alto: AI Voice Email Assistant
           </h3>
@@ -107,7 +109,8 @@ export default function ProjectsPage() {
           <h3 className="text-center mb-3 relative z-10" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
-            color: "#ffffff"
+            color: "#ffffff",
+            fontWeight: "800"
           }}>
             ctecs.nu: NU Course Assistant
           </h3>
@@ -140,7 +143,8 @@ export default function ProjectsPage() {
           <h3 className="text-center mb-3 relative z-10" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
-            color: "#ffffff"
+            color: "#ffffff",
+            fontWeight: "800"
           }}>
             Float: Overlay Note-Taking App
           </h3>
@@ -174,7 +178,8 @@ export default function ProjectsPage() {
           <h3 className="text-center mb-3 relative z-10" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
-            color: "#ffffff"
+            color: "#ffffff",
+            fontWeight: "800"
           }}>
             AI-Powered CRM Platform
           </h3>
@@ -208,7 +213,8 @@ export default function ProjectsPage() {
           <h3 className="text-center mb-3 relative z-10" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
-            color: "#ffffff"
+            color: "#ffffff",
+            fontWeight: "800"
           }}>
             Northwestern Purity Test
           </h3>
@@ -246,7 +252,8 @@ export default function ProjectsPage() {
           <h3 className="text-center mb-3 relative z-10" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
-            color: "#ffffff"
+            color: "#ffffff",
+            fontWeight: "800"
           }}>
             FRC Scouting App
           </h3>
@@ -280,7 +287,8 @@ export default function ProjectsPage() {
           <h3 className="text-center mb-3 relative z-10" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
-            color: "#ffffff"
+            color: "#ffffff",
+            fontWeight: "800"
           }}>
             Square One Mobile App
           </h3>
