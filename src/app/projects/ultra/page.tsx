@@ -36,15 +36,15 @@ export default function UltraProject() {
             <p className="mb-1">
               Ultra is a desktop app that allows users to write contextually accurate emails, text messages, answers to job applications, and more using AI. 
               It contains an always-visible overlay, vector embeddings for semantic document search, global hotkey screen capture, cursor annotation, and LLM integration to auto-generate relevant responses from user resumes/documents. It uses SQLite to store context completely locally, keeping your data secure.
-              I also built the landing page for the app, which you can view <a href="https://useultra.app/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white underline">here</a>.
-              I&apos;m currently working on this project with my good friends <a href="https://www.kaival.dev/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white underline">Kaival</a> and <a href="https://www.andrew-yuan.com/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white underline">Andrew</a>.
+              I also built the landing page for the app, which you can view <a href="https://ultrafill.app/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white underline">here</a>.
+              I&apos;m currently working on this project with my good friend <a href="https://www.andrew-yuan.com/" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white underline">Andrew</a>.
             </p>
           </div>
 
           <div className="flex items-center justify-center gap-4 mb-4">
             {/* External Link Button */}
             <a 
-              href="https://useultra.app/" 
+              href="https://ultrafill.app/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 px-4 py-2 hover:bg-white/20 transition-all duration-300 flex items-center gap-2"

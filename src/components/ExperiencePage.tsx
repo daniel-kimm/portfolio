@@ -140,7 +140,7 @@ export default function ExperiencePage() {
                         fontFamily: "'IM Fell Great Primer', serif"
                       }}
                     >
-                      AI/ML Intern
+                      Software Engineering Intern
                     </h3>
                     <p 
                       className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80"
@@ -190,7 +190,7 @@ export default function ExperiencePage() {
                     fontFamily: "'IM Fell Great Primer', serif"
                   }}
                 >
-                  Developed high-performance ML models, pipelines connecting detection and classification models, and internal CRM tools.
+                  Developed a CRM platform and deployed real-time trash detection models, delivering SF pilots and generating $75k ARR.
                 </p>
               </div>
             </div>
@@ -402,7 +402,7 @@ export default function ExperiencePage() {
                       fontFamily: "'IM Fell Great Primer', serif"
                     }}
                   >
-                    September 2025 - Present
+                    November 2025 - Present
                   </p>
                   <button
                     onClick={() => toggleDropdown('ieee_pm')}
