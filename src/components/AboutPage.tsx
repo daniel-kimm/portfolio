@@ -106,7 +106,7 @@ export default function AboutPage() {
           )}
           {emailCopied && (
             <span 
-              className="absolute -top-12 left-0 bg-white text-black text-sm px-3 py-2 rounded-lg shadow-lg whitespace-nowrap animate-fade-in"
+              className="absolute -top-10 left-0 bg-white text-black text-sm px-3 py-2 rounded-lg shadow-lg whitespace-nowrap animate-fade-in"
               style={{
                 fontFamily: "'IM Fell Great Primer', serif",
                 fontWeight: 400,
