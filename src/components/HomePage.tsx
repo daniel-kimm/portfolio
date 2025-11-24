@@ -149,7 +149,7 @@ export default function HomePage() {
           </svg>
           {/* Text at the non-pointy end (start of curve) */}
           <div 
-            className="absolute top-10 -right-6 sm:top-12 sm:-right-16 md:top-14 md:-right-18 text-white text-md sm:text-md md:text-base lg:text-base xl:text-3xl opacity-80 whitespace-nowrap"
+            className="absolute top-10 -right-6 sm:top-12 sm:-right-16 md:top-14 md:-right-18 text-white text-md sm:text-md md:text-base lg:text-base xl:text-3xl opacity-80 whitespace-nowrap italic"
             style={{
               fontFamily: "'Myfont', serif",
               fontWeight: 400,

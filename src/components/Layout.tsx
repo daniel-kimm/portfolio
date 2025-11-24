@@ -43,6 +43,20 @@ export default function Layout({
         <div className="absolute inset-0 bg-black/20 z-10"></div>
       </div>
 
+      {/* Logo in top left */}
+      <div className="absolute top-6 left-6 z-30">
+        <Link
+          href="/"
+          className="text-white hover:text-gray-300 transition-colors duration-300 text-3xl md:text-4xl italic"
+          style={{
+            fontFamily: "'Myfont', sans-serif",
+            fontWeight: 400
+          }}
+        >
+          daniel kim
+        </Link>
+      </div>
+
       {/* Navigation */}
       <nav className="absolute top-6 right-6 z-30">
         {/* Desktop Navigation - hidden on mobile */}
