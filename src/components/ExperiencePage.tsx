@@ -20,7 +20,7 @@ export default function ExperiencePage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        work
+        experience
       </h1>
       <p 
         className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic mx-auto"
