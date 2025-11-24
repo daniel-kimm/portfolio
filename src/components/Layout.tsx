@@ -44,7 +44,7 @@ export default function Layout({
       </div>
 
       {/* Logo in top left */}
-      <div className="absolute top-6 left-6 z-30">
+      <div className="absolute top-6 left-6 z-30 flex items-center h-12 md:h-14">
         <Link
           href="/"
           className="text-white hover:text-gray-300 transition-colors duration-300 text-3xl md:text-4xl italic"
