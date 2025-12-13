@@ -65,9 +65,7 @@ export default function Layout({
             <div key={item.label} className="relative group">
               <Link
                 href={item.href}
-                className={`text-white text-3xl xl:text-4xl group-hover:font-bold group-hover:italic ${
-                  currentPage === (item.label === 'about me' ? 'about' : item.label) ? 'font-bold italic' : ''
-                }`}
+                className="text-white text-3xl xl:text-4xl italic"
                 style={{
                   fontFamily: "'Myfont', sans-serif",
                 }}
