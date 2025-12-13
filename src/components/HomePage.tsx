@@ -58,7 +58,7 @@ export default function HomePage() {
           lineHeight: 1.2
         }}
       >
-        Software and Design Engineer
+        Software Engineer and Artist
       </p>
       {/* Social Icons */}
       <div className="flex space-x-7 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>

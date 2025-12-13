@@ -56,7 +56,7 @@ export default function AboutPage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        Hi! I&apos;m Daniel and I&apos;m from Cary, North Carolina. I&apos;m currently studying Computer Science, Art, and Design at Northwestern University. 
+        Hi! My name is Daniel, and I&apos;m an engineer and artist from Cary, North Carolina. I&apos;m currently studying Computer Science and Art at Northwestern University in Evanston, Illinois.
       </p>
 
       <p
@@ -65,7 +65,7 @@ export default function AboutPage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        I&apos;m passionate about creating technology that people love to use, using my technical skills in software engineering alongside my creativity in art and design.
+        I&apos;m passionate about building beautiful technology, treating software as both a creative medium and an art form. I enjoy creating at the intersection of art and technology.
       </p>
 
       <p
@@ -122,7 +122,7 @@ export default function AboutPage() {
       {/* Three polaroids in a row */}
       <div className="flex flex-col sm:flex-row gap-6 sm:gap-8 md:gap-10 mt-6 sm:mt-8 md:mt-12 items-center justify-center">
         {[
-          { src: '/about_me/IMG_2032.JPG', text: 'lake george, ny' },
+          { src: '/about_me/IMG_2032.JPG', text: 'lake george, new york' },
           { src: '/about_me/IMG_2020.JPG', text: 'banff, ab, canada' },
           { src: '/about_me/IMG_0424.jpg', text: 'boone, north carolina'}
         ].map((item, index) => (

@@ -65,12 +65,11 @@ export default function Layout({
             <div key={item.label} className="relative group">
               <Link
                 href={item.href}
-                className={`text-white hover:text-gray-300 transition-colors duration-300 text-3xl xl:text-4xl italic ${
-                  currentPage === (item.label === 'about me' ? 'about' : item.label) ? 'text-gray-300' : ''
+                className={`text-white text-3xl xl:text-4xl group-hover:font-bold group-hover:italic ${
+                  currentPage === (item.label === 'about me' ? 'about' : item.label) ? 'font-bold italic' : ''
                 }`}
                 style={{
                   fontFamily: "'Myfont', sans-serif",
-                  fontWeight: 400
                 }}
               >
                 {item.label}
@@ -78,7 +77,9 @@ export default function Layout({
               
               {/* Hand-drawn circle animation on hover */}
               <svg
-                className="absolute pointer-events-none opacity-0 group-hover:opacity-100"
+                className={`absolute pointer-events-none ${
+                  currentPage === (item.label === 'about me' ? 'about' : item.label) ? 'opacity-100 circle-active' : 'opacity-0 group-hover:opacity-100'
+                }`}
                 viewBox="0 0 120 50"
                 preserveAspectRatio="none"
                 style={{
@@ -223,6 +224,10 @@ export default function Layout({
         
         .group:hover .circle-path {
           animation: drawCircle 0.4s ease-out forwards;
+        }
+        
+        .circle-active .circle-path {
+          stroke-dashoffset: 0 !important;
         }
         
         @keyframes slideUpFade {
