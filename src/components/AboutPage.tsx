@@ -8,6 +8,10 @@ export default function AboutPage() {
   const [isClosing, setIsClosing] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
   const [showEmailTooltip, setShowEmailTooltip] = useState(false);
+  const [showCaryImage, setShowCaryImage] = useState(false);
+  const [showNorthwesternImage, setShowNorthwesternImage] = useState(false);
+  const [showEvanstonImage, setShowEvanstonImage] = useState(false);
+  const [showHikingImage, setShowHikingImage] = useState(false);
 
   const handleImageClick = (imageSrc: string, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -56,8 +60,92 @@ export default function AboutPage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        Hi! My name is Daniel, and I&apos;m an engineer and artist from Cary, North Carolina. I&apos;m currently studying Computer Science and Art at Northwestern University in Evanston, Illinois.
+        Hi! My name is Daniel, and I&apos;m an engineer and artist from{' '}
+        <span 
+          className="text-blue-200 underline hover:text-white transition-colors duration-300 cursor-pointer"
+          onMouseEnter={() => setShowCaryImage(true)}
+          onMouseLeave={() => setShowCaryImage(false)}
+        >
+          Cary, North Carolina
+        </span>
+        . I&apos;m currently studying Computer Science and Art at{' '}
+        <span 
+          className="text-blue-200 underline hover:text-white transition-colors duration-300 cursor-pointer"
+          onMouseEnter={() => setShowNorthwesternImage(true)}
+          onMouseLeave={() => setShowNorthwesternImage(false)}
+        >
+          Northwestern University
+        </span>
+        {' '}in{' '}
+        <span 
+          className="text-blue-200 underline hover:text-white transition-colors duration-300 cursor-pointer"
+          onMouseEnter={() => setShowEvanstonImage(true)}
+          onMouseLeave={() => setShowEvanstonImage(false)}
+        >
+          Evanston, Illinois
+        </span>
+        .
       </p>
+
+      {/* Cary image on hover - centered on screen */}
+      {showCaryImage && (
+        <div className="fixed inset-0 z-40 pointer-events-none flex items-center justify-center animate-fade-in">
+          <div className="relative w-96 h-[28rem] sm:w-[28rem] sm:h-[36rem] overflow-hidden shadow-2xl opacity-90">
+            <Image 
+              src="/about_me/cary.jpg" 
+              alt="Cary, North Carolina" 
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 320px, 384px"
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Northwestern/Deering image on hover - centered on screen */}
+      {showNorthwesternImage && (
+        <div className="fixed inset-0 z-40 pointer-events-none flex items-center justify-center animate-fade-in">
+          <div className="relative w-[85vw] sm:w-[70vw] md:w-[60vw] lg:w-[50vw] aspect-[4/3] overflow-hidden shadow-2xl opacity-90">
+            <Image 
+              src="/about_me/deering.jpg" 
+              alt="Northwestern University" 
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 85vw, (max-width: 768px) 70vw, 50vw"
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Evanston image on hover - centered on screen */}
+      {showEvanstonImage && (
+        <div className="fixed inset-0 z-40 pointer-events-none flex items-center justify-center animate-fade-in">
+          <div className="relative w-96 h-[28rem] sm:w-[28rem] sm:h-[36rem] overflow-hidden shadow-2xl opacity-90">
+            <Image 
+              src="/about_me/evanston.jpg" 
+              alt="Evanston, Illinois" 
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 320px, 384px"
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Hiking/Banff image on hover - centered on screen */}
+      {showHikingImage && (
+        <div className="fixed inset-0 z-40 pointer-events-none flex items-center justify-center animate-fade-in">
+          <div className="relative w-96 h-[28rem] sm:w-[28rem] sm:h-[36rem] overflow-hidden shadow-2xl opacity-90">
+            <Image 
+              src="/about_me/banff.jpg" 
+              alt="Hiking in Banff" 
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 320px, 384px"
+            />
+          </div>
+        </div>
+      )}
 
       <p
         className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-left"
@@ -65,7 +153,7 @@ export default function AboutPage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        I&apos;m passionate about building beautiful technology, treating software as both a creative medium and an art form. I enjoy creating at the intersection of art and technology.
+        At the root of my work is the desire to create art. I explore that through both traditional mediums and software, building technology that is expressive and thoughtfully designed.
       </p>
 
       <p
@@ -74,7 +162,15 @@ export default function AboutPage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        In my free time, I love <a href="/art" className="text-blue-200 underline hover:text-white transition-colors duration-300">creating art</a>, practicing the guitar, shooting film photos, and hiking!
+        In my free time, I love <a href="/art" className="text-blue-200 underline hover:text-white transition-colors duration-300">creating art</a>, playing the guitar, shooting film photos, and{' '}
+        <span 
+          className="text-blue-200 underline hover:text-white transition-colors duration-300 cursor-pointer"
+          onMouseEnter={() => setShowHikingImage(true)}
+          onMouseLeave={() => setShowHikingImage(false)}
+        >
+          hiking
+        </span>
+        !
       </p>
 
       <p
