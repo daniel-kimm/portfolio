@@ -44,6 +44,82 @@ export default function ExperiencePage() {
         
         {/* Work Experience Timeline */}
         <div className="space-y-6">
+          {/* Fidelity Investments */}
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+            <div className="p-4 text-left flex items-center">
+              <div className="flex items-center justify-between w-full">
+                <div className="flex items-center space-x-4">
+                  <Image 
+                    src="/logos/fidelitylogo.jpg" 
+                    alt="Fidelity Investments logo" 
+                    width={48}
+                    height={48}
+                    className="object-contain rounded w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-12 lg:h-12 xl:w-12 xl:h-12"
+                    sizes="48px"
+                  />
+                  <div>
+                    <h3 
+                      className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl font-semibold text-white mb-1"
+                      style={{
+                        fontFamily: "'IM Fell Great Primer', serif"
+                      }}
+                    >
+                      Incoming Software Engineer Intern
+                    </h3>
+                    <p 
+                      className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80"
+                      style={{
+                        fontFamily: "'IM Fell Great Primer', serif"
+                      }}
+                    >
+                      Fidelity Investments
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <p 
+                    className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
+                    style={{
+                      fontFamily: "'IM Fell Great Primer', serif"
+                    }}
+                  >
+                    Summer 2026
+                  </p>
+                  <button
+                    onClick={() => toggleDropdown('fidelity')}
+                    className="text-white hover:text-white/80 transition-colors duration-200 p-1 cursor-pointer"
+                  >
+                    <svg
+                      className={`w-4 h-4 transform transition-transform duration-300 ${openDropdowns.fidelity ? 'rotate-180' : 'rotate-0'}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            {/* Dropdown Content */}
+            <div 
+              className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                openDropdowns.fidelity ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="px-4 pb-4 border-t border-white/10">
+                <p 
+                  className="text-left text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80 mt-3"
+                  style={{
+                    fontFamily: "'IM Fell Great Primer', serif"
+                  }}
+                >
+                  Digital Assets (Blockchain/Crypto)
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Osteoid Inc */}
           <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
@@ -64,7 +140,7 @@ export default function ExperiencePage() {
                         fontFamily: "'IM Fell Great Primer', serif"
                       }}
                     >
-                      Software Engineering Intern
+                      Software Engineer Intern
                     </h3>
                     <p 
                       className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80"
@@ -140,7 +216,7 @@ export default function ExperiencePage() {
                         fontFamily: "'IM Fell Great Primer', serif"
                       }}
                     >
-                      Software Engineering Intern
+                      Software Engineer Intern
                     </h3>
                     <p 
                       className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80"
@@ -292,7 +368,7 @@ export default function ExperiencePage() {
                         fontFamily: "'IM Fell Great Primer', serif"
                       }}
                     >
-                      Software Engineering Intern
+                      Software Engineer Intern
                     </h3>
                     <p 
                       className="text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80"
