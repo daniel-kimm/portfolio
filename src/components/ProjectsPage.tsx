@@ -33,7 +33,42 @@ export default function ProjectsPage() {
       {/* Projects Grid - 3 columns layout */}
       <div className="w-full">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-        {/* Project 1 - Ultra */}
+        {/* Project 1 - Daniel Diffusion */}
+        <div 
+          className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl relative overflow-hidden"
+          onClick={() => handleProjectClick('daniel-diffusion')}
+        >
+          <h3 className="text-center mb-3 relative z-10" style={{
+            fontFamily: "'IM Fell Great Primer', serif",
+            fontSize: "1.125rem",
+            color: "#ffffff",
+            fontWeight: "800"
+          }}>
+            Daniel Diffusion
+          </h3>
+          <div className="relative flex-1 mx-1 mb-3 rounded overflow-hidden border border-white/30">
+            <Image 
+              src="/daniel-diffusion/danieldiffusion.png" 
+              alt="Daniel Diffusion Project" 
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover"
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R7Dh5zms2/4L1+SnP8AFp8eMw8xnIMtH4eMQzQJ9sQdOOFi3dIH4WtY2MNkfb1lTMg3/wA="
+            />
+
+          </div>
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg z-0"></div>
+          <div className="flex flex-wrap gap-2 justify-center relative z-10">
+            {['Python', 'JavaScript', 'Flux LoRA', 'Fal AI'].map((tech) => (
+              <span key={tech} className="bg-white/20 text-white px-2 py-1 rounded text-sm" style={{
+                fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
+            ))}
+          </div>
+        </div>
+
+        {/* Project 2 - Ultra */}
         <div 
           className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl relative overflow-hidden"
           onClick={() => handleProjectClick('ultra')}
@@ -239,12 +274,8 @@ export default function ProjectsPage() {
             ))}
           </div>
         </div>
-      </div>
 
-      {/* Last 2 projects centered */}
-      <div className="flex justify-center gap-8 mt-8 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full md:w-[66.666%]">
-        {/* Project 5 - ScoutCode */}
+        {/* Project 8 - ScoutCode */}
         <div 
           className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 aspect-square w-full cursor-pointer transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-xl relative overflow-hidden"
           onClick={() => handleProjectClick('frc-scouting-app')}
@@ -312,7 +343,6 @@ export default function ProjectsPage() {
                 fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
             ))}
           </div>
-        </div>
         </div>
       </div>
       </div>
