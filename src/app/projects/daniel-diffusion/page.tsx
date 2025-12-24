@@ -34,7 +34,7 @@ export default function DanielDiffusionProject() {
           
           <div className="text-left text-white text-lg leading-relaxed mb-4" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
             <p className="mb-1">
-            Trained a Flux LoRA on 20 samples of my artwork spanning oil, acrylic, watercolor, ink, charcoal, and colored pencil. Built a custom labeling pipeline using GPT-4o to generate training captions, a Flask backend for inference via Fal AI, and a web interface for real-time generation. The project investigates which elements of my artistic style transfer most effectively through fine-tuning.
+            I trained a Flux LoRA on 20 samples of my artwork spanning oil, acrylic, watercolor, ink, charcoal, and colored pencil. I built a custom labeling pipeline using GPT-4o to generate training captions, a Flask backend for inference via Fal AI, and a web interface for real-time generation. The project investigates which elements of my artistic style transfer most effectively through fine-tuning.
             </p>
           </div>
 

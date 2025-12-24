@@ -35,16 +35,19 @@ export default function ProjectsPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
         {/* Project 1 - Daniel Diffusion */}
         <div 
-          className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border-2 border-white/20 aspect-square w-full cursor-pointer hover:border-white hover:scale-[1.02] transition-transform duration-150 relative overflow-hidden"
+          className="group flex flex-col bg-white/10 backdrop-blur-md rounded-4xl p-6 aspect-square w-full cursor-pointer hover:scale-[1.01] transition-transform duration-150 relative overflow-visible"
           onClick={() => handleProjectClick('daniel-diffusion')}
         >
-          <h3 className="text-center mb-3 relative z-10 font-normal group-hover:font-bold" style={{
+          <h3 className="text-center mb-1 relative z-10 font-bold" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
             color: "#ffffff"
           }}>
             Daniel Diffusion
           </h3>
+          <p className="text-center mb-2 text-white/80 text-md relative z-10" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
+            generative model trained on my artwork | 2025
+          </p>
           <div className="relative flex-1 mx-1 mb-3 rounded overflow-hidden border border-white/30">
             <Image 
               src="/daniel-diffusion/danieldiffusion.png" 
@@ -63,20 +66,42 @@ export default function ProjectsPage() {
                 fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
             ))}
           </div>
+          {/* Hand-drawn border */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+              <filter id="roughen-box">
+                <feTurbulence baseFrequency="0.04" numOctaves="3" result="noise" seed="2"/>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5"/>
+              </filter>
+            </defs>
+            <rect 
+              x="0" y="0" 
+              width="100" height="100"
+              rx="8" ry="8"
+              fill="none" 
+              stroke="rgba(255,255,255,0.4)" 
+              strokeWidth="0.4"
+              className="group-hover:stroke-white"
+              style={{ filter: 'url(#roughen-box)' }}
+            />
+          </svg>
         </div>
 
         {/* Project 2 - Ultra */}
         <div 
-          className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border-2 border-white/20 aspect-square w-full cursor-pointer hover:border-white hover:scale-[1.02] transition-transform duration-150 relative overflow-hidden"
+          className="group flex flex-col bg-white/10 backdrop-blur-md rounded-4xl p-6 aspect-square w-full cursor-pointer hover:scale-[1.01] transition-transform duration-150 relative overflow-visible"
           onClick={() => handleProjectClick('ultra')}
         >
-          <h3 className="text-center mb-3 relative z-10 font-normal group-hover:font-bold" style={{
+          <h3 className="text-center mb-1 relative z-10 font-bold" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
             color: "#ffffff"
           }}>
-            Ultra: Contextual AI Writer
+            Ultra
           </h3>
+          <p className="text-center mb-2 text-white/80 text-md relative z-10" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
+            desktop writing assistant with local context | 2025
+          </p>
           <div className="relative flex-1 mx-1 mb-3 rounded overflow-hidden border border-white/30">
             <Image 
               src="/ultradashboard2.png" 
@@ -94,20 +119,36 @@ export default function ProjectsPage() {
                 fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
             ))}
           </div>
+          {/* Hand-drawn border */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <rect 
+              x="0" y="0" 
+              width="100" height="100"
+              rx="8" ry="8"
+              fill="none" 
+              stroke="rgba(255,255,255,0.4)" 
+              strokeWidth="0.4"
+              className="group-hover:stroke-white"
+              style={{ filter: 'url(#roughen-box)' }}
+            />
+          </svg>
         </div>
         
         {/* Project 2 - Alto */}
         <div 
-          className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border-2 border-white/20 aspect-square w-full cursor-pointer hover:border-white hover:scale-[1.02] transition-transform duration-150 relative overflow-hidden"
+          className="group flex flex-col bg-white/10 backdrop-blur-md rounded-4xl p-6 aspect-square w-full cursor-pointer hover:scale-[1.01] transition-transform duration-150 relative overflow-visible"
           onClick={() => handleProjectClick('alto')}
         >
-          <h3 className="text-center mb-3 relative z-10 font-normal group-hover:font-bold" style={{
+          <h3 className="text-center mb-1 relative z-10 font-bold" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
             color: "#ffffff"
           }}>
-            Alto: AI Voice Email Assistant
+            Alto
           </h3>
+          <p className="text-center mb-2 text-white/80 text-md relative z-10" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
+            voice-based email client | 2025
+          </p>
           <div className="relative flex-1 mx-1 mb-3 rounded overflow-hidden border border-white/30">
             <Image 
               src="/altoapp.png" 
@@ -125,20 +166,36 @@ export default function ProjectsPage() {
                 fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
             ))}
           </div>
+          {/* Hand-drawn border */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <rect 
+              x="0" y="0" 
+              width="100" height="100"
+              rx="8" ry="8"
+              fill="none" 
+              stroke="rgba(255,255,255,0.4)" 
+              strokeWidth="0.4"
+              className="group-hover:stroke-white"
+              style={{ filter: 'url(#roughen-box)' }}
+            />
+          </svg>
         </div>
 
         {/* Project 2 - CTECS */}
         <div 
-          className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border-2 border-white/20 aspect-square w-full cursor-pointer hover:border-white hover:scale-[1.02] transition-transform duration-150 relative overflow-hidden"
+          className="group flex flex-col bg-white/10 backdrop-blur-md rounded-4xl p-6 aspect-square w-full cursor-pointer hover:scale-[1.01] transition-transform duration-150 relative overflow-visible"
           onClick={() => handleProjectClick('ctecs')}
         >
-          <h3 className="text-center mb-3 relative z-10 font-normal group-hover:font-bold" style={{
+          <h3 className="text-center mb-1 relative z-10 font-bold" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
             color: "#ffffff"
           }}>
-            ctecs.nu: NU Course Assistant
+            ctecs.nu
           </h3>
+          <p className="text-center mb-2 text-white/80 text-md relative z-10" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
+            chatbot for northwestern course reviews | 2025
+          </p>
           <div className="relative flex-1 mx-1 mb-3 rounded overflow-hidden border border-white/30">
             <Image 
               src="/ctecsnu.png" 
@@ -156,20 +213,36 @@ export default function ProjectsPage() {
                 fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
             ))}
           </div>
+          {/* Hand-drawn border */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <rect 
+              x="0" y="0" 
+              width="100" height="100"
+              rx="8" ry="8"
+              fill="none" 
+              stroke="rgba(255,255,255,0.4)" 
+              strokeWidth="0.4"
+              className="group-hover:stroke-white"
+              style={{ filter: 'url(#roughen-box)' }}
+            />
+          </svg>
         </div>
 
         {/* Project 3 - Float */}
         <div 
-          className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border-2 border-white/20 aspect-square w-full cursor-pointer hover:border-white hover:scale-[1.02] transition-transform duration-150 relative overflow-hidden"
+          className="group flex flex-col bg-white/10 backdrop-blur-md rounded-4xl p-6 aspect-square w-full cursor-pointer hover:scale-[1.01] transition-transform duration-150 relative overflow-visible"
           onClick={() => handleProjectClick('float')}
         >
-          <h3 className="text-center mb-3 relative z-10 font-normal group-hover:font-bold" style={{
+          <h3 className="text-center mb-1 relative z-10 font-bold" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
             color: "#ffffff"
           }}>
-            Float: Overlay Note-Taking App
+            Float
           </h3>
+          <p className="text-center mb-2 text-white/80 text-md relative z-10" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
+            always-visible notepad | 2025
+          </p>
           <div className="relative flex-1 mx-1 mb-3 rounded overflow-hidden border border-white/30">
             <Image 
               src="/float.png" 
@@ -188,20 +261,36 @@ export default function ProjectsPage() {
                 fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
             ))}
           </div>
+          {/* Hand-drawn border */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <rect 
+              x="0" y="0" 
+              width="100" height="100"
+              rx="8" ry="8"
+              fill="none" 
+              stroke="rgba(255,255,255,0.4)" 
+              strokeWidth="0.4"
+              className="group-hover:stroke-white"
+              style={{ filter: 'url(#roughen-box)' }}
+            />
+          </svg>
         </div>
 
         {/* Project 3 - CRM */}
         <div 
-          className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border-2 border-white/20 aspect-square w-full cursor-pointer hover:border-white hover:scale-[1.02] transition-transform duration-150 relative overflow-hidden"
+          className="group flex flex-col bg-white/10 backdrop-blur-md rounded-4xl p-6 aspect-square w-full cursor-pointer hover:scale-[1.01] transition-transform duration-150 relative overflow-visible"
           onClick={() => handleProjectClick('crm')}
         >
-          <h3 className="text-center mb-3 relative z-10 font-normal group-hover:font-bold" style={{
+          <h3 className="text-center mb-1 relative z-10 font-bold" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
             color: "#ffffff"
           }}>
-            AI-Powered CRM Platform
+            CRM Platform
           </h3>
+          <p className="text-center mb-2 text-white/80 text-md relative z-10" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
+            crm with automated lead prospecting | 2025
+          </p>
           <div className="relative flex-1 mx-1 mb-3 rounded overflow-hidden border border-white/30">
             <Image 
               src="/crm.png" 
@@ -220,20 +309,36 @@ export default function ProjectsPage() {
                 fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
             ))}
           </div>
+          {/* Hand-drawn border */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <rect 
+              x="0" y="0" 
+              width="100" height="100"
+              rx="8" ry="8"
+              fill="none" 
+              stroke="rgba(255,255,255,0.4)" 
+              strokeWidth="0.4"
+              className="group-hover:stroke-white"
+              style={{ filter: 'url(#roughen-box)' }}
+            />
+          </svg>
         </div>
 
         {/* Project 4 - PurityTest */}
         <div 
-          className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border-2 border-white/20 aspect-square w-full cursor-pointer hover:border-white hover:scale-[1.02] transition-transform duration-150 relative overflow-hidden"
+          className="group flex flex-col bg-white/10 backdrop-blur-md rounded-4xl p-6 aspect-square w-full cursor-pointer hover:scale-[1.01] transition-transform duration-150 relative overflow-visible"
           onClick={() => handleProjectClick('northwestern-purity-test')}
         >
-          <h3 className="text-center mb-3 relative z-10 font-normal group-hover:font-bold" style={{
+          <h3 className="text-center mb-1 relative z-10 font-bold" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
             color: "#ffffff"
           }}>
             Northwestern Purity Test
           </h3>
+          <p className="text-center mb-2 text-white/80 text-md relative z-10" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
+            campus quiz with 5,300+ visitors | 2025
+          </p>
           <div className="relative flex-1 mx-1 mb-3 rounded overflow-hidden border border-white/30">
             <Image 
               src="/nupuritytest.png" 
@@ -252,20 +357,36 @@ export default function ProjectsPage() {
                 fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
             ))}
           </div>
+          {/* Hand-drawn border */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <rect 
+              x="0" y="0" 
+              width="100" height="100"
+              rx="8" ry="8"
+              fill="none" 
+              stroke="rgba(255,255,255,0.4)" 
+              strokeWidth="0.4"
+              className="group-hover:stroke-white"
+              style={{ filter: 'url(#roughen-box)' }}
+            />
+          </svg>
         </div>
 
         {/* Project 8 - ScoutCode */}
         <div 
-          className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border-2 border-white/20 aspect-square w-full cursor-pointer hover:border-white hover:scale-[1.02] transition-transform duration-150 relative overflow-hidden"
+          className="group flex flex-col bg-white/10 backdrop-blur-md rounded-4xl p-6 aspect-square w-full cursor-pointer hover:scale-[1.01] transition-transform duration-150 relative overflow-visible"
           onClick={() => handleProjectClick('frc-scouting-app')}
         >
-          <h3 className="text-center mb-3 relative z-10 font-normal group-hover:font-bold" style={{
+          <h3 className="text-center mb-1 relative z-10 font-bold" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
             color: "#ffffff"
           }}>
             FRC Scouting App
           </h3>
+          <p className="text-center mb-2 text-white/80 text-md relative z-10" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
+            scouting app for frc competitions | 2025
+          </p>
           <div className="relative flex-1 mx-1 mb-3 rounded overflow-hidden border border-white/30">
             <Image 
               src="/9032scout/teamanalysis.png" 
@@ -284,20 +405,36 @@ export default function ProjectsPage() {
                 fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
             ))}
           </div>
+          {/* Hand-drawn border */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <rect 
+              x="0" y="0" 
+              width="100" height="100"
+              rx="8" ry="8"
+              fill="none" 
+              stroke="rgba(255,255,255,0.4)" 
+              strokeWidth="0.4"
+              className="group-hover:stroke-white"
+              style={{ filter: 'url(#roughen-box)' }}
+            />
+          </svg>
         </div>
 
         {/* Project 6 - Square One Mobile App */}
         <div 
-          className="group flex flex-col bg-white/10 backdrop-blur-sm rounded-lg p-6 border-2 border-white/20 aspect-square w-full cursor-pointer hover:border-white hover:scale-[1.02] transition-transform duration-150 relative overflow-hidden"
+          className="group flex flex-col bg-white/10 backdrop-blur-md rounded-4xl p-6 aspect-square w-full cursor-pointer hover:scale-[1.01] transition-transform duration-150 relative overflow-visible"
           onClick={() => handleProjectClick('square-one-mobile-app')}
         >
-          <h3 className="text-center mb-3 relative z-10 font-normal group-hover:font-bold" style={{
+          <h3 className="text-center mb-1 relative z-10 font-bold" style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontSize: "1.125rem",
             color: "#ffffff"
           }}>
             Square One Mobile App
           </h3>
+          <p className="text-center mb-2 text-white/80 text-md relative z-10" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
+            app for spreading health awareness to children | 2025
+          </p>
           <div className="relative flex-1 mx-1 mb-3 rounded overflow-hidden border border-white/30">
             <Image 
               src="/IMG_6734.PNG" 
@@ -316,6 +453,19 @@ export default function ProjectsPage() {
                 fontFamily: "'IM Fell Great Primer', serif"              }}>{tech}</span>
             ))}
           </div>
+          {/* Hand-drawn border */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <rect 
+              x="0" y="0" 
+              width="100" height="100"
+              rx="8" ry="8"
+              fill="none" 
+              stroke="rgba(255,255,255,0.4)" 
+              strokeWidth="0.4"
+              className="group-hover:stroke-white"
+              style={{ filter: 'url(#roughen-box)' }}
+            />
+          </svg>
         </div>
       </div>
       </div>
