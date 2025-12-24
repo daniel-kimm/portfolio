@@ -1,17 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 
 export default function ExperiencePage() {
-  const [openDropdowns, setOpenDropdowns] = useState<{[key: string]: boolean}>({});
-
-  const toggleDropdown = (id: string) => {
-    setOpenDropdowns(prev => ({
-      ...prev,
-      [id]: !prev[id]
-    }));
-  };
   return (
     <div className="flex flex-col text-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-20 sm:pt-24 md:pt-28 lg:pt-12 pb-16 w-full">
       <h1 
@@ -45,7 +37,7 @@ export default function ExperiencePage() {
         {/* Work Experience Timeline */}
         <div className="space-y-6">
           {/* Fidelity Investments */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -76,37 +68,18 @@ export default function ExperiencePage() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <p 
-                    className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
-                    style={{
-                      fontFamily: "'IM Fell Great Primer', serif"
-                    }}
-                  >
-                    Summer 2026
-                  </p>
-                  <button
-                    onClick={() => toggleDropdown('fidelity')}
-                    className="text-white hover:text-white/80 transition-colors duration-200 p-1 cursor-pointer"
-                  >
-                    <svg
-                      className={`w-4 h-4 transform transition-transform duration-300 ${openDropdowns.fidelity ? 'rotate-180' : 'rotate-0'}`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                </div>
+                <p 
+                  className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
+                  style={{
+                    fontFamily: "'IM Fell Great Primer', serif"
+                  }}
+                >
+                  Summer 2026
+                </p>
               </div>
             </div>
             {/* Dropdown Content */}
-            <div 
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                openDropdowns.fidelity ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
-              }`}
-            >
+            <div className="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 group-hover:max-h-20 group-hover:opacity-100">
               <div className="px-4 pb-4 border-t border-white/10">
                 <p 
                   className="text-left text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80 mt-3"
@@ -121,7 +94,7 @@ export default function ExperiencePage() {
           </div>
 
           {/* Osteoid Inc */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -152,37 +125,18 @@ export default function ExperiencePage() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <p 
-                    className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
-                    style={{
-                      fontFamily: "'IM Fell Great Primer', serif"
-                    }}
-                  >
-                    June 2025 - September 2025
-                  </p>
-                  <button
-                    onClick={() => toggleDropdown('osteoid')}
-                    className="text-white hover:text-white/80 transition-colors duration-200 p-1 cursor-pointer"
-                  >
-                    <svg
-                      className={`w-4 h-4 transform transition-transform duration-300 ${openDropdowns.osteoid ? 'rotate-180' : 'rotate-0'}`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                </div>
+                <p 
+                  className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
+                  style={{
+                    fontFamily: "'IM Fell Great Primer', serif"
+                  }}
+                >
+                  June 2025 - September 2025
+                </p>
               </div>
             </div>
             {/* Dropdown Content */}
-            <div 
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                openDropdowns.osteoid ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
-              }`}
-            >
+            <div className="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 group-hover:max-h-20 group-hover:opacity-100">
               <div className="px-4 pb-4 border-t border-white/10">
                 <p 
                   className="text-left text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80 mt-3"
@@ -197,7 +151,7 @@ export default function ExperiencePage() {
           </div>
           
           {/* Elytra Robotics */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -228,37 +182,18 @@ export default function ExperiencePage() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <p 
-                    className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
-                    style={{
-                      fontFamily: "'IM Fell Great Primer', serif"
-                    }}
-                  >
-                    March 2025 - June 2025
-                  </p>
-                  <button
-                    onClick={() => toggleDropdown('elytra')}
-                    className="text-white hover:text-white/80 transition-colors duration-200 p-1 cursor-pointer"
-                  >
-                    <svg
-                      className={`w-4 h-4 transform transition-transform duration-300 ${openDropdowns.elytra ? 'rotate-180' : 'rotate-0'}`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                </div>
+                <p 
+                  className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
+                  style={{
+                    fontFamily: "'IM Fell Great Primer', serif"
+                  }}
+                >
+                  March 2025 - June 2025
+                </p>
               </div>
             </div>
             {/* Dropdown Content */}
-            <div 
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                openDropdowns.elytra ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
-              }`}
-            >
+            <div className="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 group-hover:max-h-20 group-hover:opacity-100">
               <div className="px-4 pb-4 border-t border-white/10">
                 <p 
                   className="text-left text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80 mt-3"
@@ -266,14 +201,14 @@ export default function ExperiencePage() {
                     fontFamily: "'IM Fell Great Primer', serif"
                   }}
                 >
-                  Developed a CRM platform and deployed real-time trash detection models, delivering SF pilots and generating $75k ARR.
+                  Built a CRM platform and deployed ML models to detect trash in urban environments.
                 </p>
               </div>
             </div>
           </div>
           
           {/* Northwestern University */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -304,37 +239,18 @@ export default function ExperiencePage() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <p 
-                    className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
-                    style={{
-                      fontFamily: "'IM Fell Great Primer', serif"
-                    }}
-                  >
-                    October 2024 - Present
-                  </p>
-                  <button
-                    onClick={() => toggleDropdown('northwestern')}
-                    className="text-white hover:text-white/80 transition-colors duration-200 p-1 cursor-pointer"
-                  >
-                    <svg
-                      className={`w-4 h-4 transform transition-transform duration-300 ${openDropdowns.northwestern ? 'rotate-180' : 'rotate-0'}`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                </div>
+                <p 
+                  className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
+                  style={{
+                    fontFamily: "'IM Fell Great Primer', serif"
+                  }}
+                >
+                  October 2024 - Present
+                </p>
               </div>
             </div>
             {/* Dropdown Content */}
-            <div 
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                openDropdowns.northwestern ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
-              }`}
-            >
+            <div className="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 group-hover:max-h-20 group-hover:opacity-100">
               <div className="px-4 pb-4 border-t border-white/10">
                 <p 
                   className="text-left text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80 mt-3"
@@ -349,7 +265,7 @@ export default function ExperiencePage() {
           </div>
           
           {/* Square One */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -380,37 +296,18 @@ export default function ExperiencePage() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <p 
-                    className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
-                    style={{
-                      fontFamily: "'IM Fell Great Primer', serif"
-                    }}
-                  >
-                    October 2024 - March 2025
-                  </p>
-                  <button
-                    onClick={() => toggleDropdown('squareone')}
-                    className="text-white hover:text-white/80 transition-colors duration-200 p-1 cursor-pointer"
-                  >
-                    <svg
-                      className={`w-4 h-4 transform transition-transform duration-300 ${openDropdowns.squareone ? 'rotate-180' : 'rotate-0'}`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                </div>
+                <p 
+                  className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
+                  style={{
+                    fontFamily: "'IM Fell Great Primer', serif"
+                  }}
+                >
+                  October 2024 - March 2025
+                </p>
               </div>
             </div>
             {/* Dropdown Content */}
-            <div 
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                openDropdowns.squareone ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
-              }`}
-            >
+            <div className="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 group-hover:max-h-20 group-hover:opacity-100">
               <div className="px-4 pb-4 border-t border-white/10">
                 <p 
                   className="text-left text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80 mt-3"
@@ -418,7 +315,7 @@ export default function ExperiencePage() {
                     fontFamily: "'IM Fell Great Primer', serif"
                   }}
                 >
-                  Designed wireframes and built full-stack systems for a mobile app promoting children’s health and interactive learning.
+                  Designed wireframes and built full-stack systems for a mobile app promoting children&apos;s health and interactive learning.
                 </p>
               </div>
             </div>
@@ -440,7 +337,7 @@ export default function ExperiencePage() {
         {/* Campus Involvement Timeline */}
         <div className="space-y-6">
           {/* IEEE Project Manager */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -471,37 +368,18 @@ export default function ExperiencePage() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <p 
-                    className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
-                    style={{
-                      fontFamily: "'IM Fell Great Primer', serif"
-                    }}
-                  >
-                    November 2025 - Present
-                  </p>
-                  <button
-                    onClick={() => toggleDropdown('ieee_pm')}
-                    className="text-white hover:text-white/80 transition-colors duration-200 p-1 cursor-pointer"
-                  >
-                    <svg
-                      className={`w-4 h-4 transform transition-transform duration-300 ${openDropdowns.ieee_pm ? 'rotate-180' : 'rotate-0'}`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                </div>
+                <p 
+                  className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
+                  style={{
+                    fontFamily: "'IM Fell Great Primer', serif"
+                  }}
+                >
+                  November 2025 - Present
+                </p>
               </div>
             </div>
             {/* Dropdown Content */}
-            <div 
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                openDropdowns.ieee_pm ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
-              }`}
-            >
+            <div className="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 group-hover:max-h-20 group-hover:opacity-100">
               <div className="px-4 pb-4 border-t border-white/10">
                 <p 
                   className="text-left text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80 mt-3"
@@ -516,7 +394,7 @@ export default function ExperiencePage() {
           </div>
 
           {/* The Garage */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -547,37 +425,18 @@ export default function ExperiencePage() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <p 
-                    className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
-                    style={{
-                      fontFamily: "'IM Fell Great Primer', serif"
-                    }}
-                  >
-                    September 2025 - Present
-                  </p>
-                  <button
-                    onClick={() => toggleDropdown('the_garage')}
-                    className="text-white hover:text-white/80 transition-colors duration-200 p-1 cursor-pointer"
-                  >
-                    <svg
-                      className={`w-4 h-4 transform transition-transform duration-300 ${openDropdowns.the_garage ? 'rotate-180' : 'rotate-0'}`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                </div>
+                <p 
+                  className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
+                  style={{
+                    fontFamily: "'IM Fell Great Primer', serif"
+                  }}
+                >
+                  September 2025 - Present
+                </p>
               </div>
             </div>
             {/* Dropdown Content */}
-            <div 
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                openDropdowns.the_garage ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
-              }`}
-            >
+            <div className="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 group-hover:max-h-20 group-hover:opacity-100">
               <div className="px-4 pb-4 border-t border-white/10">
                 <p 
                   className="text-left text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80 mt-3"
@@ -585,7 +444,7 @@ export default function ExperiencePage() {
                     fontFamily: "'IM Fell Great Primer', serif"
                   }}
                 >
-                  Building Ultra and learning from weekly resident dinners at Northwestern&apos;s startup incubator.
+                  Building Ultra and learning from weekly resident dinners.
                 </p>
               </div>
             </div>
@@ -593,7 +452,7 @@ export default function ExperiencePage() {
 
 
           {/* Perplexity */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -624,37 +483,18 @@ export default function ExperiencePage() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <p 
-                    className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
-                    style={{
-                      fontFamily: "'IM Fell Great Primer', serif"
-                    }}
-                  >
-                    September 2025 - Present
-                  </p>
-                  <button
-                    onClick={() => toggleDropdown('perplexity')}
-                    className="text-white hover:text-white/80 transition-colors duration-200 p-1 cursor-pointer"
-                  >
-                    <svg
-                      className={`w-4 h-4 transform transition-transform duration-300 ${openDropdowns.perplexity ? 'rotate-180' : 'rotate-0'}`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                </div>
+                <p 
+                  className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
+                  style={{
+                    fontFamily: "'IM Fell Great Primer', serif"
+                  }}
+                >
+                  September 2025 - Present
+                </p>
               </div>
             </div>
             {/* Dropdown Content */}
-            <div 
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                openDropdowns.perplexity ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
-              }`}
-            >
+            <div className="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 group-hover:max-h-20 group-hover:opacity-100">
               <div className="px-4 pb-4 border-t border-white/10">
                 <p 
                   className="text-left text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80 mt-3"
@@ -669,7 +509,7 @@ export default function ExperiencePage() {
           </div>
           
           {/* Mayfest Productions */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -700,37 +540,18 @@ export default function ExperiencePage() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <p 
-                    className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
-                    style={{
-                      fontFamily: "'IM Fell Great Primer', serif"
-                    }}
-                  >
-                    October 2024 - Present
-                  </p>
-                  <button
-                    onClick={() => toggleDropdown('mayfest')}
-                    className="text-white hover:text-white/80 transition-colors duration-200 p-1 cursor-pointer"
-                  >
-                    <svg
-                      className={`w-4 h-4 transform transition-transform duration-300 ${openDropdowns.mayfest ? 'rotate-180' : 'rotate-0'}`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                </div>
+                <p 
+                  className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
+                  style={{
+                    fontFamily: "'IM Fell Great Primer', serif"
+                  }}
+                >
+                  October 2024 - Present
+                </p>
               </div>
             </div>
             {/* Dropdown Content */}
-            <div 
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                openDropdowns.mayfest ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
-              }`}
-            >
+            <div className="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 group-hover:max-h-20 group-hover:opacity-100">
               <div className="px-4 pb-4 border-t border-white/10">
                 <p 
                   className="text-left text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80 mt-3"
@@ -745,7 +566,7 @@ export default function ExperiencePage() {
           </div>
           
           {/* IEEE */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -776,37 +597,18 @@ export default function ExperiencePage() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <p 
-                    className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
-                    style={{
-                      fontFamily: "'IM Fell Great Primer', serif"
-                    }}
-                  >
-                    January 2025 - May 2025
-                  </p>
-                  <button
-                    onClick={() => toggleDropdown('ieee')}
-                    className="text-white hover:text-white/80 transition-colors duration-200 p-1 cursor-pointer"
-                  >
-                    <svg
-                      className={`w-4 h-4 transform transition-transform duration-300 ${openDropdowns.ieee ? 'rotate-180' : 'rotate-0'}`}
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                </div>
+                <p 
+                  className="text-xs sm:text-sm md:text-sm lg:text-sm xl:text-sm text-white opacity-100"
+                  style={{
+                    fontFamily: "'IM Fell Great Primer', serif"
+                  }}
+                >
+                  January 2025 - May 2025
+                </p>
               </div>
             </div>
             {/* Dropdown Content */}
-            <div 
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                openDropdowns.ieee ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
-              }`}
-            >
+            <div className="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 group-hover:max-h-20 group-hover:opacity-100">
               <div className="px-4 pb-4 border-t border-white/10">
                 <p 
                   className="text-left text-xs sm:text-sm md:text-base lg:text-base xl:text-base text-white opacity-80 mt-3"
