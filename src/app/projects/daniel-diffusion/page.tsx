@@ -25,7 +25,7 @@ export default function DanielDiffusionProject() {
               fontFamily: "'IM Fell Great Primer', serif"
             }}
           >
-            Daniel Diffusion
+            daniel-diffusion
           </h1>
           <div className="w-20 sm:w-24 flex-shrink-0"></div>
         </div>

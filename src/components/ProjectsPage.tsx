@@ -43,7 +43,7 @@ export default function ProjectsPage() {
             fontSize: "1.125rem",
             color: "#ffffff"
           }}>
-            Daniel Diffusion
+            daniel-diffusion
           </h3>
           <p className="text-center mb-2 text-white/80 text-md relative z-10" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
             generative model trained on my artwork | 2025
