@@ -25,7 +25,7 @@ export default function AltoProject() {
               fontFamily: "'IM Fell Great Primer', serif"
             }}
           >
-            Alto: AI Voice Email Assistant
+            Alto
           </h1>
           <div className="w-20 sm:w-24 flex-shrink-0"></div>
         </div>

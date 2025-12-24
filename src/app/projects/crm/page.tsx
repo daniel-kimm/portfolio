@@ -25,7 +25,7 @@ export default function CrmProject() {
               fontFamily: "'IM Fell Great Primer', serif"
             }}
           >
-            AI-Powered CRM Platform
+            CRM Platform
           </h1>
           <div className="w-20 sm:w-24 flex-shrink-0"></div>
         </div>

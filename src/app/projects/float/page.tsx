@@ -24,7 +24,7 @@ export default function FloatProject() {
               fontFamily: "'IM Fell Great Primer', serif"
             }}
           >
-            Float: Overlay Note-Taking App
+            Float
           </h1>
           <div className="w-20 sm:w-24 flex-shrink-0"></div>
         </div>

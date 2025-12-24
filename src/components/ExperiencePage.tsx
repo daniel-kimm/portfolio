@@ -23,8 +23,18 @@ export default function ExperiencePage() {
         here&apos;s a comprehensive look at my professional experience and campus involvement!
       </p>
       
+      {/* SVG Filter for hand-drawn effect */}
+      <svg className="absolute w-0 h-0">
+        <defs>
+          <filter id="roughen-arrow">
+            <feTurbulence baseFrequency="0.9" numOctaves="3" result="noise" seed="1"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="1"/>
+          </filter>
+        </defs>
+      </svg>
+
       {/* Work Experience Section */}
-      <div className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic mx-auto max-w-5xl">
+      <div className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic mx-auto max-w-5xl relative">
         <h2 
           className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-semibold text-white mb-8 italic"
           style={{
@@ -34,10 +44,56 @@ export default function ExperiencePage() {
           work experience
         </h2>
         
+        {/* Hand-drawn Arrow pointing at Fidelity box */}
+        <div className="absolute -left-4 sm:-left-16 md:-left-24 lg:-left-32 xl:-left-40 top-16 sm:top-20 hidden sm:block">
+          <div className="relative">
+            <svg 
+              width="100" 
+              height="60" 
+              className="sm:w-[120px] sm:h-[70px] md:w-[140px] md:h-[80px] lg:w-[160px] lg:h-[90px] text-white opacity-80"
+              viewBox="0 0 160 90"
+            >
+              {/* Curved arrow pointing right */}
+              <path
+                d="M20 70 Q60 20 130 45"
+                stroke="currentColor"
+                strokeWidth="2"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                style={{
+                  filter: 'url(#roughen-arrow)',
+                  strokeDasharray: '2 1',
+                }}
+              />
+              {/* Arrow head pointing right */}
+              <path
+                d="M130 45 L122 40 M130 45 L124 52"
+                stroke="currentColor"
+                strokeWidth="2"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            {/* Text at the non-pointy end (start of curve) */}
+            <div 
+              className="absolute -bottom-4 -left-16 sm:-left-20 md:-left-24 lg:-left-28 text-white text-md sm:text-base md:text-xl lg:text-2xl xl:text-3xl opacity-80 whitespace-nowrap italic"
+              style={{
+                fontFamily: "'Myfont', serif",
+                fontWeight: 400,
+                transform: 'rotate(-5deg)',
+              }}
+            >
+              hover over each to learn more!
+            </div>
+          </div>
+        </div>
+        
         {/* Work Experience Timeline */}
         <div className="space-y-6">
           {/* Fidelity Investments */}
-          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -94,7 +150,7 @@ export default function ExperiencePage() {
           </div>
 
           {/* Osteoid Inc */}
-          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -151,7 +207,7 @@ export default function ExperiencePage() {
           </div>
           
           {/* Elytra Robotics */}
-          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -208,7 +264,7 @@ export default function ExperiencePage() {
           </div>
           
           {/* Northwestern University */}
-          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -265,7 +321,7 @@ export default function ExperiencePage() {
           </div>
           
           {/* Square One */}
-          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -337,7 +393,7 @@ export default function ExperiencePage() {
         {/* Campus Involvement Timeline */}
         <div className="space-y-6">
           {/* IEEE Project Manager */}
-          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -394,7 +450,7 @@ export default function ExperiencePage() {
           </div>
 
           {/* The Garage */}
-          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -452,7 +508,7 @@ export default function ExperiencePage() {
 
 
           {/* Perplexity */}
-          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -509,7 +565,7 @@ export default function ExperiencePage() {
           </div>
           
           {/* Mayfest Productions */}
-          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">
@@ -566,7 +622,7 @@ export default function ExperiencePage() {
           </div>
           
           {/* IEEE */}
-          <div className="group bg-white/10 backdrop-blur-md rounded-lg border border-white/20 w-full lg:w-3xl xl:w-4xl">
+          <div className="group bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 w-full lg:w-3xl xl:w-4xl">
             <div className="p-4 text-left flex items-center">
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center space-x-4">

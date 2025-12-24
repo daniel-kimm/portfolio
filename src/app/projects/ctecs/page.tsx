@@ -25,7 +25,7 @@ export default function CtecsProject() {
               fontFamily: "'IM Fell Great Primer', serif"
             }}
           >
-            ctecs.nu: NU Course Assistant
+            ctecs.nu
           </h1>
           <div className="w-20 sm:w-24 flex-shrink-0"></div>
         </div>

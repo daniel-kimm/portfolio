@@ -25,7 +25,7 @@ export default function UltraProject() {
               fontFamily: "'IM Fell Great Primer', serif"
             }}
           >
-            Ultra: Contextual AI Writer
+            Ultra
           </h1>
           <div className="w-20 sm:w-24 flex-shrink-0"></div>
         </div>
