@@ -27,7 +27,7 @@ export default function ProjectsPage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        here&apos;s a collection of projects i&apos;ve worked on!
+        a collection of projects i&apos;ve worked on
       </p>
       
       {/* Projects Grid - 3 columns layout */}

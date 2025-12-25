@@ -20,7 +20,7 @@ export default function ExperiencePage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        here&apos;s a comprehensive look at my professional experience and campus involvement!
+        a comprehensive look at my professional experience and campus involvement
       </p>
       
       {/* SVG Filter for hand-drawn effect */}
@@ -78,7 +78,7 @@ export default function ExperiencePage() {
             </svg>
             {/* Text at the non-pointy end (start of curve) */}
             <div 
-              className="absolute -bottom-4 -left-16 sm:-left-20 md:-left-24 lg:-left-28 text-white text-md sm:text-base md:text-xl lg:text-2xl xl:text-3xl opacity-80 whitespace-nowrap italic"
+              className="absolute -bottom-4 -left-16 sm:-left-20 md:-left-24 lg:-left-28 text-white text-md sm:text-base md:text-base lg:text-base xl:text-3xl opacity-80 whitespace-nowrap italic"
               style={{
                 fontFamily: "'Myfont', serif",
                 fontWeight: 400,

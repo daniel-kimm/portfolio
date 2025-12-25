@@ -18,7 +18,7 @@ export default function ArtPage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        check out some of the art i&apos;ve created over the years!
+        some of the art i&apos;ve created over the years!
       </p>
       
       {/* Notion Embed */}
