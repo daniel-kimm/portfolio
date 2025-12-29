@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 
 export default function HomePage() {
   const [currentTime, setCurrentTime] = useState('');
-  const [currentDate, setCurrentDate] = useState('');
   const [showTooltip, setShowTooltip] = useState(false);
 
   useEffect(() => {
@@ -12,20 +11,12 @@ export default function HomePage() {
       const now = new Date();
       // Convert to CST (UTC-6) or CDT (UTC-5) depending on daylight saving
       const cstTime = new Date(now.toLocaleString("en-US", {timeZone: "America/Chicago"}));
-      const hours = cstTime.getHours().toString().padStart(2, '0');
+      const hours24 = cstTime.getHours();
+      const hours12 = hours24 % 12 || 12;
       const minutes = cstTime.getMinutes().toString().padStart(2, '0');
       const seconds = cstTime.getSeconds().toString().padStart(2, '0');
-      setCurrentTime(`${hours}:${minutes}:${seconds}`);
-      
-      // Format date as "November 3, 2025"
-      const dateOptions: Intl.DateTimeFormatOptions = { 
-        month: 'long', 
-        day: 'numeric', 
-        year: 'numeric',
-        timeZone: "America/Chicago"
-      };
-      const formattedDate = cstTime.toLocaleDateString("en-US", dateOptions);
-      setCurrentDate(formattedDate);
+      const ampm = hours24 >= 12 ? 'pm' : 'am';
+      setCurrentTime(`${hours12}:${minutes}:${seconds} ${ampm}`);
     };
 
     updateTime(); // Initial call
@@ -173,7 +164,7 @@ export default function HomePage() {
             fontWeight: 400,
           }}
         >
-          <span>{currentDate}</span>
+          <span>chicago, il</span>
           <span>•</span>
           <span 
             className="cursor-default hover:text-gray-300 transition-colors duration-300 relative"

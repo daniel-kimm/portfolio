@@ -20,7 +20,7 @@ export default function ExperiencePage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        a comprehensive look at my professional experience and campus involvement
+        a look at my professional experience and campus involvement
       </p>
       
       {/* SVG Filter for hand-drawn effect */}

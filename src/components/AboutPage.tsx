@@ -153,7 +153,7 @@ export default function AboutPage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        At the root of my work is the desire to create art. I explore that through both traditional mediums and software, building technology that is expressive and thoughtfully designed.
+        At the core of my work is the desire to create art. I explore this through both traditional mediums and software, building technology that is expressive and thoughtfully designed.
       </p>
 
       <p
