@@ -12,6 +12,14 @@ export default function AboutPage() {
   const [showNorthwesternImage, setShowNorthwesternImage] = useState(false);
   const [showEvanstonImage, setShowEvanstonImage] = useState(false);
   const [showHikingImage, setShowHikingImage] = useState(false);
+  const [showMusicTooltip, setShowMusicTooltip] = useState(false);
+  const [nowPlaying, setNowPlaying] = useState<{
+    isPlaying: boolean;
+    title?: string;
+    artist?: string;
+    albumImageUrl?: string;
+  } | null>(null);
+  const [isLoadingMusic, setIsLoadingMusic] = useState(false);
 
   const handleImageClick = (imageSrc: string, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -31,6 +39,24 @@ export default function AboutPage() {
     navigator.clipboard.writeText('dk@u.northwestern.edu');
     setEmailCopied(true);
     setTimeout(() => setEmailCopied(false), 2000); // Hide after 2 seconds
+  };
+
+  const handleMusicHover = async () => {
+    setShowMusicTooltip(true);
+    setIsLoadingMusic(true);
+    try {
+      const response = await fetch('/api/spotify/now-playing');
+      const data = await response.json();
+      setNowPlaying(data);
+    } catch (error) {
+      console.error('Error fetching now playing:', error);
+      setNowPlaying({ isPlaying: false });
+    }
+    setIsLoadingMusic(false);
+  };
+
+  const handleMusicLeave = () => {
+    setShowMusicTooltip(false);
   };
 
   // Handle escape key to close modal
@@ -172,7 +198,52 @@ export default function AboutPage() {
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
-        In my free time, I love <a href="/art" className="text-blue-200 underline hover:text-white transition-colors duration-300">creating art</a>, playing the guitar, shooting film photos, and{' '}
+        In my free time, I love <a href="/art" className="text-blue-200 underline hover:text-white transition-colors duration-300">creating art</a>, playing the guitar,{' '}
+        <span className="relative inline-block">
+          <span
+            className="text-blue-200 underline hover:text-white transition-colors duration-300 cursor-pointer"
+            onMouseEnter={handleMusicHover}
+            onMouseLeave={handleMusicLeave}
+          >
+            listening to music
+          </span>
+          {showMusicTooltip && (
+            <div 
+              className={`absolute bottom-full mb-1 bg-white text-black rounded-lg shadow-lg animate-fade-in z-50 ${
+                nowPlaying?.isPlaying && !isLoadingMusic ? 'left-0 px-4 py-3' : 'left-1/2 -translate-x-1/2 px-3 py-2'
+              }`}
+              style={{
+                fontFamily: "'IM Fell Great Primer', serif",
+                fontWeight: 400,
+              }}
+            >
+              {isLoadingMusic ? (
+                <span className="text-sm whitespace-nowrap flex items-center justify-center">loading...</span>
+              ) : nowPlaying?.isPlaying ? (
+                <div className="flex flex-col gap-2">
+                  <span className="text-xs text-gray-500 italic whitespace-nowrap">i&apos;m currently listening to:</span>
+                  <div className="flex items-center gap-3">
+                    {nowPlaying.albumImageUrl && (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img 
+                        src={nowPlaying.albumImageUrl} 
+                        alt="Album cover"
+                        className="w-14 h-14 rounded shadow-md flex-shrink-0"
+                      />
+                    )}
+                    <div className="flex flex-col">
+                      <span className="text-base font-medium whitespace-nowrap">{nowPlaying.title}</span>
+                      <span className="text-sm text-gray-600 whitespace-nowrap">{nowPlaying.artist}</span>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <span className="text-sm whitespace-nowrap flex items-center justify-center">not listening to anything currently</span>
+              )}
+            </div>
+          )}
+        </span>
+        , and{' '}
         <span className="relative inline-block">
           <span 
             className="text-blue-200 underline hover:text-white transition-colors duration-300 cursor-pointer"
