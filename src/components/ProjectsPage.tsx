@@ -160,7 +160,7 @@ export default function ProjectsPage() {
                 className="flex items-center justify-end gap-2 mt-3"
                 style={{ fontFamily: "'IM Fell Great Primer', serif" }}
               >
-                <span className="text-white/90 text-md font-bold">{project.title} | {project.year}</span>
+                <span className="text-white/90 text-xs sm:text-sm md:text-md font-bold">{project.title} | {project.year}</span>
               </div>
             </div>
           ))}

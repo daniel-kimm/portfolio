@@ -165,23 +165,66 @@ export default function Layout({
             >
               <div className="absolute inset-0 bg-gray-900/99 backdrop-blur-lg"></div>
               <div className="relative h-full flex flex-col items-center justify-center">
-                {navigationItems.map((item, index) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-white hover:text-gray-300 transition-all duration-300 py-4 text-3xl md:text-4xl italic mobile-menu-item ${
-                      currentPage === (item.label === 'about me' ? 'about' : item.label) ? 'text-gray-300' : ''
-                    }`}
-                    style={{
-                      fontFamily: "'Myfont', sans-serif",
-                      fontWeight: 400,
-                      animationDelay: `${index * 0.1}s`
-                    }}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+                {navigationItems.map((item, index) => {
+                  const isCurrentPage = currentPage === (item.label === 'about me' ? 'about' : item.label);
+                  return (
+                    <div key={item.label} className="relative">
+                      <Link
+                        href={item.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className={`text-white hover:text-gray-300 transition-all duration-300 py-4 text-3xl md:text-4xl italic mobile-menu-item block ${
+                          isCurrentPage ? 'text-gray-300' : ''
+                        }`}
+                        style={{
+                          fontFamily: "'Myfont', sans-serif",
+                          fontWeight: 400,
+                          animationDelay: `${index * 0.1}s`
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                      
+                      {/* Circle indicator for current page on mobile */}
+                      {isCurrentPage && (
+                        <svg
+                          className="absolute pointer-events-none"
+                          viewBox="0 0 120 50"
+                          preserveAspectRatio="none"
+                          style={{
+                            width: 'calc(100% + 24px)',
+                            height: 'calc(100% - 10px)',
+                            left: '-12px',
+                            top: '5px',
+                          }}
+                        >
+                          <defs>
+                            <filter id="roughen-mobile">
+                              <feTurbulence baseFrequency="0.08" numOctaves="3" result="noise" seed="3"/>
+                              <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2"/>
+                            </filter>
+                          </defs>
+                          
+                          <path
+                            d="M 48,7 
+                               L 53,7
+                               C 85,7 110,15 110,25 
+                               C 110,35 85,43 60,43 
+                               C 35,43 10,35 10,25 
+                               C 10,15 35,7 67,9.5
+                               L 72,9.5"
+                            fill="none"
+                            stroke="white"
+                            strokeWidth="0.8"
+                            strokeLinecap="round"
+                            style={{
+                              filter: 'url(#roughen-mobile)',
+                            }}
+                          />
+                        </svg>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}
