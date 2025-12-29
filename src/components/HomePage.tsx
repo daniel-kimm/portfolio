@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 export default function HomePage() {
   const [currentTime, setCurrentTime] = useState('');
@@ -27,32 +28,41 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center px-4 pb-32">
-      <h1 
-        className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wider lg:tracking-widest animate-fade-in-up"
+      <motion.h1 
+        className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wider lg:tracking-widest"
         style={{
           fontFamily: "'IM Fell Great Primer', serif",
           fontWeight: 400,
-          animationDelay: '0.2s',
           marginBottom: '0.25rem',
           lineHeight: 1.2
         }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
         Daniel Kim
-      </h1>
-      <p 
-        className="text-white text-3xl sm:text-4xl md:text-5xl tracking-wide italic animate-fade-in-up"
+      </motion.h1>
+      <motion.p 
+        className="text-white text-3xl sm:text-4xl md:text-5xl tracking-wide italic"
         style={{
           fontFamily: "'Myfont', sans-serif",
           fontWeight: 400,
-          animationDelay: '0.4s',
           marginBottom: '0.9rem',
           lineHeight: 1.2
         }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
         Software Engineer and Artist
-      </p>
+      </motion.p>
       {/* Social Icons */}
-      <div className="flex space-x-7 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+      <motion.div 
+        className="flex space-x-7"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <a 
           href="https://github.com/daniel-kimm" 
           target="_blank" 
@@ -97,10 +107,15 @@ export default function HomePage() {
             <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
           </svg>
         </a>
-      </div>
+      </motion.div>
       
       {/* Hand-drawn Arrow */}
-      <div className="absolute bottom-32 right-8 sm:bottom-40 sm:right-24 md:bottom-60 md:right-48 animate-fade-in-up" style={{ animationDelay: '1.2s' }}>
+      <motion.div 
+        className="absolute bottom-32 right-8 sm:bottom-40 sm:right-24 md:bottom-60 md:right-48"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <div className="relative">
           <svg 
             width="80" 
@@ -150,12 +165,14 @@ export default function HomePage() {
             i took this photo!
           </div>
         </div>
-      </div>
+      </motion.div>
       
       {/* Date and Time Display - Bottom Left */}
-      <div 
-        className="absolute bottom-8 left-8 animate-fade-in-up" 
-        style={{ animationDelay: '1.2s' }}
+      <motion.div 
+        className="absolute bottom-8 left-8"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div 
           className="text-white text-sm md:text-lg font-mono tracking-wider flex items-center gap-2"
@@ -185,21 +202,10 @@ export default function HomePage() {
             )}
           </span>
         </div>
-      </div>
+      </motion.div>
       
-      {/* CSS Animation Styles */}
+      {/* CSS Animation Styles for tooltip */}
       <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
         @keyframes fadeIn {
           from {
             opacity: 0;
@@ -207,11 +213,6 @@ export default function HomePage() {
           to {
             opacity: 1;
           }
-        }
-        
-        .animate-fade-in-up {
-          animation: fadeInUp 0.8s ease-out forwards;
-          opacity: 0;
         }
         
         .animate-fade-in {
