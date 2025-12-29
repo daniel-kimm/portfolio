@@ -114,9 +114,9 @@ export default function ProjectsPage() {
       
       {/* Projects Grid */}
       <div className="w-full flex justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full" style={{ maxWidth: '90%' }}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 w-full" style={{ maxWidth: '92%' }}>
           {projects.map((project) => (
-            <div key={project.slug} className="relative pb-8">
+            <div key={project.slug} className="relative pb-1">
               {/* Project Card - Just the image */}
               <div 
                 className="group relative aspect-square w-full cursor-pointer hover:scale-[1.01] transition-all duration-150 overflow-hidden rounded-3xl border-2 border-white/30 hover:border-white/70"
@@ -160,7 +160,7 @@ export default function ProjectsPage() {
                 className="flex items-center justify-end gap-2 mt-3"
                 style={{ fontFamily: "'IM Fell Great Primer', serif" }}
               >
-                <span className="text-white/90 text-md">{project.title} | {project.year}</span>
+                <span className="text-white/90 text-md font-bold">{project.title} | {project.year}</span>
               </div>
             </div>
           ))}
