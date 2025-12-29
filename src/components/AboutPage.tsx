@@ -54,98 +54,108 @@ export default function AboutPage() {
       >
         about me
       </h1>
-      <p 
+      <div 
         className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-left"
         style={{
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
         Hi! My name is Daniel, and I&apos;m an engineer and artist from{' '}
-        <span 
-          className="text-blue-200 underline hover:text-white transition-colors duration-300 cursor-pointer"
-          onMouseEnter={() => setShowCaryImage(true)}
-          onMouseLeave={() => setShowCaryImage(false)}
-        >
-          Cary, North Carolina
+        <span className="relative inline-block">
+          <span 
+            className="text-blue-200 underline hover:text-white transition-colors duration-300 cursor-pointer"
+            onMouseEnter={() => setShowCaryImage(true)}
+            onMouseLeave={() => setShowCaryImage(false)}
+          >
+            Cary, North Carolina
+          </span>
+          {showCaryImage && (
+            <div 
+              className="absolute z-40 pointer-events-none animate-fade-in"
+              style={{
+                top: '100%',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                marginTop: '12px',
+              }}
+            >
+              <div className="relative w-56 h-72 sm:w-72 sm:h-96 overflow-hidden shadow-2xl opacity-95">
+                <Image 
+                  src="/about_me/cary.jpg" 
+                  alt="Cary, North Carolina" 
+                  fill
+                  className="object-cover"
+                  sizes="288px"
+                />
+              </div>
+            </div>
+          )}
         </span>
         . I&apos;m currently studying Computer Science and Art at{' '}
-        <span 
-          className="text-blue-200 underline hover:text-white transition-colors duration-300 cursor-pointer"
-          onMouseEnter={() => setShowNorthwesternImage(true)}
-          onMouseLeave={() => setShowNorthwesternImage(false)}
-        >
-          Northwestern University
+        <span className="relative inline-block">
+          <span 
+            className="text-blue-200 underline hover:text-white transition-colors duration-300 cursor-pointer"
+            onMouseEnter={() => setShowNorthwesternImage(true)}
+            onMouseLeave={() => setShowNorthwesternImage(false)}
+          >
+            Northwestern University
+          </span>
+          {showNorthwesternImage && (
+            <div 
+              className="absolute z-40 pointer-events-none animate-fade-in"
+              style={{
+                top: '100%',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                marginTop: '12px',
+              }}
+            >
+              <div className="relative w-72 h-56 sm:w-96 sm:h-72 overflow-hidden shadow-2xl opacity-95">
+                <Image 
+                  src="/about_me/deering.jpg" 
+                  alt="Northwestern University" 
+                  fill
+                  className="object-cover"
+                  sizes="384px"
+                />
+              </div>
+            </div>
+          )}
         </span>
         {' '}in{' '}
-        <span 
-          className="text-blue-200 underline hover:text-white transition-colors duration-300 cursor-pointer"
-          onMouseEnter={() => setShowEvanstonImage(true)}
-          onMouseLeave={() => setShowEvanstonImage(false)}
-        >
-          Evanston, Illinois
+        <span className="relative inline-block">
+          <span 
+            className="text-blue-200 underline hover:text-white transition-colors duration-300 cursor-pointer"
+            onMouseEnter={() => setShowEvanstonImage(true)}
+            onMouseLeave={() => setShowEvanstonImage(false)}
+          >
+            Evanston, Illinois
+          </span>
+          {showEvanstonImage && (
+            <div 
+              className="absolute z-40 pointer-events-none animate-fade-in"
+              style={{
+                top: '100%',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                marginTop: '12px',
+              }}
+            >
+              <div className="relative w-56 h-72 sm:w-72 sm:h-96 overflow-hidden shadow-2xl opacity-95">
+                <Image 
+                  src="/about_me/evanston.jpg" 
+                  alt="Evanston, Illinois" 
+                  fill
+                  className="object-cover"
+                  sizes="288px"
+                />
+              </div>
+            </div>
+          )}
         </span>
         .
-      </p>
+      </div>
 
-      {/* Cary image on hover - centered on screen */}
-      {showCaryImage && (
-        <div className="fixed inset-0 z-40 pointer-events-none flex items-center justify-center animate-fade-in">
-          <div className="relative w-96 h-[28rem] sm:w-[28rem] sm:h-[36rem] overflow-hidden shadow-2xl opacity-90">
-            <Image 
-              src="/about_me/cary.jpg" 
-              alt="Cary, North Carolina" 
-              fill
-              className="object-cover"
-              sizes="(max-width: 640px) 320px, 384px"
-            />
-          </div>
-        </div>
-      )}
-
-      {/* Northwestern/Deering image on hover - centered on screen */}
-      {showNorthwesternImage && (
-        <div className="fixed inset-0 z-40 pointer-events-none flex items-center justify-center animate-fade-in">
-          <div className="relative w-[85vw] sm:w-[70vw] md:w-[60vw] lg:w-[50vw] aspect-[4/3] overflow-hidden shadow-2xl opacity-90">
-            <Image 
-              src="/about_me/deering.jpg" 
-              alt="Northwestern University" 
-              fill
-              className="object-cover"
-              sizes="(max-width: 640px) 85vw, (max-width: 768px) 70vw, 50vw"
-            />
-          </div>
-        </div>
-      )}
-
-      {/* Evanston image on hover - centered on screen */}
-      {showEvanstonImage && (
-        <div className="fixed inset-0 z-40 pointer-events-none flex items-center justify-center animate-fade-in">
-          <div className="relative w-96 h-[28rem] sm:w-[28rem] sm:h-[36rem] overflow-hidden shadow-2xl opacity-90">
-            <Image 
-              src="/about_me/evanston.jpg" 
-              alt="Evanston, Illinois" 
-              fill
-              className="object-cover"
-              sizes="(max-width: 640px) 320px, 384px"
-            />
-          </div>
-        </div>
-      )}
-
-      {/* Hiking/Banff image on hover - centered on screen */}
-      {showHikingImage && (
-        <div className="fixed inset-0 z-40 pointer-events-none flex items-center justify-center animate-fade-in">
-          <div className="relative w-96 h-[28rem] sm:w-[28rem] sm:h-[36rem] overflow-hidden shadow-2xl opacity-90">
-            <Image 
-              src="/about_me/banff.jpg" 
-              alt="Hiking in Banff" 
-              fill
-              className="object-cover"
-              sizes="(max-width: 640px) 320px, 384px"
-            />
-          </div>
-        </div>
-      )}
 
       <p
         className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-left"
@@ -156,22 +166,45 @@ export default function AboutPage() {
         At the core of my work is the desire to create art. I explore this through both traditional mediums and software, building technology that is expressive and thoughtfully designed.
       </p>
 
-      <p
+      <div
         className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-left self-start"
         style={{
           fontFamily: "'IM Fell Great Primer', serif"
         }}
       >
         In my free time, I love <a href="/art" className="text-blue-200 underline hover:text-white transition-colors duration-300">creating art</a>, playing the guitar, shooting film photos, and{' '}
-        <span 
-          className="text-blue-200 underline hover:text-white transition-colors duration-300 cursor-pointer"
-          onMouseEnter={() => setShowHikingImage(true)}
-          onMouseLeave={() => setShowHikingImage(false)}
-        >
-          hiking
+        <span className="relative inline-block">
+          <span 
+            className="text-blue-200 underline hover:text-white transition-colors duration-300 cursor-pointer"
+            onMouseEnter={() => setShowHikingImage(true)}
+            onMouseLeave={() => setShowHikingImage(false)}
+          >
+            hiking
+          </span>
+          {showHikingImage && (
+            <div 
+              className="absolute z-40 pointer-events-none animate-fade-in"
+              style={{
+                top: '100%',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                marginTop: '12px',
+              }}
+            >
+              <div className="relative w-56 h-72 sm:w-72 sm:h-96 overflow-hidden shadow-2xl opacity-95">
+                <Image 
+                  src="/about_me/banff.jpg" 
+                  alt="Hiking in Banff" 
+                  fill
+                  className="object-cover"
+                  sizes="288px"
+                />
+              </div>
+            </div>
+          )}
         </span>
         !
-      </p>
+      </div>
 
       <p
         className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-left self-start"
