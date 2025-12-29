@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export default function DanielDiffusionProject() {
   useEffect(() => {
-    document.title = 'daniel diffusion | daniel kim';
+    document.title = 'daniel-diffusion | daniel kim';
   }, []);
   return (
     <Layout currentPage="projects">
