@@ -238,7 +238,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               ) : (
-                <span className="text-sm whitespace-nowrap flex items-center justify-center">not listening to anything currently</span>
+                <span className="text-sm whitespace-nowrap flex items-center justify-center">currently not listening to anything</span>
               )}
             </div>
           )}
