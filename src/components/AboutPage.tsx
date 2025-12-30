@@ -87,7 +87,7 @@ export default function AboutPage() {
       
       {/* Torn paper background container */}
       <motion.div 
-        className="relative w-full max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl"
+        className="relative w-full max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl flex flex-col justify-center"
         initial={{ opacity: 0, x: -60 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
@@ -168,7 +168,7 @@ export default function AboutPage() {
         </svg>
 
         <div 
-          className="mb-4 sm:mb-5 text-gray-800 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-left px-6 sm:px-8 md:px-10 pt-4 sm:pt-5"
+          className="mb-4 sm:mb-5 text-gray-800 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-left px-6 sm:px-8 md:px-10 pt-8 sm:pt-10"
         style={{
           fontFamily: "'IM Fell Great Primer', serif"
         }}
@@ -365,7 +365,7 @@ export default function AboutPage() {
       </div>
 
       <p
-        className="mb-6 sm:mb-8 text-gray-800 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-left self-start px-6 sm:px-8 md:px-10 pb-6 sm:pb-8"
+        className="mb-0 text-gray-800 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-left self-start px-6 sm:px-8 md:px-10 pb-8 sm:pb-10"
         style={{
           fontFamily: "'IM Fell Great Primer', serif"
         }}
