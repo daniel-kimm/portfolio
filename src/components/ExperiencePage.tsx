@@ -143,7 +143,7 @@ export default function ExperiencePage() {
                     fontFamily: "'IM Fell Great Primer', serif"
                   }}
                 >
-                  Digital Assets (Blockchain/Crypto)
+                  Fidelity Center for Applied Technology (FCAT) - Blockchain Incubator
                 </p>
               </div>
             </div>
