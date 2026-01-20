@@ -6,8 +6,8 @@ import { motion } from 'framer-motion';
 // Available ransomizer style classes
 const RANSOM_STYLES = [0, 1, 2, 3, 4, 5, 7, 8, 9];
 
-// Interactive letter component that randomizes on hover
-function RansomLetter({ letter, initialStyle }: { letter: string; initialStyle: number }) {
+// Interactive letter component that randomizes on hover with staggered animation
+function RansomLetter({ letter, initialStyle, delay = 0 }: { letter: string; initialStyle: number; delay?: number }) {
   const [style, setStyle] = useState(initialStyle);
 
   const randomizeStyle = () => {
@@ -18,14 +18,21 @@ function RansomLetter({ letter, initialStyle }: { letter: string; initialStyle: 
   };
 
   return (
-    <div
+    <motion.div
       data-text={letter}
       className={`mlvx-${style} tc`}
       onMouseEnter={randomizeStyle}
-      style={{ cursor: 'pointer', transition: 'transform 0.1s ease' }}
+      style={{ cursor: 'pointer' }}
+      initial={{ opacity: 0, y: 20, rotate: -10 }}
+      animate={{ opacity: 1, y: 0, rotate: 0 }}
+      transition={{ 
+        duration: 0.5, 
+        delay: delay,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }}
     >
       <div data-text={letter}>{letter}</div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -54,31 +61,26 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center px-4 pb-32">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        style={{ marginBottom: '0.25rem' }}
-      >
+      <div style={{ marginBottom: '0.25rem' }}>
         <div className="ransomizer-text">
           <div className="ts">
             <div className="tw">
-              <RansomLetter letter="d" initialStyle={8} />
-              <RansomLetter letter="a" initialStyle={1} />
-              <RansomLetter letter="n" initialStyle={9} />
-              <RansomLetter letter="i" initialStyle={3} />
-              <RansomLetter letter="e" initialStyle={4} />
-              <RansomLetter letter="l" initialStyle={5} />
+              <RansomLetter letter="d" initialStyle={8} delay={0} />
+              <RansomLetter letter="a" initialStyle={1} delay={0.08} />
+              <RansomLetter letter="n" initialStyle={9} delay={0.16} />
+              <RansomLetter letter="i" initialStyle={3} delay={0.24} />
+              <RansomLetter letter="e" initialStyle={4} delay={0.32} />
+              <RansomLetter letter="l" initialStyle={5} delay={0.4} />
             </div>
             {' '}
             <div className="tw">
-              <RansomLetter letter="k" initialStyle={7} />
-              <RansomLetter letter="i" initialStyle={2} />
-              <RansomLetter letter="m" initialStyle={9} />
+              <RansomLetter letter="k" initialStyle={7} delay={0.55} />
+              <RansomLetter letter="i" initialStyle={2} delay={0.63} />
+              <RansomLetter letter="m" initialStyle={9} delay={0.71} />
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
       <motion.p 
         className="text-white text-3xl sm:text-4xl md:text-5xl tracking-wide italic"
         style={{
