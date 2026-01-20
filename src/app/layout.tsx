@@ -45,6 +45,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alfa+Slab+One&family=Berkshire+Swash&family=Cabin:ital,wght@0,400..700;1,400..700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=Germania+One&family=Lobster&family=Pacifico&family=Rubik:ital,wght@0,300..900;1,300..900&family=Rye&display=swap" rel="stylesheet" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${nunitoSans.variable} ${frankRuhlLibre.variable} ${imFellGreatPrimer.variable} antialiased`}>
         {children}

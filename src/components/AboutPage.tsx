@@ -116,30 +116,20 @@ export default function AboutPage() {
                 <feDistantLight azimuth="45" elevation="55"/>
               </feDiffuseLighting>
             </filter>
-            {/* Paper grain pattern */}
+            {/* Paper base pattern */}
             <pattern id="paper-grain" patternUnits="userSpaceOnUse" width="60" height="60">
               <rect width="60" height="60" fill="#f6f1ea"/>
-              <circle cx="5" cy="5" r="0.8" fill="#b8a890" opacity="0.6"/>
-              <circle cx="15" cy="12" r="0.5" fill="#a89878" opacity="0.5"/>
-              <circle cx="25" cy="8" r="0.6" fill="#c0b098" opacity="0.4"/>
-              <circle cx="35" cy="18" r="0.7" fill="#a89070" opacity="0.5"/>
-              <circle cx="45" cy="10" r="0.5" fill="#b8a888" opacity="0.6"/>
-              <circle cx="55" cy="15" r="0.6" fill="#a08868" opacity="0.4"/>
-              <circle cx="10" cy="25" r="0.7" fill="#b0a080" opacity="0.5"/>
-              <circle cx="20" cy="32" r="0.5" fill="#c5b5a0" opacity="0.4"/>
-              <circle cx="30" cy="28" r="0.8" fill="#a89070" opacity="0.6"/>
-              <circle cx="40" cy="35" r="0.6" fill="#b8a890" opacity="0.5"/>
-              <circle cx="50" cy="30" r="0.5" fill="#a08060" opacity="0.4"/>
-              <circle cx="8" cy="42" r="0.6" fill="#c0a890" opacity="0.5"/>
-              <circle cx="18" cy="48" r="0.7" fill="#a89878" opacity="0.6"/>
-              <circle cx="28" cy="45" r="0.5" fill="#b5a588" opacity="0.4"/>
-              <circle cx="38" cy="52" r="0.8" fill="#a08868" opacity="0.5"/>
-              <circle cx="48" cy="47" r="0.6" fill="#c0b098" opacity="0.6"/>
-              <circle cx="58" cy="55" r="0.5" fill="#b0a080" opacity="0.4"/>
-              <line x1="3" y1="20" x2="8" y2="22" stroke="#a89070" strokeWidth="0.3" opacity="0.3"/>
-              <line x1="22" y1="40" x2="28" y2="38" stroke="#b5a080" strokeWidth="0.3" opacity="0.25"/>
-              <line x1="42" y1="8" x2="48" y2="12" stroke="#a88868" strokeWidth="0.3" opacity="0.3"/>
-              <line x1="52" y1="42" x2="58" y2="45" stroke="#c0a890" strokeWidth="0.3" opacity="0.25"/>
+              <circle cx="5" cy="5" r="0.8" fill="#b8a890" opacity="0.4"/>
+              <circle cx="15" cy="12" r="0.5" fill="#a89878" opacity="0.35"/>
+              <circle cx="25" cy="8" r="0.6" fill="#c0b098" opacity="0.3"/>
+              <circle cx="35" cy="18" r="0.7" fill="#a89070" opacity="0.35"/>
+              <circle cx="45" cy="10" r="0.5" fill="#b8a888" opacity="0.4"/>
+              <circle cx="55" cy="15" r="0.6" fill="#a08868" opacity="0.3"/>
+              <circle cx="10" cy="25" r="0.7" fill="#b0a080" opacity="0.35"/>
+              <circle cx="20" cy="32" r="0.5" fill="#c5b5a0" opacity="0.3"/>
+              <circle cx="30" cy="28" r="0.8" fill="#a89070" opacity="0.4"/>
+              <circle cx="40" cy="35" r="0.6" fill="#b8a890" opacity="0.35"/>
+              <circle cx="50" cy="30" r="0.5" fill="#a08060" opacity="0.3"/>
             </pattern>
           </defs>
           
@@ -165,7 +155,9 @@ export default function AboutPage() {
             opacity="0.15"
             style={{ filter: 'url(#paper-texture-filter) url(#rough-edge)' }}
           />
+          
         </svg>
+        
 
         <div 
           className="mb-4 sm:mb-5 text-gray-800 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl text-left px-6 sm:px-8 md:px-10 pt-8 sm:pt-10"

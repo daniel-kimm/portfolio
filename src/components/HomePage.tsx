@@ -3,6 +3,32 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
+// Available ransomizer style classes
+const RANSOM_STYLES = [0, 1, 2, 3, 4, 5, 7, 8, 9];
+
+// Interactive letter component that randomizes on hover
+function RansomLetter({ letter, initialStyle }: { letter: string; initialStyle: number }) {
+  const [style, setStyle] = useState(initialStyle);
+
+  const randomizeStyle = () => {
+    // Pick a random style different from the current one
+    const availableStyles = RANSOM_STYLES.filter(s => s !== style);
+    const newStyle = availableStyles[Math.floor(Math.random() * availableStyles.length)];
+    setStyle(newStyle);
+  };
+
+  return (
+    <div
+      data-text={letter}
+      className={`mlvx-${style} tc`}
+      onMouseEnter={randomizeStyle}
+      style={{ cursor: 'pointer', transition: 'transform 0.1s ease' }}
+    >
+      <div data-text={letter}>{letter}</div>
+    </div>
+  );
+}
+
 export default function HomePage() {
   const [currentTime, setCurrentTime] = useState('');
   const [showTooltip, setShowTooltip] = useState(false);
@@ -28,20 +54,31 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center px-4 pb-32">
-      <motion.h1 
-        className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-wider lg:tracking-widest"
-        style={{
-          fontFamily: "'IM Fell Great Primer', serif",
-          fontWeight: 400,
-          marginBottom: '0.25rem',
-          lineHeight: 1.2
-        }}
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
+        style={{ marginBottom: '0.25rem' }}
       >
-        Daniel Kim
-      </motion.h1>
+        <div className="ransomizer-text">
+          <div className="ts">
+            <div className="tw">
+              <RansomLetter letter="d" initialStyle={8} />
+              <RansomLetter letter="a" initialStyle={1} />
+              <RansomLetter letter="n" initialStyle={9} />
+              <RansomLetter letter="i" initialStyle={3} />
+              <RansomLetter letter="e" initialStyle={4} />
+              <RansomLetter letter="l" initialStyle={5} />
+            </div>
+            {' '}
+            <div className="tw">
+              <RansomLetter letter="k" initialStyle={7} />
+              <RansomLetter letter="i" initialStyle={2} />
+              <RansomLetter letter="m" initialStyle={9} />
+            </div>
+          </div>
+        </div>
+      </motion.div>
       <motion.p 
         className="text-white text-3xl sm:text-4xl md:text-5xl tracking-wide italic"
         style={{
@@ -109,7 +146,7 @@ export default function HomePage() {
         </a>
       </motion.div>
       
-      {/* Hand-drawn Arrow */}
+      {/* Hand-drawn Arrow - COMMENTED OUT
       <motion.div 
         className="absolute bottom-32 right-8 sm:bottom-40 sm:right-24 md:bottom-60 md:right-48"
         initial={{ opacity: 0, y: 30 }}
@@ -123,7 +160,6 @@ export default function HomePage() {
             className="sm:w-[100px] sm:h-[70px] md:w-[120px] md:h-[80px] text-white opacity-80"
             viewBox="0 0 120 80"
           >
-            {/* Simple backwards C curve */}
             <path
               d="M90 60 Q60 30 30 20"
               stroke="currentColor"
@@ -136,7 +172,6 @@ export default function HomePage() {
                 strokeDasharray: '2 1',
               }}
             />
-            {/* Arrow head properly aligned with curve tangent */}
             <path
               d="M30 20 L36 26 M30 20 L37 17"
               stroke="currentColor"
@@ -145,7 +180,6 @@ export default function HomePage() {
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-            {/* Roughen filter for hand-drawn effect */}
             <defs>
               <filter id="roughen">
                 <feTurbulence baseFrequency="0.9" numOctaves="3" result="noise" seed="1"/>
@@ -153,7 +187,6 @@ export default function HomePage() {
               </filter>
             </defs>
           </svg>
-          {/* Text at the non-pointy end (start of curve) */}
           <div 
             className="absolute top-10 -right-6 sm:top-12 sm:-right-16 md:top-14 md:-right-18 text-white text-md sm:text-md md:text-base lg:text-base xl:text-3xl opacity-80 whitespace-nowrap italic"
             style={{
@@ -166,6 +199,7 @@ export default function HomePage() {
           </div>
         </div>
       </motion.div>
+      */}
       
       {/* Date and Time Display - Bottom Left */}
       <motion.div 
@@ -204,7 +238,7 @@ export default function HomePage() {
         </div>
       </motion.div>
       
-      {/* CSS Animation Styles for tooltip */}
+      {/* CSS Animation Styles for tooltip and ransomizer */}
       <style jsx>{`
         @keyframes fadeIn {
           from {
@@ -218,6 +252,85 @@ export default function HomePage() {
         .animate-fade-in {
           animation: fadeIn 0.2s ease-out forwards;
         }
+
+        .ransomizer-text {
+          --global-font-size: 50px;
+          --global-text-align: center;
+          text-align: var(--global-text-align);
+          font-size: var(--global-font-size);
+        }
+
+        @media (min-width: 640px) {
+          .ransomizer-text {
+            --global-font-size: 60px;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .ransomizer-text {
+            --global-font-size: 70px;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          .ransomizer-text {
+            --global-font-size: 80px;
+          }
+        }
+
+        .ransomizer-text :global(.ts),
+        .ransomizer-text :global(.tw),
+        .ransomizer-text :global(.tc) {
+          display: inline-block;
+        }
+
+        .ransomizer-text :global(.ts) {
+          line-height: normal;
+          word-spacing: 0.7em;
+        }
+
+        .ransomizer-text :global(.ts .tw .tc div::before) {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+        }
+
+        .ransomizer-text :global(.tc.mlvx-0 div::before) { background-image: url(https://www.ransomizer.com/img/texture/h2wsr9q.png); background-position: right top }
+        .ransomizer-text :global(.tc.mlvx-0 div) { background-color: #e5c6a7; color: #1e1409; font-family: 'Tahoma', Geneva, sans-serif; rotate: 1deg; clip-path: polygon(7% 3%,95% 5%,100% 49%,95% 97%,6% 97%,0 62%); font-size: 110%; font-weight: bold; text-transform: lowercase; margin: 0.05em; padding: 0.1em; paint-order: stroke fill; line-height: 75%; position: relative; }
+
+        .ransomizer-text :global(.tc.mlvx-1) { filter: drop-shadow(-1px -1px 1px #666) }
+        .ransomizer-text :global(.tc.mlvx-1 div::before) { background-image: url(https://www.ransomizer.com/img/texture/jIHCf3i.png); background-position: center bottom }
+        .ransomizer-text :global(.tc.mlvx-1 div) { background-color: #e5ebf0; color: #293947; font-family: 'Comic Sans MS', cursive; rotate: 0deg; top: -0.03em; clip-path: polygon(6% 1%,100% 4%,100% 81%,98% 98%,7% 96%,0 58%); font-size: 110%; font-weight: bolder; text-transform: uppercase; margin: 0.05em; padding: 0.1em; paint-order: stroke fill; line-height: 75%; position: relative; }
+
+        .ransomizer-text :global(.tc.mlvx-2) { filter: drop-shadow(-1px 1px 1px #666) }
+        .ransomizer-text :global(.tc.mlvx-2 div::before) { background-image: url(https://www.ransomizer.com/img/texture/omJifnt.png); background-position: right top }
+        .ransomizer-text :global(.tc.mlvx-2 div) { background-color: #e7dbcf; color: #36291b; font-family: 'Georgia', serif; rotate: 1deg; top: 0.01em; clip-path: polygon(5% 2%,96% 6%,100% 97%,95% 98%,4% 95%,0 95%); font-size: 110%; margin: 0.05em; padding: 0.2em; paint-order: stroke fill; line-height: 75%; position: relative; }
+
+        .ransomizer-text :global(.tc.mlvx-3 div::before) { background-image: url(https://www.ransomizer.com/img/texture/jIHCf3i.png); background-position: left bottom }
+        .ransomizer-text :global(.tc.mlvx-3 div) { background-color: #e0dcd9; color: #2e2926; font-family: 'Trebuchet MS', Helvetica, sans-serif; rotate: 2deg; top: 0.04em; clip-path: polygon(6% 4%,94% 4%,100% 17%,94% 98%,1% 98%,0 50%); font-size: 110%; font-weight: lighter; margin: 0.05em; padding: 0.2em; paint-order: stroke fill; line-height: 75%; position: relative; }
+
+        .ransomizer-text :global(.tc.mlvx-4) { filter: drop-shadow(-1px -1px 1px #666) }
+        .ransomizer-text :global(.tc.mlvx-4 div::before) { background-image: url(https://www.ransomizer.com/img/texture/h2wsr9q.png); background-position: left center }
+        .ransomizer-text :global(.tc.mlvx-4 div) { background-color: #c7c5c8; color: #141315; font-family: 'Courier', monospace; rotate: -1deg; top: -0.03em; clip-path: polygon(3% 1%,98% 6%,100% 42%,99% 95%,0 97%,0 32%); font-size: 100%; text-transform: lowercase; margin: 0.05em; padding: 0.2em; -webkit-text-stroke: 0.03em #faf9fa; paint-order: stroke fill; line-height: 75%; position: relative; }
+
+        .ransomizer-text :global(.tc.mlvx-5) { filter: drop-shadow(-1px -1px 1px #666) }
+        .ransomizer-text :global(.tc.mlvx-5 div::before) { background-image: url(https://www.ransomizer.com/img/texture/b3FJONj.png); background-position: right top }
+        .ransomizer-text :global(.tc.mlvx-5 div) { background-color: #f4f1ec; color: #4e422d; font-family: 'Alfa Slab One', serif; rotate: -3deg; top: 0.03em; clip-path: polygon(4% 5%,100% 0,100% 94%,100% 96%,5% 98%,0 89%); font-size: 110%; text-transform: lowercase; margin: 0.05em; padding: 0.2em; paint-order: stroke fill; line-height: 75%; position: relative; }
+
+        .ransomizer-text :global(.tc.mlvx-7 div::before) { background-image: url(https://www.ransomizer.com/img/texture/Tg0fOcU.png); background-position: left center }
+        .ransomizer-text :global(.tc.mlvx-7 div) { background-color: #b8cacd; color: #0d1213; font-family: 'Abril Fatface', serif; rotate: -3deg; top: -0.04em; clip-path: polygon(0 3%,95% 3%,100% 15%,100% 97%,6% 98%,0 80%); font-size: 110%; text-transform: lowercase; margin: 0.05em; padding: 0.1em; text-shadow: -0.03em -0.03em #f4f7f7; paint-order: stroke fill; line-height: 75%; position: relative; }
+
+        .ransomizer-text :global(.tc.mlvx-8) { filter: drop-shadow(1px -1px 1px #666) }
+        .ransomizer-text :global(.tc.mlvx-8 div::before) { background-image: url(https://www.ransomizer.com/img/texture/omJifnt.png); background-position: right top }
+        .ransomizer-text :global(.tc.mlvx-8 div) { background-color: #f4f1ec; color: #4e422d; font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; rotate: -2deg; top: -0.01em; clip-path: polygon(2% 5%,98% 2%,100% 38%,96% 94%,3% 94%,0 79%); font-size: 100%; font-weight: bold; text-transform: lowercase; margin: 0.05em; padding: 0.2em; paint-order: stroke fill; line-height: 75%; position: relative; }
+
+        .ransomizer-text :global(.tc.mlvx-9 div::before) { background-image: url(https://www.ransomizer.com/img/texture/6ILZOkO.png); background-position: left top }
+        .ransomizer-text :global(.tc.mlvx-9 div) { background-color: #e5c6a7; color: #1e1409; font-family: 'Cabin', serif; rotate: -3deg; top: 0.02em; clip-path: polygon(4% 3%,96% 5%,100% 75%,94% 93%,3% 97%,0 73%); font-size: 110%; font-weight: bold; text-transform: lowercase; margin: 0.05em; padding: 0.1em; paint-order: stroke fill; line-height: 75%; position: relative; }
       `}</style>
     </div>
   );
