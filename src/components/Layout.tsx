@@ -20,7 +20,6 @@ export default function Layout({
     { label: 'home', href: '/' },
     { label: 'about me', href: '/about' },
     { label: 'projects', href: '/projects' },
-    { label: 'experience', href: '/experience' },
     { label: 'art', href: '/art' }
   ];
 
