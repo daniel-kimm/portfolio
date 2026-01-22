@@ -95,20 +95,20 @@ export default function ProjectsPage() {
 
   return (
     <div className="flex flex-col text-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-20 sm:pt-24 md:pt-28 lg:pt-12 pb-16 w-full">
-      <h1 
+      <h1
         className="mb-6 sm:mb-8 text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold italic mt-16 sm:mt-20 md:mt-24 lg:mt-16"
         style={{ fontFamily: "'IM Fell Great Primer', serif" }}
       >
         projects
       </h1>
-      
-      <p 
+
+      <p
         className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic mx-auto"
         style={{ fontFamily: "'IM Fell Great Primer', serif" }}
       >
         a collection of projects i&apos;ve worked on
       </p>
-      
+
       {/* Projects Grid with InView Animation */}
       <div className="w-full flex justify-center px-8">
         <InView
@@ -140,14 +140,14 @@ export default function ProjectsPage() {
                 className="mb-4"
               >
                 {/* Project Card */}
-                <div 
+                <div
                   className="group relative w-full cursor-pointer overflow-hidden rounded-lg"
                   onClick={() => handleProjectClick(project.slug)}
                 >
                   {/* Image with natural height for masonry effect */}
-                  <Image 
-                    src={project.image} 
-                    alt={`${project.title} Project`} 
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} Project`}
                     width={600}
                     height={600}
                     sizes="(max-width: 768px) 50vw, 33vw"
@@ -158,26 +158,26 @@ export default function ProjectsPage() {
                   {/* Hover overlay with title, description, and technologies */}
                   <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 sm:p-6 rounded-lg">
                     {/* Title */}
-                    <h3 
+                    <h3
                       className="text-white text-base sm:text-lg md:text-xl font-semibold mb-2 text-center"
                       style={{ fontFamily: "'IM Fell Great Primer', serif" }}
                     >
                       {project.title}
                     </h3>
-                    
+
                     {/* Description */}
-                    <p 
+                    <p
                       className="text-white/90 text-xs sm:text-sm mb-3 text-center"
                       style={{ fontFamily: "'IM Fell Great Primer', serif" }}
                     >
                       {project.description}
                     </p>
-                    
+
                     {/* Technologies */}
                     <div className="flex flex-wrap gap-1.5 justify-center">
                       {project.technologies.map((tech) => (
-                        <span 
-                          key={tech} 
+                        <span
+                          key={tech}
                           className="bg-white/20 text-white px-2 py-0.5 rounded text-xs"
                           style={{ fontFamily: "'IM Fell Great Primer', serif" }}
                         >
