@@ -6,7 +6,7 @@ import {
   Transition,
   UseInViewOptions,
 } from 'framer-motion';
-import React, { ReactNode, useRef, forwardRef } from 'react';
+import React, { ReactNode, useRef } from 'react';
 
 type InViewProps = {
   children: ReactNode;
@@ -16,7 +16,6 @@ type InViewProps = {
   };
   transition?: Transition;
   viewOptions?: UseInViewOptions;
-  as?: React.ElementType;
 };
 
 const defaultVariants = {
@@ -24,33 +23,24 @@ const defaultVariants = {
   visible: { opacity: 1 },
 };
 
-function InViewComponent(
-  {
-    children,
-    variants = defaultVariants,
-    transition,
-    viewOptions,
-    as: Component = 'div',
-  }: InViewProps,
-  ref: React.Ref<HTMLElement>
-) {
-  const localRef = useRef<HTMLElement>(null);
-  const inViewRef = ref || localRef;
-  const isInView = useInView(inViewRef as React.RefObject<HTMLElement>, viewOptions);
-
-  const MotionComponent = motion[Component as keyof typeof motion] as typeof motion.div;
+export function InView({
+  children,
+  variants = defaultVariants,
+  transition,
+  viewOptions,
+}: InViewProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, viewOptions);
 
   return (
-    <MotionComponent
-      ref={inViewRef}
+    <motion.div
+      ref={ref}
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}
       variants={variants}
       transition={transition}
     >
       {children}
-    </MotionComponent>
+    </motion.div>
   );
 }
-
-export const InView = forwardRef(InViewComponent);
