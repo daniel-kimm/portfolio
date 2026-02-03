@@ -31,7 +31,7 @@ export default function HomePage() {
     <div className="flex flex-col items-center justify-center min-h-screen text-center px-4">
       {/* Daniel Kim Title */}
       <motion.h1
-        className="text-white text-4xl sm:text-5xl md:text-6xl"
+        className="text-white text-4xl sm:text-5xl md:text-6xl font-semibold"
         style={{
           fontFamily: "'IM Fell Great Primer', serif",
           letterSpacing: '0.1em',
@@ -81,7 +81,7 @@ export default function HomePage() {
               </div>
               <div className="bg-white pt-2 pb-1 flex-shrink-0">
                 <p
-                  className="text-gray-800 text-xl sm:text-2xl md:text-4xl text-center px-1"
+                  className="text-gray-800 text-xl sm:text-2xl md:text-4xl text-center px-1 font-semibold"
                   style={{
                     fontFamily: "'Myfont', sans-serif",
                     fontStyle: "italic",
