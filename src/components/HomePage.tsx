@@ -28,10 +28,10 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-center px-4">
+    <div className="flex flex-col items-center justify-start md:justify-center min-h-screen text-center px-4 pt-24 pb-8 md:py-4 overflow-y-auto md:overflow-visible">
       {/* Daniel Kim Title */}
       <motion.h1
-        className="text-white text-4xl sm:text-5xl md:text-6xl font-semibold"
+        className="text-white text-4xl sm:text-5xl md:text-6xl font-semibold mb-6 md:mb-0"
         style={{
           fontFamily: "'IM Fell Great Primer', serif",
           letterSpacing: '0.1em',
@@ -43,37 +43,82 @@ export default function HomePage() {
         Daniel Kim
       </motion.h1>
 
-      {/* Collage Container */}
-      <div className="relative w-full max-w-3xl h-[450px] sm:h-[500px] md:h-[550px]">
-        
-        {/* Polaroid with background photo */}
+      {/* Mobile Layout - Vertical Stack */}
+      <div className="flex flex-col items-center gap-6 md:hidden w-full max-w-sm">
+        {/* Me and Friends Polaroid - Mobile */}
         <motion.div
-          className="absolute left-1/2 top-[45%] -translate-x-1/2 -translate-y-1/2 z-10"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
         >
           <div
-            className="polaroid bg-white p-4 sm:p-5 md:p-6 shadow-xl hover:shadow-2xl transform transition-all duration-300 cursor-pointer"
+            className="polaroid bg-white p-4 shadow-xl transform transition-all duration-300 cursor-pointer"
             style={{
-              width: 'clamp(220px, 28vw, 320px)',
-              height: 'clamp(260px, 33vw, 380px)',
-              transform: 'rotate(-4deg)',
+              width: '280px',
+              height: '340px',
+              transform: 'rotate(-3deg)',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'rotate(-6deg)';
+              e.currentTarget.style.transform = 'rotate(-3deg)';
+            }}
+          >
+            <div className="w-full h-full flex flex-col">
+              <div className="flex-1 overflow-hidden relative">
+                <Image
+                  src="/IMG_3318.jpg"
+                  alt="Me and friends"
+                  fill
+                  sizes="280px"
+                  className="object-cover"
+                  style={{ objectPosition: '65% center' }}
+                  priority
+                />
+              </div>
+              <div className="bg-white pt-2 pb-1 flex-shrink-0">
+                <p
+                  className="text-gray-800 text-2xl text-center px-1 font-semibold"
+                  style={{
+                    fontFamily: "'Myfont', sans-serif",
+                    fontStyle: "italic",
+                  }}
+                >
+                  me and friends!
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Cary NC Polaroid - Mobile */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+        >
+          <div
+            className="polaroid bg-white p-4 shadow-xl transform transition-all duration-300 cursor-pointer"
+            style={{
+              width: '280px',
+              height: '340px',
+              transform: 'rotate(3deg)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'rotate(3deg)';
             }}
           >
             <div className="w-full h-full flex flex-col">
               <div className="flex-1 overflow-hidden relative">
                 <Image
                   src="/downtowncary.webp"
-                  alt="Background photo"
+                  alt="Cary NC"
                   fill
-                  sizes="(max-width: 640px) 220px, (max-width: 768px) 280px, 320px"
+                  sizes="280px"
                   className="object-cover"
                   style={{ objectPosition: 'center' }}
                   priority
@@ -81,7 +126,7 @@ export default function HomePage() {
               </div>
               <div className="bg-white pt-2 pb-1 flex-shrink-0">
                 <p
-                  className="text-gray-800 text-xl sm:text-2xl md:text-4xl text-center px-1 font-semibold"
+                  className="text-gray-800 text-2xl text-center px-1 font-semibold"
                   style={{
                     fontFamily: "'Myfont', sans-serif",
                     fontStyle: "italic",
@@ -94,21 +139,219 @@ export default function HomePage() {
           </div>
         </motion.div>
 
-        {/* Torn paper note */}
+        {/* Torn paper note - Mobile */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
+        >
+          <div
+            className="transform transition-all duration-300 cursor-pointer relative"
+            style={{
+              transform: 'rotate(2deg)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'rotate(2deg)';
+            }}
+          >
+            <svg
+              width="280"
+              height="120"
+              viewBox="0 0 280 120"
+              className="w-[260px] h-auto"
+            >
+              <defs>
+                <filter id="torn-paper-filter-mobile" x="-10%" y="-10%" width="120%" height="120%">
+                  <feTurbulence type="turbulence" baseFrequency="0.03" numOctaves="3" result="noise" seed="2" />
+                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" />
+                </filter>
+                <filter id="paper-shadow-mobile" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="2" dy="3" stdDeviation="3" floodOpacity="0.25" />
+                </filter>
+              </defs>
+              <path
+                d="M 8,10 
+                   Q 15,6 30,12 L 60,8 Q 100,14 140,9 L 180,12 Q 220,7 250,11 L 272,8
+                   L 275,25 Q 270,50 276,75 L 273,95 Q 277,105 274,112
+                   L 250,110 Q 200,116 150,111 L 100,114 Q 50,109 20,113 L 6,110
+                   L 4,90 Q 8,60 5,35 L 8,10 Z"
+                fill="#f5f0e8"
+                style={{ filter: 'url(#torn-paper-filter-mobile) url(#paper-shadow-mobile)' }}
+              />
+            </svg>
+            <div
+              className="absolute inset-0 flex items-center justify-center px-6"
+              style={{
+                fontFamily: "'IM Fell Great Primer', serif",
+                fontStyle: "italic",
+              }}
+            >
+              <p className="text-gray-800 text-base text-center leading-snug">
+                Daniel is an engineer and artist from Cary, NC.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Korean name rectangle - Mobile */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
+          className="mb-20"
+        >
+          <div
+            className="bg-[#c5d4a0] px-8 py-5 shadow-lg transform transition-all duration-300 cursor-pointer"
+            style={{
+              boxShadow: '3px 4px 8px rgba(0,0,0,0.2)',
+              transform: 'rotate(-2deg)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'rotate(-2deg)';
+            }}
+          >
+            <p
+              className="text-gray-800 text-5xl"
+              style={{
+                fontFamily: "'Nanum Pen Script', cursive",
+              }}
+            >
+              김동규
+            </p>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Desktop Layout - Absolute Positioning (hidden on mobile) */}
+      <div className="hidden md:block relative w-full max-w-4xl h-[450px] sm:h-[500px] md:h-[550px]">
+        
+        {/* New Polaroid - Me and Friends (left, rotated up-right) */}
+        <motion.div
+          className="absolute z-[15]"
+          style={{
+            left: '15%',
+            top: '15%',
+            transform: 'translate(-50%, -50%)',
+          }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+        >
+          <div
+            className="polaroid bg-white p-4 sm:p-5 md:p-6 shadow-xl hover:shadow-2xl transform transition-all duration-300 cursor-pointer"
+            style={{
+              width: 'clamp(240px, 30vw, 320px)',
+              height: 'clamp(280px, 36vw, 380px)',
+              transform: 'rotate(-8deg)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'rotate(-8deg)';
+            }}
+          >
+            <div className="w-full h-full flex flex-col">
+              <div className="flex-1 overflow-hidden relative">
+                <Image
+                  src="/IMG_3318.jpg"
+                  alt="Me and friends"
+                  fill
+                  sizes="(max-width: 640px) 240px, (max-width: 768px) 300px, 340px"
+                  className="object-cover"
+                  style={{ objectPosition: '65% center' }}
+                  priority
+                />
+              </div>
+              <div className="bg-white pt-2 pb-1 flex-shrink-0">
+                <p
+                  className="text-gray-800 text-xl sm:text-2xl md:text-3xl text-center px-1 font-semibold"
+                  style={{
+                    fontFamily: "'Myfont', sans-serif",
+                    fontStyle: "italic",
+                  }}
+                >
+                  me and friends!
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Cary NC Polaroid (right, rotated up-left) */}
+        <motion.div
+          className="absolute z-10"
+          style={{
+            left: '50%',
+            top: '15%',
+            transform: 'translate(-50%, -50%)',
+          }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+        >
+          <div
+            className="polaroid bg-white p-4 sm:p-5 md:p-6 shadow-xl hover:shadow-2xl transform transition-all duration-300 cursor-pointer"
+            style={{
+              width: 'clamp(220px, 30vw, 320px)',
+              height: 'clamp(280px, 36vw, 380px)',
+              transform: 'rotate(8deg)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'rotate(8deg)';
+            }}
+          >
+            <div className="w-full h-full flex flex-col">
+              <div className="flex-1 overflow-hidden relative">
+                <Image
+                  src="/downtowncary.webp"
+                  alt="Cary NC"
+                  fill
+                  sizes="(max-width: 640px) 220px, (max-width: 768px) 280px, 320px"
+                  className="object-cover"
+                  style={{ objectPosition: 'center' }}
+                  priority
+                />
+              </div>
+              <div className="bg-white pt-2 pb-1 flex-shrink-0">
+                <p
+                  className="text-gray-800 text-xl sm:text-2xl md:text-3xl text-center px-1 font-semibold"
+                  style={{
+                    fontFamily: "'Myfont', sans-serif",
+                    fontStyle: "italic",
+                  }}
+                >
+                  cary, nc
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Torn paper note - on the right, overlapping right polaroid only */}
         <motion.div
           className="absolute z-20"
           style={{
-            left: '58%',
-            top: '20%',
+            left: '75%',
+            top: '22%',
           }}
           initial={{ opacity: 0, x: 60 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
         >
           <div
             className="transform transition-all duration-300 cursor-pointer"
             style={{
-              transform: 'rotate(4deg)',
+              transform: 'rotate(2deg)',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
@@ -121,7 +364,7 @@ export default function HomePage() {
             width="340"
             height="150"
             viewBox="0 0 280 120"
-            className="w-[240px] sm:w-[290px] md:w-[340px] h-auto"
+            className="w-[220px] sm:w-[260px] md:w-[300px] h-auto"
           >
             <defs>
               <filter id="torn-paper-filter" x="-10%" y="-10%" width="120%" height="120%">
@@ -149,39 +392,39 @@ export default function HomePage() {
               fontStyle: "italic",
             }}
           >
-            <p className="text-gray-800 text-base sm:text-lg md:text-xl text-center leading-snug">
+            <p className="text-gray-800 text-sm sm:text-base md:text-lg text-center leading-snug">
               Daniel is an engineer and artist from Cary, NC.
             </p>
           </div>
           </div>
         </motion.div>
 
-        {/* Korean name rectangle */}
+        {/* Korean name rectangle - bottom left of the friends polaroid */}
         <motion.div
           className="absolute z-20"
           style={{
-            left: '14%',
-            top: '52%',
+            left: '5%',
+            top: '55%',
           }}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.5 }}
         >
           <div
-            className="bg-[#c5d4a0] px-8 py-5 sm:px-10 sm:py-6 shadow-lg transform transition-all duration-300 cursor-pointer"
+            className="bg-[#c5d4a0] px-6 py-4 sm:px-8 sm:py-5 shadow-lg transform transition-all duration-300 cursor-pointer"
             style={{
               boxShadow: '3px 4px 8px rgba(0,0,0,0.2)',
-              transform: 'rotate(1deg)',
+              transform: 'rotate(0deg)',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = 'rotate(0deg) scale(1.05)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'rotate(1deg)';
+              e.currentTarget.style.transform = 'rotate(-3deg)';
             }}
           >
             <p
-              className="text-gray-800 text-5xl sm:text-6xl md:text-7xl"
+              className="text-gray-800 text-4xl sm:text-5xl md:text-6xl"
               style={{
                 fontFamily: "'Nanum Pen Script', cursive",
               }}
