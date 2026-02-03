@@ -28,7 +28,7 @@ export default function Layout({
       {/* Background Image */}
       <div className="fixed inset-0 z-0">
         <Image 
-          src={currentPage === 'home' ? '/IMG_2040.JPG' : '/IMG_2040.JPG'}
+          src="/IMG_8664.JPG"
           alt="Background"
           fill
           className="object-cover"
