@@ -1,144 +1,270 @@
 'use client';
 
-import React from 'react';
-import ArtGrid from './ArtGrid';
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from '@/components/motion-primitives/accordion';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import Image from 'next/image';
+import { paintings, drawings, mixedMedia, Artwork } from '@/data/artworks';
 
-export default function ArtPage() {
+const sections = [
+  {
+    id: 'fine-art',
+    label: 'Fine Art',
+    subsections: [
+      { id: 'painting', label: 'Painting', count: paintings.length },
+      { id: 'drawing', label: 'Drawing', count: drawings.length },
+      { id: 'mixed-media', label: 'Mixed Media', count: mixedMedia.length },
+    ],
+  },
+  { id: 'sketchbook', label: 'Sketchbook', subsections: [] },
+  { id: 'photography', label: 'Photography', subsections: [] },
+];
+
+function ArtSection({ id, title, artworks }: { id: string; title: string; artworks: Artwork[] }) {
+  const [expandedImage, setExpandedImage] = useState<Artwork | null>(null);
+  const [isClosing, setIsClosing] = useState(false);
+
+  const closeModal = useCallback(() => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setExpandedImage(null);
+      setIsClosing(false);
+    }, 300);
+  }, []);
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && expandedImage) closeModal();
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [expandedImage, closeModal]);
+
   return (
-    <div className="flex flex-col text-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-20 sm:pt-24 md:pt-28 lg:pt-12 pb-16 w-full">
-      <h1 
-        className="mb-6 sm:mb-8 text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold italic mt-16 sm:mt-20 md:mt-24 lg:mt-16"
-        style={{
-          fontFamily: "'IM Fell Great Primer', serif"
-        }}
+    <section id={id} className="scroll-mt-28 mb-16">
+      <h2
+        className="text-neutral-900 text-sm tracking-wide mb-6"
+        style={{ fontFamily: "'IM Fell Great Primer', serif" }}
       >
-        art portfolio
-      </h1>
-      
-      <p 
-        className="mb-6 sm:mb-8 text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-6 sm:leading-7 md:leading-8 lg:leading-9 italic mx-auto"
-        style={{
-          fontFamily: "'IM Fell Great Primer', serif"
-        }}
-      >
-        some of the art i&apos;ve created over the years!
-      </p>
-      
-      {/* Art Grid */}
-      <div className="w-full max-w-6xl mx-auto">
-        <ArtGrid />
+        {title}
+      </h2>
+      <div className="columns-3 gap-4">
+        {artworks.map((artwork) => (
+          <div key={artwork.id} className="break-inside-avoid mb-4">
+            <div
+              className="cursor-pointer"
+              onClick={() => { setExpandedImage(artwork); setIsClosing(false); }}
+            >
+              <Image
+                src={artwork.src}
+                alt={artwork.title}
+                width={600}
+                height={600}
+                sizes="(max-width: 768px) 33vw, 25vw"
+                className="w-full h-auto object-contain"
+              />
+            </div>
+            <div className="mt-2">
+              <p
+                className="text-neutral-800 text-xs"
+                style={{ fontFamily: "'IM Fell Great Primer', serif" }}
+              >
+                <span className="font-semibold">{artwork.title}</span>
+                {', '}
+                {artwork.medium}, {artwork.dimensions}, {artwork.year}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
 
-      {/* Featured & Awards Accordion */}
-      <div className="w-full max-w-4xl mx-auto mt-16 mb-48 bg-white p-6 sm:p-6 rounded-xl">
-        <Accordion 
-          className="flex w-full flex-col divide-y divide-neutral-200"
-          transition={{ duration: 0.3, ease: 'easeInOut' }}
+      {expandedImage && (
+        <div
+          className={`fixed inset-0 flex items-center justify-center z-50 transition-all duration-300 ${isClosing ? 'opacity-0' : 'opacity-100'}`}
+          style={{ backdropFilter: 'blur(8px)', backgroundColor: 'rgba(0, 0, 0, 0.4)' }}
+          onClick={closeModal}
         >
-          <AccordionItem value="featured">
-            <AccordionTrigger className="w-full py-4 text-left text-neutral-800 flex items-center justify-between group">
-              <span 
-                className="text-xl sm:text-2xl font-semibold italic"
-                style={{ fontFamily: "'IM Fell Great Primer', serif" }}
-              >
-                Featured
-              </span>
-              <svg 
-                className="w-5 h-5 text-neutral-400 group-data-[expanded]:rotate-180 transition-transform duration-300" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </AccordionTrigger>
-            <AccordionContent className="overflow-hidden">
-              <div className="pb-4 text-left text-md sm:text-lg">
-                <ul className="text-neutral-700 space-y-2" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
-                  <li>• East Carolina University, Wellington B. Gray Gallery</li>
-                  <li>• Artsplosure Arts Festival</li>
-                  <li>• NC Governor&apos;s School East</li>
-                  <li>• <a href="https://nasao.org/news/509796/NASAOs-Youth-Aviation-Art-Contest---U.S.-Winners-Announced.htm" target="_blank" rel="noopener noreferrer" className="text-neutral-800 underline hover:text-neutral-600">NASAO&apos;s Youth Aviation Art Contest</a></li>
-                  <li>• <a href="https://www.ncdot.gov/news/press-releases/Pages/2020/2020-05-28-avaition-art-national-winners.aspx" target="_blank" rel="noopener noreferrer" className="text-neutral-800 underline hover:text-neutral-600">NC Department of Transportation</a></li>
-                  <li>• <a href="https://stateaviationjournal.com/index.php/state-news/north-carolina/north-carolina-announces-winners-of-2020-aviation-art-contest" target="_blank" rel="noopener noreferrer" className="text-neutral-800 underline hover:text-neutral-600">State Aviation Journal</a></li>
-                  <li>• <a href="https://www.instagram.com/p/DNGEz6BMOyd/" target="_blank" rel="noopener noreferrer" className="text-neutral-800 underline hover:text-neutral-600">ACLU NC</a></li>
-                </ul>
-              </div>
-            </AccordionContent>
-          </AccordionItem>
+          <div className="relative" onClick={(e) => e.stopPropagation()}>
+            <Image
+              src={expandedImage.src}
+              alt={expandedImage.title}
+              width={1200}
+              height={800}
+              className="max-w-[90vw] max-h-[85vh] w-auto h-auto object-contain shadow-2xl"
+              sizes="90vw"
+              quality={95}
+            />
+            <button
+              onClick={closeModal}
+              className="absolute -top-3 -right-3 text-white bg-black/50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/75 transition-all duration-200"
+            >
+              ✕
+            </button>
+            <div className="mt-3 text-center">
+              <p className="text-white text-sm" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
+                <span className="font-semibold">{expandedImage.title}</span>
+                {', '}{expandedImage.medium}, {expandedImage.dimensions}, {expandedImage.year}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
 
-          <AccordionItem value="awards">
-            <AccordionTrigger className="w-full py-4 text-left text-neutral-800 flex items-center justify-between group">
-              <span 
-                className="text-xl sm:text-2xl font-semibold italic"
+export default function ArtPage() {
+  const [activeSection, setActiveSection] = useState('painting');
+  const [sidebarFixed, setSidebarFixed] = useState(false);
+  const [sidebarLeft, setSidebarLeft] = useState(0);
+  const sidebarPlaceholderRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sectionIds = ['painting', 'drawing', 'mixed-media', 'sketchbook', 'photography'];
+      let current = sectionIds[0];
+
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= 150) {
+            current = id;
+          }
+        }
+      }
+      setActiveSection(current);
+
+      if (sidebarPlaceholderRef.current) {
+        const rect = sidebarPlaceholderRef.current.getBoundingClientRect();
+        setSidebarLeft(rect.left);
+        setSidebarFixed(rect.top < 20);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+    handleScroll();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const sidebarContent = (
+    <>
+      {sections.map((section) => (
+        <div key={section.id} className="mb-4">
+          <button
+            onClick={() => {
+              if (section.subsections.length > 0) {
+                scrollToSection(section.subsections[0].id);
+              } else {
+                scrollToSection(section.id);
+              }
+            }}
+            className={`text-left text-sm font-medium transition-colors duration-200 ${
+              section.subsections.some((s) => s.id === activeSection)
+                ? 'text-neutral-900'
+                : section.id === activeSection
+                  ? 'text-neutral-900'
+                  : 'text-neutral-400 hover:text-neutral-600'
+            }`}
+            style={{ fontFamily: "'IM Fell Great Primer', serif" }}
+          >
+            {section.label}
+          </button>
+          {section.subsections.length > 0 && (
+            <div className="ml-3 mt-1.5 space-y-1">
+              {section.subsections.map((sub) => (
+                <button
+                  key={sub.id}
+                  onClick={() => scrollToSection(sub.id)}
+                  className={`block text-left text-sm transition-colors duration-200 ${
+                    activeSection === sub.id
+                      ? 'text-emerald-800 font-medium'
+                      : 'text-neutral-400 hover:text-neutral-600'
+                  }`}
+                  style={{ fontFamily: "'IM Fell Great Primer', serif" }}
+                >
+                  {sub.label}{' '}
+                  <span className="text-neutral-300">({sub.count})</span>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </>
+  );
+
+  return (
+    <div className="min-h-screen pt-28 pb-16">
+      <div className="flex max-w-7xl mx-auto px-6 lg:px-12 gap-16">
+        {/* Sidebar placeholder to reserve space and measure position */}
+        <div ref={sidebarPlaceholderRef} className="hidden md:block w-36 flex-shrink-0">
+          {/* In-flow sidebar when not fixed */}
+          <nav className={sidebarFixed ? 'invisible' : ''}>
+            {sidebarContent}
+          </nav>
+        </div>
+
+        {/* Fixed sidebar that appears when scrolled past */}
+        {sidebarFixed && (
+          <nav
+            className="hidden md:block w-36 z-30"
+            style={{ position: 'fixed', top: 20, left: sidebarLeft }}
+          >
+            {sidebarContent}
+          </nav>
+        )}
+
+        {/* Main Content */}
+        <div ref={contentRef} className="flex-1 min-w-0">
+          <ArtSection id="painting" title="Painting" artworks={paintings} />
+          <ArtSection id="drawing" title="Drawing" artworks={drawings} />
+          <ArtSection id="mixed-media" title="Mixed Media" artworks={mixedMedia} />
+
+          <section id="sketchbook" className="scroll-mt-28 mb-16">
+            <h2
+              className="text-neutral-900 text-sm tracking-wide mb-6"
+              style={{ fontFamily: "'IM Fell Great Primer', serif" }}
+            >
+              Sketchbook
+            </h2>
+            <div className="flex items-center justify-center h-48 border border-dashed border-neutral-300">
+              <p
+                className="text-neutral-400 text-lg italic"
                 style={{ fontFamily: "'IM Fell Great Primer', serif" }}
               >
-                Awards
-              </span>
-              <svg 
-                className="w-5 h-5 text-neutral-400 group-data-[expanded]:rotate-180 transition-transform duration-300" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
+                Coming Soon
+              </p>
+            </div>
+          </section>
+
+          <section id="photography" className="scroll-mt-28 mb-16">
+            <h2
+              className="text-neutral-900 text-sm tracking-wide mb-6"
+              style={{ fontFamily: "'IM Fell Great Primer', serif" }}
+            >
+              Photography
+            </h2>
+            <div className="flex items-center justify-center h-48 border border-dashed border-neutral-300">
+              <p
+                className="text-neutral-400 text-lg italic"
+                style={{ fontFamily: "'IM Fell Great Primer', serif" }}
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </AccordionTrigger>
-            <AccordionContent className="overflow-hidden">
-              <div className="pb-4 text-left text-md sm:text-lg">
-                <ul className="text-neutral-600 space-y-4" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
-                  <li>
-                    <span className="text-neutral-800 font-medium">• Congressional Art Competition</span>
-                    <ul className="ml-4 mt-1 space-y-1 text-neutral-600">
-                      <li>- 2023: Honorable Mention</li>
-                    </ul>
-                  </li>
-                  <li>
-                    <span className="text-neutral-800 font-medium">• Celebrating Art Contest</span>
-                    <ul className="ml-4 mt-1 space-y-1 text-neutral-600">
-                      <li>- 2023 Spring: High Merit Award</li>
-                      <li>- 2021 Fall: High Merit Award</li>
-                    </ul>
-                  </li>
-                  <li>
-                    <span className="text-neutral-800 font-medium">• Art Show International Gallery/Teravarna</span>
-                    <ul className="ml-4 mt-1 space-y-1 text-neutral-600">
-                      <li>- 2022 3rd Still Life Competition: Talent Prize</li>
-                      <li>- 2022 4th Portrait Competition: Honorable Mention</li>
-                    </ul>
-                  </li>
-                  <li>
-                    <span className="text-neutral-800 font-medium">• Scholastic Art Awards</span>
-                    <ul className="ml-4 mt-1 space-y-1 text-neutral-600">
-                      <li>- 2022: Two Silver Keys</li>
-                      <li>- 2021: Gold Key</li>
-                      <li>- 2020: Honorable Mention</li>
-                    </ul>
-                  </li>
-                  <li>
-                    <span className="text-neutral-800 font-medium">• NASAO International Aviation Art Contest</span>
-                    <ul className="ml-4 mt-1 space-y-1 text-neutral-600">
-                      <li>- 2020: Second Place in United States</li>
-                      <li>- 2020: First Place in North Carolina</li>
-                    </ul>
-                  </li>
-                  <li>
-                    <span className="text-neutral-800 font-medium">• Constitution Day Poster Contest</span>
-                    <ul className="ml-4 mt-1 space-y-1 text-neutral-600">
-                      <li>- 2020: Finalist</li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+                Coming Soon
+              </p>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   );

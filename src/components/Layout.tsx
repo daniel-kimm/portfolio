@@ -8,12 +8,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface LayoutProps {
   children: React.ReactNode;
   currentPage: string;
+  variant?: 'default' | 'light';
 }
 
 export default function Layout({ 
   children, 
-  currentPage
+  currentPage,
+  variant = 'default',
 }: LayoutProps) {
+  const isLight = variant === 'light';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   const navigationItems = [
@@ -25,28 +28,31 @@ export default function Layout({
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Background Image */}
-      <div className="fixed inset-0 z-0">
-        <Image 
-          src="/IMG_8664.JPG"
-          alt="Background"
-          fill
-          className="object-cover"
-          sizes="100vw"
-          priority={true}
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R7Dh5zms2/4L1+SnP8AFp8eMw8xnIMtH4eMQzQJ9sQdOOFi3dIH4WtY2MNkfb1lTMg3/wA="
-          quality={85}
-        />
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/20 z-10"></div>
-      </div>
+      {/* Background */}
+      {isLight ? (
+        <div className="fixed inset-0 z-0 bg-[#f5f3ef]" />
+      ) : (
+        <div className="fixed inset-0 z-0">
+          <Image 
+            src="/IMG_8664.JPG"
+            alt="Background"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority={true}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R7Dh5zms2/4L1+SnP8AFp8eMw8xnIMtH4eMQzQJ9sQdOOFi3dIH4WtY2MNkfb1lTMg3/wA="
+            quality={85}
+          />
+          <div className="absolute inset-0 bg-black/20 z-10"></div>
+        </div>
+      )}
 
       {/* Logo in top left */}
       <div className="absolute top-6 left-6 z-30 flex items-center h-12 md:h-14">
         <Link
           href="/"
-          className="text-white hover:text-gray-300 transition-colors duration-300 text-3xl md:text-4xl italic"
+          className={`${isLight ? 'text-neutral-900 hover:text-neutral-600' : 'text-white hover:text-gray-300'} transition-colors duration-300 text-3xl md:text-4xl italic`}
           style={{
             fontFamily: "'Myfont', sans-serif",
             fontWeight: 400
@@ -64,7 +70,7 @@ export default function Layout({
             <div key={item.label} className="relative group">
               <Link
                 href={item.href}
-                className="text-white text-3xl xl:text-4xl italic"
+                className={`${isLight ? 'text-neutral-900' : 'text-white'} text-3xl xl:text-4xl italic`}
                 style={{
                   fontFamily: "'Myfont', sans-serif",
                 }}
@@ -103,7 +109,7 @@ export default function Layout({
                      C 10,15 35,7 67,9.5
                      L 72,9.5"
                   fill="none"
-                  stroke="white"
+                  stroke={isLight ? '#171717' : 'white'}
                   strokeWidth="1.2"
                   strokeLinecap="round"
                   className="circle-path"
@@ -122,7 +128,7 @@ export default function Layout({
         <div className="lg:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-white hover:text-gray-300 transition-colors duration-300 p-2 relative z-50"
+            className={`${isLight ? 'text-neutral-900 hover:text-neutral-600' : 'text-white hover:text-gray-300'} transition-colors duration-300 p-2 relative z-50`}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -249,7 +255,9 @@ export default function Layout({
       </div>
 
       {/* Bottom Vignette Effect */}
-      <div className="fixed bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/60 via-black/30 to-transparent pointer-events-none z-40"></div>
+      {!isLight && (
+        <div className="fixed bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/60 via-black/30 to-transparent pointer-events-none z-40"></div>
+      )}
       
       {/* CSS for circle animation and mobile menu */}
       <style jsx global>{`
