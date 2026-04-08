@@ -2,7 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { artworks } from '@/data/artworks';
+import { paintings, drawings, mixedMedia } from '@/data/artworks';
+
+const artworks = [...paintings, ...drawings, ...mixedMedia];
 
 // Generate consistent rotations for each artwork (between 1-3 degrees, left or right)
 const rotations = [
