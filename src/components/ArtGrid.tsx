@@ -93,7 +93,7 @@ export default function ArtGrid() {
                   className="text-neutral-500 text-xs sm:text-sm mt-1 text-left px-1"
                   style={{ fontFamily: "'IM Fell Great Primer', serif" }}
                 >
-                  {artwork.description || 'Placeholder description'}
+                  {artwork.medium}, {artwork.dimensions}, {artwork.year}
                 </p>
               </div>
             </div>
