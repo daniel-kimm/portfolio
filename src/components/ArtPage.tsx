@@ -15,7 +15,7 @@ const sections = [
     ],
   },
   { id: 'sketchbook', label: 'Sketchbook', subsections: [] },
-  { id: 'photography', label: 'Photography', subsections: [] },
+  { id: 'film', label: 'Film', subsections: [] },
 ];
 
 function ArtSection({ id, title, artworks }: { id: string; title: string; artworks: Artwork[] }) {
@@ -111,6 +111,112 @@ function ArtSection({ id, title, artworks }: { id: string; title: string; artwor
   );
 }
 
+const filmPhotos = [
+  { src: '/film/IMG_0507.JPG', date: 'March 2026' },
+  { src: '/film/IMG_0514.JPG', date: 'March 2026' },
+  { src: '/film/IMG_0516.JPG', date: 'March 2026' },
+  { src: '/film/IMG_0500.JPG', date: 'February 2026' },
+  { src: '/film/IMG_0508.JPG', date: 'February 2026' },
+  { src: '/film/IMG_3296.jpg', date: 'November 2025' },
+  { src: '/film/IMG_3301.jpg', date: 'November 2025' },
+  { src: '/film/IMG_3307.JPG', date: 'November 2025' },
+  { src: '/film/IMG_3315.jpg', date: 'October 2025' },
+  { src: '/film/IMG_3319.JPG', date: 'October 2025' },
+  { src: '/film/IMG_3321.jpg', date: 'October 2025' },
+  { src: '/film/IMG_2025.JPG', date: 'September 2025' },
+  { src: '/film/IMG_2026.JPG', date: 'September 2025' },
+  { src: '/film/IMG_2032.JPG', date: 'September 2025' },
+  { src: '/film/IMG_2019.JPG', date: 'August 2025' },
+  { src: '/film/IMG_2020.jpg', date: 'August 2025' },
+  { src: '/film/IMG_2022.JPG', date: 'August 2025' },
+  { src: '/film/IMG_2039.JPG', date: 'August 2025' },
+  { src: '/film/IMG_2040.JPG', date: 'August 2025' },
+  { src: '/film/IMG_2031.JPG', date: 'July 2025' },
+];
+
+function FilmSection() {
+  const [expandedImage, setExpandedImage] = useState<string | null>(null);
+  const [isClosing, setIsClosing] = useState(false);
+
+  const closeModal = useCallback(() => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setExpandedImage(null);
+      setIsClosing(false);
+    }, 300);
+  }, []);
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && expandedImage) closeModal();
+    };
+    document.addEventListener('keydown', handleEscape);
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [expandedImage, closeModal]);
+
+  return (
+    <section id="film" className="scroll-mt-28 mb-16">
+      <h2
+        className="text-neutral-900 text-sm tracking-wide mb-6"
+        style={{ fontFamily: "'IM Fell Great Primer', serif" }}
+      >
+        Film
+      </h2>
+      <div className="grid grid-cols-3 gap-4">
+        {filmPhotos.map((photo, i) => (
+          <div key={i}>
+            <div
+              className="cursor-pointer"
+              onClick={() => { setExpandedImage(photo.src); setIsClosing(false); }}
+            >
+              <Image
+                src={photo.src}
+                alt={`Film photo ${i + 1}`}
+                width={600}
+                height={600}
+                sizes="(max-width: 768px) 33vw, 25vw"
+                className="w-full h-auto object-contain"
+              />
+            </div>
+            <p
+              className="text-neutral-500 text-xs mt-2"
+              style={{ fontFamily: "'IM Fell Great Primer', serif" }}
+            >
+              {photo.date}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      {expandedImage && (
+        <div
+          className={`fixed inset-0 flex items-center justify-center z-50 transition-all duration-300 ${isClosing ? 'opacity-0' : 'opacity-100'}`}
+          style={{ backdropFilter: 'blur(8px)', backgroundColor: 'rgba(0, 0, 0, 0.4)' }}
+          onClick={closeModal}
+        >
+          <div className="relative" onClick={(e) => e.stopPropagation()}>
+            <Image
+              src={expandedImage}
+              alt="Film photo expanded"
+              width={1200}
+              height={800}
+              className="max-w-[90vw] max-h-[85vh] w-auto h-auto object-contain shadow-2xl"
+              sizes="90vw"
+              quality={95}
+            />
+            <button
+              onClick={closeModal}
+              className="absolute -top-3 -right-3 text-white bg-black/50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/75 transition-all duration-200"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
 export default function ArtPage() {
   const [activeSection, setActiveSection] = useState('painting');
   const [sidebarFixed, setSidebarFixed] = useState(false);
@@ -120,7 +226,7 @@ export default function ArtPage() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sectionIds = ['painting', 'drawing', 'mixed-media', 'sketchbook', 'photography'];
+      const sectionIds = ['painting', 'drawing', 'mixed-media', 'sketchbook', 'film'];
       let current = sectionIds[0];
 
       for (const id of sectionIds) {
@@ -248,22 +354,7 @@ export default function ArtPage() {
             </div>
           </section>
 
-          <section id="photography" className="scroll-mt-28 mb-16">
-            <h2
-              className="text-neutral-900 text-sm tracking-wide mb-6"
-              style={{ fontFamily: "'IM Fell Great Primer', serif" }}
-            >
-              Photography
-            </h2>
-            <div className="flex items-center justify-center h-48 border border-dashed border-neutral-300">
-              <p
-                className="text-neutral-400 text-lg italic"
-                style={{ fontFamily: "'IM Fell Great Primer', serif" }}
-              >
-                Coming Soon
-              </p>
-            </div>
-          </section>
+          <FilmSection />
         </div>
       </div>
     </div>
