@@ -275,7 +275,7 @@ export default function ArtPage() {
                 scrollToSection(section.id);
               }
             }}
-            className={`text-left text-sm font-medium transition-colors duration-200 ${
+            className={`text-left text-sm font-medium transition-colors duration-200 cursor-pointer ${
               section.subsections.some((s) => s.id === activeSection)
                 ? 'text-neutral-900'
                 : section.id === activeSection
@@ -292,7 +292,7 @@ export default function ArtPage() {
                 <button
                   key={sub.id}
                   onClick={() => scrollToSection(sub.id)}
-                  className={`block text-left text-sm transition-colors duration-200 ${
+                  className={`block text-left text-sm transition-colors duration-200 cursor-pointer ${
                     activeSection === sub.id
                       ? 'text-emerald-800 font-medium'
                       : 'text-neutral-400 hover:text-neutral-600'
