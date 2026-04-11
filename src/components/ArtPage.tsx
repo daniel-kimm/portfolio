@@ -46,7 +46,7 @@ function ArtSection({ id, title, artworks }: { id: string; title: string; artwor
       >
         {title}
       </h2>
-      <div className="columns-3 gap-4">
+      <div className="columns-1 md:columns-3 gap-4">
         {artworks.map((artwork) => (
           <div key={artwork.id} className="break-inside-avoid mb-4">
             <div
@@ -58,7 +58,7 @@ function ArtSection({ id, title, artworks }: { id: string; title: string; artwor
                 alt={artwork.title}
                 width={600}
                 height={600}
-                sizes="(max-width: 768px) 33vw, 25vw"
+                sizes="(max-width: 768px) 100vw, 25vw"
                 className="w-full h-auto object-contain"
               />
             </div>
@@ -162,7 +162,7 @@ function FilmSection() {
       >
         Film
       </h2>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {filmPhotos.map((photo, i) => (
           <div key={i}>
             <div
@@ -174,7 +174,7 @@ function FilmSection() {
                 alt={`Film photo ${i + 1}`}
                 width={600}
                 height={600}
-                sizes="(max-width: 768px) 33vw, 25vw"
+                sizes="(max-width: 768px) 100vw, 25vw"
                 className="w-full h-auto object-contain"
               />
             </div>
