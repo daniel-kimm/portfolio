@@ -4,7 +4,7 @@ import ExperiencePage from '../../components/ExperiencePage';
 
 export const metadata: Metadata = {
   title: 'experience | daniel kim',
-  description: 'Experience and work history of Daniel Kim - Professional background and campus involvement',
+  description: 'Experience and work history of Daniel Kim - Professional background and engineering projects',
 };
 
 export default function Experience() {

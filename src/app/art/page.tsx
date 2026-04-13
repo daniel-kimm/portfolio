@@ -4,7 +4,7 @@ import ArtPage from '../../components/ArtPage';
 
 export const metadata: Metadata = {
   title: 'art | daniel kim',
-  description: 'art portfolio of daniel kim - software and design engineer',
+  description: 'art portfolio of daniel kim - engineer and artist',
 };
 
 export default function Art() {

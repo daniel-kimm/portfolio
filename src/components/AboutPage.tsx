@@ -92,6 +92,31 @@ export default function AboutPage() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
       >
+        {/* Clear tape holding paper to background */}
+        <div
+          className="absolute z-20 pointer-events-none"
+          style={{
+            top: '-45px',
+            left: '50%',
+            transform: 'translateX(-48%) rotate(1.2deg)',
+            width: 'clamp(110px, 18%, 175px)',
+            height: '48px',
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/about_me/tape-strip-removebg-preview.png"
+            alt=""
+            style={{
+              width: '200%',
+              height: '200%',
+              objectFit: 'fill',
+              opacity: 0.8,
+              display: 'block',
+            }}
+          />
+        </div>
+
         {/* Torn paper SVG background */}
         <svg
           className="absolute inset-0 w-full h-full -z-10 pointer-events-none"
@@ -460,11 +485,36 @@ export default function AboutPage() {
 
       {/* Graph Paper Experience Section */}
       <motion.div
-        className="relative w-full max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mt-5 sm:mt-6 md:mt-8"
+        className="relative w-full max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mt-8 sm:mt-10 md:mt-12"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
       >
+        {/* Clear tape holding graph paper to background */}
+        <div
+          className="absolute z-20 pointer-events-none"
+          style={{
+            top: '-45px',
+            left: '50%',
+            transform: 'translateX(-52%) rotate(-0.8deg) scaleX(-1)',
+            width: 'clamp(110px, 18%, 175px)',
+            height: '48px',
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/about_me/tape-strip-removebg-preview.png"
+            alt=""
+            style={{
+              width: '200%',
+              height: '200%',
+              objectFit: 'fill',
+              opacity: 0.8,
+              display: 'block',
+            }}
+          />
+        </div>
+
         {/* Graph Paper SVG background */}
         <svg
           className="absolute inset-0 w-full h-full -z-10 pointer-events-none"
@@ -538,9 +588,9 @@ export default function AboutPage() {
           >
             <p className="font-semibold mb-2 sm:mb-3">Currently:</p>
             <ul className="list-disc list-inside ml-2 sm:ml-4 mb-4 sm:mb-6 space-y-1">
-              <li>Incoming at <a href="https://www.fcatalyst.com/blockchain" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline hover:text-emerald-600 transition-colors duration-300">FCAT Blockchain</a></li>
-              <li>PM at <a href="https://www.ieeenu.org/" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline hover:text-emerald-600 transition-colors duration-300">Northwestern IEEE</a></li>
-              <li>Resident at <a href="https://www.thegarage.northwestern.edu/" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline hover:text-emerald-600 transition-colors duration-300">The Garage</a></li>
+              <li>Incoming Software Engineer Intern at <a href="https://www.fcatalyst.com/blockchain" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline hover:text-emerald-600 transition-colors duration-300">FCAT Blockchain Incubator</a></li>
+              <li>Product Manager at <a href="https://www.ieeenu.org/" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline hover:text-emerald-600 transition-colors duration-300">Northwestern IEEE</a></li>
+              <li>Building semantic people search for alumni networks at <a href="https://www.thegarage.northwestern.edu/" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline hover:text-emerald-600 transition-colors duration-300">The Garage</a></li>
             </ul>
             <p className="font-semibold mb-2 sm:mb-3">Previously:</p>
             <ul className="list-disc list-inside ml-2 sm:ml-4 space-y-1">
