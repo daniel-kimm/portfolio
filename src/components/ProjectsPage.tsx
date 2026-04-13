@@ -110,7 +110,7 @@ export default function ProjectsPage() {
       </p>
 
       {/* Projects Grid with InView Animation */}
-      <div className="w-full flex justify-center px-8">
+      <div className="w-full px-0 sm:px-8">
         <InView
           viewOptions={{ once: true, margin: '0px 0px -250px 0px' }}
           variants={{
@@ -125,7 +125,7 @@ export default function ProjectsPage() {
             },
           }}
         >
-          <div className="columns-2 gap-4 sm:columns-3">
+          <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
             {projects.map((project) => (
               <motion.div
                 key={project.slug}
@@ -150,7 +150,7 @@ export default function ProjectsPage() {
                     alt={`${project.title} Project`}
                     width={600}
                     height={600}
-                    sizes="(max-width: 768px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="w-full h-auto rounded-lg object-cover"
                     style={project.maxHeight ? { maxHeight: project.maxHeight } : undefined}
                   />
