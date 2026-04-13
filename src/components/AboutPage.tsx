@@ -589,8 +589,8 @@ export default function AboutPage() {
             <p className="font-semibold mb-2 sm:mb-3">Currently:</p>
             <ul className="list-disc list-inside ml-2 sm:ml-4 mb-4 sm:mb-6 space-y-1">
               <li>Incoming Software Engineer Intern at <a href="https://www.fcatalyst.com/blockchain" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline hover:text-emerald-600 transition-colors duration-300">FCAT Blockchain Incubator</a></li>
-              <li>Product Manager at <a href="https://www.ieeenu.org/" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline hover:text-emerald-600 transition-colors duration-300">Northwestern IEEE</a></li>
-              <li>Building semantic people search for alumni networks at <a href="https://www.thegarage.northwestern.edu/" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline hover:text-emerald-600 transition-colors duration-300">The Garage</a></li>
+              <li>Product Manager at <a href="https://www.ieeenu.org/" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline hover:text-emerald-600 transition-colors duration-300">IEEE</a></li>
+              <li>Building <a href="https://tryamity.com/" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline hover:text-emerald-600 transition-colors duration-300">semantic people search for alumni networks</a> in <a href="https://www.thegarage.northwestern.edu/" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline hover:text-emerald-600 transition-colors duration-300">The Garage</a></li>
             </ul>
             <p className="font-semibold mb-2 sm:mb-3">Previously:</p>
             <ul className="list-disc list-inside ml-2 sm:ml-4 space-y-1">
