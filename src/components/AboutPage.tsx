@@ -588,7 +588,7 @@ export default function AboutPage() {
           >
             <p className="font-semibold mb-2 sm:mb-3">Currently:</p>
             <ul className="list-disc list-inside ml-2 sm:ml-4 mb-4 sm:mb-6 space-y-1">
-              <li>Incoming SDE Intern at <a href="https://aws.amazon.com/ec2/?p=ft&c=cp&z=3&refid=f6a12ba8-7847-4dfb-90ab-7e757d2f0f56" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline hover:text-emerald-600 transition-colors duration-300">AWS EC2</a></li>
+              <li>Incoming SDE Intern at <a href="https://aws.amazon.com/ec2/?p=ft&c=cp&z=3&refid=f6a12ba8-7847-4dfb-90ab-7e757d2f0f56" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline hover:text-emerald-600 transition-colors duration-300">AWS</a></li>
               <li>Product Manager at <a href="https://www.ieeenu.org/" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline hover:text-emerald-600 transition-colors duration-300">IEEE</a></li>
               <li>Building <a href="https://tryamity.com/" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline hover:text-emerald-600 transition-colors duration-300">semantic people search for alumni networks</a> in <a href="https://www.thegarage.northwestern.edu/" target="_blank" rel="noopener noreferrer" className="text-emerald-800 underline hover:text-emerald-600 transition-colors duration-300">The Garage</a></li>
             </ul>
