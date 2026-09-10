@@ -4,7 +4,12 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-export default function AboutPage() {
+interface AboutPageProps {
+  showHeading?: boolean;
+  simplified?: boolean;
+}
+
+export default function AboutPage({ showHeading = true, simplified = false }: AboutPageProps) {
   const [expandedImage, setExpandedImage] = useState<string | null>(null);
   const [isClosing, setIsClosing] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
@@ -72,8 +77,8 @@ export default function AboutPage() {
     return () => document.removeEventListener('keydown', handleEscape);
   }, [expandedImage]);
   return (
-    <div className="flex flex-col items-center min-h-screen text-left px-4 sm:px-6 md:px-8 max-w-5xl mx-auto pt-20 sm:pt-24 md:pt-28 lg:pt-12 pb-8 sm:pb-16">
-      <motion.h1
+    <div className={`me-about flex flex-col items-center min-h-screen text-left px-4 sm:px-6 md:px-8 max-w-5xl mx-auto pt-20 sm:pt-24 md:pt-28 lg:pt-12 pb-8 sm:pb-16 ${simplified ? 'me-simplified' : ''}`}>
+      {showHeading && <motion.h1
         className="mb-6 sm:mb-8 text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold italic mt-16 sm:mt-20 md:mt-24 lg:mt-16 text-center w-full"
         style={{
           fontFamily: "'IM Fell Great Primer', serif"
@@ -83,18 +88,18 @@ export default function AboutPage() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         about me
-      </motion.h1>
+      </motion.h1>}
 
       {/* Torn paper background container */}
       <motion.div
-        className="relative w-full max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl flex flex-col justify-center"
+        className="about-copy relative w-full max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl flex flex-col justify-center"
         initial={{ opacity: 0, x: -60 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
       >
         {/* Clear tape holding paper to background */}
         <div
-          className="absolute z-20 pointer-events-none"
+          className="paper-tape absolute z-20 pointer-events-none"
           style={{
             top: '-45px',
             left: '50%',
@@ -119,7 +124,7 @@ export default function AboutPage() {
 
         {/* Torn paper SVG background */}
         <svg
-          className="absolute inset-0 w-full h-full -z-10 pointer-events-none"
+          className="paper-background absolute inset-0 w-full h-full -z-10 pointer-events-none"
           viewBox="0 0 800 500"
           preserveAspectRatio="none"
           style={{
@@ -485,14 +490,14 @@ export default function AboutPage() {
 
       {/* Graph Paper Experience Section */}
       <motion.div
-        className="relative w-full max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mt-8 sm:mt-10 md:mt-12"
+        className="about-experience relative w-full max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mt-8 sm:mt-10 md:mt-12"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
       >
         {/* Clear tape holding graph paper to background */}
         <div
-          className="absolute z-20 pointer-events-none"
+          className="paper-tape absolute z-20 pointer-events-none"
           style={{
             top: '-45px',
             left: '50%',
@@ -517,7 +522,7 @@ export default function AboutPage() {
 
         {/* Graph Paper SVG background */}
         <svg
-          className="absolute inset-0 w-full h-full -z-10 pointer-events-none"
+          className="paper-background absolute inset-0 w-full h-full -z-10 pointer-events-none"
           viewBox="0 0 800 320"
           preserveAspectRatio="none"
           style={{

@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import Layout from '../components/Layout';
-import MePage from '../components/MePage';
+import Layout from '../../components/Layout';
+import MePage from '../../components/MePage';
 
 export const metadata: Metadata = {
   title: 'me | daniel kim',
-  description: 'personal portfolio of daniel kim - software and design engineer',
+  description: 'about daniel kim - engineer and artist',
 };
 
-export default function Home() {
+export default function Me() {
   return (
     <Layout currentPage="me" variant="light" showLogo={false} compactNavigation>
       <MePage />

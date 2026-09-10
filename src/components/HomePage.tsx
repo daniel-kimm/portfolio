@@ -4,7 +4,14 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-export default function HomePage() {
+interface HomePageProps {
+  afterObjects?: React.ReactNode;
+  footerInFlow?: boolean;
+  stacked?: boolean;
+  simplified?: boolean;
+}
+
+export default function HomePage({ afterObjects, footerInFlow = false, stacked = false, simplified = false }: HomePageProps) {
   const [currentTime, setCurrentTime] = useState('');
   const [showTooltip, setShowTooltip] = useState(false);
 
@@ -28,10 +35,10 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-start md:justify-center min-h-screen text-center px-4 pt-24 pb-8 md:py-4 overflow-y-auto md:overflow-visible">
+    <div className={`me-home flex flex-col items-center justify-start ${stacked ? 'md:justify-start' : 'md:justify-center'} min-h-screen text-center px-4 pt-24 pb-8 md:py-4 overflow-y-auto md:overflow-visible ${simplified ? 'me-simplified' : ''}`}>
       {/* Daniel Kim Title */}
       <motion.h1
-        className="text-white text-4xl sm:text-5xl md:text-6xl font-semibold mb-6 md:mb-0"
+        className="text-black text-4xl sm:text-5xl md:text-6xl font-semibold mb-6 md:mb-0"
         style={{
           fontFamily: "'IM Fell Great Primer', serif",
           letterSpacing: '0.1em',
@@ -79,7 +86,7 @@ export default function HomePage() {
               </div>
               <div className="bg-white pt-2 pb-1 flex-shrink-0">
                 <p
-                  className="text-gray-800 text-2xl text-center px-1 font-semibold"
+                  className="text-black text-2xl text-center px-1 font-semibold"
                   style={{
                     fontFamily: "'Myfont', sans-serif",
                     fontStyle: "italic",
@@ -126,7 +133,7 @@ export default function HomePage() {
               </div>
               <div className="bg-white pt-2 pb-1 flex-shrink-0">
                 <p
-                  className="text-gray-800 text-2xl text-center px-1 font-semibold"
+                  className="text-black text-2xl text-center px-1 font-semibold"
                   style={{
                     fontFamily: "'Myfont', sans-serif",
                     fontStyle: "italic",
@@ -146,7 +153,7 @@ export default function HomePage() {
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
         >
           <div
-            className="transform transition-all duration-300 cursor-pointer relative"
+            className="home-note transform transition-all duration-300 cursor-pointer relative"
             style={{
               transform: 'rotate(2deg)',
             }}
@@ -189,7 +196,7 @@ export default function HomePage() {
                 fontStyle: "italic",
               }}
             >
-              <p className="text-gray-800 text-base text-center leading-snug">
+              <p className="text-black text-base text-center leading-snug">
                 Daniel is an engineer and artist from Cary, NC.
               </p>
             </div>
@@ -204,7 +211,7 @@ export default function HomePage() {
           className="mb-20"
         >
           <div
-            className="bg-[#c5d4a0] px-8 py-5 shadow-lg transform transition-all duration-300 cursor-pointer"
+            className="bg-[#8B9A6E] px-8 py-5 shadow-lg transform transition-all duration-300 cursor-pointer"
             style={{
               boxShadow: '3px 4px 8px rgba(0,0,0,0.2)',
               transform: 'rotate(-2deg)',
@@ -217,7 +224,7 @@ export default function HomePage() {
             }}
           >
             <p
-              className="text-gray-800 text-5xl"
+              className="text-black text-5xl"
               style={{
                 fontFamily: "'Nanum Pen Script', cursive",
               }}
@@ -271,7 +278,7 @@ export default function HomePage() {
               </div>
               <div className="bg-white pt-2 pb-1 flex-shrink-0">
                 <p
-                  className="text-gray-800 text-xl sm:text-2xl md:text-3xl text-center px-1 font-semibold"
+                  className="text-black text-xl sm:text-2xl md:text-3xl text-center px-1 font-semibold"
                   style={{
                     fontFamily: "'Myfont', sans-serif",
                     fontStyle: "italic",
@@ -324,7 +331,7 @@ export default function HomePage() {
               </div>
               <div className="bg-white pt-2 pb-1 flex-shrink-0">
                 <p
-                  className="text-gray-800 text-xl sm:text-2xl md:text-3xl text-center px-1 font-semibold"
+                  className="text-black text-xl sm:text-2xl md:text-3xl text-center px-1 font-semibold"
                   style={{
                     fontFamily: "'Myfont', sans-serif",
                     fontStyle: "italic",
@@ -349,7 +356,7 @@ export default function HomePage() {
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
         >
           <div
-            className="transform transition-all duration-300 cursor-pointer"
+            className="home-note transform transition-all duration-300 cursor-pointer"
             style={{
               transform: 'rotate(2deg)',
             }}
@@ -392,7 +399,7 @@ export default function HomePage() {
               fontStyle: "italic",
             }}
           >
-            <p className="text-gray-800 text-sm sm:text-base md:text-lg text-center leading-snug">
+            <p className="text-black text-sm sm:text-base md:text-lg text-center leading-snug">
               Daniel is an engineer and artist from Cary, NC.
             </p>
           </div>
@@ -411,7 +418,7 @@ export default function HomePage() {
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.5 }}
         >
           <div
-            className="bg-[#c5d4a0] px-6 py-4 sm:px-8 sm:py-5 shadow-lg transform transition-all duration-300 cursor-pointer"
+            className="bg-[#8B9A6E] px-6 py-4 sm:px-8 sm:py-5 shadow-lg transform transition-all duration-300 cursor-pointer"
             style={{
               boxShadow: '3px 4px 8px rgba(0,0,0,0.2)',
               transform: 'rotate(0deg)',
@@ -424,7 +431,7 @@ export default function HomePage() {
             }}
           >
             <p
-              className="text-gray-800 text-4xl sm:text-5xl md:text-6xl"
+              className="text-black text-4xl sm:text-5xl md:text-6xl"
               style={{
                 fontFamily: "'Nanum Pen Script', cursive",
               }}
@@ -436,15 +443,17 @@ export default function HomePage() {
 
       </div>
 
+      {afterObjects}
+
       {/* Date and Time Display - Bottom Left */}
       <motion.div
-        className="absolute bottom-8 left-8"
+        className={footerInFlow ? "relative mt-12 mb-4 self-stretch flex justify-start px-8" : "absolute bottom-8 left-8"}
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div
-          className="text-white text-sm md:text-lg font-mono tracking-wider flex items-center gap-2"
+          className="text-black text-sm md:text-lg font-mono tracking-wider flex items-center gap-2"
           style={{
             fontFamily: "'IM Fell Great Primer', serif",
             fontWeight: 400,
@@ -453,7 +462,7 @@ export default function HomePage() {
           <span>chicago, il</span>
           <span>•</span>
           <span
-            className="cursor-default hover:text-gray-300 transition-colors duration-300 relative"
+            className="cursor-default hover:text-neutral-600 transition-colors duration-300 relative"
             onMouseEnter={() => setShowTooltip(true)}
             onMouseLeave={() => setShowTooltip(false)}
           >
@@ -476,7 +485,7 @@ export default function HomePage() {
 
       {/* Social Icons - Bottom Right */}
       <motion.div
-        className="absolute bottom-8 right-8"
+        className={footerInFlow ? "relative mt-2 mb-8 self-stretch flex justify-end px-8" : "absolute bottom-8 right-8"}
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -486,7 +495,7 @@ export default function HomePage() {
             href="https://github.com/daniel-kimm"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-gray-300 transition-colors duration-300"
+            className="text-black hover:text-neutral-600 transition-colors duration-300"
           >
             <svg
               className="w-5 h-5 md:w-6 md:h-6 hover:scale-110 transition-transform duration-300"
@@ -501,7 +510,7 @@ export default function HomePage() {
             href="https://x.com/danielkimnc"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-gray-300 transition-colors duration-300"
+            className="text-black hover:text-neutral-600 transition-colors duration-300"
           >
             <svg
               className="w-5 h-5 md:w-6 md:h-6 hover:scale-110 transition-transform duration-300"
@@ -516,7 +525,7 @@ export default function HomePage() {
             href="https://www.linkedin.com/in/daniel-kimm/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-gray-300 transition-colors duration-300"
+            className="text-black hover:text-neutral-600 transition-colors duration-300"
           >
             <svg
               className="w-5 h-5 md:w-6 md:h-6 hover:scale-110 transition-transform duration-300"

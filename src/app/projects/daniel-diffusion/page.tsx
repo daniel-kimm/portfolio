@@ -9,23 +9,23 @@ export default function DanielDiffusionProject() {
     document.title = 'daniel-diffusion | daniel kim';
   }, []);
   return (
-    <Layout currentPage="projects">
-      <div className="flex flex-col px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-20 sm:pt-24 md:pt-28 lg:pt-12 pb-16 w-full min-h-screen">
+    <Layout currentPage="projects" variant="light" compactNavigation>
+      <div className="project-detail-page flex flex-col px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-20 sm:pt-24 md:pt-28 lg:pt-12 pb-16 w-full min-h-screen">
         <div className="flex items-center justify-between mt-16 sm:mt-20 md:mt-24 lg:mt-16 mb-6 sm:mb-8">
           <button 
             onClick={() => window.history.back()}
             className="bg-white/10 hover:bg-white/20 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg border border-white/30 transition-all duration-300 text-sm sm:text-base flex-shrink-0 cursor-pointer"
             style={{ fontFamily: "'IM Fell Great Primer', serif" }}
           >
-            ← Back
+            ← back
           </button>
           <h1 
-            className="text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold italic text-center flex-1 mx-4"
+            className="text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl italic text-center flex-1 mx-4"
             style={{
-              fontFamily: "'IM Fell Great Primer', serif"
+              fontFamily: "'myfont', serif"
             }}
           >
-            daniel-diffusion
+            diffusion model trained on my art
           </h1>
           <div className="w-20 sm:w-24 flex-shrink-0"></div>
         </div>
@@ -38,7 +38,7 @@ export default function DanielDiffusionProject() {
             </p>
           </div>
 
-          <div className="flex items-center justify-center gap-4 mb-4">
+          <div className="project-actions flex items-center justify-center gap-4 mb-4">
             {/* GitHub Link Button */}
             <a 
               href="https://github.com/daniel-kimm/daniel-diffusion" 
@@ -51,18 +51,18 @@ export default function DanielDiffusionProject() {
                 <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
               </svg>
               <span className="text-white text-base" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
-                GitHub
+                github
               </span>
             </a>
           </div>
 
-          <div className="text-white text-lg mb-2" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
+          <div className="project-technologies-label text-white text-lg mb-2" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
             <p className="mb-1">
-              Technologies:
+              technologies:
             </p>
           </div>
           
-          <div className="flex flex-wrap gap-3 justify-center mb-8">
+          <div className="project-technologies flex flex-wrap gap-3 justify-center mb-8">
             {['Python', 'JavaScript', 'Flux LoRA', 'Fal AI', 'OpenAI API', 'Flask', 'Pillow'].map((tech) => (
               <span key={tech} className="bg-white/20 text-white px-3 py-2 rounded-lg text-base" style={{
                 fontFamily: "'IM Fell Great Primer', serif"
@@ -70,22 +70,8 @@ export default function DanielDiffusionProject() {
             ))}
           </div>
 
-          {/* Main Image */}
-          <div className="mb-8 flex justify-center">
-            <Image 
-              src="/daniel-diffusion/danieldiffusion.png" 
-              alt="Daniel Diffusion Project" 
-              width={800}
-              height={533}
-              className="max-w-2xl w-full rounded-lg border border-white/30"
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R7Dh5zms2/4L1+SnP8AFp8eMw8xnIMtH4eMQzQJ9sQdOOFi3dIH4WtY2MNkfb1lTMg3/wA="
-              sizes="(max-width: 768px) 100vw, 672px"
-            />
-          </div>
-
           {/* Training Caption Example */}
-          <div className="text-center text-white text-lg mb-4" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
+          <div className="text-left text-white text-lg mb-4" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
             <p className="mb-4">Here is an example of a training caption GPT-4o generated:</p>
           </div>
 
@@ -110,7 +96,7 @@ export default function DanielDiffusionProject() {
           </div>
 
           {/* Generated Artworks Section */}
-          <div className="text-center text-white text-lg mb-6" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
+          <div className="text-left text-white text-lg mb-6" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
             <p>Here are examples of artworks I generated with the trained Flux LoRA:</p>
           </div>
 
@@ -172,4 +158,3 @@ export default function DanielDiffusionProject() {
     </Layout>
   );
 }
-

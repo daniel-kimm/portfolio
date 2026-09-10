@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Art() {
   return (
-    <Layout currentPage="art" variant="light">
+    <Layout currentPage="art" variant="light" compactNavigation>
       <ArtPage />
     </Layout>
   );

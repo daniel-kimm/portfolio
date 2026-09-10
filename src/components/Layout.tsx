@@ -9,19 +9,22 @@ interface LayoutProps {
   children: React.ReactNode;
   currentPage: string;
   variant?: 'default' | 'light';
+  showLogo?: boolean;
+  compactNavigation?: boolean;
 }
 
 export default function Layout({ 
   children, 
   currentPage,
   variant = 'default',
+  showLogo = true,
+  compactNavigation = false,
 }: LayoutProps) {
   const isLight = variant === 'light';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   const navigationItems = [
-    { label: 'home', href: '/' },
-    { label: 'about me', href: '/about' },
+    { label: 'me', href: '/me' },
     { label: 'projects', href: '/projects' },
     { label: 'art', href: '/art' }
   ];
@@ -30,7 +33,7 @@ export default function Layout({
     <div className="min-h-screen relative overflow-hidden">
       {/* Background */}
       {isLight ? (
-        <div className="fixed inset-0 z-0 bg-[#f5f3ef]" />
+        <div className="fixed inset-0 z-0 bg-[#F7F2EB]" />
       ) : (
         <div className="fixed inset-0 z-0">
           <Image 
@@ -49,10 +52,10 @@ export default function Layout({
       )}
 
       {/* Logo in top left */}
-      <div className="absolute top-6 left-6 z-30 flex items-center h-12 md:h-14">
+      {showLogo && <div className={`absolute top-6 left-6 flex items-center h-12 md:h-14 ${isMobileMenuOpen ? 'z-50' : 'z-30'}`}>
         <Link
           href="/"
-          className={`${isLight ? 'text-neutral-900 hover:text-neutral-600' : 'text-white hover:text-gray-300'} transition-colors duration-300 text-3xl md:text-4xl italic`}
+          className={`${isMobileMenuOpen || isLight ? 'text-neutral-900 hover:text-[#8B9A6E]' : 'text-white hover:text-gray-300'} transition-colors duration-300 text-3xl md:text-4xl italic`}
           style={{
             fontFamily: "'Myfont', sans-serif",
             fontWeight: 400
@@ -60,7 +63,7 @@ export default function Layout({
         >
           daniel kim
         </Link>
-      </div>
+      </div>}
 
       {/* Navigation */}
       <nav className="absolute top-6 right-6 z-30">
@@ -70,7 +73,7 @@ export default function Layout({
             <div key={item.label} className="relative group">
               <Link
                 href={item.href}
-                className={`${isLight ? 'text-neutral-900' : 'text-white'} text-3xl xl:text-4xl italic`}
+                className={`${isLight ? 'text-neutral-900' : 'text-white'} ${compactNavigation ? 'text-2xl xl:text-3xl' : 'text-4xl xl:text-5xl'} italic`}
                 style={{
                   fontFamily: "'Myfont', sans-serif",
                 }}
@@ -81,7 +84,7 @@ export default function Layout({
               {/* Hand-drawn circle animation on hover */}
               <svg
                 className={`absolute pointer-events-none ${
-                  currentPage === (item.label === 'about me' ? 'about' : item.label) ? 'opacity-100 circle-active' : 'opacity-0 group-hover:opacity-100'
+                  currentPage === item.label ? 'opacity-100 circle-active' : 'opacity-0 group-hover:opacity-100'
                 }`}
                 viewBox="0 0 120 50"
                 preserveAspectRatio="none"
@@ -128,12 +131,13 @@ export default function Layout({
         <div className="lg:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`${isLight ? 'text-neutral-900 hover:text-neutral-600' : 'text-white hover:text-gray-300'} transition-colors duration-300 p-2 relative z-50`}
+            className={`${isMobileMenuOpen || isLight ? 'text-neutral-900 hover:text-[#8B9A6E]' : 'text-white hover:text-gray-300'} transition-colors duration-300 p-2 relative z-50`}
             aria-label="Toggle menu"
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
               <svg 
-                className="w-8 h-8 md:w-10 md:h-10" 
+                className="w-7 h-7 md:w-8 md:h-8" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
@@ -141,13 +145,13 @@ export default function Layout({
                 <path 
                   strokeLinecap="round" 
                   strokeLinejoin="round" 
-                  strokeWidth={2} 
+                  strokeWidth={1.5} 
                   d="M6 18L18 6M6 6l12 12" 
                 />
               </svg>
             ) : (
               <svg 
-                className="w-8 h-8 md:w-10 md:h-10" 
+                className="w-7 h-7 md:w-8 md:h-8" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
@@ -155,7 +159,7 @@ export default function Layout({
                 <path 
                   strokeLinecap="round" 
                   strokeLinejoin="round" 
-                  strokeWidth={2} 
+                  strokeWidth={1.5} 
                   d="M4 6h16M4 12h16M4 18h16" 
                 />
               </svg>
@@ -168,68 +172,64 @@ export default function Layout({
               className="fixed inset-0 z-40 mobile-menu-overlay"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              <div className="absolute inset-0 bg-gray-900/99 backdrop-blur-lg"></div>
-              <div className="relative h-full flex flex-col items-center justify-center">
-                {navigationItems.map((item, index) => {
-                  const isCurrentPage = currentPage === (item.label === 'about me' ? 'about' : item.label);
-                  return (
-                    <div key={item.label} className="relative">
-                      <Link
-                        href={item.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className={`text-white hover:text-gray-300 transition-all duration-300 py-4 text-3xl md:text-4xl italic mobile-menu-item block ${
-                          isCurrentPage ? 'text-gray-300' : ''
-                        }`}
-                        style={{
-                          fontFamily: "'Myfont', sans-serif",
-                          fontWeight: 400,
-                          animationDelay: `${index * 0.1}s`
-                        }}
-                      >
-                        {item.label}
-                      </Link>
-                      
-                      {/* Circle indicator for current page on mobile */}
-                      {isCurrentPage && (
-                        <svg
-                          className="absolute pointer-events-none"
-                          viewBox="0 0 120 50"
-                          preserveAspectRatio="none"
+              <div className="absolute inset-0 bg-[#F7F2EB]"></div>
+              <div className="relative flex h-full flex-col justify-start px-6 pt-24 pb-10 sm:px-10 sm:pt-28">
+                <div className="w-full border-b border-[#8B9A6E]">
+                  {navigationItems.map((item, index) => {
+                    const isCurrentPage = currentPage === item.label;
+                    return (
+                      <div key={item.label} className="border-t border-[#8B9A6E]">
+                        <Link
+                          href={item.href}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="mobile-menu-item flex py-5 text-3xl italic text-neutral-900 transition-colors duration-300 hover:text-[#8B9A6E] sm:text-4xl"
                           style={{
-                            width: 'calc(100% + 24px)',
-                            height: 'calc(100% - 10px)',
-                            left: '-12px',
-                            top: '5px',
+                            fontFamily: "'Myfont', sans-serif",
+                            fontWeight: 400,
+                            animationDelay: `${index * 0.1}s`
                           }}
                         >
-                          <defs>
-                            <filter id="roughen-mobile">
-                              <feTurbulence baseFrequency="0.08" numOctaves="3" result="noise" seed="3"/>
-                              <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2"/>
-                            </filter>
-                          </defs>
-                          
-                          <path
-                            d="M 48,7 
-                               L 53,7
-                               C 85,7 110,15 110,25 
-                               C 110,35 85,43 60,43 
-                               C 35,43 10,35 10,25 
-                               C 10,15 35,7 67,9.5
-                               L 72,9.5"
-                            fill="none"
-                            stroke="white"
-                            strokeWidth="0.8"
-                            strokeLinecap="round"
-                            style={{
-                              filter: 'url(#roughen-mobile)',
-                            }}
-                          />
-                        </svg>
-                      )}
-                    </div>
-                  );
-                })}
+                          <span className="relative inline-block">
+                            {item.label}
+                            {isCurrentPage && (
+                              <svg
+                                className="circle-active pointer-events-none absolute"
+                                viewBox="0 0 120 50"
+                                preserveAspectRatio="none"
+                                style={{
+                                  width: 'calc(100% + 24px)',
+                                  height: 'calc(100% + 18px)',
+                                  left: '-12px',
+                                  top: '-9px',
+                                }}
+                              >
+                                <defs>
+                                  <filter id="roughen-mobile">
+                                    <feTurbulence baseFrequency="0.08" numOctaves="3" result="noise" seed="3" />
+                                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" />
+                                  </filter>
+                                </defs>
+                                <path
+                                  d="M 48,7 L 53,7 C 85,7 110,15 110,25 C 110,35 85,43 60,43 C 35,43 10,35 10,25 C 10,15 35,7 67,9.5 L 72,9.5"
+                                  fill="none"
+                                  stroke="#171717"
+                                  strokeWidth="1.2"
+                                  strokeLinecap="round"
+                                  className="circle-path"
+                                  style={{
+                                    strokeDasharray: '310',
+                                    strokeDashoffset: '310',
+                                    filter: 'url(#roughen-mobile)',
+                                  }}
+                                />
+                              </svg>
+                            )}
+                          </span>
+                        </Link>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           )}
@@ -255,7 +255,7 @@ export default function Layout({
       </div>
 
       {/* Bottom Vignette Effect */}
-      {!isLight && (
+      {!isLight && !isMobileMenuOpen && (
         <div className="fixed bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/60 via-black/30 to-transparent pointer-events-none z-40"></div>
       )}
       

@@ -9,15 +9,15 @@ export default function AltoProject() {
     document.title = ' alto | daniel kim';
   }, []);
   return (
-    <Layout currentPage="projects">
-      <div className="flex flex-col px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-20 sm:pt-24 md:pt-28 lg:pt-12 pb-16 w-full min-h-screen">
+    <Layout currentPage="projects" variant="light" compactNavigation>
+      <div className="project-detail-page flex flex-col px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 pt-20 sm:pt-24 md:pt-28 lg:pt-12 pb-16 w-full min-h-screen">
         <div className="flex items-center justify-between mt-16 sm:mt-20 md:mt-24 lg:mt-16 mb-6 sm:mb-8">
           <button 
             onClick={() => window.history.back()}
             className="bg-white/10 hover:bg-white/20 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg border border-white/30 transition-all duration-300 text-sm sm:text-base flex-shrink-0 cursor-pointer"
             style={{ fontFamily: "'IM Fell Great Primer', serif" }}
           >
-            ← Back
+            ← back
           </button>
           <h1 
             className="text-white text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold italic text-center flex-1 mx-4"
@@ -25,7 +25,7 @@ export default function AltoProject() {
               fontFamily: "'IM Fell Great Primer', serif"
             }}
           >
-            Alto
+            alto
           </h1>
           <div className="w-20 sm:w-24 flex-shrink-0"></div>
         </div>
@@ -41,7 +41,7 @@ export default function AltoProject() {
             </p>
           </div>
 
-          <div className="flex items-center justify-center gap-4 mb-4">
+          <div className="project-actions flex items-center justify-center gap-4 mb-4">
             {/* External Link Button */}
             <a 
               href="https://www.usealto.app/" 
@@ -54,18 +54,18 @@ export default function AltoProject() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
               <span className="text-white text-base" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
-                Visit Alto
+                visit alto
               </span>
             </a>
           </div>
 
-          <div className="text-white text-lg mb-2" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
+          <div className="project-technologies-label text-white text-lg mb-2" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
             <p className="mb-1">
-              Technologies:
+              technologies:
             </p>
           </div>
           
-          <div className="flex flex-wrap gap-3 justify-center mb-8">
+          <div className="project-technologies flex flex-wrap gap-3 justify-center mb-8">
             {['TypeScript', 'Swift', 'React Native', 'Expo', 'Supabase'].map((tech) => (
               <span key={tech} className="bg-white/20 text-white px-3 py-2 rounded-lg text-base" style={{
                 fontFamily: "'IM Fell Great Primer', serif"
