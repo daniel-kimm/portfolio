@@ -8,6 +8,14 @@ import { InView } from './core/in-view';
 const projects = [
   // Column 1 - Left
   {
+    slug: 'amity',
+    title: 'amity',
+    year: '2026',
+    description: 'natural language search for school alumni networks',
+    image: '/amity.png',
+    technologies: ['TypeScript', 'Next.js', 'Supabase', 'Vector Search'],
+  },
+  {
     slug: 'daniel-diffusion',
     title: 'daniel diffusion',
     year: '2025',
@@ -19,7 +27,7 @@ const projects = [
     slug: 'ctecs',
     title: 'ctecs.nu',
     year: '2025',
-    description: 'chatbot for northwestern course reviews',
+    description: 'northwestern course reviews assistant',
     image: '/ctecsnu.png',
     technologies: ['JavaScript', 'AWS', 'RAG', 'NER', 'Selenium'],
   },
@@ -86,6 +94,7 @@ const projects = [
 ];
 
 const projectOrder = [
+  'amity',
   'daniel-diffusion',
   'ultra',
   'alto',
@@ -105,7 +114,7 @@ export default function ProjectsPage() {
   return (
     <main className="min-h-screen px-6 sm:px-10 lg:px-16 pt-28 sm:pt-32 pb-16 text-neutral-900">
       <div className="mx-auto max-w-4xl">
-        <header className="mb-8 border-b border-[#8B9A6E] pb-4">
+        <header className="border-b border-[#8B9A6E] pb-4">
           <h1
             className="text-left text-3xl sm:text-4xl font-normal tracking-wide italic"
             style={{ fontFamily: "'myfont', serif" }}

@@ -141,9 +141,9 @@ export default function MePage() {
 
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.6fr)_minmax(240px,0.7fr)] gap-14 lg:gap-24 pt-12 sm:pt-16"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+          transition={{ duration: 0.45, ease: 'easeOut', delay: 0.05 }}
         >
           <div className="space-y-6 text-base sm:text-lg leading-relaxed" style={textStyle}>
             <p>
@@ -174,7 +174,7 @@ export default function MePage() {
           <aside className="space-y-9 text-sm sm:text-base leading-relaxed" style={textStyle}>
             <section>
               <h2 className="mb-3 text-xs uppercase tracking-[0.18em] text-[#8B9A6E]">Currently</h2>
-              <p>Software Development Engineer Intern at AWS.</p>
+              <p>Studying abroad in Madrid, Spain!</p>
               <p className="mt-3">
                 Building{' '}
                 <a href="https://www.tryamity.com/" target="_blank" rel="noopener noreferrer" className="text-[#8B9A6E] underline underline-offset-4 hover:text-[#6f7d56] transition-colors">
@@ -185,17 +185,14 @@ export default function MePage() {
             </section>
             <section>
               <h2 className="mb-3 text-xs uppercase tracking-[0.18em] text-[#8B9A6E]">Previously</h2>
-              <p>Software Engineer Intern at Osteoid Inc., Elytra Robotics, and Square One.</p>
+              <p>Software Engineer Intern at AWS, Osteoid Inc., Elytra Robotics, and Square One.</p>
             </section>
           </aside>
         </motion.div>
 
-        <motion.footer
+        <footer
           className="mt-20 sm:mt-28 flex items-center justify-between gap-3 border-t border-[#8B9A6E] pt-5 text-xs sm:gap-5 sm:text-sm"
           style={textStyle}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
         >
           <p className="tracking-wide">chicago, il · {currentTime}</p>
           <nav className="flex shrink-0 gap-4 sm:gap-5" aria-label="Social links">
@@ -203,7 +200,7 @@ export default function MePage() {
             <a href="https://x.com/danielkimnc" target="_blank" rel="noopener noreferrer" className="hover:text-[#8B9A6E] transition-colors">x</a>
             <a href="https://www.linkedin.com/in/daniel-kimm/" target="_blank" rel="noopener noreferrer" className="hover:text-[#8B9A6E] transition-colors">linkedin</a>
           </nav>
-        </motion.footer>
+        </footer>
       </div>
     </main>
   );

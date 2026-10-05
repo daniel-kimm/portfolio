@@ -34,28 +34,12 @@ export default function CtecsProject() {
           
           <div className="text-left text-white text-lg leading-relaxed mb-4" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
             <p className="mb-1">
-              ctecs.nu is a web app that allows students to communicate with a chatbot that can answer questions about course reviews at Northwestern University, 
+              ctecs.nu is a web app that allows students to communicate with an LLM that can answer questions about course reviews at Northwestern University, 
               enabling students to query course and professor insights. I worked on this project with a team of four other students through a 10-week technical program led by Institute of Electrical and Electronics Engineers (IEEE) Northwestern.
             </p>
           </div>
 
           <div className="project-actions flex items-center justify-center gap-4 mb-4">
-            {/* External Link Button */}
-            <a 
-              href="https://ctecs.nu/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 px-4 py-2 hover:bg-white/20 transition-all duration-300 flex items-center gap-2"
-              title="Visit CTECS.nu"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-              <span className="text-white text-base" style={{ fontFamily: "'IM Fell Great Primer', serif" }}>
-                visit ctecs.nu
-              </span>
-            </a>
-            
             {/* GitHub Button */}
             <a 
               href="https://github.com/Charliehyin/CTECs-Summarizer" 
